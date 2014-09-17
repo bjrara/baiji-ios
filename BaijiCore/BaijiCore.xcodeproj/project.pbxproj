@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		45BE962B84454BB59A86CD03 /* libPods-BaijiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A363983496479B839AECA5 /* libPods-BaijiCore.a */; };
+		CE449A0E19C91FE100F0D92D /* BJJsonSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE449A0D19C91FE100F0D92D /* BJJsonSerializer.m */; };
+		CE449A1D19C9286000F0D92D /* BJSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CE449A1C19C9286000F0D92D /* BJSchema.m */; };
+		CE48F76F19C97E5D0093B09B /* BJJsonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE48F76E19C97E5D0093B09B /* BJJsonHelper.m */; };
+		CE48F77219C9A08B0093B09B /* BJEnumSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CE48F77119C9A08B0093B09B /* BJEnumSchema.m */; };
+		CE52855019C84DE900B427B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE52854F19C84DE900B427B5 /* UIKit.framework */; };
+		CE52855219C84DE900B427B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE52855119C84DE900B427B5 /* Foundation.framework */; };
+		CE52855419C84DE900B427B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE52855319C84DE900B427B5 /* CoreGraphics.framework */; };
+		CE52855619C84DE900B427B5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE52855519C84DE900B427B5 /* CoreData.framework */; };
+		CE52855C19C84DE900B427B5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE52855A19C84DE900B427B5 /* InfoPlist.strings */; };
+		CE52855E19C84DE900B427B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE52855D19C84DE900B427B5 /* main.m */; };
+		CE52856219C84DE900B427B5 /* BJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE52856119C84DE900B427B5 /* BJAppDelegate.m */; };
+		CE52856419C84DE900B427B5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CE52856319C84DE900B427B5 /* Default.png */; };
+		CE52856619C84DE900B427B5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE52856519C84DE900B427B5 /* Default@2x.png */; };
+		CE52856819C84DE900B427B5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE52856719C84DE900B427B5 /* Default-568h@2x.png */; };
+		CE52856B19C84DE900B427B5 /* BaijiCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE52856919C84DE900B427B5 /* BaijiCore.xcdatamodeld */; };
+		CE7159F019C9471F0057DBBB /* BJPropertyMap.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7159EF19C9471F0057DBBB /* BJPropertyMap.m */; };
+		CE7159F319C952060057DBBB /* BJError.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7159F219C952060057DBBB /* BJError.m */; };
+		CE7159F619C95ED60057DBBB /* BJSchemaName.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7159F519C95ED60057DBBB /* BJSchemaName.m */; };
+		CE7159F919C96BC40057DBBB /* BJSchemaNames.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7159F819C96BC40057DBBB /* BJSchemaNames.m */; };
+		CE7159FC19C96C590057DBBB /* BJNamedSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7159FB19C96C580057DBBB /* BJNamedSchema.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8C90C4C08EB14C65A168DD10 /* Pods-BaijiCore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.xcconfig"; path = "../Pods/Pods-BaijiCore.xcconfig"; sourceTree = "<group>"; };
+		A9A363983496479B839AECA5 /* libPods-BaijiCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaijiCore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE449A0C19C91FE100F0D92D /* BJJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJJsonSerializer.h; sourceTree = "<group>"; };
+		CE449A0D19C91FE100F0D92D /* BJJsonSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJJsonSerializer.m; sourceTree = "<group>"; };
+		CE449A1019C9201700F0D92D /* BJSerializable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJSerializable.h; sourceTree = "<group>"; };
+		CE449A1B19C9286000F0D92D /* BJSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSchema.h; sourceTree = "<group>"; };
+		CE449A1C19C9286000F0D92D /* BJSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSchema.m; sourceTree = "<group>"; };
+		CE48F76D19C97E5D0093B09B /* BJJsonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJJsonHelper.h; sourceTree = "<group>"; };
+		CE48F76E19C97E5D0093B09B /* BJJsonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJJsonHelper.m; sourceTree = "<group>"; };
+		CE48F77019C9A08B0093B09B /* BJEnumSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJEnumSchema.h; sourceTree = "<group>"; };
+		CE48F77119C9A08B0093B09B /* BJEnumSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJEnumSchema.m; sourceTree = "<group>"; };
+		CE52854B19C84DE900B427B5 /* BaijiCore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaijiCore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE52854F19C84DE900B427B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CE52855119C84DE900B427B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CE52855319C84DE900B427B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CE52855519C84DE900B427B5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CE52855919C84DE900B427B5 /* BaijiCore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BaijiCore-Info.plist"; sourceTree = "<group>"; };
+		CE52855B19C84DE900B427B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CE52855D19C84DE900B427B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CE52855F19C84DE900B427B5 /* BaijiCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaijiCore-Prefix.pch"; sourceTree = "<group>"; };
+		CE52856019C84DE900B427B5 /* BJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJAppDelegate.h; sourceTree = "<group>"; };
+		CE52856119C84DE900B427B5 /* BJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BJAppDelegate.m; sourceTree = "<group>"; };
+		CE52856319C84DE900B427B5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CE52856519C84DE900B427B5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CE52856719C84DE900B427B5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CE52856A19C84DE900B427B5 /* BaijiCore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaijiCore.xcdatamodel; sourceTree = "<group>"; };
+		CE7159EE19C9471F0057DBBB /* BJPropertyMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJPropertyMap.h; sourceTree = "<group>"; };
+		CE7159EF19C9471F0057DBBB /* BJPropertyMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJPropertyMap.m; sourceTree = "<group>"; };
+		CE7159F119C952060057DBBB /* BJError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJError.h; sourceTree = "<group>"; };
+		CE7159F219C952060057DBBB /* BJError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJError.m; sourceTree = "<group>"; };
+		CE7159F419C95ED60057DBBB /* BJSchemaName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSchemaName.h; sourceTree = "<group>"; };
+		CE7159F519C95ED60057DBBB /* BJSchemaName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSchemaName.m; sourceTree = "<group>"; };
+		CE7159F719C96BC40057DBBB /* BJSchemaNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSchemaNames.h; sourceTree = "<group>"; };
+		CE7159F819C96BC40057DBBB /* BJSchemaNames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSchemaNames.m; sourceTree = "<group>"; };
+		CE7159FA19C96C580057DBBB /* BJNamedSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJNamedSchema.h; sourceTree = "<group>"; };
+		CE7159FB19C96C580057DBBB /* BJNamedSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJNamedSchema.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE52854819C84DE900B427B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE52855019C84DE900B427B5 /* UIKit.framework in Frameworks */,
+				CE52855219C84DE900B427B5 /* Foundation.framework in Frameworks */,
+				CE52855419C84DE900B427B5 /* CoreGraphics.framework in Frameworks */,
+				CE52855619C84DE900B427B5 /* CoreData.framework in Frameworks */,
+				45BE962B84454BB59A86CD03 /* libPods-BaijiCore.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE449A1819C9282E00F0D92D /* Schema */ = {
+			isa = PBXGroup;
+			children = (
+				CE48F76D19C97E5D0093B09B /* BJJsonHelper.h */,
+				CE48F76E19C97E5D0093B09B /* BJJsonHelper.m */,
+				CE7159FA19C96C580057DBBB /* BJNamedSchema.h */,
+				CE7159FB19C96C580057DBBB /* BJNamedSchema.m */,
+				CE7159EE19C9471F0057DBBB /* BJPropertyMap.h */,
+				CE7159EF19C9471F0057DBBB /* BJPropertyMap.m */,
+				CE449A1B19C9286000F0D92D /* BJSchema.h */,
+				CE449A1C19C9286000F0D92D /* BJSchema.m */,
+				CE7159F419C95ED60057DBBB /* BJSchemaName.h */,
+				CE7159F519C95ED60057DBBB /* BJSchemaName.m */,
+				CE7159F719C96BC40057DBBB /* BJSchemaNames.h */,
+				CE7159F819C96BC40057DBBB /* BJSchemaNames.m */,
+				CE48F77019C9A08B0093B09B /* BJEnumSchema.h */,
+				CE48F77119C9A08B0093B09B /* BJEnumSchema.m */,
+			);
+			path = Schema;
+			sourceTree = "<group>";
+		};
+		CE52854019C84DE900B427B5 = {
+			isa = PBXGroup;
+			children = (
+				CE52855719C84DE900B427B5 /* BaijiCore */,
+				CE52854E19C84DE900B427B5 /* Frameworks */,
+				CE52854C19C84DE900B427B5 /* Products */,
+				8C90C4C08EB14C65A168DD10 /* Pods-BaijiCore.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		CE52854C19C84DE900B427B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE52854B19C84DE900B427B5 /* BaijiCore.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE52854E19C84DE900B427B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE52854F19C84DE900B427B5 /* UIKit.framework */,
+				CE52855119C84DE900B427B5 /* Foundation.framework */,
+				CE52855319C84DE900B427B5 /* CoreGraphics.framework */,
+				CE52855519C84DE900B427B5 /* CoreData.framework */,
+				A9A363983496479B839AECA5 /* libPods-BaijiCore.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE52855719C84DE900B427B5 /* BaijiCore */ = {
+			isa = PBXGroup;
+			children = (
+				CE52856919C84DE900B427B5 /* BaijiCore.xcdatamodeld */,
+				CE52856019C84DE900B427B5 /* BJAppDelegate.h */,
+				CE52856119C84DE900B427B5 /* BJAppDelegate.m */,
+				CE7159F119C952060057DBBB /* BJError.h */,
+				CE7159F219C952060057DBBB /* BJError.m */,
+				CE449A0C19C91FE100F0D92D /* BJJsonSerializer.h */,
+				CE449A0D19C91FE100F0D92D /* BJJsonSerializer.m */,
+				CE449A1019C9201700F0D92D /* BJSerializable.h */,
+				CE449A1819C9282E00F0D92D /* Schema */,
+				CE52855819C84DE900B427B5 /* Supporting Files */,
+			);
+			path = BaijiCore;
+			sourceTree = "<group>";
+		};
+		CE52855819C84DE900B427B5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE52855919C84DE900B427B5 /* BaijiCore-Info.plist */,
+				CE52855A19C84DE900B427B5 /* InfoPlist.strings */,
+				CE52855D19C84DE900B427B5 /* main.m */,
+				CE52855F19C84DE900B427B5 /* BaijiCore-Prefix.pch */,
+				CE52856319C84DE900B427B5 /* Default.png */,
+				CE52856519C84DE900B427B5 /* Default@2x.png */,
+				CE52856719C84DE900B427B5 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE52854A19C84DE900B427B5 /* BaijiCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE52856E19C84DE900B427B5 /* Build configuration list for PBXNativeTarget "BaijiCore" */;
+			buildPhases = (
+				A2EA2B93F2AA449781CCBB7C /* Check Pods Manifest.lock */,
+				CE52854719C84DE900B427B5 /* Sources */,
+				CE52854819C84DE900B427B5 /* Frameworks */,
+				CE52854919C84DE900B427B5 /* Resources */,
+				D6FDA662897A4B039E1928E4 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BaijiCore;
+			productName = BaijiCore;
+			productReference = CE52854B19C84DE900B427B5 /* BaijiCore.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE52854219C84DE900B427B5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BJ;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = ctriposs;
+			};
+			buildConfigurationList = CE52854519C84DE900B427B5 /* Build configuration list for PBXProject "BaijiCore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CE52854019C84DE900B427B5;
+			productRefGroup = CE52854C19C84DE900B427B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE52854A19C84DE900B427B5 /* BaijiCore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE52854919C84DE900B427B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE52855C19C84DE900B427B5 /* InfoPlist.strings in Resources */,
+				CE52856419C84DE900B427B5 /* Default.png in Resources */,
+				CE52856619C84DE900B427B5 /* Default@2x.png in Resources */,
+				CE52856819C84DE900B427B5 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A2EA2B93F2AA449781CCBB7C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D6FDA662897A4B039E1928E4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Pods-BaijiCore-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE52854719C84DE900B427B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE52855E19C84DE900B427B5 /* main.m in Sources */,
+				CE52856219C84DE900B427B5 /* BJAppDelegate.m in Sources */,
+				CE52856B19C84DE900B427B5 /* BaijiCore.xcdatamodeld in Sources */,
+				CE449A0E19C91FE100F0D92D /* BJJsonSerializer.m in Sources */,
+				CE449A1D19C9286000F0D92D /* BJSchema.m in Sources */,
+				CE7159F019C9471F0057DBBB /* BJPropertyMap.m in Sources */,
+				CE7159F319C952060057DBBB /* BJError.m in Sources */,
+				CE7159F619C95ED60057DBBB /* BJSchemaName.m in Sources */,
+				CE7159F919C96BC40057DBBB /* BJSchemaNames.m in Sources */,
+				CE7159FC19C96C590057DBBB /* BJNamedSchema.m in Sources */,
+				CE48F76F19C97E5D0093B09B /* BJJsonHelper.m in Sources */,
+				CE48F77219C9A08B0093B09B /* BJEnumSchema.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CE52855A19C84DE900B427B5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE52855B19C84DE900B427B5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE52856C19C84DE900B427B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CE52856D19C84DE900B427B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE52856F19C84DE900B427B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C90C4C08EB14C65A168DD10 /* Pods-BaijiCore.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BaijiCore/BaijiCore-Prefix.pch";
+				INFOPLIST_FILE = "BaijiCore/BaijiCore-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CE52857019C84DE900B427B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C90C4C08EB14C65A168DD10 /* Pods-BaijiCore.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BaijiCore/BaijiCore-Prefix.pch";
+				INFOPLIST_FILE = "BaijiCore/BaijiCore-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE52854519C84DE900B427B5 /* Build configuration list for PBXProject "BaijiCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE52856C19C84DE900B427B5 /* Debug */,
+				CE52856D19C84DE900B427B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE52856E19C84DE900B427B5 /* Build configuration list for PBXNativeTarget "BaijiCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE52856F19C84DE900B427B5 /* Debug */,
+				CE52857019C84DE900B427B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CE52856919C84DE900B427B5 /* BaijiCore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CE52856A19C84DE900B427B5 /* BaijiCore.xcdatamodel */,
+			);
+			currentVersion = CE52856A19C84DE900B427B5 /* BaijiCore.xcdatamodel */;
+			path = BaijiCore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CE52854219C84DE900B427B5 /* Project object */;
+}
