@@ -7,10 +7,24 @@
 //
 
 #import "BJPropertyMap.h"
-#import "JSONKit.h"
 #import "BJError.h"
 
-@implementation BJPropertyMap
+@implementation BJPropertyMap {
+    NSMutableDictionary *_proxy;
+}
+
+- (id)init {
+    self = [super init];
+    if(self) {
+        _proxy = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
+- (id) forwardingTargetForSelector:(SEL)aSelector
+{
+    return _proxy;
+}
 
 + (NSSet *)reservedProperties {
     static NSSet *reservedProperties;
@@ -28,9 +42,11 @@
     return reservedProperties;
 }
 
-- (void)parse:(NSDictionary *)data {
-    NSDictionary *props = [data objectFromJSONData];
+- (void)parse:(id)data {
+    if(data == nil || ![data isKindOfClass:[NSDictionary class]])
+        return;
     NSSet *reservedProps = [BJPropertyMap reservedProperties];
+    NSDictionary *props = data;
     [props enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if([reservedProps containsObject:key])
             return;
@@ -39,8 +55,38 @@
     }];
 }
 
+- (BOOL)containsKey:(id)key {
+    return [_proxy objectForKey:key] != nil;
+}
+
+- (void)addToObject:(NSMutableDictionary *)jsonObj {
+    [_proxy enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [jsonObj setObject:obj forKey:key];
+    }];
+}
+
+#pragma implementation of NSDictionary
+
+- (NSUInteger)count {
+    return [_proxy count];
+}
+
+- (id)objectForKey:(id)aKey {
+    return [_proxy objectForKey:aKey];
+}
+
+- (NSEnumerator *)keyEnumerator {
+    return [_proxy keyEnumerator];
+}
+
+#pragma implementation of NSMutableDictionary
+
+- (void)removeObjectForKey:(id)aKey {
+    [_proxy removeObjectForKey:aKey];
+}
+
 - (void)setObject:(id)anObject forKey:(id <NSCopying>)aKey {
-    if([[BJPropertyMap reservedProperties] containsObject:aKey]){
+    if([[BJPropertyMap reservedProperties] containsObject:aKey]) {
         [NSException exceptionWithName:BJException
                                 reason:[NSString stringWithFormat:@"Can't set reserved properties: %@", aKey]
                               userInfo:nil];
@@ -48,16 +94,14 @@
     
     NSString *oldValue = [self objectForKey:aKey];
     if(oldValue == nil)
-        return [super setObject:anObject forKey:aKey];
+        return [_proxy setObject:anObject forKey:aKey];
     else if(![oldValue isEqualToString:anObject])
         [NSException exceptionWithName:BJException
                                 reason:[NSString stringWithFormat:@"Property cannot be overwritten: %@", anObject]
                               userInfo:nil];
 }
 
-- (BOOL)containsKey:(id)key {
-    return [self objectForKey:key]!=nil;
-}
+#pragma override NSObject methods
 
 - (BOOL)isEqual:(id)object {
     if(self == object)
@@ -75,7 +119,7 @@
             isEqual = NO;
             *stop = YES;
         }
-        if(![obj isEqualToString:[that objectForKey:key]]){
+        if(![obj isEqualToString:[that objectForKey:key]]) {
             isEqual = NO;
             *stop = YES;
         }

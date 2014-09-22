@@ -30,19 +30,20 @@
     return [self.names objectForKey:name] != nil;
 }
 
-- (BOOL)addWithSchemaName:(BJSchemaName *)name mamedSchema:(id)schema {
+- (BOOL)addWithSchemaName:(BJSchemaName *)name namedSchema:(id)schema {
     if([self contains:name])
         return NO;
-    [_names setObject:schema forKey:name];
+    [self.names setObject:schema forKey:name];
     return YES;
 }
 
 - (BOOL)addwithNamedSchema:(BJNamedSchema *)schema {
-    return [self addWithSchemaName:[schema schemaName] mamedSchema:schema];
+    return [self addWithSchemaName:[schema schemaName] namedSchema:schema];
 }
 
 - (BJNamedSchema *)schemaWithName:(NSString *)name space:(NSString *)space encSpace:(NSString *)encSpace {
-    BJSchemaName *key = [[[BJSchemaName alloc] initWithName:name space:space encSpace:encSpace] autorelease];
+    BJSchemaName *key = [[BJSchemaName alloc] initWithName:name space:space encSpace:encSpace];
+    //space is nil if schemaNames exists
     return [self.names objectForKey:key];
 }
 

@@ -19,7 +19,7 @@
 @property (nonatomic, readonly) NSString *doc;
 @property (nonatomic, readonly) NSArray *aliases;
 
-+ (BJNamedSchema *)sharedInstanceForObject:(NSDictionary *)obj
++ (BJNamedSchema *)sharedInstanceForObject:(NSDictionary *)jsonObj
                                 properties:(BJPropertyMap *)properties
                                      names:(BJSchemaNames *)names
                                   encSpace:(NSString *)encSpace;
@@ -32,6 +32,8 @@
 - (NSString *)name;
 - (NSString *)ns;
 - (NSString *)fullname;
++ (BJSchemaName *)schemaNameForObject:(NSDictionary *)jsonObj encSpace:(NSString *)encSpace;
++ (NSArray *)aliasesForObject:(NSDictionary *)jsonObj space:(NSString *)space encSpace:(NSString *)encSpace;
 - (BOOL)inAliasesForName:(BJSchemaName *)schemaName;
 
 @end

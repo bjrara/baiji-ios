@@ -6,9 +6,10 @@
 //  Copyright (c) 2014年 ctriposs. All rights reserved.
 //
 
-@class BJPropertyMap;
-
 #import <Foundation/Foundation.h>
+
+@class BJPropertyMap;
+@class BJSchemaNames;
 
 typedef enum{
     BJSchemaTypeRecord,
@@ -34,7 +35,13 @@ extern NSString *const BJSchemaTypeNames[];
 @property (nonatomic, readonly) BJPropertyMap *properties;
 
 - (id)initWithType:(BJSchemaType)type properties:(BJPropertyMap *)properties;
-+ (BJSchema *)parse:(NSString *)json;
++ (BJSchema *)parse:(NSString *)jString;
++ (NSString *)nameForType:(BJSchemaType)type;
 - (NSString *)propertyForKey:(NSString *)key;
+- (NSString *)name;
++ (BJSchema *)parseJson:(id)jsonObj names:(BJSchemaNames *)names encSpace:(NSString *)encSpace;
+- (NSMutableDictionary *)startObject;
+- (id)jsonObjectWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace;
+- (id)jsonFieldsWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace;
 
 @end

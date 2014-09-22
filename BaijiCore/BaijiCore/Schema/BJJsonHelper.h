@@ -10,12 +10,19 @@
 
 @class BJPropertyMap;
 
+typedef enum {
+    BJJsonTypeArray,
+    BJJsonTypeText,
+    BJJsonTypeObject,
+}BJJsonType;
+
 @interface BJJsonHelper : NSObject
 
-+ (BJPropertyMap *)propertiesForObject:(NSDictionary *)obj;
++ (BJPropertyMap *)propertiesFromObject:(id)obj;
 + (NSString *)requiredStringForObject:(NSDictionary *)obj field:(NSString *)field;
 + (NSString *)optionalStringForObject:(NSDictionary *)obj field:(NSString *)field;
-+ (void) addToJsonObject:(NSDictionary *)jsonObj withKey:(NSString *)key value:(NSString *)value;
-+ (void) validate:(NSString *)field;
++ (void)addToObjectIfNotNullOrEmpty:(NSDictionary *)jsonObj key:(NSString *)key value:(NSString *)value;
++ (void)validate:(NSString *)field;
++ (BJJsonType)typeForObject:(id)jsonObj;
 
 @end

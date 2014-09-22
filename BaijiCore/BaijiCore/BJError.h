@@ -14,5 +14,5 @@ extern NSString *const BJException;
 extern NSString *const BJRuntimeException;
 extern NSString *const BJArgumentException;
 extern NSString *const BJSchemaParseException;
-
+extern NSString *const BJCallException;
 @end

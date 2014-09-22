@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class BJSchemaNames;
+
 @interface BJSchemaName : NSObject<NSCopying>
 
 @property (nonatomic,readonly) NSString *name;
@@ -18,5 +20,6 @@
 - (id)initWithName:(NSString *)name space:(NSString *)space encSpace:(NSString *)encSpace;
 - (NSString *)string;
 - (NSString *)ns;
+- (void)addToObject:(NSDictionary *)obj names:(BJSchemaNames *)names;
 
 @end

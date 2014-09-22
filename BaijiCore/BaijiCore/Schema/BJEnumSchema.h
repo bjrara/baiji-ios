@@ -9,11 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "BJNamedSchema.h"
 
-@interface BJEnumSchema : BJNamedSchema<NSFastEnumeration>
+@interface BJEnumSchema : BJNamedSchema
+
+@property (nonatomic, readonly) NSArray *symbols;
 
 - (id)initWithSchemaName:(BJSchemaName *)schemaName
                      doc:(NSString *)doc
                  aliases:(NSArray *)aliases
-                 symbols:(NSDictionary *)symbol
+                 symbols:(NSDictionary *)symbols
               properties:(BJPropertyMap *)properties;
+- (int)size;
+- (int)oridinalForSymbol:(NSString *)symbol;
+- (NSString *)symbolForValue:(int)value;
+- (BOOL)containsSymbol:(NSString *)symbol;
+
 @end

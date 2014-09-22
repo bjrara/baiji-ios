@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BJPropertyMap : NSMutableDictionary<NSObject>
+@interface BJPropertyMap : NSMutableDictionary
 
-- (void)parse:(NSDictionary *)data;
+- (void)parse:(id)data;
+- (void)addToObject:(NSMutableDictionary *)jsonObj;
 
 @end

@@ -14,5 +14,6 @@ NSString *const BJException = @"BaijiException";
 NSString *const BJRuntimeException = @"BaijiRuntimeException";
 NSString *const BJArgumentException = @"BaijiArgumentException";
 NSString *const BJSchemaParseException = @"BaijiSchemaParseException";
+NSString *const BJCallException = @"BaijiCallException";
 
 @end

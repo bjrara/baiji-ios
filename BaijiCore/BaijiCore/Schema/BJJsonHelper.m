@@ -12,10 +12,10 @@
 
 @implementation BJJsonHelper
 
-+ (BJPropertyMap *)propertiesForObject:(NSDictionary *)obj {
-    BJPropertyMap *properties = [[BJPropertyMap alloc] init];
++ (BJPropertyMap *)propertiesFromObject:(id)obj {
+    BJPropertyMap *properties = [[[BJPropertyMap alloc] init] autorelease];
     [properties parse:obj];
-    return [properties count] > 0 ? properties : nil;
+    return [properties count] == 0 ? nil : properties;
 }
 
 + (NSString *)requiredStringForObject:(NSDictionary *)obj field:(NSString *)field {
@@ -34,8 +34,8 @@
                               userInfo:nil];
     [self validate:field];
     
-    id child = [obj valueForKey:field];
-    if(child == nil)
+    id child = [obj objectForKey:field];
+    if(child == nil || child == [NSNull null])
         return nil;
     if(![child isKindOfClass:[NSString class]])
         [NSException exceptionWithName:BJSchemaParseException
@@ -45,7 +45,7 @@
     
 }
 
-+ (void) addToJsonObject:(NSDictionary *)jsonObj withKey:(NSString *)key value:(NSString *)value {
++ (void) addToObjectIfNotNullOrEmpty:(NSDictionary *)jsonObj key:(NSString *)key value:(NSString *)value {
     if(value == nil || [value length] == 0)
         return;
     [jsonObj setValue:value forKey:key];
@@ -56,6 +56,16 @@
         [NSException exceptionWithName:BJArgumentException
                                 reason:@"field cannot be null or empty."
                               userInfo:nil];
+}
+
++ (BJJsonType)typeForObject:(id)jsonObj; {
+    if([jsonObj isKindOfClass:NSClassFromString(@"JKArray")])
+        return BJJsonTypeArray;
+    if([jsonObj isKindOfClass:[NSString class]])
+        return BJJsonTypeText;
+    if([jsonObj isKindOfClass:[NSDictionary class]])
+        return BJJsonTypeObject;
+    return -1;
 }
 
 @end

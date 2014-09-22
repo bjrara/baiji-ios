@@ -17,7 +17,7 @@
 
 - (id)init;
 - (BOOL)contains:(BJSchemaName *)name;
-- (BOOL)addWithSchemaName:(BJSchemaName *)name mamedSchema:(BJNamedSchema *)schema;
+- (BOOL)addWithSchemaName:(BJSchemaName *)name namedSchema:(BJNamedSchema *)schema;
 - (BOOL)addwithNamedSchema:(BJNamedSchema *)schema;
 - (BJNamedSchema *)schemaWithName:(NSString *)name space:(NSString *)space encSpace:(NSString *)encSpace;
 - (NSEnumerator *)keyEnumerator;
