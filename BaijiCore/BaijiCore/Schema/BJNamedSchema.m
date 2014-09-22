@@ -112,6 +112,7 @@
             name = [schemaName name];
         }
         [jObj setObject:name forKey:@"name"];
+        return jObj;
     } else {
         NSMutableDictionary *jObj = [super startObject];
         [self.schemaName addToObject:jObj names:names];
@@ -126,8 +127,9 @@
             }
             [jObj setObject:array forKey:@"aliases"];
         }
+        return jObj;
     }
-    return jObj;
+    return nil;
 }
 
 @end
