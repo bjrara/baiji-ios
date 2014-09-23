@@ -10,7 +10,6 @@
 		45BE962B84454BB59A86CD03 /* libPods-BaijiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A363983496479B839AECA5 /* libPods-BaijiCore.a */; };
 		CE0F0FA119CA820000C0C11E /* BJPrimitiveSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F0FA019CA820000C0C11E /* BJPrimitiveSchema.m */; };
 		CE0F0FA519CA82B500C0C11E /* BJUnnamedSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F0FA419CA82B500C0C11E /* BJUnnamedSchema.m */; };
-		CE0F0FB419CA9E6700C0C11E /* BJSchemaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F0FB319CA9E6700C0C11E /* BJSchemaTest.m */; };
 		CE0F0FB719CAA52F00C0C11E /* BJRecordSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F0FB619CAA52E00C0C11E /* BJRecordSchema.m */; };
 		CE449A0E19C91FE100F0D92D /* BJJsonSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE449A0D19C91FE100F0D92D /* BJJsonSerializer.m */; };
 		CE449A1D19C9286000F0D92D /* BJSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CE449A1C19C9286000F0D92D /* BJSchema.m */; };
@@ -45,8 +44,6 @@
 		CE0F0FA019CA820000C0C11E /* BJPrimitiveSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJPrimitiveSchema.m; sourceTree = "<group>"; };
 		CE0F0FA319CA82B500C0C11E /* BJUnnamedSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJUnnamedSchema.h; sourceTree = "<group>"; };
 		CE0F0FA419CA82B500C0C11E /* BJUnnamedSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUnnamedSchema.m; sourceTree = "<group>"; };
-		CE0F0FB219CA9E6700C0C11E /* BJSchemaTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSchemaTest.h; sourceTree = "<group>"; };
-		CE0F0FB319CA9E6700C0C11E /* BJSchemaTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSchemaTest.m; sourceTree = "<group>"; };
 		CE0F0FB519CAA52E00C0C11E /* BJRecordSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJRecordSchema.h; sourceTree = "<group>"; };
 		CE0F0FB619CAA52E00C0C11E /* BJRecordSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJRecordSchema.m; sourceTree = "<group>"; };
 		CE449A0C19C91FE100F0D92D /* BJJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJJsonSerializer.h; sourceTree = "<group>"; };
@@ -187,8 +184,6 @@
 				CE449A1019C9201700F0D92D /* BJSerializable.h */,
 				CE449A1819C9282E00F0D92D /* Schema */,
 				CE52855819C84DE900B427B5 /* Supporting Files */,
-				CE0F0FB219CA9E6700C0C11E /* BJSchemaTest.h */,
-				CE0F0FB319CA9E6700C0C11E /* BJSchemaTest.m */,
 			);
 			path = BaijiCore;
 			sourceTree = "<group>";
@@ -322,7 +317,6 @@
 				CE48F77219C9A08B0093B09B /* BJEnumSchema.m in Sources */,
 				CE0F0FA119CA820000C0C11E /* BJPrimitiveSchema.m in Sources */,
 				CE0F0FA519CA82B500C0C11E /* BJUnnamedSchema.m in Sources */,
-				CE0F0FB419CA9E6700C0C11E /* BJSchemaTest.m in Sources */,
 				CE0F0FB719CAA52F00C0C11E /* BJRecordSchema.m in Sources */,
 				CEC7AA9B19CAC48C000F89A7 /* BJField.m in Sources */,
 				CEBFFF5B19CBEE7000705622 /* BJUnionSchema.m in Sources */,
