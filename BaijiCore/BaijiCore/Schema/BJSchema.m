@@ -50,7 +50,7 @@ NSString *const BJSchemaTypeNames[] = {
         [NSException exceptionWithName:BJArgumentException
                                 reason:@"input json cannot be null"
                               userInfo:nil];
-    return [self parse:jString withSchemaName:[[[BJSchemaNames alloc] init] autorelease]  encSpace:nil];
+    return [self parse:jString withSchemaName:[[[BJSchemaNames alloc] init] autorelease] encSpace:nil];
     
 }
 

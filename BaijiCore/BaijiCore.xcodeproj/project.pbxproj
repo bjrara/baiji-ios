@@ -80,6 +80,11 @@
 		CEEF42A819D0158800EEDB5D /* BJMapSchema.h in Sources */ = {isa = PBXBuildFile; fileRef = CEEF41E219CFB98100EEDB5D /* BJMapSchema.h */; };
 		CEEF42A919D0158800EEDB5D /* BJMapSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF41E319CFB98100EEDB5D /* BJMapSchema.m */; };
 		CEEF42B819D019B100EEDB5D /* BJSchemaTestEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF42B719D019B100EEDB5D /* BJSchemaTestEnum.m */; };
+		CEEF42BB19D124E800EEDB5D /* BJSchemaTestFullName.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF42BA19D124E800EEDB5D /* BJSchemaTestFullName.m */; };
+		CEEF42BE19D126F300EEDB5D /* BJSchemaTestUnion.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF42BD19D126F300EEDB5D /* BJSchemaTestUnion.m */; };
+		CEEF42C119D128F600EEDB5D /* BJSchemaTestArray.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF42C019D128F500EEDB5D /* BJSchemaTestArray.m */; };
+		CEEF42C419D12A4400EEDB5D /* BJSchemaTestMap.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF42C319D12A4400EEDB5D /* BJSchemaTestMap.m */; };
+		CEEF42C719D12B3600EEDB5D /* BJSchemaTestRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF42C619D12B3600EEDB5D /* BJSchemaTestRecord.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +167,16 @@
 		CEEF425C19D012C300EEDB5D /* libPods-BaijiCore.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-BaijiCore.a"; path = "../Pods/build/Release-iphoneos/libPods-BaijiCore.a"; sourceTree = "<group>"; };
 		CEEF42B619D019B100EEDB5D /* BJSchemaTestEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSchemaTestEnum.h; sourceTree = "<group>"; };
 		CEEF42B719D019B100EEDB5D /* BJSchemaTestEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSchemaTestEnum.m; sourceTree = "<group>"; };
+		CEEF42B919D124E800EEDB5D /* BJSchemaTestFullName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSchemaTestFullName.h; sourceTree = "<group>"; };
+		CEEF42BA19D124E800EEDB5D /* BJSchemaTestFullName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSchemaTestFullName.m; sourceTree = "<group>"; };
+		CEEF42BC19D126F300EEDB5D /* BJSchemaTestUnion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSchemaTestUnion.h; sourceTree = "<group>"; };
+		CEEF42BD19D126F300EEDB5D /* BJSchemaTestUnion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSchemaTestUnion.m; sourceTree = "<group>"; };
+		CEEF42BF19D128F500EEDB5D /* BJSchemaTestArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSchemaTestArray.h; sourceTree = "<group>"; };
+		CEEF42C019D128F500EEDB5D /* BJSchemaTestArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSchemaTestArray.m; sourceTree = "<group>"; };
+		CEEF42C219D12A4400EEDB5D /* BJSchemaTestMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSchemaTestMap.h; sourceTree = "<group>"; };
+		CEEF42C319D12A4400EEDB5D /* BJSchemaTestMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSchemaTestMap.m; sourceTree = "<group>"; };
+		CEEF42C519D12B3500EEDB5D /* BJSchemaTestRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSchemaTestRecord.h; sourceTree = "<group>"; };
+		CEEF42C619D12B3600EEDB5D /* BJSchemaTestRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSchemaTestRecord.m; sourceTree = "<group>"; };
 		E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaijiTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -329,6 +344,16 @@
 				CEEF423E19D00BDF00EEDB5D /* BJSchemaTestBase.m */,
 				CEEF42B619D019B100EEDB5D /* BJSchemaTestEnum.h */,
 				CEEF42B719D019B100EEDB5D /* BJSchemaTestEnum.m */,
+				CEEF42B919D124E800EEDB5D /* BJSchemaTestFullName.h */,
+				CEEF42BA19D124E800EEDB5D /* BJSchemaTestFullName.m */,
+				CEEF42BC19D126F300EEDB5D /* BJSchemaTestUnion.h */,
+				CEEF42BD19D126F300EEDB5D /* BJSchemaTestUnion.m */,
+				CEEF42BF19D128F500EEDB5D /* BJSchemaTestArray.h */,
+				CEEF42C019D128F500EEDB5D /* BJSchemaTestArray.m */,
+				CEEF42C219D12A4400EEDB5D /* BJSchemaTestMap.h */,
+				CEEF42C319D12A4400EEDB5D /* BJSchemaTestMap.m */,
+				CEEF42C519D12B3500EEDB5D /* BJSchemaTestRecord.h */,
+				CEEF42C619D12B3600EEDB5D /* BJSchemaTestRecord.m */,
 			);
 			path = Schema;
 			sourceTree = "<group>";
@@ -558,6 +583,11 @@
 				CEEF422419D0047300EEDB5D /* BJSchemaTestPrimitive.m in Sources */,
 				CEEF423F19D00BDF00EEDB5D /* BJSchemaTestBase.m in Sources */,
 				CEEF42B819D019B100EEDB5D /* BJSchemaTestEnum.m in Sources */,
+				CEEF42BB19D124E800EEDB5D /* BJSchemaTestFullName.m in Sources */,
+				CEEF42BE19D126F300EEDB5D /* BJSchemaTestUnion.m in Sources */,
+				CEEF42C119D128F600EEDB5D /* BJSchemaTestArray.m in Sources */,
+				CEEF42C419D12A4400EEDB5D /* BJSchemaTestMap.m in Sources */,
+				CEEF42C719D12B3600EEDB5D /* BJSchemaTestRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

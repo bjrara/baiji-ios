@@ -179,9 +179,9 @@
 }
 
 - (NSDictionary *)jsonObjectWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace {
-    NSMutableDictionary *jObj = [super jsonObjectWithSchemaNames:names encSpace:encSpace];
-    [jObj setObject:[self jsonFieldsWithSchemaNames:names encSpace:encSpace] forKey:@"symbols"];
-    return jObj;
+    return [super jsonObjectWithSchemaNames:names encSpace:encSpace fieldsHandler:^(NSMutableDictionary *jObj) {
+        [jObj setObject:[self jsonFieldsWithSchemaNames:names encSpace:encSpace] forKey:@"symbols"];
+    }];
 }
 
 - (NSArray *)jsonFieldsWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace {

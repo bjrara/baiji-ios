@@ -13,46 +13,46 @@
 @implementation BJSchemaTestPrimitive
 
 - (void)testNull {
-    [self testPrimitiveBySchema:@"null" type:BJSchemaTypeNull];
-    [self testPrimitiveBySchema:@"{ \"type\": \"null\" }" type:BJSchemaTypeNull];
+    [self runTestWithSchema:@"null" referringType:BJSchemaTypeNull];
+    [self runTestWithSchema:@"{ \"type\": \"null\" }" referringType:BJSchemaTypeNull];
 }
 
 - (void)testBoolean {
-    [self testPrimitiveBySchema:@"boolean" type:BJSchemaTypeBoolean];
-    [self testPrimitiveBySchema:@"{ \"type\": \"boolean\" }" type:BJSchemaTypeBoolean];
+    [self runTestWithSchema:@"boolean" referringType:BJSchemaTypeBoolean];
+    [self runTestWithSchema:@"{ \"type\": \"boolean\" }" referringType:BJSchemaTypeBoolean];
 }
 
 - (void)testInt {
-    [self testPrimitiveBySchema:@"int" type:BJSchemaTypeInt];
-    [self testPrimitiveBySchema:@"{ \"type\": \"int\" }" type:BJSchemaTypeInt];
+    [self runTestWithSchema:@"int" referringType:BJSchemaTypeInt];
+    [self runTestWithSchema:@"{ \"type\": \"int\" }" referringType:BJSchemaTypeInt];
 }
 
 - (void)testLong {
-    [self testPrimitiveBySchema:@"long" type:BJSchemaTypeLong];
-    [self testPrimitiveBySchema:@"{ \"type\": \"long\" }" type:BJSchemaTypeLong];
+    [self runTestWithSchema:@"long" referringType:BJSchemaTypeLong];
+    [self runTestWithSchema:@"{ \"type\": \"long\" }" referringType:BJSchemaTypeLong];
 }
 
 - (void)testFloat {
-    [self testPrimitiveBySchema:@"float" type:BJSchemaTypeFloat];
-    [self testPrimitiveBySchema:@"{ \"type\": \"float\" }" type:BJSchemaTypeFloat];
+    [self runTestWithSchema:@"float" referringType:BJSchemaTypeFloat];
+    [self runTestWithSchema:@"{ \"type\": \"float\" }" referringType:BJSchemaTypeFloat];
 }
 
 - (void)testDouble {
-    [self testPrimitiveBySchema:@"double" type:BJSchemaTypeDouble];
-    [self testPrimitiveBySchema:@"{ \"type\": \"double\" }" type:BJSchemaTypeDouble];
+    [self runTestWithSchema:@"double" referringType:BJSchemaTypeDouble];
+    [self runTestWithSchema:@"{ \"type\": \"double\" }" referringType:BJSchemaTypeDouble];
 }
 
 - (void)testBytes {
-    [self testPrimitiveBySchema:@"bytes" type:BJSchemaTypeBytes];
-    [self testPrimitiveBySchema:@"{ \"type\": \"bytes\" }" type:BJSchemaTypeBytes];
+    [self runTestWithSchema:@"bytes" referringType:BJSchemaTypeBytes];
+    [self runTestWithSchema:@"{ \"type\": \"bytes\" }" referringType:BJSchemaTypeBytes];
 }
 
 - (void)testString {
-    [self testPrimitiveBySchema:@"string" type:BJSchemaTypeString];
-    [self testPrimitiveBySchema:@"{ \"type\": \"string\" }" type:BJSchemaTypeString];
+    [self runTestWithSchema:@"string" referringType:BJSchemaTypeString];
+    [self runTestWithSchema:@"{ \"type\": \"string\" }" referringType:BJSchemaTypeString];
 }
 
-- (void)testPrimitiveBySchema:(NSString *)jSchema type:(BJSchemaType)type {
+- (void)runTestWithSchema:(NSString *)jSchema referringType:(BJSchemaType)type {
     BJSchema *schema = [BJSchema parse:jSchema];
     GHAssertTrue([schema isKindOfClass:[BJPrimitiveSchema class]], nil);
     GHAssertEquals(type, [schema type], nil);

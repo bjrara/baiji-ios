@@ -101,6 +101,11 @@
 }
 
 - (id)jsonObjectWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace {
+    [NSException exceptionWithName:BJCallException reason:@"jsonObjectWithSchemaNames:encSpace: is not implemented." userInfo:nil];
+    return nil;
+}
+
+- (id)jsonObjectWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace fieldsHandler:(BJFieldsHandler)handler {
     NSMutableDictionary *jObj = [super startObject];
     if(![names addwithNamedSchema:self]) {
         // schema is already in the list, write name only.
@@ -114,7 +119,6 @@
         [jObj setObject:name forKey:@"name"];
         return jObj;
     } else {
-        NSMutableDictionary *jObj = [super startObject];
         [self.schemaName addToObject:jObj names:names];
         if(self.doc != nil && [self.doc length] != 0) {
             [jObj setObject:self.doc forKey:@"doc"];
@@ -127,6 +131,7 @@
             }
             [jObj setObject:array forKey:@"aliases"];
         }
+        handler(jObj);
         return jObj;
     }
     return nil;

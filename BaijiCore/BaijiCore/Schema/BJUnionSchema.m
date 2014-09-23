@@ -47,7 +47,7 @@
     return self;
 }
 
-- (int)count {
+- (NSUInteger)count {
     return [self.schemas count];
 }
 

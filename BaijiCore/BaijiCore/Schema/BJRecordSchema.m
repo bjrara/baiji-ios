@@ -35,7 +35,7 @@
                            doc:doc
                        aliases:aliases
                     properties:properties
-                         names:[[BJSchemaNames alloc] init]];
+                         names:[[[BJSchemaNames alloc] init] autorelease]];
     if(self) {
         if(!request && [name name] == nil)
             [NSException exceptionWithName:BJSchemaParseException reason:@"name cannot be null for record schema." userInfo:nil];
@@ -162,37 +162,51 @@
                                 reason:[NSString stringWithFormat:@"'type' was not found for field: %@", name]
                               userInfo:nil];
     BJSchema *schema = [BJSchema parseJson:jType names:names encSpace:encSpace];
-    return [[BJField alloc] initWithSchema:schema
+    return [[[BJField alloc] initWithSchema:schema
                                       name:name
                                    aliases:aliases
                                        pos:pos
                                        doc:doc
                               defaultValue:jDefaultValue
                                   ordering:sortOrder
-                                properties:properties];
+                                properties:properties] autorelease];
+}
+
+- (NSUInteger)count {
+    return [self.fields count];
+}
+
+- (BJField *)fieldForName:(NSString *)name {
+    if(name == nil || [name length] == 0) {
+        [NSException exceptionWithName:BJArgumentException reason:@"name cannot be null." userInfo:nil];
+    }
+    return [self.fieldLookup objectForKey:name];
 }
 
 - (NSDictionary *)jsonObjectWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace {
-    NSMutableDictionary *jObj = [super jsonObjectWithSchemaNames:names encSpace:encSpace];
-    NSArray *jFields = [self jsonFieldsWithSchemaNames:names encSpace:encSpace];
-    if(jFields) {
-        [jObj setObject:jFields forKey:@"fields"];
-    }
-    return jObj;
+    return [super jsonObjectWithSchemaNames:names encSpace:encSpace fieldsHandler:^(NSMutableDictionary *jObj) {
+        NSArray *jFields = [self jsonFieldsWithSchemaNames:names encSpace:encSpace];
+        if(jFields) {
+            [jObj setObject:jFields forKey:@"fields"];
+        }
+    }];
 }
 
 - (NSArray *)jsonFieldsWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace {
     if(self.fields != nil && [self.fields count] > 0) {
-        NSMutableArray *jFields = [[NSMutableArray alloc] init];
-        if(jFields == nil) {
-            jFields = [[NSMutableArray alloc] init];
-        }
+        NSMutableArray *jFields = [[[NSMutableArray alloc] init] autorelease];
         for (BJField *field in self.fields) {
             [jFields addObject:[field jsonObjectWithNames:names encSpace:[self ns]]];
         }
         return jFields;
     }
     return nil;
+}
+
+- (void)dealloc {
+    [_fieldLookup release];
+    [_fieldAliasLookup release];
+    [super dealloc];
 }
 
 @end

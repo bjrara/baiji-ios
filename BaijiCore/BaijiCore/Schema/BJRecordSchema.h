@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "BJNamedSchema.h"
 
+@class BJField;
+
 @interface BJRecordSchema : BJNamedSchema
 
 @property (nonatomic, readonly) NSArray *fields;
-@property (nonatomic, readonly) int count;
 
 - (id)initWithName:(BJSchemaName *)name
                doc:(NSString *)doc
@@ -20,4 +21,7 @@
         properties:(BJPropertyMap *)properties
             fields:(NSArray *)fields
            request:(BOOL)request;
+- (NSUInteger)count;
+- (BJField *)fieldForName:(NSString *)name;
+
 @end

@@ -13,6 +13,8 @@
 @class BJPropertyMap;
 @class BJSchemaNames;
 
+typedef void (^BJFieldsHandler)(NSMutableDictionary *jObj);
+
 @interface BJNamedSchema : BJSchema
 
 @property (nonatomic, readonly) BJSchemaName *schemaName;
@@ -29,6 +31,7 @@
            aliases:(NSArray *)aliases
         properties:(BJPropertyMap *)properties
              names:(BJSchemaNames *)names;
+- (id)jsonObjectWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace fieldsHandler:(BJFieldsHandler)handler;
 - (NSString *)name;
 - (NSString *)ns;
 - (NSString *)fullname;

@@ -16,9 +16,10 @@
     NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
     [values setObject:[NSNumber numberWithInt:0] forKey:@"A"];
     [values setObject:[NSNumber numberWithInt:1] forKey:@"B"];
-    [self testEnumBySchema:@"{\"type\": \"enum\", \"name\": \"Test\", \"symbols\": [\"A\", \"B\"]}"
-                   symbols:[NSArray arrayWithObjects:@"A", @"B", nil]
-              symbolValues:values];
+    [self runTestWithSchema:@"{\"type\": \"enum\", \"name\": \"Test\", \"symbols\": [\"A\", \"B\"]}"
+           referringSymbols:[NSArray arrayWithObjects:@"A", @"B", nil]
+               symbolValues:values];
+    [values release];
 }
 
 - (void)testEnum_5 {
@@ -29,13 +30,14 @@
     [values setObject:[NSNumber numberWithInt:6] forKey:@"D"];
     [values setObject:[NSNumber numberWithInt:1] forKey:@"E"];
     [values setObject:[NSNumber numberWithInt:7] forKey:@"F"];
-    [self testEnumBySchema:@"{\"type\": \"enum\", \"name\": \"Test\", \"symbols\": [\"A\", \"B\", {\"name\": \"C\", \"value\": 5}, \"D\", {\"name\": \"E\", \"value\": 1}, {\"name\": \"F\", \"value\": 7}]}"
-                   symbols:[NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", nil]
-              symbolValues:values];
+    [self runTestWithSchema:@"{\"type\": \"enum\", \"name\": \"Test\", \"symbols\": [\"A\", \"B\", {\"name\": \"C\", \"value\": 5}, \"D\", {\"name\": \"E\", \"value\": 1}, {\"name\": \"F\", \"value\": 7}]}"
+           referringSymbols:[NSArray arrayWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", nil]
+               symbolValues:values];
+    [values release];
     
 }
 
-- (void)testEnumBySchema:(NSString *)jSchema symbols:(NSArray *)symbols symbolValues:(NSDictionary *)values {
+- (void)runTestWithSchema:(NSString *)jSchema referringSymbols:(NSArray *)symbols symbolValues:(NSDictionary *)values {
     BJSchema *schema = [BJSchema parse:jSchema];
     GHAssertTrue([schema isKindOfClass:[BJEnumSchema class]], nil);
     GHAssertEquals(BJSchemaTypeEnum, [schema type], nil);

@@ -22,7 +22,7 @@
                                       names:(BJSchemaNames *)names
                                    encSpace:(NSString *)encSpace;
 - (id)initWithSchemas:(NSArray *)schemas properties:(BJPropertyMap *)properties;
-- (int)count;
+- (NSUInteger)count;
 - (BJSchema *)schemaAtIndex:(NSUInteger)index;
 
 @end
