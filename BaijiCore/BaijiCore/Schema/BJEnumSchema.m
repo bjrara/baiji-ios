@@ -62,7 +62,7 @@
                 if(symbolValue != nil)
                     explicitValue = [NSNumber numberWithInt:[symbolValue intValue]];
                 actualValue = explicitValue != nil ? explicitValue : [NSNumber numberWithInt:lastValue + 1];
-                lastValue = lastValue + 1;
+                lastValue = [actualValue intValue];
                 break;
             }
             default:{
@@ -72,6 +72,7 @@
                 break;
             }
         }
+        explicitValue = explicitValue != nil ? explicitValue : [NSNumber numberWithInt:-1];
         NSArray *values = [NSArray arrayWithObjects:explicitValue, actualValue, nil];
         [map setObject:values forKey:symbol];
         [array addObject:symbol];
@@ -147,7 +148,7 @@
     return self;
 }
 
-- (int)size {
+- (NSUInteger)size {
     return [self.symbols count];
 }
 
@@ -186,7 +187,16 @@
 - (NSArray *)jsonFieldsWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace {
     NSMutableArray *jArray = [[NSMutableArray alloc] init];
     for (NSString *symbol in self.symbols) {
-        [jArray addObject:symbol];
+        NSArray *values = [self.symbolMap objectForKey:symbol];
+        id item;
+        if ([[values objectAtIndex:0] intValue] > -1) {
+            item = [[NSMutableDictionary alloc] initWithCapacity:2];
+            [item setObject:symbol forKey:@"name"];
+            [item setObject:[values objectAtIndex:1] forKey:@"value"];
+        } else {
+            item = symbol;
+        }
+        [jArray addObject:item];
     }
     return jArray;
 }

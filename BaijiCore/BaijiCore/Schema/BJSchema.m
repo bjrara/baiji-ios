@@ -158,4 +158,24 @@ NSString *const BJSchemaTypeNames[] = {
     return jObj;
 }
 
+#pragma override NSObject methods
+
+- (BOOL) isEqual:(id)object {
+    if(object == self) {
+        return YES;
+    }
+    if(![object isKindOfClass:[BJSchema class]]) {
+        return NO;
+    }
+    BJSchema *that = (BJSchema *)object;
+    if(self.type != [that type]) {
+        return NO;
+    }
+    return self.properties != nil ? [self.properties isEqualToDictionary:[that properties]] : [that properties] == nil;
+}
+
+- (NSUInteger)hash {
+    return self.type + [self.properties hash];
+}
+
 @end

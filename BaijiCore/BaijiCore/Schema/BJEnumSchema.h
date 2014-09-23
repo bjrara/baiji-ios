@@ -18,7 +18,7 @@
                  aliases:(NSArray *)aliases
                  symbols:(NSDictionary *)symbols
               properties:(BJPropertyMap *)properties;
-- (int)size;
+- (NSUInteger)size;
 - (int)oridinalForSymbol:(NSString *)symbol;
 - (NSString *)symbolForValue:(int)value;
 - (BOOL)containsSymbol:(NSString *)symbol;

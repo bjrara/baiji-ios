@@ -59,7 +59,10 @@
     if(![object isKindOfClass:[BJPrimitiveSchema class]])
         return NO;
     BJPrimitiveSchema *that = (BJPrimitiveSchema *)object;
-    return [self type] == [that type] && [[self properties] isEqualToDictionary:[that properties]];
+    if(self.type != [that type]) {
+        return NO;
+    }
+    return self.properties == nil ? [that properties] == nil : [[self properties] isEqualToDictionary:[that properties]];
 }
 
 - (NSUInteger)hash {
