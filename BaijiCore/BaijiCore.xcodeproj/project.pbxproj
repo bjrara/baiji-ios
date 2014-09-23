@@ -85,6 +85,7 @@
 		CEEF42C119D128F600EEDB5D /* BJSchemaTestArray.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF42C019D128F500EEDB5D /* BJSchemaTestArray.m */; };
 		CEEF42C419D12A4400EEDB5D /* BJSchemaTestMap.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF42C319D12A4400EEDB5D /* BJSchemaTestMap.m */; };
 		CEEF42C719D12B3600EEDB5D /* BJSchemaTestRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF42C619D12B3600EEDB5D /* BJSchemaTestRecord.m */; };
+		CEEF42DE19D1527200EEDB5D /* BJSchemaTestBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF42DD19D1527100EEDB5D /* BJSchemaTestBasic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,8 @@
 		CEEF42C319D12A4400EEDB5D /* BJSchemaTestMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSchemaTestMap.m; sourceTree = "<group>"; };
 		CEEF42C519D12B3500EEDB5D /* BJSchemaTestRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSchemaTestRecord.h; sourceTree = "<group>"; };
 		CEEF42C619D12B3600EEDB5D /* BJSchemaTestRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSchemaTestRecord.m; sourceTree = "<group>"; };
+		CEEF42DC19D1527100EEDB5D /* BJSchemaTestBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSchemaTestBasic.h; sourceTree = "<group>"; };
+		CEEF42DD19D1527100EEDB5D /* BJSchemaTestBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSchemaTestBasic.m; sourceTree = "<group>"; };
 		E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaijiTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -354,6 +357,8 @@
 				CEEF42C319D12A4400EEDB5D /* BJSchemaTestMap.m */,
 				CEEF42C519D12B3500EEDB5D /* BJSchemaTestRecord.h */,
 				CEEF42C619D12B3600EEDB5D /* BJSchemaTestRecord.m */,
+				CEEF42DC19D1527100EEDB5D /* BJSchemaTestBasic.h */,
+				CEEF42DD19D1527100EEDB5D /* BJSchemaTestBasic.m */,
 			);
 			path = Schema;
 			sourceTree = "<group>";
@@ -588,6 +593,7 @@
 				CEEF42C119D128F600EEDB5D /* BJSchemaTestArray.m in Sources */,
 				CEEF42C419D12A4400EEDB5D /* BJSchemaTestMap.m in Sources */,
 				CEEF42C719D12B3600EEDB5D /* BJSchemaTestRecord.m in Sources */,
+				CEEF42DE19D1527200EEDB5D /* BJSchemaTestBasic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
