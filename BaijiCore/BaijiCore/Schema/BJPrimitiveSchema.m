@@ -28,6 +28,7 @@
     [map setObject:[NSNumber numberWithInt:BJSchemaTypeDouble] forKey:@"double"];
     [map setObject:[NSNumber numberWithInt:BJSchemaTypeBytes] forKey:@"bytes"];
     [map setObject:[NSNumber numberWithInt:BJSchemaTypeString] forKey:@"string"];
+    [map setObject:[NSNumber numberWithInt:BJSchemaTypeDateTime] forKey:@"datetime"];
     
     typeMap = [NSDictionary dictionaryWithDictionary:map];
     return typeMap;

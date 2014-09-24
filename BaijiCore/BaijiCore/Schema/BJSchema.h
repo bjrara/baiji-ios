@@ -24,7 +24,8 @@ typedef enum{
     BJSchemaTypeFloat,
     BJSchemaTypeDouble,
     BJSchemaTypeBoolean,
-    BJSchemaTypeNull
+    BJSchemaTypeNull,
+    BJSchemaTypeDateTime
 } BJSchemaType;
 
 extern NSString *const BJSchemaTypeNames[];
