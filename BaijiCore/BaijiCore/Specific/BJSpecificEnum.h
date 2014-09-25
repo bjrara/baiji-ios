@@ -13,6 +13,6 @@
 @property (nonatomic, readwrite) NSUInteger value;
 
 - (NSString *)name;
-- (NSUInteger)ordinalForName:(NSString *)name;
++ (NSUInteger)ordinalForName:(NSString *)name;
 
 @end

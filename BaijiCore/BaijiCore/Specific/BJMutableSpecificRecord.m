@@ -10,24 +10,10 @@
 #import "BJRecordSchema.h"
 #import "BJField.h"
 
-@interface BJMutableSpecificRecord()
-
-@property (nonatomic, readwrite) BJSchema *schema;
-
-@end
-
 @implementation BJMutableSpecificRecord
 
-- (id)initWithSchema:(BJSchema *)schema {
-    self = [super init];
-    if(self) {
-        _schema = schema;
-    }
-    return self;
-}
-
-- (BJSchema *)schema {
-    return self.schema;
++ (BJSchema *)schema {
+    return [BJMutableSpecificRecord schema];
 }
 
 - (id)fieldAtIndex:(int)fieldPos {
@@ -35,10 +21,10 @@
 }
 
 - (id)fieldWithName:(NSString *)fieldName {
-    if(![self.schema isKindOfClass:[BJRecordSchema class]]) {
+    if(![[BJMutableSpecificRecord schema] isKindOfClass:[BJRecordSchema class]]) {
         return nil;
     }
-    BJRecordSchema *rs = (BJRecordSchema *)self.schema;
+    BJRecordSchema *rs = (BJRecordSchema *)[BJMutableSpecificRecord schema];
     BJField *field = [rs fieldForName:fieldName];
     return field == nil ? [self fieldAtIndex:[field pos]] : nil;
 }
@@ -48,10 +34,10 @@
 }
 
 - (void)setObject:(id)object forName:(NSString *)fieldName {
-    if(![self.schema isKindOfClass:[BJRecordSchema class]]) {
+    if(![[BJMutableSpecificRecord schema] isKindOfClass:[BJRecordSchema class]]) {
         return;
     }
-    BJRecordSchema *rs = (BJRecordSchema *)self.schema;
+    BJRecordSchema *rs = (BJRecordSchema *)[BJMutableSpecificRecord schema];
     BJField *field = [rs fieldForName:fieldName];
     if(field != nil) {
         [self setObject:object atIndex:[field pos]];

@@ -11,8 +11,4 @@
 
 @interface BJMutableSpecificRecord : NSObject<BJMutableRecord>
 
-@property (nonatomic, readonly) BJSchema *schema;
-
-- (id)initWithSchema:(BJSchema *)schema;
-
 @end
