@@ -14,7 +14,7 @@
     return nil;
 }
 
-- (NSUInteger)ordinalForName:(NSString *)name {
++ (NSUInteger)ordinalForName:(NSString *)name {
     return -1;
 }
 
