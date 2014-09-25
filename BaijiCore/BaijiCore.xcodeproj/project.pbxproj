@@ -89,6 +89,7 @@
 		CEEF42DE19D1527200EEDB5D /* BJSchemaTestBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF42DD19D1527100EEDB5D /* BJSchemaTestBasic.m */; };
 		CEFBC2CA19D3B0D80034E202 /* BJMutableSpecificRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2C919D3B0D80034E202 /* BJMutableSpecificRecord.m */; };
 		CEFBC2E919D3C9B50034E202 /* BJSpecificEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2E819D3C9B50034E202 /* BJSpecificEnum.m */; };
+		CEFBC2EC19D3DFFF0034E202 /* BJSpecificJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2EB19D3DFFF0034E202 /* BJSpecificJsonParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,8 @@
 		CEFBC2C919D3B0D80034E202 /* BJMutableSpecificRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJMutableSpecificRecord.m; sourceTree = "<group>"; };
 		CEFBC2E719D3C9B40034E202 /* BJSpecificEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSpecificEnum.h; sourceTree = "<group>"; };
 		CEFBC2E819D3C9B50034E202 /* BJSpecificEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSpecificEnum.m; sourceTree = "<group>"; };
+		CEFBC2EA19D3DFFF0034E202 /* BJSpecificJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSpecificJsonParser.h; sourceTree = "<group>"; };
+		CEFBC2EB19D3DFFF0034E202 /* BJSpecificJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSpecificJsonParser.m; sourceTree = "<group>"; };
 		E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaijiTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -225,13 +228,15 @@
 		CE15C32D19D2DCC700754015 /* Specific */ = {
 			isa = PBXGroup;
 			children = (
-				CE15C32E19D2DCF900754015 /* BJSpecificJsonWriter.h */,
-				CE15C32F19D2DCF900754015 /* BJSpecificJsonWriter.m */,
 				CE15C33519D2E1D100754015 /* BJMutableRecord.h */,
 				CEFBC2C819D3B0D80034E202 /* BJMutableSpecificRecord.h */,
 				CEFBC2C919D3B0D80034E202 /* BJMutableSpecificRecord.m */,
 				CEFBC2E719D3C9B40034E202 /* BJSpecificEnum.h */,
 				CEFBC2E819D3C9B50034E202 /* BJSpecificEnum.m */,
+				CEFBC2EA19D3DFFF0034E202 /* BJSpecificJsonParser.h */,
+				CEFBC2EB19D3DFFF0034E202 /* BJSpecificJsonParser.m */,
+				CE15C32E19D2DCF900754015 /* BJSpecificJsonWriter.h */,
+				CE15C32F19D2DCF900754015 /* BJSpecificJsonWriter.m */,
 			);
 			path = Specific;
 			sourceTree = "<group>";
@@ -575,6 +580,7 @@
 				CE15C33019D2DCF900754015 /* BJSpecificJsonWriter.m in Sources */,
 				CEFBC2CA19D3B0D80034E202 /* BJMutableSpecificRecord.m in Sources */,
 				CEFBC2E919D3C9B50034E202 /* BJSpecificEnum.m in Sources */,
+				CEFBC2EC19D3DFFF0034E202 /* BJSpecificJsonParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

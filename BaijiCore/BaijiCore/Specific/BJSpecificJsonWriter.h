@@ -11,7 +11,7 @@
 
 @class BJSchema;
 
-typedef void  (^BJJsonResolver)(id parsedValue);
+typedef void  (^BJJsonWritingResolver)(id parsedValue);
 
 @interface BJSpecificJsonWriter : NSObject
 

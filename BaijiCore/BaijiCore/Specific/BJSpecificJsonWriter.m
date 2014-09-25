@@ -15,7 +15,7 @@
 @implementation BJSpecificJsonWriter
 
 - (NSData *)writeObject:(id<BJMutableRecord>)object {
-    NSDictionary *parsedObject = [self writeRecord:object schema:(BJRecordSchema *)[object schema]];
+    NSDictionary *parsedObject = [self writeRecord:object schema:(BJRecordSchema *)[[object class] schema]];
     return [parsedObject JSONData];
 }
 
@@ -33,23 +33,26 @@
     return parsedRecord;
 }
 
-- (void)writeValue:(id)datum schema:(BJSchema *)schema success:(BJJsonResolver)success {
+- (void)writeValue:(id)datum schema:(BJSchema *)schema success:(BJJsonWritingResolver)success {
     switch ([schema type]) {
         case BJSchemaTypeInt:
         case BJSchemaTypeLong:
         case BJSchemaTypeDouble:
         case BJSchemaTypeFloat:
         case BJSchemaTypeBoolean:
-        case BJSchemaTypeString:
             success([self writeNumber:datum]);
+            break;
+        case BJSchemaTypeString:
+            success([self writeString:datum]);
             break;
         case BJSchemaTypeBytes:
             success([self writeBytes:datum]);
             break;
         case BJSchemaTypeNull:
-            success([self writeNil]);
+            [NSException exceptionWithName:BJRuntimeException reason:@"null schema writes is are not supported" userInfo:nil];
             break;
         case BJSchemaTypeDateTime:
+            success([NSDate dateWithTimeIntervalSince1970:[[self writeNumber:datum] doubleValue]]);
             break;
         case BJSchemaTypeRecord:
             success([self writeRecord:datum schema:(BJRecordSchema *)schema]);
@@ -82,8 +85,8 @@
     return bytes;
 }
 
-- (id)writeNil {
-    return nil;
+- (NSString *)writeString:(NSString *)string {
+    return string;
 }
 
 //TODO check correctness
