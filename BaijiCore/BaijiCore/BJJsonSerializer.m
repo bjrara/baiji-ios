@@ -8,15 +8,20 @@
 
 #import "BJJsonSerializer.h"
 
+@interface BJJsonSerializer()
+
+@property (atomic, readonly) NSMutableDictionary *readerCache;
+@property (atomic, readonly) NSMutableDictionary *writerCache;
+
+@end
+
 @implementation BJJsonSerializer
 
-- (void)serialize:(id)obj to:(NSData *)source
-{
+- (void)serialize:(id)obj to:(NSData *)source {
     
 }
 
-- (id)deserialize:(Class)clazzType from:(NSData *)source
-{
+- (id)deserialize:(Class)clazzType from:(NSData *)source {
     return nil;
 }
 
