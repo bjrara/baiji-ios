@@ -15,7 +15,7 @@
 
 - (id)fieldAtIndex:(int)fieldPos;
 
-- (id)fieldWithName:(NSString *)fieldName;
+- (id)fieldForName:(NSString *)fieldName;
 
 - (void)setObject:(id)object atIndex:(int)fieldPos;
 

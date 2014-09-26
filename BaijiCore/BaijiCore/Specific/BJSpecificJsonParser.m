@@ -20,7 +20,7 @@
 }
 
 - (id<BJMutableRecord>)readRecord:(NSDictionary *)reuse schema:(BJRecordSchema *)recordSchema {
-    Class clazz = NSClassFromString([recordSchema fullname]);
+    Class clazz = NSClassFromString([recordSchema name]);
     if(![clazz conformsToProtocol:@protocol(BJMutableRecord)])
         [NSException exceptionWithName:BJRuntimeException reason:@"class is not a BJMutableRecord." userInfo:nil];
     id<BJMutableRecord> parsedRecord = [clazz new];
@@ -40,11 +40,13 @@
         case BJSchemaTypeNull:
             [NSException exceptionWithName:BJRuntimeException reason:@"null schema reads is are not supported" userInfo:nil];
         case BJSchemaTypeInt:
-        case BJSchemaTypeBoolean:
         case BJSchemaTypeDouble:
         case BJSchemaTypeLong:
         case BJSchemaTypeFloat:
             success([self readNumber:datum]);
+            break;
+        case BJSchemaTypeBoolean:
+            success([self readBoolean:datum]);
             break;
         case BJSchemaTypeString:
             success([self readString:datum]);
@@ -80,6 +82,10 @@
 
 - (NSNumber *)readNumber:(id)number {
     return number;
+}
+
+- (NSNumber *)readBoolean:(NSString *)value {
+    return [NSNumber numberWithBool:[@"true" isEqualToString:value]];
 }
 
 - (NSString *)readString:(NSString *)string {

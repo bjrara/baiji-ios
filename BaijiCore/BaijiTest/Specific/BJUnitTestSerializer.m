@@ -10,6 +10,7 @@
 #import "BJTestSerializerSample.h"
 #import "BJEnum1ValuesSpecific.h"
 #import "BJSpecificJsonWriter.h"
+#import "BJSpecificJsonParser.h"
 #import "JSONKit.h"
 
 @implementation BJUnitTestSerializer
@@ -68,16 +69,18 @@
 }
 
 - (void)runTestField:(NSString *)fieldName value:(id)value {
-    [self serializeAndDeserializeField:fieldName value:value];
+    BJTestSerializerSample *r2 = [self serializeAndDeserializeField:fieldName value:value];
+    GHAssertTrue([value isEqual:[r2 fieldForName:fieldName]], nil);
 }
 
 - (BJTestSerializerSample *)serializeAndDeserializeField:(NSString *)fieldName value:(id)value {
     BJTestSerializerSample *record = [[BJTestSerializerSample alloc] init];
     [record setObject:value forName:fieldName];
+    
     BJSpecificJsonWriter *writer = [[BJSpecificJsonWriter alloc] init];
     NSData *data = [writer writeObject:record];
-    id test = [data objectFromJSONData];
-    GHTestLog(@"%@", [test description]);
-    return nil;
+    GHTestLog(@"%@", [[data objectFromJSONData] description]);
+    BJSpecificJsonParser *parser = [[BJSpecificJsonParser alloc] init];
+    return [parser readData:data clazz:[BJTestSerializerSample class]];
 }
 @end
