@@ -73,7 +73,7 @@
         return nil;
     if([BJJsonHelper typeForObject:jAliases] != BJJsonTypeArray)
         [NSException exceptionWithName:BJSchemaParseException reason:@"Aliases must be of format JSON array of strings." userInfo:nil];
-    NSMutableArray *aliases = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *aliases = [[NSMutableArray alloc] init];
     for (id alias in jAliases) {
         if([BJJsonHelper typeForObject:alias] != BJJsonTypeText)
             [NSException exceptionWithName:BJSchemaParseException reason:@"Aliases must be of format JSON array of strings." userInfo:nil];

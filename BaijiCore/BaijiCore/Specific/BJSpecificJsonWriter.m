@@ -11,6 +11,7 @@
 #import "BJSchemas.h"
 #import "BJError.h"
 #import "JSONKit.h"
+#import "NSData(Base64).h"
 
 @implementation BJSpecificJsonWriter
 
@@ -39,8 +40,10 @@
         case BJSchemaTypeLong:
         case BJSchemaTypeDouble:
         case BJSchemaTypeFloat:
-        case BJSchemaTypeBoolean:
             success([self writeNumber:datum]);
+            break;
+        case BJSchemaTypeBoolean:
+            success([self writeBoolean:datum]);
             break;
         case BJSchemaTypeString:
             success([self writeString:datum]);
@@ -52,7 +55,7 @@
             [NSException exceptionWithName:BJRuntimeException reason:@"null schema writes is are not supported" userInfo:nil];
             break;
         case BJSchemaTypeDateTime:
-            success([NSDate dateWithTimeIntervalSince1970:[[self writeNumber:datum] doubleValue]]);
+            success([self writeNumber:[NSNumber numberWithInt:[((NSDate *)datum) timeIntervalSince1970]]]);
             break;
         case BJSchemaTypeRecord:
             success([self writeRecord:datum schema:(BJRecordSchema *)schema]);
@@ -81,8 +84,19 @@
     return number;
 }
 
-- (NSData *)writeBytes:(NSData *)bytes {
-    return bytes;
+- (NSString *)writeBoolean:(id)number {
+    if([number intValue] != 0)
+        return @"true";
+    else
+        return @"false";
+}
+
+- (NSString *)writeBytes:(NSData *)bytes {
+    /**
+     JSONKit does not support bytes serilization.
+     Either dynamically catch object classes that JSONKit does not automatically serialize and transform them in to a type that it does, or turn the NSData in to a Base64 encoded NSString. The later is the most common approach by far.
+     */
+    return [bytes base64EncodedString];
 }
 
 - (NSString *)writeString:(NSString *)string {

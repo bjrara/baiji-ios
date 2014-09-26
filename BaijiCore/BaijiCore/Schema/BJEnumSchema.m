@@ -96,7 +96,7 @@
                            doc:doc
                        aliases:aliases
                     properties:properties
-                         names:[[[BJSchemaNames alloc] init] autorelease]];
+                         names:[[BJSchemaNames alloc] init]];
     if(self) {
         if([schemaName name] == nil)
             [NSException exceptionWithName:BJSchemaParseException reason:@"name cannot be null for enum schema." userInfo:nil];

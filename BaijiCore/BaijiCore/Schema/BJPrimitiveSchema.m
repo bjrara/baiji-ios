@@ -44,8 +44,8 @@
         type = [type substringWithRange:NSMakeRange(1, [type length] - 2)];
     }
     NSNumber *schemaType = [[BJPrimitiveSchema typeMap] objectForKey:type];
-    return schemaType != nil ?[[[BJPrimitiveSchema alloc] initWithType:[schemaType intValue]
-                                                            properties:properties] autorelease] : nil;
+    return schemaType != nil ?[[BJPrimitiveSchema alloc] initWithType:[schemaType intValue]
+                                                            properties:properties] : nil;
 }
 
 - (NSString *)jsonObjectWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace {

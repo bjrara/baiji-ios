@@ -7,6 +7,8 @@
 //
 
 #import "BJJsonSerializer.h"
+#import "BJSpecificJsonParser.h"
+#import "BJSpecificJsonWriter.h"
 
 @interface BJJsonSerializer()
 
@@ -17,12 +19,14 @@
 
 @implementation BJJsonSerializer
 
-- (void)serialize:(id)obj to:(NSData *)source {
-    
+- (NSData *)serialize:(id)obj {
+    BJSpecificJsonWriter *writer = [[BJSpecificJsonWriter alloc] init];
+    return [writer writeObject:obj];
 }
 
-- (id)deserialize:(Class)clazzType from:(NSData *)source {
-    return nil;
+- (id)deserialize:(Class)clazz from:(NSData *)source {
+    BJSpecificJsonParser *parser = [[BJSpecificJsonParser alloc] init];
+    return [parser readData:source clazz:clazz];
 }
 
 @end

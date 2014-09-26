@@ -13,7 +13,7 @@
 @implementation BJJsonHelper
 
 + (BJPropertyMap *)propertiesFromObject:(id)obj {
-    BJPropertyMap *properties = [[[BJPropertyMap alloc] init] autorelease];
+    BJPropertyMap *properties = [[BJPropertyMap alloc] init];
     [properties parse:obj];
     return [properties count] == 0 ? nil : properties;
 }

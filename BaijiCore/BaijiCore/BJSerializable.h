@@ -10,8 +10,8 @@
 
 @protocol BJSerializable <NSObject>
 
-- (void)serialize:(id)obj to:(NSData *)source;
+- (NSData *)serialize:(id)obj;
 
-- (id)deserialize:(Class)clazzType from:(NSData *)source;
+- (id)deserialize:(Class)clazz from:(NSData *)source;
 
 @end

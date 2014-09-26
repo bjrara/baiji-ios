@@ -90,6 +90,24 @@
 		CEFBC2CA19D3B0D80034E202 /* BJMutableSpecificRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2C919D3B0D80034E202 /* BJMutableSpecificRecord.m */; };
 		CEFBC2E919D3C9B50034E202 /* BJSpecificEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2E819D3C9B50034E202 /* BJSpecificEnum.m */; };
 		CEFBC2EC19D3DFFF0034E202 /* BJSpecificJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2EB19D3DFFF0034E202 /* BJSpecificJsonParser.m */; };
+		CEFBC2F319D3F7DD0034E202 /* BJEnum1ValuesSpecific.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2F219D3F7DD0034E202 /* BJEnum1ValuesSpecific.m */; };
+		CEFBC2F619D3FA7F0034E202 /* BJTestSerializerSample.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2F519D3FA7F0034E202 /* BJTestSerializerSample.m */; };
+		CEFBC2FF19D406270034E202 /* BJMutableRecord.h in Sources */ = {isa = PBXBuildFile; fileRef = CE15C33519D2E1D100754015 /* BJMutableRecord.h */; };
+		CEFBC30019D406270034E202 /* BJMutableSpecificRecord.h in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2C819D3B0D80034E202 /* BJMutableSpecificRecord.h */; };
+		CEFBC30119D406270034E202 /* BJMutableSpecificRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2C919D3B0D80034E202 /* BJMutableSpecificRecord.m */; };
+		CEFBC30219D406270034E202 /* BJSpecificEnum.h in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2E719D3C9B40034E202 /* BJSpecificEnum.h */; };
+		CEFBC30319D406270034E202 /* BJSpecificEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2E819D3C9B50034E202 /* BJSpecificEnum.m */; };
+		CEFBC30419D406270034E202 /* BJSpecificJsonParser.h in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2EA19D3DFFF0034E202 /* BJSpecificJsonParser.h */; };
+		CEFBC30519D406270034E202 /* BJSpecificJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2EB19D3DFFF0034E202 /* BJSpecificJsonParser.m */; };
+		CEFBC30619D406270034E202 /* BJSpecificJsonWriter.h in Sources */ = {isa = PBXBuildFile; fileRef = CE15C32E19D2DCF900754015 /* BJSpecificJsonWriter.h */; };
+		CEFBC30719D406270034E202 /* BJSpecificJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C32F19D2DCF900754015 /* BJSpecificJsonWriter.m */; };
+		CEFBC30C19D413990034E202 /* BJUnitTestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC30B19D413990034E202 /* BJUnitTestSerializer.m */; };
+		CEFBC30D19D41A650034E202 /* BJJsonSerializer.h in Sources */ = {isa = PBXBuildFile; fileRef = CE449A0C19C91FE100F0D92D /* BJJsonSerializer.h */; };
+		CEFBC30E19D41A650034E202 /* BJJsonSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE449A0D19C91FE100F0D92D /* BJJsonSerializer.m */; };
+		CEFBC30F19D41A650034E202 /* BJSerializable.h in Sources */ = {isa = PBXBuildFile; fileRef = CE449A1019C9201700F0D92D /* BJSerializable.h */; };
+		CEFBC35019D50A4B0034E202 /* NSData(Base64).m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC34F19D50A4B0034E202 /* NSData(Base64).m */; };
+		CEFBC35119D50ABC0034E202 /* NSData(Base64).h in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC34E19D50A4B0034E202 /* NSData(Base64).h */; };
+		CEFBC35219D50ABC0034E202 /* NSData(Base64).m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC34F19D50A4B0034E202 /* NSData(Base64).m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +212,14 @@
 		CEFBC2E819D3C9B50034E202 /* BJSpecificEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSpecificEnum.m; sourceTree = "<group>"; };
 		CEFBC2EA19D3DFFF0034E202 /* BJSpecificJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSpecificJsonParser.h; sourceTree = "<group>"; };
 		CEFBC2EB19D3DFFF0034E202 /* BJSpecificJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSpecificJsonParser.m; sourceTree = "<group>"; };
+		CEFBC2F119D3F7DD0034E202 /* BJEnum1ValuesSpecific.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJEnum1ValuesSpecific.h; sourceTree = "<group>"; };
+		CEFBC2F219D3F7DD0034E202 /* BJEnum1ValuesSpecific.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJEnum1ValuesSpecific.m; sourceTree = "<group>"; };
+		CEFBC2F419D3FA7F0034E202 /* BJTestSerializerSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJTestSerializerSample.h; sourceTree = "<group>"; };
+		CEFBC2F519D3FA7F0034E202 /* BJTestSerializerSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJTestSerializerSample.m; sourceTree = "<group>"; };
+		CEFBC30A19D413990034E202 /* BJUnitTestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJUnitTestSerializer.h; sourceTree = "<group>"; };
+		CEFBC30B19D413990034E202 /* BJUnitTestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUnitTestSerializer.m; sourceTree = "<group>"; };
+		CEFBC34E19D50A4B0034E202 /* NSData(Base64).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData(Base64).h"; sourceTree = "<group>"; };
+		CEFBC34F19D50A4B0034E202 /* NSData(Base64).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData(Base64).m"; sourceTree = "<group>"; };
 		E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaijiTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -323,6 +349,7 @@
 				CE449A0C19C91FE100F0D92D /* BJJsonSerializer.h */,
 				CE449A0D19C91FE100F0D92D /* BJJsonSerializer.m */,
 				CE449A1019C9201700F0D92D /* BJSerializable.h */,
+				CEFBC33019D501510034E202 /* Crypto */,
 				CE449A1819C9282E00F0D92D /* Schema */,
 				CE15C32D19D2DCC700754015 /* Specific */,
 				CE52855819C84DE900B427B5 /* Supporting Files */,
@@ -347,6 +374,8 @@
 		CEEF41FF19D0011900EEDB5D /* BaijiTest */ = {
 			isa = PBXGroup;
 			children = (
+				CEFBC30919D4131E0034E202 /* Types */,
+				CEFBC2ED19D3F7970034E202 /* Specific */,
 				CEEF422019D0043A00EEDB5D /* Schema */,
 				CEEF420819D0011900EEDB5D /* BJAppDelegate.h */,
 				CEEF420919D0011900EEDB5D /* BJAppDelegate.m */,
@@ -393,6 +422,35 @@
 				CEEF42DD19D1527100EEDB5D /* BJSchemaTestBasic.m */,
 			);
 			path = Schema;
+			sourceTree = "<group>";
+		};
+		CEFBC2ED19D3F7970034E202 /* Specific */ = {
+			isa = PBXGroup;
+			children = (
+				CEFBC30A19D413990034E202 /* BJUnitTestSerializer.h */,
+				CEFBC30B19D413990034E202 /* BJUnitTestSerializer.m */,
+			);
+			path = Specific;
+			sourceTree = "<group>";
+		};
+		CEFBC30919D4131E0034E202 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				CEFBC2F119D3F7DD0034E202 /* BJEnum1ValuesSpecific.h */,
+				CEFBC2F219D3F7DD0034E202 /* BJEnum1ValuesSpecific.m */,
+				CEFBC2F419D3FA7F0034E202 /* BJTestSerializerSample.h */,
+				CEFBC2F519D3FA7F0034E202 /* BJTestSerializerSample.m */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		CEFBC33019D501510034E202 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				CEFBC34E19D50A4B0034E202 /* NSData(Base64).h */,
+				CEFBC34F19D50A4B0034E202 /* NSData(Base64).m */,
+			);
+			path = Crypto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -581,6 +639,7 @@
 				CEFBC2CA19D3B0D80034E202 /* BJMutableSpecificRecord.m in Sources */,
 				CEFBC2E919D3C9B50034E202 /* BJSpecificEnum.m in Sources */,
 				CEFBC2EC19D3DFFF0034E202 /* BJSpecificJsonParser.m in Sources */,
+				CEFBC35019D50A4B0034E202 /* NSData(Base64).m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +647,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEFBC35119D50ABC0034E202 /* NSData(Base64).h in Sources */,
+				CEFBC35219D50ABC0034E202 /* NSData(Base64).m in Sources */,
+				CEFBC30D19D41A650034E202 /* BJJsonSerializer.h in Sources */,
+				CEFBC30E19D41A650034E202 /* BJJsonSerializer.m in Sources */,
+				CEFBC30F19D41A650034E202 /* BJSerializable.h in Sources */,
+				CEFBC2FF19D406270034E202 /* BJMutableRecord.h in Sources */,
+				CEFBC30019D406270034E202 /* BJMutableSpecificRecord.h in Sources */,
+				CEFBC30119D406270034E202 /* BJMutableSpecificRecord.m in Sources */,
+				CEFBC30219D406270034E202 /* BJSpecificEnum.h in Sources */,
+				CEFBC30319D406270034E202 /* BJSpecificEnum.m in Sources */,
+				CEFBC30419D406270034E202 /* BJSpecificJsonParser.h in Sources */,
+				CEFBC30519D406270034E202 /* BJSpecificJsonParser.m in Sources */,
+				CEFBC30619D406270034E202 /* BJSpecificJsonWriter.h in Sources */,
+				CEFBC30719D406270034E202 /* BJSpecificJsonWriter.m in Sources */,
 				CEEF429219D0158800EEDB5D /* BJArraySchema.h in Sources */,
 				CEEF429319D0158800EEDB5D /* BJArraySchema.m in Sources */,
 				CEEF429419D0158800EEDB5D /* BJEnumSchema.h in Sources */,
@@ -630,6 +703,9 @@
 				CEEF42C419D12A4400EEDB5D /* BJSchemaTestMap.m in Sources */,
 				CEEF42C719D12B3600EEDB5D /* BJSchemaTestRecord.m in Sources */,
 				CEEF42DE19D1527200EEDB5D /* BJSchemaTestBasic.m in Sources */,
+				CEFBC2F319D3F7DD0034E202 /* BJEnum1ValuesSpecific.m in Sources */,
+				CEFBC2F619D3FA7F0034E202 /* BJTestSerializerSample.m in Sources */,
+				CEFBC30C19D413990034E202 /* BJUnitTestSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

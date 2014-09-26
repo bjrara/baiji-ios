@@ -34,10 +34,10 @@
 }
 
 - (void)setObject:(id)object forName:(NSString *)fieldName {
-    if(![[BJMutableSpecificRecord schema] isKindOfClass:[BJRecordSchema class]]) {
+    if(![[[self class] schema] isKindOfClass:[BJRecordSchema class]]) {
         return;
     }
-    BJRecordSchema *rs = (BJRecordSchema *)[BJMutableSpecificRecord schema];
+    BJRecordSchema *rs = (BJRecordSchema *)[[self class] schema];
     BJField *field = [rs fieldForName:fieldName];
     if(field != nil) {
         [self setObject:object atIndex:[field pos]];
