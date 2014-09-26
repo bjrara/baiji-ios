@@ -33,7 +33,7 @@ extern NSString *const BJSchemaTypeNames[];
 @interface BJSchema : NSObject
 
 @property (nonatomic, readonly) BJSchemaType type;
-@property (nonatomic, readonly) BJPropertyMap *properties;
+@property (nonatomic, readonly, retain) BJPropertyMap *properties;
 
 - (id)initWithType:(BJSchemaType)type properties:(BJPropertyMap *)properties;
 + (BJSchema *)parse:(NSString *)jString;

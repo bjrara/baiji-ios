@@ -15,7 +15,11 @@
 + (BJPropertyMap *)propertiesFromObject:(id)obj {
     BJPropertyMap *properties = [[BJPropertyMap alloc] init];
     [properties parse:obj];
-    return [properties count] == 0 ? nil : properties;
+    if([properties count] == 0) {
+        [properties release];
+        return nil;
+    }
+    return [properties autorelease];
 }
 
 + (NSString *)requiredStringForObject:(NSDictionary *)obj field:(NSString *)field {

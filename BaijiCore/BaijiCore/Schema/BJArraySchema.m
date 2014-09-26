@@ -11,6 +11,12 @@
 #import "BJSchema.h"
 #import "BJPropertyMap.h"
 
+@interface BJArraySchema()
+
+@property (nonatomic, readwrite, retain) BJSchema *itemSchema;
+
+@end
+
 @implementation BJArraySchema
 
 - (id)initWithItemSchema:(BJSchema *)itemSchema properties:(BJPropertyMap *)properties {
@@ -18,7 +24,7 @@
     if(self) {
         if(!itemSchema)
             [NSException exceptionWithName:BJArgumentException reason:@"ItemSchema cannot be null." userInfo:nil];
-        _itemSchema = itemSchema;
+        self.itemSchema = itemSchema;
     }
     return self;
 }
@@ -31,7 +37,7 @@
     if(jItems == nil)
         [NSException exceptionWithName:BJCallException reason:@"Array does not have 'items'" userInfo:nil];
     BJSchema *itemSchema = [BJSchema parseJson:jItems names:names encSpace:encSpace];
-    return [[BJArraySchema alloc] initWithItemSchema:itemSchema properties:properties];
+    return [[[BJArraySchema alloc] initWithItemSchema:itemSchema properties:properties] autorelease];
 }
 
 - (NSDictionary *)jsonObjectWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace {

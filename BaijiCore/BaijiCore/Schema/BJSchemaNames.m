@@ -10,12 +10,6 @@
 #import "BJNamedSchema.h"
 #import "BJSchemaName.h"
 
-@interface BJSchemaNames()
-
-@property (nonatomic, readwrite) NSMutableDictionary *names;
-
-@end
-
 @implementation BJSchemaNames
 
 - (id)init {
@@ -42,8 +36,7 @@
 }
 
 - (BJNamedSchema *)schemaWithName:(NSString *)name space:(NSString *)space encSpace:(NSString *)encSpace {
-    BJSchemaName *key = [[BJSchemaName alloc] initWithName:name space:space encSpace:encSpace];
-    //space is nil if schemaNames exists
+    BJSchemaName *key = [[[BJSchemaName alloc] initWithName:name space:space encSpace:encSpace] autorelease];
     return [self.names objectForKey:key];
 }
 
@@ -51,4 +44,8 @@
     return [self.names keyEnumerator];
 }
 
+- (void)dealloc {
+    [_names release];
+    [super dealloc];
+}
 @end

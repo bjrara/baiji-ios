@@ -17,9 +17,9 @@ typedef void (^BJFieldsHandler)(NSMutableDictionary *jObj);
 
 @interface BJNamedSchema : BJSchema
 
-@property (nonatomic, readonly) BJSchemaName *schemaName;
-@property (nonatomic, readonly) NSString *doc;
-@property (nonatomic, readonly) NSArray *aliases;
+@property (nonatomic, readonly, retain) BJSchemaName *schemaName;
+@property (nonatomic, readonly, retain) NSString *doc;
+@property (nonatomic, readonly, retain) NSArray *aliases;
 
 + (BJNamedSchema *)sharedInstanceForObject:(NSDictionary *)jsonObj
                                 properties:(BJPropertyMap *)properties

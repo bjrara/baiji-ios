@@ -16,6 +16,7 @@
 @interface BJEnumSchema()
 
 @property (nonatomic, readonly) NSDictionary *symbolMap;
+@property (nonatomic, readwrite, retain) NSArray *symbols;
 
 @end
 
@@ -34,8 +35,8 @@
         [NSException exceptionWithName:BJSchemaParseException reason:@"Enum has no symbols." userInfo:nil];
     if(![jSymbols isKindOfClass:[NSArray class]])
         [NSException exceptionWithName:BJSchemaParseException reason:@"Symbols field in enum must be an array." userInfo:nil];
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    NSMutableDictionary *map = [[NSMutableDictionary alloc] init];
+    NSMutableArray *array = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableDictionary *map = [[[NSMutableDictionary alloc] init] autorelease];
     __block int lastValue = -1;
     for (id jSymbol in jSymbols) {
         NSNumber *explicitValue = nil;
@@ -77,13 +78,13 @@
         [map setObject:values forKey:symbol];
         [array addObject:symbol];
     }
-    return [[BJEnumSchema alloc] initWithSchemaName:name
+    return [[[BJEnumSchema alloc] initWithSchemaName:name
                                                 doc:doc
                                             aliases:alias
                                             symbols:array
                                           symbolMap:map
                                          properties:properties
-                                              names:names];
+                                              names:names] autorelease];
 }
 
 - (id)initWithSchemaName:(BJSchemaName *)schemaName
@@ -96,7 +97,7 @@
                            doc:doc
                        aliases:aliases
                     properties:properties
-                         names:[[BJSchemaNames alloc] init]];
+                         names:[[[BJSchemaNames alloc] init] autorelease]];
     if(self) {
         if([schemaName name] == nil)
             [NSException exceptionWithName:BJSchemaParseException reason:@"name cannot be null for enum schema." userInfo:nil];
@@ -110,16 +111,15 @@
                 values = [[NSArray alloc] initWithObjects:obj, obj, nil];
                 [array addObject:key];
                 [map setObject:values forKey:key];
-                [values release];
             } else {
                 values = [[NSArray alloc] initWithObjects:nil, ++lastValue, nil];
                 [array addObject:key];
                 [map setObject:values forKey:key];
-                [values release];
             }
+            [values release];
         }];
-        _symbols = [NSArray arrayWithArray:array];
-        _symbolMap = [NSDictionary dictionaryWithDictionary:map];
+        self.symbols = [NSArray arrayWithArray:array];
+        _symbolMap = [[NSDictionary dictionaryWithDictionary:map] retain];
         [array release];
         [map release];
     }
@@ -142,8 +142,8 @@
     if(self) {
         if([schemaName name] == nil)
             [NSException exceptionWithName:BJSchemaParseException reason:@"name cannot be null for enum schema." userInfo:nil];
-        _symbols = symbols;
-        _symbolMap = symbolMap;
+        self.symbols = symbols;
+        _symbolMap = [symbolMap retain];
     }
     return self;
 }
@@ -197,8 +197,9 @@
             item = symbol;
         }
         [jArray addObject:item];
+        [item release];
     }
-    return jArray;
+    return [jArray autorelease];
 }
 
 #pragma override NSObject methods
@@ -229,4 +230,9 @@
     return value;
 }
 
+- (void)dealloc {
+    [self.symbols release];
+    [_symbolMap release];
+    [super dealloc];
+}
 @end

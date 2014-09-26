@@ -12,10 +12,10 @@
 
 @interface BJSchemaName : NSObject<NSCopying>
 
-@property (nonatomic,readonly) NSString *name;
-@property (nonatomic,readonly) NSString *space;
-@property (nonatomic,readonly) NSString *encSpace;
-@property (nonatomic,readonly) NSString *fullName;
+@property (nonatomic, readonly, retain) NSString *name;
+@property (nonatomic, readonly, retain) NSString *space;
+@property (nonatomic, readonly, retain) NSString *encSpace;
+@property (nonatomic, readonly, retain) NSString *fullName;
 
 - (id)initWithName:(NSString *)name space:(NSString *)space encSpace:(NSString *)encSpace;
 - (NSString *)string;

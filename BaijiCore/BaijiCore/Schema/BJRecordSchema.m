@@ -16,6 +16,7 @@
 
 @interface BJRecordSchema()
 
+@property (nonatomic, readwrite, retain) NSArray *fields;
 @property (nonatomic, readonly) BOOL request;
 @property (nonatomic, readonly) NSMutableDictionary *fieldLookup;
 @property (nonatomic, readonly) NSMutableDictionary *fieldAliasLookup;
@@ -79,10 +80,10 @@
     if(self) {
         if(!request && [name name] == nil)
             [NSException exceptionWithName:BJSchemaParseException reason:@"name cannot be null for record schema." userInfo:nil];
-        _fields = fields;
+        self.fields = fields;
         _request = request;
-        _fieldLookup = fieldMap;
-        _fieldAliasLookup = fieldAliasMap;
+        _fieldLookup = [fieldMap retain];
+        _fieldAliasLookup = [fieldAliasMap retain];
     }
     return self;
 }
@@ -135,7 +136,10 @@
             }
         }
     }
-    return result;
+    [fields release];
+    [fieldMap release];
+    [fieldAliasMap release];
+    return [result autorelease];
 }
 
 + (void)addToFieldMap:(NSMutableDictionary *)map WithName:(NSString *)name field:(BJField *)field {
@@ -204,6 +208,8 @@
 }
 
 - (void)dealloc {
+    if(self.fields)
+        [self.fields release];
     [_fieldLookup release];
     [_fieldAliasLookup release];
     [super dealloc];

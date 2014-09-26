@@ -13,7 +13,7 @@
 
 @interface BJRecordSchema : BJNamedSchema
 
-@property (nonatomic, readonly) NSArray *fields;
+@property (nonatomic, readonly, retain) NSArray *fields;
 
 - (id)initWithName:(BJSchemaName *)name
                doc:(NSString *)doc

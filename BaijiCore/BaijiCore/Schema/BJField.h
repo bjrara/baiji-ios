@@ -22,14 +22,14 @@ extern NSString *const BJSortOrderNames[];
 
 @interface BJField : NSObject
 
-@property (nonatomic, readonly) NSString *name;
-@property (nonatomic, readonly) NSArray *aliases;
+@property (nonatomic, readonly, retain) NSString *name;
+@property (nonatomic, readonly, retain) NSArray *aliases;
 @property (nonatomic, readonly) int pos;
-@property (nonatomic, readonly) NSString *doc;
-@property (nonatomic, readonly) id defaultValue;
+@property (nonatomic, readonly, retain) NSString *doc;
+@property (nonatomic, readonly, retain) id defaultValue;
 @property (nonatomic, readonly) BJSortOrder ordering;
-@property (nonatomic, readonly) BJSchema *schema;
-@property (nonatomic, readonly) BJPropertyMap *properties;
+@property (nonatomic, readonly, retain) BJSchema *schema;
+@property (nonatomic, readonly, retain) BJPropertyMap *properties;
 
 - (id)initWithSchema:(BJSchema *)schema
                 name:(NSString *)name

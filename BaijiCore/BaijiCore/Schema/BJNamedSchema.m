@@ -14,6 +14,14 @@
 #import "BJRecordSchema.h"
 #import "BJEnumSchema.h"
 
+@interface BJNamedSchema()
+
+@property (nonatomic, readwrite, retain) BJSchemaName *schemaName;
+@property (nonatomic, readwrite, retain) NSString *doc;
+@property (nonatomic, readwrite, retain) NSArray *aliases;
+
+@end
+
 @implementation BJNamedSchema
 
 + (BJNamedSchema *)sharedInstanceForObject:(NSDictionary *)jsonObj
@@ -37,9 +45,9 @@
              names:(BJSchemaNames *)names {
     self = [super initWithType:type properties:properties];
     if(self) {
-        _schemaName = schemaName;
-        _doc = doc;
-        _aliases = aliases;
+        self.schemaName = schemaName;
+        self.doc = doc;
+        self.aliases = aliases;
         if([schemaName name] != nil && [names addWithSchemaName:schemaName namedSchema:self]) {
             [NSException exceptionWithName:BJRuntimeException
                                     reason:[NSString stringWithFormat:@"Duplicated schema name %@", [schemaName string]]
@@ -64,7 +72,7 @@
 + (BJSchemaName *)schemaNameForObject:(NSDictionary *)jsonObj encSpace:(NSString *)encSpace {
     NSString *name = [BJJsonHelper optionalStringForObject:jsonObj field:@"name"];
     NSString *ns = [BJJsonHelper optionalStringForObject:jsonObj field:@"namespace"];
-    return [[BJSchemaName alloc] initWithName:name space:ns encSpace:encSpace];
+    return [[[BJSchemaName alloc] initWithName:name space:ns encSpace:encSpace] autorelease];
 }
 
 + (NSArray *)aliasesForObject:(NSDictionary *)jsonObj space:(NSString *)space encSpace:(NSString *)encSpace {
@@ -81,7 +89,7 @@
         [aliases addObject:aliasName];
         [aliasName release];
     }
-    return aliases;
+    return [aliases autorelease];
 }
 
 - (BOOL)inAliasesForName:(BJSchemaName *)schemaName {
@@ -130,6 +138,7 @@
                 [array addObject:fullName];
             }
             [jObj setObject:array forKey:@"aliases"];
+            [array release];
         }
         handler(jObj);
         return jObj;
@@ -137,4 +146,12 @@
     return nil;
 }
 
+- (void)dealloc {
+    if(self.doc)
+        [self.doc release];
+    if(self.aliases)
+        [self.aliases release];
+    [self.schemaName release];
+    [super dealloc];
+}
 @end

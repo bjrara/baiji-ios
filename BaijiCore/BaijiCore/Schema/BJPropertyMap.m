@@ -136,4 +136,9 @@
     return hash;
 }
 
+- (void)dealloc {
+    [_proxy release];
+    [super dealloc];
+}
+
 @end

@@ -11,6 +11,12 @@
 #import "BJSchema.h"
 #import "BJPropertyMap.h"
 
+@interface BJMapSchema()
+
+@property (nonatomic, readwrite, retain) BJSchema *valueSchema;
+
+@end
+
 @implementation BJMapSchema
 
 - (id)initWithValueSchema:(BJSchema *)valueSchema properties:(BJPropertyMap *)properties {
@@ -18,7 +24,7 @@
     if(self) {
         if(valueSchema == nil)
             [NSException exceptionWithName:BJArgumentException reason:@"valueSchema cannot be null." userInfo:nil];
-        _valueSchema = valueSchema;
+        self.valueSchema = valueSchema;
     }
     return self;
 }
@@ -59,6 +65,11 @@
 
 - (NSUInteger)hash {
     return 29 * [self.valueSchema hash] + [self.properties hash];
+}
+
+- (void)dealloc {
+    [self.valueSchema release];
+    [super dealloc];
 }
 
 @end

@@ -11,7 +11,7 @@
 
 @interface BJEnumSchema : BJNamedSchema
 
-@property (nonatomic, readonly) NSArray *symbols;
+@property (nonatomic, readonly, retain) NSArray *symbols;
 
 - (id)initWithSchemaName:(BJSchemaName *)schemaName
                      doc:(NSString *)doc

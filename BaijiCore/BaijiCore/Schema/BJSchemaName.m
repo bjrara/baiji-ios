@@ -9,6 +9,15 @@
 #import "BJSchemaName.h"
 #import "BJJsonHelper.h"
 
+@interface BJSchemaName()
+
+@property (nonatomic, readwrite, retain) NSString *name;
+@property (nonatomic, readwrite, retain) NSString *space;
+@property (nonatomic, readwrite, retain) NSString *encSpace;
+@property (nonatomic, readwrite, retain) NSString *fullName;
+
+@end
+
 @implementation BJSchemaName
 
 - (id)initWithName:(NSString *)name
@@ -17,23 +26,23 @@
     self = [super init];
     if(self) {
         if(name == nil) {
-            _name = _space = nil;
-            _encSpace = _encSpace;
-            _fullName = nil;
+            self.name = self.space = nil;
+            self.encSpace = self.encSpace;
+            self.fullName = nil;
         }
         NSArray *nsCompos = [name componentsSeparatedByString:@"."];
         if([nsCompos count] == 1) {
-            _name = name;
-            _space = space;
-            _encSpace = encSpace;
+            self.name = name;
+            self.space = space;
+            self.encSpace = encSpace;
         } else {
             NSRange range = NSMakeRange(0, [nsCompos count] -2);
-            _space = [[nsCompos subarrayWithRange:range] componentsJoinedByString:@"."];
-            _name = [nsCompos objectAtIndex:[nsCompos count]-1];
-            _encSpace = encSpace;
+            self.space = [[nsCompos subarrayWithRange:range] componentsJoinedByString:@"."];
+            self.name = [nsCompos objectAtIndex:[nsCompos count]-1];
+            self.encSpace = encSpace;
         }
         NSString *namespace = self.ns;
-        _fullName = namespace != nil & [namespace length] != 0 ? [NSString stringWithFormat:@"%@.%@", namespace, self.name] : self.name;
+        self.fullName = namespace != nil & [namespace length] != 0 ? [NSString stringWithFormat:@"%@.%@", namespace, self.name] : self.name;
     }
     return self;
 }
@@ -58,6 +67,7 @@
         return YES;
     if(![object isKindOfClass:[BJSchemaName class]])
         return NO;
+    
     BJSchemaName *that = (BJSchemaName *)object;
     return self.fullName == nil ? [that fullName] == nil : [self.fullName isEqualToString:[that fullName]];
 }
@@ -73,6 +83,19 @@
                                                                    space:self.space
                                                                 encSpace:self.encSpace];
     return copy;
+    
+}
+
+- (void)dealloc {
+    if(self.name)
+        [self.name release];
+    if(self.space)
+        [self.space release];
+    if(self.encSpace)
+        [self.encSpace release];
+    if(self.fullName)
+        [self.fullName release];
+    [super dealloc];
 }
 
 @end

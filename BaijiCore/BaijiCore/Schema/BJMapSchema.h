@@ -13,7 +13,7 @@
 
 @interface BJMapSchema : BJUnnamedSchema
 
-@property (nonatomic, readonly) BJSchema *valueSchema;
+@property (nonatomic, readonly, retain) BJSchema *valueSchema;
 
 - (id)initWithValueSchema:(BJSchema *)valueSchema properties:(BJPropertyMap *)properties;
 + (BJMapSchema *)sharedInstanceForObject:(NSDictionary *)jsonObj

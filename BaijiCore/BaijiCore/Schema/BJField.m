@@ -12,6 +12,19 @@
 #import "BJSchema.h"
 #import "BJPropertyMap.h"
 
+@interface BJField()
+
+@property (nonatomic, readwrite, retain) NSString *name;
+@property (nonatomic, readwrite, retain) NSArray *aliases;
+@property (nonatomic, readwrite) int pos;
+@property (nonatomic, readwrite, retain) NSString *doc;
+@property (nonatomic, readwrite, retain) id defaultValue;
+@property (nonatomic, readwrite) BJSortOrder ordering;
+@property (nonatomic, readwrite, retain) BJSchema *schema;
+@property (nonatomic, readwrite, retain) BJPropertyMap *properties;
+
+@end
+
 @implementation BJField
 
 NSString *const BJSortOrderNames[] = {
@@ -36,14 +49,14 @@ NSString *const BJSortOrderNames[] = {
         if(schema == nil) {
             [NSException exceptionWithName:BJArgumentException reason:@"schema cannot be null." userInfo:nil];
         }
-        _schema = schema;
-        _name = name;
-        _aliases = aliases;
-        _pos = pos;
-        _doc = doc;
-        _defaultValue = defaultValue;
-        _ordering = ordering;
-        _properties = properties;
+        self.schema = schema;
+        self.name = name;
+        self.aliases = aliases;
+        self.pos = pos;
+        self.doc = doc;
+        self.defaultValue = defaultValue;
+        self.ordering = ordering;
+        self.properties = properties;
     }
     return self;
 }
@@ -93,6 +106,20 @@ NSString *const BJSortOrderNames[] = {
         [jObj setObject:array forKey:@"aliases"];
     }
     return jObj;
+}
+
+- (void)dealloc {
+    if(self.aliases)
+        [self.aliases release];
+    if(self.doc)
+        [self.doc release];
+    if(self.defaultValue)
+        [self.defaultValue release];
+    if(self.properties)
+        [self.properties release];
+    [self.name release];
+    [self.schema release];
+    [super dealloc];
 }
 
 @end

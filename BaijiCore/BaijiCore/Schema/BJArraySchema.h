@@ -14,7 +14,7 @@
 
 @interface BJArraySchema :BJUnnamedSchema
 
-@property (nonatomic, readonly) BJSchema *itemSchema;
+@property (nonatomic, readonly, retain) BJSchema *itemSchema;
 
 - (id)initWithItemSchema:(BJSchema *)itemSchema properties:(BJPropertyMap *)properties;
 + (BJArraySchema *)sharedInstanceForObject:(NSDictionary *)jsonObj

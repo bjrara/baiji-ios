@@ -17,21 +17,24 @@
 @implementation BJPrimitiveSchema
 
 + (NSDictionary *)typeMap {
-    static NSDictionary *typeMap;
-    
-    NSMutableDictionary *map = [[NSMutableDictionary alloc] init];
-    [map setObject:[NSNumber numberWithInt:BJSchemaTypeNull] forKey:@"null"];
-    [map setObject:[NSNumber numberWithInt:BJSchemaTypeBoolean] forKey:@"boolean"];
-    [map setObject:[NSNumber numberWithInt:BJSchemaTypeInt] forKey:@"int"];
-    [map setObject:[NSNumber numberWithInt:BJSchemaTypeLong] forKey:@"long"];
-    [map setObject:[NSNumber numberWithInt:BJSchemaTypeFloat] forKey:@"float"];
-    [map setObject:[NSNumber numberWithInt:BJSchemaTypeDouble] forKey:@"double"];
-    [map setObject:[NSNumber numberWithInt:BJSchemaTypeBytes] forKey:@"bytes"];
-    [map setObject:[NSNumber numberWithInt:BJSchemaTypeString] forKey:@"string"];
-    [map setObject:[NSNumber numberWithInt:BJSchemaTypeDateTime] forKey:@"datetime"];
-    
-    typeMap = [NSDictionary dictionaryWithDictionary:map];
-    return typeMap;
+    static NSDictionary *__typeMap = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSMutableDictionary *map = [[NSMutableDictionary alloc] init];
+        [map setObject:[NSNumber numberWithInt:BJSchemaTypeNull] forKey:@"null"];
+        [map setObject:[NSNumber numberWithInt:BJSchemaTypeBoolean] forKey:@"boolean"];
+        [map setObject:[NSNumber numberWithInt:BJSchemaTypeInt] forKey:@"int"];
+        [map setObject:[NSNumber numberWithInt:BJSchemaTypeLong] forKey:@"long"];
+        [map setObject:[NSNumber numberWithInt:BJSchemaTypeFloat] forKey:@"float"];
+        [map setObject:[NSNumber numberWithInt:BJSchemaTypeDouble] forKey:@"double"];
+        [map setObject:[NSNumber numberWithInt:BJSchemaTypeBytes] forKey:@"bytes"];
+        [map setObject:[NSNumber numberWithInt:BJSchemaTypeString] forKey:@"string"];
+        [map setObject:[NSNumber numberWithInt:BJSchemaTypeDateTime] forKey:@"datetime"];
+        
+        __typeMap = [NSDictionary dictionaryWithDictionary:map];
+        [map release];
+    });
+    return __typeMap;
 }
 
 + (id)sharedInstanceForType:(NSString *)type {
@@ -44,8 +47,8 @@
         type = [type substringWithRange:NSMakeRange(1, [type length] - 2)];
     }
     NSNumber *schemaType = [[BJPrimitiveSchema typeMap] objectForKey:type];
-    return schemaType != nil ?[[BJPrimitiveSchema alloc] initWithType:[schemaType intValue]
-                                                            properties:properties] : nil;
+    return schemaType != nil ?[[[BJPrimitiveSchema alloc] initWithType:[schemaType intValue]
+                                                            properties:properties] autorelease] : nil;
 }
 
 - (NSString *)jsonObjectWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace {

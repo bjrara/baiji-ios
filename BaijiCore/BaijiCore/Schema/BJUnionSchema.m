@@ -12,6 +12,12 @@
 #import "BJSchema.h"
 #import "BJSchemaName.h"
 
+@interface BJUnionSchema()
+
+@property (nonatomic, readwrite, retain) NSArray *schemas;
+
+@end
+
 @implementation BJUnionSchema
 
 + (BJUnionSchema *)sharedInstanceForSchemas:(NSArray *)jsonObj
@@ -34,7 +40,8 @@
         [uniqueSchemas setObject:name forKey:name];
         [schemas addObject:unionType];
     }
-    return [[BJUnionSchema alloc] initWithSchemas:schemas properties:properties];
+    [uniqueSchemas release];
+    return [[BJUnionSchema alloc] initWithSchemas:[schemas autorelease] properties:properties];
 }
 
 - (id)initWithSchemas:(NSArray *)schemas properties:(BJPropertyMap *)properties {
@@ -42,7 +49,7 @@
     if(self) {
         if(schemas == nil)
             [NSException exceptionWithName:BJArgumentException reason:@"union schemas cannot be empty." userInfo:nil];
-        _schemas = schemas;
+        self.schemas = schemas;
     }
     return self;
 }
@@ -80,6 +87,11 @@
         result += 89 * [schema hash];
     result += [self.properties hash];
     return result;
+}
+
+- (void)dealloc {
+    [self.schemas release];
+    [super dealloc];
 }
 
 @end

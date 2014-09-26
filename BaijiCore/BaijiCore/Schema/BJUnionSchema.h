@@ -15,7 +15,7 @@
 
 @interface BJUnionSchema : BJUnnamedSchema
 
-@property (nonatomic, readonly) NSArray *schemas;
+@property (nonatomic, readonly, retain) NSArray *schemas;
 
 + (BJUnionSchema *)sharedInstanceForSchemas:(NSArray *)jsonObj
                                  properties:(BJPropertyMap *)properties

@@ -18,6 +18,13 @@
 #import "BJUnionSchema.h"
 #import "BJMapSchema.h"
 
+@interface BJSchema()
+
+@property (nonatomic, readwrite) BJSchemaType type;
+@property (nonatomic, readwrite, retain) BJPropertyMap *properties;
+
+@end
+
 @implementation BJSchema
 
 NSString *const BJSchemaTypeNames[] = {
@@ -39,8 +46,8 @@ NSString *const BJSchemaTypeNames[] = {
 - (id)initWithType:(BJSchemaType)type properties:(BJPropertyMap *)properties {
     self = [super init];
     if(self) {
-        _type = type;
-        _properties = properties;
+        self.type = type;
+        self.properties = properties;
     }
     return self;
 }
@@ -137,7 +144,7 @@ NSString *const BJSchemaTypeNames[] = {
 }
 
 - (NSString *)description {
-    NSMutableDictionary *jObj = [self jsonObjectWithSchemaNames:[[BJSchemaNames alloc] init] encSpace:nil];
+    NSMutableDictionary *jObj = [self jsonObjectWithSchemaNames:[[[BJSchemaNames alloc] init] autorelease] encSpace:nil];
     return [jObj JSONString];
 }
 
@@ -155,7 +162,7 @@ NSString *const BJSchemaTypeNames[] = {
 - (NSMutableDictionary *)startObject {
     NSMutableDictionary *jObj = [[NSMutableDictionary alloc] init];
     [jObj setObject:[BJSchema nameForType:self.type] forKey:@"type"];
-    return jObj;
+    return [jObj autorelease];
 }
 
 #pragma override NSObject methods
@@ -176,6 +183,11 @@ NSString *const BJSchemaTypeNames[] = {
 
 - (NSUInteger)hash {
     return self.type + [self.properties hash];
+}
+
+- (void)dealloc {
+    [self.properties release];
+    [super dealloc];
 }
 
 @end
