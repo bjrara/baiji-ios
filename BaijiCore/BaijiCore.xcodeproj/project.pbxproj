@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BE218DB19E7DE1800FABD15 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218D919E7DE1800FABD15 /* JSONKit.m */; };
+		3BE218DC19E7DE1800FABD15 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218D919E7DE1800FABD15 /* JSONKit.m */; };
+		3BE218DD19E7DE1800FABD15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3BE218DA19E7DE1800FABD15 /* README.md */; };
+		3BE218DE19E7DE1800FABD15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3BE218DA19E7DE1800FABD15 /* README.md */; };
 		45BE962B84454BB59A86CD03 /* libPods-BaijiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A363983496479B839AECA5 /* libPods-BaijiCore.a */; };
 		BC3CCE3F7A324610A67D151B /* libPods-BaijiTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */; };
 		CE0F0FA119CA820000C0C11E /* BJPrimitiveSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F0FA019CA820000C0C11E /* BJPrimitiveSchema.m */; };
@@ -43,7 +47,6 @@
 		CEEF41FE19D0011900EEDB5D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE52855519C84DE900B427B5 /* CoreData.framework */; };
 		CEEF420419D0011900EEDB5D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEEF420219D0011900EEDB5D /* InfoPlist.strings */; };
 		CEEF420619D0011900EEDB5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF420519D0011900EEDB5D /* main.m */; };
-		CEEF420A19D0011900EEDB5D /* BJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF420919D0011900EEDB5D /* BJAppDelegate.m */; };
 		CEEF420C19D0011900EEDB5D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEF420B19D0011900EEDB5D /* Default.png */; };
 		CEEF420E19D0011900EEDB5D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEF420D19D0011900EEDB5D /* Default@2x.png */; };
 		CEEF421019D0011900EEDB5D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEEF420F19D0011900EEDB5D /* Default-568h@2x.png */; };
@@ -121,8 +124,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B808A45A0994795AFFE6352 /* Pods-BaijiTest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiTest.xcconfig"; path = "../Pods/Pods-BaijiTest.xcconfig"; sourceTree = "<group>"; };
-		8C90C4C08EB14C65A168DD10 /* Pods-BaijiCore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.xcconfig"; path = "../Pods/Pods-BaijiCore.xcconfig"; sourceTree = "<group>"; };
+		06C322F45ED0357DEF4FAA72 /* Pods-BaijiTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiTest.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiTest/Pods-BaijiTest.release.xcconfig"; sourceTree = "<group>"; };
+		3BE218D819E7DE1800FABD15 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		3BE218D919E7DE1800FABD15 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		3BE218DA19E7DE1800FABD15 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		4DE4BFB7696BFF938A0C2523 /* Pods-BaijiCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.release.xcconfig"; sourceTree = "<group>"; };
+		89BDDC28A3F7E75F3876702D /* Pods-BaijiTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiTest.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiTest/Pods-BaijiTest.debug.xcconfig"; sourceTree = "<group>"; };
+		98F231124498FE922C52957D /* Pods-BaijiCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.debug.xcconfig"; sourceTree = "<group>"; };
 		A9A363983496479B839AECA5 /* libPods-BaijiCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaijiCore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0F0F9F19CA820000C0C11E /* BJPrimitiveSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJPrimitiveSchema.h; sourceTree = "<group>"; };
 		CE0F0FA019CA820000C0C11E /* BJPrimitiveSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJPrimitiveSchema.m; sourceTree = "<group>"; };
@@ -181,8 +189,6 @@
 		CEEF420319D0011900EEDB5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CEEF420519D0011900EEDB5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CEEF420719D0011900EEDB5D /* BaijiTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaijiTest-Prefix.pch"; sourceTree = "<group>"; };
-		CEEF420819D0011900EEDB5D /* BJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJAppDelegate.h; sourceTree = "<group>"; };
-		CEEF420919D0011900EEDB5D /* BJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BJAppDelegate.m; sourceTree = "<group>"; };
 		CEEF420B19D0011900EEDB5D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CEEF420D19D0011900EEDB5D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CEEF420F19D0011900EEDB5D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -251,6 +257,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		133405EDDB0047150AB63A2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98F231124498FE922C52957D /* Pods-BaijiCore.debug.xcconfig */,
+				4DE4BFB7696BFF938A0C2523 /* Pods-BaijiCore.release.xcconfig */,
+				89BDDC28A3F7E75F3876702D /* Pods-BaijiTest.debug.xcconfig */,
+				06C322F45ED0357DEF4FAA72 /* Pods-BaijiTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3BE218D619E7DE1800FABD15 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				3BE218D719E7DE1800FABD15 /* JSONKit */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		3BE218D719E7DE1800FABD15 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				3BE218D819E7DE1800FABD15 /* JSONKit.h */,
+				3BE218D919E7DE1800FABD15 /* JSONKit.m */,
+				3BE218DA19E7DE1800FABD15 /* README.md */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
 		CE15C32D19D2DCC700754015 /* Specific */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,13 +341,13 @@
 		CE52854019C84DE900B427B5 = {
 			isa = PBXGroup;
 			children = (
-				CEEF425C19D012C300EEDB5D /* libPods-BaijiCore.a */,
 				CE52855719C84DE900B427B5 /* BaijiCore */,
 				CEEF41FF19D0011900EEDB5D /* BaijiTest */,
 				CE52854E19C84DE900B427B5 /* Frameworks */,
+				3BE218D619E7DE1800FABD15 /* Lib */,
+				CEEF425C19D012C300EEDB5D /* libPods-BaijiCore.a */,
+				133405EDDB0047150AB63A2A /* Pods */,
 				CE52854C19C84DE900B427B5 /* Products */,
-				8C90C4C08EB14C65A168DD10 /* Pods-BaijiCore.xcconfig */,
-				5B808A45A0994795AFFE6352 /* Pods-BaijiTest.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -377,8 +412,6 @@
 				CEFBC30919D4131E0034E202 /* Types */,
 				CEFBC2ED19D3F7970034E202 /* Specific */,
 				CEEF422019D0043A00EEDB5D /* Schema */,
-				CEEF420819D0011900EEDB5D /* BJAppDelegate.h */,
-				CEEF420919D0011900EEDB5D /* BJAppDelegate.m */,
 				CEEF421119D0011900EEDB5D /* BaijiTest.xcdatamodeld */,
 				CEEF420019D0011900EEDB5D /* Supporting Files */,
 			);
@@ -530,6 +563,7 @@
 			files = (
 				CE52855C19C84DE900B427B5 /* InfoPlist.strings in Resources */,
 				CE52856419C84DE900B427B5 /* Default.png in Resources */,
+				3BE218DD19E7DE1800FABD15 /* README.md in Resources */,
 				CE52856619C84DE900B427B5 /* Default@2x.png in Resources */,
 				CE52856819C84DE900B427B5 /* Default-568h@2x.png in Resources */,
 			);
@@ -541,6 +575,7 @@
 			files = (
 				CEEF420419D0011900EEDB5D /* InfoPlist.strings in Resources */,
 				CEEF420C19D0011900EEDB5D /* Default.png in Resources */,
+				3BE218DE19E7DE1800FABD15 /* README.md in Resources */,
 				CEEF420E19D0011900EEDB5D /* Default@2x.png in Resources */,
 				CEEF421019D0011900EEDB5D /* Default-568h@2x.png in Resources */,
 			);
@@ -591,7 +626,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Pods-BaijiCore-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DF00C8D0E6BD4F409E16877F /* Copy Pods Resources */ = {
@@ -606,7 +641,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Pods-BaijiTest-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-BaijiTest/Pods-BaijiTest-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -640,6 +675,7 @@
 				CEFBC2E919D3C9B50034E202 /* BJSpecificEnum.m in Sources */,
 				CEFBC2EC19D3DFFF0034E202 /* BJSpecificJsonParser.m in Sources */,
 				CEFBC35019D50A4B0034E202 /* NSData(Base64).m in Sources */,
+				3BE218DB19E7DE1800FABD15 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,6 +712,7 @@
 				CEEF429E19D0158800EEDB5D /* BJRecordSchema.h in Sources */,
 				CEEF429F19D0158800EEDB5D /* BJRecordSchema.m in Sources */,
 				CEEF42A019D0158800EEDB5D /* BJSchemaName.h in Sources */,
+				3BE218DC19E7DE1800FABD15 /* JSONKit.m in Sources */,
 				CEEF42A119D0158800EEDB5D /* BJSchemaName.m in Sources */,
 				CEEF42A219D0158800EEDB5D /* BJSchemaNames.h in Sources */,
 				CEEF42A319D0158800EEDB5D /* BJSchemaNames.m in Sources */,
@@ -692,7 +729,6 @@
 				CEEF428E19D0156000EEDB5D /* BJSchema.h in Sources */,
 				CEEF428F19D0156000EEDB5D /* BJSchema.m in Sources */,
 				CEEF420619D0011900EEDB5D /* main.m in Sources */,
-				CEEF420A19D0011900EEDB5D /* BJAppDelegate.m in Sources */,
 				CEEF421319D0011900EEDB5D /* BaijiTest.xcdatamodeld in Sources */,
 				CEEF422419D0047300EEDB5D /* BJSchemaTestPrimitive.m in Sources */,
 				CEEF423F19D00BDF00EEDB5D /* BJSchemaTestBase.m in Sources */,
@@ -789,7 +825,7 @@
 		};
 		CE52856F19C84DE900B427B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C90C4C08EB14C65A168DD10 /* Pods-BaijiCore.xcconfig */;
+			baseConfigurationReference = 98F231124498FE922C52957D /* Pods-BaijiCore.debug.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BaijiCore/BaijiCore-Prefix.pch";
@@ -801,7 +837,7 @@
 		};
 		CE52857019C84DE900B427B5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C90C4C08EB14C65A168DD10 /* Pods-BaijiCore.xcconfig */;
+			baseConfigurationReference = 4DE4BFB7696BFF938A0C2523 /* Pods-BaijiCore.release.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BaijiCore/BaijiCore-Prefix.pch";
@@ -813,7 +849,7 @@
 		};
 		CEEF421419D0011900EEDB5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B808A45A0994795AFFE6352 /* Pods-BaijiTest.xcconfig */;
+			baseConfigurationReference = 89BDDC28A3F7E75F3876702D /* Pods-BaijiTest.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -826,7 +862,7 @@
 		};
 		CEEF421519D0011900EEDB5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B808A45A0994795AFFE6352 /* Pods-BaijiTest.xcconfig */;
+			baseConfigurationReference = 06C322F45ED0357DEF4FAA72 /* Pods-BaijiTest.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
