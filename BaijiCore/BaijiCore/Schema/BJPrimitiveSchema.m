@@ -31,7 +31,7 @@
         [map setObject:[NSNumber numberWithInt:BJSchemaTypeString] forKey:@"string"];
         [map setObject:[NSNumber numberWithInt:BJSchemaTypeDateTime] forKey:@"datetime"];
         
-        __typeMap = [NSDictionary dictionaryWithDictionary:map];
+        __typeMap = [[NSDictionary dictionaryWithDictionary:map] retain];
         [map release];
     });
     return __typeMap;

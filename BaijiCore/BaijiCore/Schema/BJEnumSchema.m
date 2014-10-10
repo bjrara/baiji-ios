@@ -16,7 +16,6 @@
 @interface BJEnumSchema()
 
 @property (nonatomic, readonly) NSDictionary *symbolMap;
-@property (nonatomic, readwrite, retain) NSArray *symbols;
 
 @end
 
@@ -39,9 +38,9 @@
     NSMutableDictionary *map = [[[NSMutableDictionary alloc] init] autorelease];
     __block int lastValue = -1;
     for (id jSymbol in jSymbols) {
-        NSNumber *explicitValue = nil;
-        NSNumber *actualValue;
-        NSString *symbol;
+        NSNumber *explicitValue, *actualValue;
+        explicitValue = actualValue = nil;
+        NSString *symbol = nil;
         switch ([BJJsonHelper typeForObject:jSymbol]) {
             case BJJsonTypeText: {
                 symbol = jSymbol;
@@ -50,7 +49,7 @@
             }
             case BJJsonTypeObject: {
                 id symbolName = [jSymbol objectForKey:@"name"];
-                if(symbol == nil)
+                if(jSymbol == nil)
                     [NSException exceptionWithName:BJSchemaParseException
                                             reason:[NSString stringWithFormat:@"Missing symbol name: %@", jSymbol]
                                           userInfo:nil];
@@ -118,8 +117,8 @@
             }
             [values release];
         }];
-        self.symbols = [NSArray arrayWithArray:array];
-        _symbolMap = [[NSDictionary dictionaryWithDictionary:map] retain];
+        _symbols = [NSArray arrayWithArray:array];
+        _symbolMap = [NSDictionary dictionaryWithDictionary:map];
         [array release];
         [map release];
     }
@@ -142,8 +141,8 @@
     if(self) {
         if([schemaName name] == nil)
             [NSException exceptionWithName:BJSchemaParseException reason:@"name cannot be null for enum schema." userInfo:nil];
-        self.symbols = symbols;
-        _symbolMap = [symbolMap retain];
+        _symbols = [NSArray arrayWithArray:symbols];
+        _symbolMap = [NSDictionary dictionaryWithDictionary:symbolMap];
     }
     return self;
 }
@@ -199,7 +198,7 @@
         [jArray addObject:item];
         [item release];
     }
-    return [jArray autorelease];
+    return jArray;
 }
 
 #pragma override NSObject methods
@@ -231,8 +230,6 @@
 }
 
 - (void)dealloc {
-    [self.symbols release];
-    [_symbolMap release];
     [super dealloc];
 }
 @end

@@ -117,7 +117,7 @@
     NSMutableDictionary *jObj = [super startObject];
     if(![names addwithNamedSchema:self]) {
         // schema is already in the list, write name only.
-        BJSchemaName *schemaName = [self schemaName];
+        BJSchemaName *schemaName = self.schemaName;
         NSString *name;
         if([schemaName space] != encSpace) {
             name = [NSString stringWithFormat:@"%@.%@", [schemaName space], [schemaName name]];
