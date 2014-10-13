@@ -41,8 +41,7 @@
             self.name = [nsCompos objectAtIndex:[nsCompos count]-1];
             self.encSpace = encSpace;
         }
-        NSString *namespace = self.ns;
-        self.fullName = namespace != nil & [namespace length] != 0 ? [NSString stringWithFormat:@"%@.%@", namespace, self.name] : self.name;
+        self.fullName = self.name;
     }
     return self;
 }
