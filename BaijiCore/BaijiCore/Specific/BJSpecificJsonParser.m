@@ -89,8 +89,8 @@
     return [NSNumber numberWithBool:[@"true" isEqualToString:value]];
 }
 
-- (NSDate *)readDate:(long)interval {
-    return [NSDate dateWithTimeIntervalSince1970:interval];
+- (NSDate *)readDate:(NSNumber *)interval {
+    return [NSDate dateWithTimeIntervalSince1970:[interval longValue]];
 }
 
 - (NSString *)readString:(NSString *)string {

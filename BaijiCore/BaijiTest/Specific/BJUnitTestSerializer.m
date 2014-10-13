@@ -70,6 +70,16 @@
 
 - (void)runTestField:(NSString *)fieldName value:(id)value {
     BJTestSerializerSample *r2 = [self serializeAndDeserializeField:fieldName value:value];
+    if ([value isKindOfClass:[NSDate class]]){
+        long interval1 = [((NSDate *)value) timeIntervalSince1970];
+        long interval2 = [((NSDate *)[r2 fieldForName:fieldName]) timeIntervalSince1970];
+        GHAssertTrue(interval1 == interval2, nil);
+        return;
+    }
+    if(value == nil) {
+        GHAssertNULL([r2 fieldForName:fieldName], nil);
+        return;
+    }
     GHAssertTrue([value isEqual:[r2 fieldForName:fieldName]], nil);
 }
 

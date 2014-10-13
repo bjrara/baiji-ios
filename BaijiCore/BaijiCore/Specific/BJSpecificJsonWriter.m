@@ -85,7 +85,7 @@
 }
 
 - (NSNumber *)writeDate:(NSDate *)date{
-    return [NSNumber numberWithInt:[date timeIntervalSince1970]];
+    return [NSNumber numberWithLong:[date timeIntervalSince1970]];
 }
 
 - (NSString *)writeBoolean:(id)number {
