@@ -108,9 +108,9 @@
 		CEFBC30D19D41A650034E202 /* BJJsonSerializer.h in Sources */ = {isa = PBXBuildFile; fileRef = CE449A0C19C91FE100F0D92D /* BJJsonSerializer.h */; };
 		CEFBC30E19D41A650034E202 /* BJJsonSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE449A0D19C91FE100F0D92D /* BJJsonSerializer.m */; };
 		CEFBC30F19D41A650034E202 /* BJSerializable.h in Sources */ = {isa = PBXBuildFile; fileRef = CE449A1019C9201700F0D92D /* BJSerializable.h */; };
-		CEFBC35019D50A4B0034E202 /* NSData(Base64).m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC34F19D50A4B0034E202 /* NSData(Base64).m */; };
-		CEFBC35119D50ABC0034E202 /* NSData(Base64).h in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC34E19D50A4B0034E202 /* NSData(Base64).h */; };
-		CEFBC35219D50ABC0034E202 /* NSData(Base64).m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC34F19D50A4B0034E202 /* NSData(Base64).m */; };
+		CEFBC35019D50A4B0034E202 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC34F19D50A4B0034E202 /* NSData+Base64.m */; };
+		CEFBC35119D50ABC0034E202 /* NSData+Base64.h in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC34E19D50A4B0034E202 /* NSData+Base64.h */; };
+		CEFBC35219D50ABC0034E202 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC34F19D50A4B0034E202 /* NSData+Base64.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,8 +224,8 @@
 		CEFBC2F519D3FA7F0034E202 /* BJTestSerializerSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJTestSerializerSample.m; sourceTree = "<group>"; };
 		CEFBC30A19D413990034E202 /* BJUnitTestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJUnitTestSerializer.h; sourceTree = "<group>"; };
 		CEFBC30B19D413990034E202 /* BJUnitTestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUnitTestSerializer.m; sourceTree = "<group>"; };
-		CEFBC34E19D50A4B0034E202 /* NSData(Base64).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData(Base64).h"; sourceTree = "<group>"; };
-		CEFBC34F19D50A4B0034E202 /* NSData(Base64).m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData(Base64).m"; sourceTree = "<group>"; };
+		CEFBC34E19D50A4B0034E202 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		CEFBC34F19D50A4B0034E202 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaijiTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -480,8 +480,8 @@
 		CEFBC33019D501510034E202 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				CEFBC34E19D50A4B0034E202 /* NSData(Base64).h */,
-				CEFBC34F19D50A4B0034E202 /* NSData(Base64).m */,
+				CEFBC34E19D50A4B0034E202 /* NSData+Base64.h */,
+				CEFBC34F19D50A4B0034E202 /* NSData+Base64.m */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -674,7 +674,7 @@
 				CEFBC2CA19D3B0D80034E202 /* BJMutableSpecificRecord.m in Sources */,
 				CEFBC2E919D3C9B50034E202 /* BJSpecificEnum.m in Sources */,
 				CEFBC2EC19D3DFFF0034E202 /* BJSpecificJsonParser.m in Sources */,
-				CEFBC35019D50A4B0034E202 /* NSData(Base64).m in Sources */,
+				CEFBC35019D50A4B0034E202 /* NSData+Base64.m in Sources */,
 				3BE218DB19E7DE1800FABD15 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -683,8 +683,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEFBC35119D50ABC0034E202 /* NSData(Base64).h in Sources */,
-				CEFBC35219D50ABC0034E202 /* NSData(Base64).m in Sources */,
+				CEFBC35119D50ABC0034E202 /* NSData+Base64.h in Sources */,
+				CEFBC35219D50ABC0034E202 /* NSData+Base64.m in Sources */,
 				CEFBC30D19D41A650034E202 /* BJJsonSerializer.h in Sources */,
 				CEFBC30E19D41A650034E202 /* BJJsonSerializer.m in Sources */,
 				CEFBC30F19D41A650034E202 /* BJSerializable.h in Sources */,

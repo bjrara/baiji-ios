@@ -11,7 +11,7 @@
 #import "BJSchemas.h"
 #import "BJError.h"
 #import "JSONKit.h"
-#import "NSData(Base64).h"
+#import "NSData+Base64.h"
 
 @implementation BJSpecificJsonWriter
 
@@ -82,6 +82,10 @@
 
 - (NSNumber *)writeNumber:(id)number {
     return number;
+}
+
+- (NSNumber *)writeDate:(NSDate *)date{
+    return [NSNumber numberWithInt:[date timeIntervalSince1970]];
 }
 
 - (NSString *)writeBoolean:(id)number {

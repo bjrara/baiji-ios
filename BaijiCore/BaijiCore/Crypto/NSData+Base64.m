@@ -6,9 +6,7 @@
 //  Copyright (c) 2014年 ctriposs. All rights reserved.
 //
 
-#import "NSData(Base64).h"
-
-
+#import "NSData+Base64.h"
 
 @implementation NSData(Base64)
 

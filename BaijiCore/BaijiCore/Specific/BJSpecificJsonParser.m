@@ -11,7 +11,7 @@
 #import "BJError.h"
 #import "BJSpecificEnum.h"
 #import "JSONKit.h"
-#import "NSData(Base64).h"
+#import "NSData+Base64.h"
 
 @implementation BJSpecificJsonParser
 
@@ -56,7 +56,7 @@
             success([self readBytes:datum]);
             break;
         case BJSchemaTypeDateTime:
-            success([self readNumber:[NSNumber numberWithDouble:[((NSDate *)datum) timeIntervalSince1970]]]);
+            success([self readDate:datum]);
             break;
         case BJSchemaTypeRecord:
             success([self readRecord:datum schema:(BJRecordSchema *)schema]);
@@ -87,6 +87,10 @@
 
 - (NSNumber *)readBoolean:(NSString *)value {
     return [NSNumber numberWithBool:[@"true" isEqualToString:value]];
+}
+
+- (NSDate *)readDate:(long)interval {
+    return [NSDate dateWithTimeIntervalSince1970:interval];
 }
 
 - (NSString *)readString:(NSString *)string {
