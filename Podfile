@@ -11,5 +11,5 @@ end
 
 target :BaijiTest do
 	xcodeproj 'BaijiCore/BaijiCore.xcodeproj'
-	pod 'GHUnitIOS', '~> 0.5.8'
+	pod 'GHUnit', '~> 0.5.9'
 end
