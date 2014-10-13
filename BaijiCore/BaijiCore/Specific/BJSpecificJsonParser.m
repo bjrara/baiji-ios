@@ -11,6 +11,7 @@
 #import "BJError.h"
 #import "BJSpecificEnum.h"
 #import "JSONKit.h"
+#import "NSData(Base64).h"
 
 @implementation BJSpecificJsonParser
 
@@ -92,8 +93,8 @@
     return string;
 }
 
-- (NSData *)readBytes:(NSData *)bytes {
-    return bytes;
+- (NSData *)readBytes:(NSString *)bytes {
+    return [NSData dataWithBase64String:bytes];
 }
 
 - (NSDictionary *)readMap:(NSDictionary *)map schema:(BJMapSchema *)mapSchema {
