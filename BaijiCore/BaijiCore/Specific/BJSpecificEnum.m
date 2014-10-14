@@ -10,6 +10,14 @@
 
 @implementation BJSpecificEnum
 
+- (id)initWithValue:(NSUInteger)value {
+    self = [super init];
+    if(self) {
+        self.value = value;
+    }
+    return self;
+}
+
 - (NSString *)name {
     return nil;
 }

@@ -12,6 +12,7 @@
 
 @property (nonatomic, readwrite) NSUInteger value;
 
+- (id)initWithValue:(NSUInteger)value;
 - (NSString *)name;
 + (NSUInteger)ordinalForName:(NSString *)name;
 

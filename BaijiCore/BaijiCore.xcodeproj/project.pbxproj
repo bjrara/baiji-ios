@@ -110,6 +110,7 @@
 		CEFBC35019D50A4B0034E202 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC34F19D50A4B0034E202 /* NSData+Base64.m */; };
 		CEFBC35119D50ABC0034E202 /* NSData+Base64.h in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC34E19D50A4B0034E202 /* NSData+Base64.h */; };
 		CEFBC35219D50ABC0034E202 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC34F19D50A4B0034E202 /* NSData+Base64.m */; };
+		D863E31819ED7E8D00A89935 /* BJUnitTestJsonSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = D863E31719ED7E8D00A89935 /* BJUnitTestJsonSerializer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +224,8 @@
 		CEFBC30B19D413990034E202 /* BJUnitTestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUnitTestSerialization.m; sourceTree = "<group>"; };
 		CEFBC34E19D50A4B0034E202 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		CEFBC34F19D50A4B0034E202 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		D863E31619ED7E8D00A89935 /* BJUnitTestJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJUnitTestJsonSerializer.h; sourceTree = "<group>"; };
+		D863E31719ED7E8D00A89935 /* BJUnitTestJsonSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUnitTestJsonSerializer.m; sourceTree = "<group>"; };
 		E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaijiTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -406,11 +409,13 @@
 		CEEF41FF19D0011900EEDB5D /* BaijiTest */ = {
 			isa = PBXGroup;
 			children = (
-				CEFBC30919D4131E0034E202 /* Types */,
-				CEFBC2ED19D3F7970034E202 /* Specific */,
-				CEEF422019D0043A00EEDB5D /* Schema */,
 				CEEF421119D0011900EEDB5D /* BaijiTest.xcdatamodeld */,
+				D863E31619ED7E8D00A89935 /* BJUnitTestJsonSerializer.h */,
+				D863E31719ED7E8D00A89935 /* BJUnitTestJsonSerializer.m */,
+				CEEF422019D0043A00EEDB5D /* Schema */,
+				CEFBC2ED19D3F7970034E202 /* Specific */,
 				CEEF420019D0011900EEDB5D /* Supporting Files */,
+				CEFBC30919D4131E0034E202 /* Types */,
 			);
 			path = BaijiTest;
 			sourceTree = "<group>";
@@ -690,6 +695,7 @@
 				CEFBC30319D406270034E202 /* BJSpecificEnum.m in Sources */,
 				CEFBC30419D406270034E202 /* BJSpecificJsonParser.h in Sources */,
 				CEFBC30519D406270034E202 /* BJSpecificJsonParser.m in Sources */,
+				D863E31819ED7E8D00A89935 /* BJUnitTestJsonSerializer.m in Sources */,
 				CEFBC30619D406270034E202 /* BJSpecificJsonWriter.h in Sources */,
 				CEFBC30719D406270034E202 /* BJSpecificJsonWriter.m in Sources */,
 				CEEF429219D0158800EEDB5D /* BJArraySchema.h in Sources */,
