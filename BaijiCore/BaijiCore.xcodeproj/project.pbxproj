@@ -103,7 +103,7 @@
 		CEFBC30519D406270034E202 /* BJSpecificJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC2EB19D3DFFF0034E202 /* BJSpecificJsonParser.m */; };
 		CEFBC30619D406270034E202 /* BJSpecificJsonWriter.h in Sources */ = {isa = PBXBuildFile; fileRef = CE15C32E19D2DCF900754015 /* BJSpecificJsonWriter.h */; };
 		CEFBC30719D406270034E202 /* BJSpecificJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C32F19D2DCF900754015 /* BJSpecificJsonWriter.m */; };
-		CEFBC30C19D413990034E202 /* BJUnitTestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC30B19D413990034E202 /* BJUnitTestSerializer.m */; };
+		CEFBC30C19D413990034E202 /* BJUnitTestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC30B19D413990034E202 /* BJUnitTestSerialization.m */; };
 		CEFBC30D19D41A650034E202 /* BJJsonSerializer.h in Sources */ = {isa = PBXBuildFile; fileRef = CE449A0C19C91FE100F0D92D /* BJJsonSerializer.h */; };
 		CEFBC30E19D41A650034E202 /* BJJsonSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE449A0D19C91FE100F0D92D /* BJJsonSerializer.m */; };
 		CEFBC30F19D41A650034E202 /* BJSerializable.h in Sources */ = {isa = PBXBuildFile; fileRef = CE449A1019C9201700F0D92D /* BJSerializable.h */; };
@@ -219,8 +219,8 @@
 		CEFBC2F219D3F7DD0034E202 /* BJEnum1ValuesSpecific.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJEnum1ValuesSpecific.m; sourceTree = "<group>"; };
 		CEFBC2F419D3FA7F0034E202 /* BJTestSerializerSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJTestSerializerSample.h; sourceTree = "<group>"; };
 		CEFBC2F519D3FA7F0034E202 /* BJTestSerializerSample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJTestSerializerSample.m; sourceTree = "<group>"; };
-		CEFBC30A19D413990034E202 /* BJUnitTestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJUnitTestSerializer.h; sourceTree = "<group>"; };
-		CEFBC30B19D413990034E202 /* BJUnitTestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUnitTestSerializer.m; sourceTree = "<group>"; };
+		CEFBC30A19D413990034E202 /* BJUnitTestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJUnitTestSerialization.h; sourceTree = "<group>"; };
+		CEFBC30B19D413990034E202 /* BJUnitTestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUnitTestSerialization.m; sourceTree = "<group>"; };
 		CEFBC34E19D50A4B0034E202 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		CEFBC34F19D50A4B0034E202 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaijiTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -455,8 +455,8 @@
 		CEFBC2ED19D3F7970034E202 /* Specific */ = {
 			isa = PBXGroup;
 			children = (
-				CEFBC30A19D413990034E202 /* BJUnitTestSerializer.h */,
-				CEFBC30B19D413990034E202 /* BJUnitTestSerializer.m */,
+				CEFBC30A19D413990034E202 /* BJUnitTestSerialization.h */,
+				CEFBC30B19D413990034E202 /* BJUnitTestSerialization.m */,
 			);
 			path = Specific;
 			sourceTree = "<group>";
@@ -735,7 +735,7 @@
 				CEEF42DE19D1527200EEDB5D /* BJSchemaTestBasic.m in Sources */,
 				CEFBC2F319D3F7DD0034E202 /* BJEnum1ValuesSpecific.m in Sources */,
 				CEFBC2F619D3FA7F0034E202 /* BJTestSerializerSample.m in Sources */,
-				CEFBC30C19D413990034E202 /* BJUnitTestSerializer.m in Sources */,
+				CEFBC30C19D413990034E202 /* BJUnitTestSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

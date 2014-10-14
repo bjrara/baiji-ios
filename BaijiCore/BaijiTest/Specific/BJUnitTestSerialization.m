@@ -6,14 +6,14 @@
 //  Copyright (c) 2014年 ctriposs. All rights reserved.
 //
 
-#import "BJUnitTestSerializer.h"
+#import "BJUnitTestSerialization.h"
 #import "BJTestSerializerSample.h"
 #import "BJEnum1ValuesSpecific.h"
 #import "BJSpecificJsonWriter.h"
 #import "BJSpecificJsonParser.h"
 #import "JSONKit.h"
 
-@implementation BJUnitTestSerializer
+@implementation BJUnitTestSerialization
 
 - (void)testBoolean {
     [self runTestField:@"boolean1" value:[NSNumber numberWithBool:YES]];

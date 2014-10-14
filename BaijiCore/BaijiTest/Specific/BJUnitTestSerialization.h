@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "GHTestCase.h"
 
-@interface BJUnitTestSerializer : GHTestCase
+@interface BJUnitTestSerialization : GHTestCase
 
 @end
