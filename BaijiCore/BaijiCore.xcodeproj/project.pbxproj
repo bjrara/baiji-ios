@@ -11,6 +11,7 @@
 		3BE218DC19E7DE1800FABD15 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218D919E7DE1800FABD15 /* JSONKit.m */; };
 		3BE218DD19E7DE1800FABD15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3BE218DA19E7DE1800FABD15 /* README.md */; };
 		3BE218DE19E7DE1800FABD15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3BE218DA19E7DE1800FABD15 /* README.md */; };
+		3BE218EB19EE303100FABD15 /* BJTestSerializerSampleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218EA19EE303100FABD15 /* BJTestSerializerSampleList.m */; };
 		45BE962B84454BB59A86CD03 /* libPods-BaijiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A363983496479B839AECA5 /* libPods-BaijiCore.a */; };
 		BC3CCE3F7A324610A67D151B /* libPods-BaijiTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */; };
 		CE0F0FA119CA820000C0C11E /* BJPrimitiveSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F0FA019CA820000C0C11E /* BJPrimitiveSchema.m */; };
@@ -128,6 +129,8 @@
 		3BE218D819E7DE1800FABD15 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		3BE218D919E7DE1800FABD15 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		3BE218DA19E7DE1800FABD15 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		3BE218E919EE303100FABD15 /* BJTestSerializerSampleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJTestSerializerSampleList.h; sourceTree = "<group>"; };
+		3BE218EA19EE303100FABD15 /* BJTestSerializerSampleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJTestSerializerSampleList.m; sourceTree = "<group>"; };
 		4DE4BFB7696BFF938A0C2523 /* Pods-BaijiCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.release.xcconfig"; sourceTree = "<group>"; };
 		89BDDC28A3F7E75F3876702D /* Pods-BaijiTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiTest.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiTest/Pods-BaijiTest.debug.xcconfig"; sourceTree = "<group>"; };
 		98F231124498FE922C52957D /* Pods-BaijiCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -473,6 +476,8 @@
 				CEFBC2F219D3F7DD0034E202 /* BJEnum1ValuesSpecific.m */,
 				CEFBC2F419D3FA7F0034E202 /* BJTestSerializerSample.h */,
 				CEFBC2F519D3FA7F0034E202 /* BJTestSerializerSample.m */,
+				3BE218E919EE303100FABD15 /* BJTestSerializerSampleList.h */,
+				3BE218EA19EE303100FABD15 /* BJTestSerializerSampleList.m */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -726,6 +731,7 @@
 				CEEF429019D0157400EEDB5D /* BJError.h in Sources */,
 				CEEF429119D0157400EEDB5D /* BJError.m in Sources */,
 				CEEF428C19D0156000EEDB5D /* BJPrimitiveSchema.h in Sources */,
+				3BE218EB19EE303100FABD15 /* BJTestSerializerSampleList.m in Sources */,
 				CEEF428D19D0156000EEDB5D /* BJPrimitiveSchema.m in Sources */,
 				CEEF428E19D0156000EEDB5D /* BJSchema.h in Sources */,
 				CEEF428F19D0156000EEDB5D /* BJSchema.m in Sources */,
