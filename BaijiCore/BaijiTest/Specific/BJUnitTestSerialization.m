@@ -8,9 +8,9 @@
 
 #import "BJUnitTestSerialization.h"
 #import "BJTestSerializerSample.h"
-#import "BJEnum1ValuesSpecific.h"
 #import "BJSpecificJsonWriter.h"
 #import "BJSpecificJsonParser.h"
+#import "BJEnum1Values.h"
 #import "JSONKit.h"
 
 @implementation BJUnitTestSerialization
@@ -45,8 +45,8 @@
 }
 
 - (void)testEnum {
-    BJEnum1ValuesSpecific *enum1 = [[BJEnum1ValuesSpecific alloc] init];
-    [enum1 setValue:RED];
+    BJEnum1Values *enum1 = [[BJEnum1Values alloc] init];
+    [enum1 setValue:BJEnum1ValuesRED];
     [self runTestField:@"enum1" value:enum1];
 }
 

@@ -9,8 +9,8 @@
 #import "BJUnitTestJsonSerializer.h"
 #import "BJTestSerializerSample.h"
 #import "BJTestSerializerSampleList.h"
-#import "BJEnum1ValuesSpecific.h"
 #import "BJJsonSerializer.h"
+#import "BJEnum1Values.h"
 #import "BJMutableSpecificRecord.h"
 #import "BJMutableRecord.h"
 
@@ -21,7 +21,7 @@
     expected.bigint1 = [NSNumber numberWithLong:16 * 1024 * 1024L];
     expected.boolean1 = [NSNumber numberWithBool:NO];
     expected.double1 = [NSNumber numberWithDouble:2.099328];
-    expected.enum1 = [[[BJEnum1ValuesSpecific alloc] initWithValue:GREEN] autorelease];
+    expected.enum1 = [[[BJEnum1Values alloc] initWithValue:BJEnum1ValuesGREEN] autorelease];
     expected.int1 = [NSNumber numberWithInt:231];
     expected.string1 = @"testSerialize";
     expected.bytes1 = [@"testBytes" dataUsingEncoding:NSUTF8StringEncoding];
