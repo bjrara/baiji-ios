@@ -61,7 +61,7 @@
 
     NSData *data = [string dataUsingEncoding:NSASCIIStringEncoding];
     int length = [data length];
-    NSMutableData *mutableData = [NSMutableData dataWithLength:(length + 3) / 4 * 3];
+    NSMutableData *mutableData = [NSMutableData dataWithLength:((length + 3) / 4) * 3];
     
     uint8_t *input = (uint8_t *)[data bytes];
     uint8_t *output = (uint8_t *)[mutableData mutableBytes];
@@ -83,7 +83,7 @@
 		if(j >= 4) output[idx + 2] = (value[2] << 6) | (value[3]);
 		idx += j -1;
     }
-    return mutableData;
+    return [NSData dataWithBytes:output length:idx];
 }
 
 @end

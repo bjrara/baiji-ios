@@ -11,8 +11,12 @@
 #import "BJTestSerializerSampleList.h"
 #import "BJJsonSerializer.h"
 #import "BJEnum1Values.h"
+#import "BJEnum2Values.h"
 #import "BJMutableSpecificRecord.h"
 #import "BJMutableRecord.h"
+#import "BJRecord2.h"
+#import "BJRecord.h"
+#import "JSONKit.h"
 
 @implementation BJUnitTestJsonSerializer
 
@@ -65,6 +69,64 @@
     }
     [map1 release];
     [sample release];
+    [expected release];
+}
+
+- (void)testNestedSerialize2 {
+    BJRecord2 *expected = [[BJRecord2 alloc] init];
+    NSMutableArray *byteslist = [[NSMutableArray alloc] init];
+    [byteslist addObject:[@"testBytes1" dataUsingEncoding:NSUTF8StringEncoding]];
+    [byteslist addObject:[@"testBytes2" dataUsingEncoding:NSUTF8StringEncoding]];
+    [byteslist addObject:[@"testBytes3" dataUsingEncoding:NSUTF8StringEncoding]];
+    expected.byteslist = byteslist;
+    BJRecord *record = [[BJRecord alloc] initWithSBoolean:[NSNumber numberWithBool:NO] sInt:[NSNumber numberWithInt:1] sString:@"testRecord"];
+    NSMutableDictionary *map2 = [[NSMutableDictionary alloc] init];
+    [map2 setObject:record forKey:@"1"];
+    [map2 setObject:record forKey:@"2"];
+    expected.map2 = map2;
+    
+    NSData *stream = [self serialize:expected];
+    BJRecord2 *actual = [self deserialize:stream clazz:[BJRecord2 class]];
+    GHAssertTrue([[expected byteslist] isEqualToArray:[actual byteslist]], nil);
+    GHAssertTrue([[expected map2] isEqualToDictionary:[actual map2]], nil);
+    [map2 release];
+    [record release];
+    [byteslist release];
+    [expected release];
+}
+
+- (void)testCircularSerialize {
+    BJTestSerializerSample *expected = [[BJTestSerializerSample alloc] init];
+    expected.bigint1 = [NSNumber numberWithLong:16 * 1024 * 1024L];
+    expected.boolean1 = [NSNumber numberWithBool:NO];
+    expected.double1 = [NSNumber numberWithDouble:2.099328];
+    expected.list1 = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
+    NSMutableDictionary *map1 = [[NSMutableDictionary alloc] init];
+    [map1 setObject:[NSNumber numberWithInt:1] forKey:@"1a"];
+    [map1 setObject:[NSNumber numberWithInt:2] forKey:@"2b"];
+    [map1 setObject:[NSNumber numberWithInt:3] forKey:@"3c"];
+    expected.map1 = map1;
+    
+    BJTestSerializerSample *innerExpected = [[BJTestSerializerSample alloc] init];
+    innerExpected.bigint1 = [NSNumber numberWithLong:16 * 1024L];
+    innerExpected.boolean1 = [NSNumber numberWithBool:YES];
+    innerExpected.double1 = [NSNumber numberWithDouble:2.099328];
+    innerExpected.list1 = [NSArray arrayWithObjects:@"aa", @"bb", @"cc", nil];
+    innerExpected.map1 = map1;
+    
+    expected.innerSample = innerExpected;
+    
+    NSData *stream = [self serialize:expected];
+    BJTestSerializerSample *actual = [self deserialize:stream clazz:[BJTestSerializerSample class]];
+    
+    GHAssertNotNil(actual.innerSample, nil);
+    GHAssertTrue([[[expected innerSample] bigint1] isEqual:[[actual innerSample] bigint1]] &&
+                 [[[expected innerSample] boolean1] isEqual:[[actual innerSample] boolean1]] &&
+                 [[[expected innerSample] double1] isEqual:[[actual innerSample] double1]], nil);
+    GHAssertTrue([[[expected innerSample] list1] isEqualToArray:[[actual innerSample] list1]], nil);
+    GHAssertTrue([[[expected innerSample] map1] isEqualToDictionary:[[actual innerSample] map1]], nil);
+    [innerExpected release];
+    [map1 release];
     [expected release];
 }
 

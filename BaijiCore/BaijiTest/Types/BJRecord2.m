@@ -14,7 +14,7 @@
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
-        __schema = [[BJSchema parse:@"{\"type\":\"record\",\"name\":\"BJRecord2\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"bigint2\",\"type\":[\"long\",\"null\"]},{\"name\":\"byteslist\",\"type\":{\"type\":\"array\",\"items\":[\"bytes\",\"null\"]}},{\"name\":\"enum2\",\"type\":[{\"type\":\"enum\",\"name\":\"BJEnum2Values\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"symbols\":[\"CAR\",\"BIKE\",\"PLANE\"]},\"null\"]},{\"name\":\"filling\",\"type\":{\"type\":\"record\",\"name\":\"BJModelFilling\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"boolfilling\",\"type\":[\"boolean\",\"null\"]},{\"name\":\"enumfilling\",\"type\":[{\"type\":\"enum\",\"name\":\"BJEnum1Values\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"symbols\":[\"BLUE\",\"RED\",\"GREEN\"]},\"null\"]},{\"name\":\"intfilling\",\"type\":[\"int\",\"null\"]},{\"name\":\"modelfilling\",\"type\":{\"type\":\"record\",\"name\":\"BJModelFilling2\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"enumfilling\",\"type\":[\"BJEnum2Values\",\"null\"]},{\"name\":\"listfilling\",\"type\":{\"type\":\"array\",\"items\":[\"string\",\"null\"]}},{\"name\":\"longfilling\",\"type\":[\"long\",\"null\"]},{\"name\":\"stringfilling\",\"type\":[\"string\",\"null\"]}]}},{\"name\":\"stringfilling1\",\"type\":[\"string\",\"null\"]},{\"name\":\"stringfilling2\",\"type\":[\"string\",\"null\"]},{\"name\":\"stringfilling3\",\"type\":[\"string\",\"null\"]},{\"name\":\"stringfilling4\",\"type\":[\"string\",\"null\"]}]}},{\"name\":\"list2\",\"type\":{\"type\":\"array\",\"items\":[\"int\",\"null\"]}},{\"name\":\"nullablebigint\",\"type\":[\"long\",\"null\"]}]}"] retain];
+        __schema = [[BJSchema parse:@"{\"type\":\"record\",\"name\":\"BJRecord2\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"bigint2\",\"type\":[\"long\",\"null\"]},{\"name\":\"byteslist\",\"type\":{\"type\":\"array\",\"items\":[\"bytes\",\"null\"]}},{\"name\":\"enum2\",\"type\":[{\"type\":\"enum\",\"name\":\"BJEnum2Values\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"symbols\":[\"CAR\",\"BIKE\",\"PLANE\"]},\"null\"]},{\"name\":\"filling\",\"type\":{\"type\":\"record\",\"name\":\"BJModelFilling\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"boolfilling\",\"type\":[\"boolean\",\"null\"]},{\"name\":\"enumfilling\",\"type\":[{\"type\":\"enum\",\"name\":\"BJEnum1Values\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"symbols\":[\"BLUE\",\"RED\",\"GREEN\"]},\"null\"]},{\"name\":\"intfilling\",\"type\":[\"int\",\"null\"]},{\"name\":\"modelfilling\",\"type\":{\"type\":\"record\",\"name\":\"BJModelFilling2\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"enumfilling\",\"type\":[\"BJEnum2Values\",\"null\"]},{\"name\":\"listfilling\",\"type\":{\"type\":\"array\",\"items\":[\"string\",\"null\"]}},{\"name\":\"longfilling\",\"type\":[\"long\",\"null\"]},{\"name\":\"stringfilling\",\"type\":[\"string\",\"null\"]}]}},{\"name\":\"stringfilling1\",\"type\":[\"string\",\"null\"]},{\"name\":\"stringfilling2\",\"type\":[\"string\",\"null\"]},{\"name\":\"stringfilling3\",\"type\":[\"string\",\"null\"]},{\"name\":\"stringfilling4\",\"type\":[\"string\",\"null\"]}]}},{\"name\":\"list2\",\"type\":{\"type\":\"array\",\"items\":[\"int\",\"null\"]}},{\"name\":\"nullablebigint\",\"type\":[\"long\",\"null\"]},{\"name\":\"map2\",\"type\":[{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"BJRecord\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"sBoolean\",\"type\":[\"boolean\",\"null\"]},{\"name\":\"sInt\",\"type\":[\"int\",\"null\"]},{\"name\":\"sString\",\"type\":[\"string\",\"null\"]}]}},\"null\"]}]}"] retain];
     });
     return __schema;
 }
@@ -24,7 +24,8 @@
                 enum2:(BJEnum2Values *)enum2
               filling:(BJModelFilling *)filling
                 list2:(NSArray *)list2
-       nullablebigint:(NSNumber *)nullablebigint {
+       nullablebigint:(NSNumber *)nullablebigint
+                 map2:(NSDictionary *)map2{
     self = [super init];
     if (self) {
         _bigint2 = bigint2;
@@ -33,6 +34,7 @@
         _filling = filling;
         _list2 = list2;
         _nullablebigint = nullablebigint;
+        _map2 = map2;
     }
     return self;
 }
@@ -45,6 +47,7 @@
         case 3: return self.filling; break;
         case 4: return self.list2; break;
         case 5: return self.nullablebigint; break;
+        case 6: return self.map2; break;
         default:
             [NSException exceptionWithName:BJRuntimeException
                                     reason:[NSString stringWithFormat:@"Bad index %d in fieldAtIndex:", fieldPos]
@@ -61,6 +64,7 @@
         case 3: self.filling = object; break;
         case 4: self.list2 = object; break;
         case 5: self.nullablebigint = object; break;
+        case 6: self.map2 = object; break;
         default:
             [NSException exceptionWithName:BJRuntimeException
                                     reason:[NSString stringWithFormat:@"Bad index %d in setObject:atIndex:", fieldPos]
@@ -83,7 +87,8 @@
     [self.enum2 isEqual:[that enum2]] &&
     [self.filling isEqual:[that filling]] &&
     [self.list2 isEqual:[that list2]] &&
-    [self.nullablebigint isEqual:[that nullablebigint]];
+    [self.nullablebigint isEqual:[that nullablebigint]] &&
+    [self.map2 isEqual:[that map2]];
 }
 
 - (NSUInteger)hash {
@@ -95,6 +100,7 @@
     result = 31 * result + (self.filling == nil ? 0 : [self.filling hash]);
     result = 31 * result + (self.list2 == nil ? 0 : [self.list2 hash]);
     result = 31 * result + (self.nullablebigint == nil ? 0 : [self.nullablebigint hash]);
+    result = 31 * result + (self.map2 == nil ? 0 : [self.map2 hash]);
     
     return result;
 }
@@ -106,6 +112,7 @@
     [self.filling release];
     [self.list2 release];
     [self.nullablebigint release];
+    [self.map2 release];
     [super dealloc];
 }
 

@@ -18,12 +18,14 @@
 @property (nonatomic, readwrite, retain) NSArray *list2;
 /** initValue: long */
 @property (nonatomic, readwrite, retain) NSNumber *nullablebigint;
+@property (nonatomic, readwrite, retain) NSDictionary *map2;
 
 - (id)initWithBigint2:(NSNumber *)bigint2
             byteslist:(NSArray *)byteslist
                 enum2:(BJEnum2Values *)enum2
               filling:(BJModelFilling *)filling
                 list2:(NSArray *)list2
-       nullablebigint:(NSNumber *)nullablebigint;
+       nullablebigint:(NSNumber *)nullablebigint
+                 map2:(NSDictionary *)map2;
 
 @end
