@@ -19,6 +19,8 @@
 		3BE2190119EF884F00FABD15 /* BJRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218F819EF884F00FABD15 /* BJRecord.m */; };
 		3BE2190219EF884F00FABD15 /* BJRecord2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218FA19EF884F00FABD15 /* BJRecord2.m */; };
 		3BE2190319EF884F00FABD15 /* BJRecord2Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218FC19EF884F00FABD15 /* BJRecord2Container.m */; };
+		3BE2191719EFBCB200FABD15 /* BJHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */; };
+		3BE2191A19EFBDBD00FABD15 /* BJServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */; };
 		45BE962B84454BB59A86CD03 /* libPods-BaijiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A363983496479B839AECA5 /* libPods-BaijiCore.a */; };
 		BC3CCE3F7A324610A67D151B /* libPods-BaijiTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */; };
 		CE0F0FA119CA820000C0C11E /* BJPrimitiveSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F0FA019CA820000C0C11E /* BJPrimitiveSchema.m */; };
@@ -128,6 +130,10 @@
 		3BE218FA19EF884F00FABD15 /* BJRecord2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJRecord2.m; sourceTree = "<group>"; };
 		3BE218FB19EF884F00FABD15 /* BJRecord2Container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJRecord2Container.h; sourceTree = "<group>"; };
 		3BE218FC19EF884F00FABD15 /* BJRecord2Container.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJRecord2Container.m; sourceTree = "<group>"; };
+		3BE2191519EFBCB200FABD15 /* BJHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJHTTPRequestOperation.h; sourceTree = "<group>"; };
+		3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJHTTPRequestOperation.m; sourceTree = "<group>"; };
+		3BE2191819EFBDBD00FABD15 /* BJServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJServiceClient.h; sourceTree = "<group>"; };
+		3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJServiceClient.m; sourceTree = "<group>"; };
 		4DE4BFB7696BFF938A0C2523 /* Pods-BaijiCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.release.xcconfig"; sourceTree = "<group>"; };
 		89BDDC28A3F7E75F3876702D /* Pods-BaijiTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiTest.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiTest/Pods-BaijiTest.debug.xcconfig"; sourceTree = "<group>"; };
 		98F231124498FE922C52957D /* Pods-BaijiCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -284,6 +290,17 @@
 			path = JSONKit;
 			sourceTree = "<group>";
 		};
+		3BE2191419EFAD9700FABD15 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				3BE2191519EFBCB200FABD15 /* BJHTTPRequestOperation.h */,
+				3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */,
+				3BE2191819EFBDBD00FABD15 /* BJServiceClient.h */,
+				3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
 		CE15C32D19D2DCC700754015 /* Specific */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +399,7 @@
 				CE449A0C19C91FE100F0D92D /* BJJsonSerializer.h */,
 				CE449A0D19C91FE100F0D92D /* BJJsonSerializer.m */,
 				CE449A1019C9201700F0D92D /* BJSerializable.h */,
+				3BE2191419EFAD9700FABD15 /* Client */,
 				CEFBC33019D501510034E202 /* Crypto */,
 				CE449A1819C9282E00F0D92D /* Schema */,
 				CE15C32D19D2DCC700754015 /* Specific */,
@@ -670,6 +688,7 @@
 				CE449A1D19C9286000F0D92D /* BJSchema.m in Sources */,
 				CE7159F019C9471F0057DBBB /* BJPropertyMap.m in Sources */,
 				CE7159F319C952060057DBBB /* BJError.m in Sources */,
+				3BE2191719EFBCB200FABD15 /* BJHTTPRequestOperation.m in Sources */,
 				CE7159F619C95ED60057DBBB /* BJSchemaName.m in Sources */,
 				CE7159F919C96BC40057DBBB /* BJSchemaNames.m in Sources */,
 				CE7159FC19C96C590057DBBB /* BJNamedSchema.m in Sources */,
@@ -688,6 +707,7 @@
 				CEFBC2EC19D3DFFF0034E202 /* BJSpecificJsonParser.m in Sources */,
 				CEFBC35019D50A4B0034E202 /* NSData+Base64.m in Sources */,
 				3BE218DB19E7DE1800FABD15 /* JSONKit.m in Sources */,
+				3BE2191A19EFBDBD00FABD15 /* BJServiceClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
