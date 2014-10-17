@@ -29,4 +29,11 @@
     return [parser readData:source clazz:clazz];
 }
 
+#pragma implementation of NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+    BJJsonSerializer *serializer = [[[self class] allocWithZone:zone] init];
+    return serializer;
+}
+
 @end

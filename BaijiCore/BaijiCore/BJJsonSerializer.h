@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "BJSerializable.h"
 
-@interface BJJsonSerializer : NSObject<BJSerializable>
+@interface BJJsonSerializer : NSObject<BJSerializable, NSCopying>
 
 @end

@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPRequestOperation.h"
+#import "AFURLConnectionOperation.h"
 
-@interface BJHTTPRequestOperation : AFHTTPRequestOperation
+@interface BJHTTPRequestOperation : AFURLConnectionOperation
 
 @end
