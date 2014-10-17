@@ -17,6 +17,7 @@
 
 - (id<BJMutableRecord>)readData:(NSData *)data clazz:(Class<BJMutableRecord>)clazz {
     NSDictionary *reuse = [data objectFromJSONData];
+    NSLog(@"%@", [reuse description]);
     return [self readRecord:reuse schema:(BJRecordSchema *)[clazz schema]];
 }
 

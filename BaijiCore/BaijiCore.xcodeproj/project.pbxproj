@@ -21,6 +21,28 @@
 		3BE2190319EF884F00FABD15 /* BJRecord2Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218FC19EF884F00FABD15 /* BJRecord2Container.m */; };
 		3BE2191719EFBCB200FABD15 /* BJHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */; };
 		3BE2191A19EFBDBD00FABD15 /* BJServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */; };
+		3BE2196219F0DD0100FABD15 /* BJPingTestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196119F0DD0100FABD15 /* BJPingTestClient.m */; };
+		3BE2199019F0F0FB00FABD15 /* BJAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196719F0F0FB00FABD15 /* BJAmount.m */; };
+		3BE2199119F0F0FB00FABD15 /* BJCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196919F0F0FB00FABD15 /* BJCategory.m */; };
+		3BE2199219F0F0FB00FABD15 /* BJCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196B19F0F0FB00FABD15 /* BJCondition.m */; };
+		3BE2199319F0F0FB00FABD15 /* BJDiscountPriceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196D19F0F0FB00FABD15 /* BJDiscountPriceInfo.m */; };
+		3BE2199419F0F0FB00FABD15 /* BJDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196F19F0F0FB00FABD15 /* BJDistance.m */; };
+		3BE2199519F0F0FB00FABD15 /* BJGalleryInfoContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197119F0F0FB00FABD15 /* BJGalleryInfoContainer.m */; };
+		3BE2199619F0F0FB00FABD15 /* BJGallerySizeEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197319F0F0FB00FABD15 /* BJGallerySizeEnum.m */; };
+		3BE2199719F0F0FB00FABD15 /* BJGalleryURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197519F0F0FB00FABD15 /* BJGalleryURL.m */; };
+		3BE2199819F0F0FB00FABD15 /* BJGetItemsRequestType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197719F0F0FB00FABD15 /* BJGetItemsRequestType.m */; };
+		3BE2199919F0F0FB00FABD15 /* BJGetItemsResponseType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197919F0F0FB00FABD15 /* BJGetItemsResponseType.m */; };
+		3BE2199A19F0F0FB00FABD15 /* BJItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197B19F0F0FB00FABD15 /* BJItem.m */; };
+		3BE2199B19F0F0FB00FABD15 /* BJItemContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197D19F0F0FB00FABD15 /* BJItemContainer.m */; };
+		3BE2199C19F0F0FB00FABD15 /* BJListingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197F19F0F0FB00FABD15 /* BJListingInfo.m */; };
+		3BE2199D19F0F0FB00FABD15 /* BJMapExposureEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2198119F0F0FB00FABD15 /* BJMapExposureEnum.m */; };
+		3BE2199E19F0F0FB00FABD15 /* BJPriceTreatmentEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2198319F0F0FB00FABD15 /* BJPriceTreatmentEnum.m */; };
+		3BE2199F19F0F0FB00FABD15 /* BJProductId.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2198519F0F0FB00FABD15 /* BJProductId.m */; };
+		3BE219A019F0F0FB00FABD15 /* BJSellerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2198719F0F0FB00FABD15 /* BJSellerInfo.m */; };
+		3BE219A119F0F0FB00FABD15 /* BJSellingStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2198919F0F0FB00FABD15 /* BJSellingStatus.m */; };
+		3BE219A219F0F0FB00FABD15 /* BJShippingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2198B19F0F0FB00FABD15 /* BJShippingInfo.m */; };
+		3BE219A319F0F0FB00FABD15 /* BJStorefront.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2198D19F0F0FB00FABD15 /* BJStorefront.m */; };
+		3BE219A419F0F0FB00FABD15 /* BJUnitPriceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2198F19F0F0FB00FABD15 /* BJUnitPriceInfo.m */; };
 		3BE219C019F0F3A900FABD15 /* BJAckCodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219A719F0F3A900FABD15 /* BJAckCodeType.m */; };
 		3BE219C119F0F3A900FABD15 /* BJAckCodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219A719F0F3A900FABD15 /* BJAckCodeType.m */; };
 		3BE219C219F0F3A900FABD15 /* BJCheckHealthRequestType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219A919F0F3A900FABD15 /* BJCheckHealthRequestType.m */; };
@@ -166,6 +188,50 @@
 		3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJHTTPRequestOperation.m; sourceTree = "<group>"; };
 		3BE2191819EFBDBD00FABD15 /* BJServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJServiceClient.h; sourceTree = "<group>"; };
 		3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJServiceClient.m; sourceTree = "<group>"; };
+		3BE2196019F0DD0100FABD15 /* BJPingTestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJPingTestClient.h; sourceTree = "<group>"; };
+		3BE2196119F0DD0100FABD15 /* BJPingTestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJPingTestClient.m; sourceTree = "<group>"; };
+		3BE2196619F0F0FB00FABD15 /* BJAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJAmount.h; sourceTree = "<group>"; };
+		3BE2196719F0F0FB00FABD15 /* BJAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJAmount.m; sourceTree = "<group>"; };
+		3BE2196819F0F0FB00FABD15 /* BJCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJCategory.h; sourceTree = "<group>"; };
+		3BE2196919F0F0FB00FABD15 /* BJCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJCategory.m; sourceTree = "<group>"; };
+		3BE2196A19F0F0FB00FABD15 /* BJCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJCondition.h; sourceTree = "<group>"; };
+		3BE2196B19F0F0FB00FABD15 /* BJCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJCondition.m; sourceTree = "<group>"; };
+		3BE2196C19F0F0FB00FABD15 /* BJDiscountPriceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJDiscountPriceInfo.h; sourceTree = "<group>"; };
+		3BE2196D19F0F0FB00FABD15 /* BJDiscountPriceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJDiscountPriceInfo.m; sourceTree = "<group>"; };
+		3BE2196E19F0F0FB00FABD15 /* BJDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJDistance.h; sourceTree = "<group>"; };
+		3BE2196F19F0F0FB00FABD15 /* BJDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJDistance.m; sourceTree = "<group>"; };
+		3BE2197019F0F0FB00FABD15 /* BJGalleryInfoContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGalleryInfoContainer.h; sourceTree = "<group>"; };
+		3BE2197119F0F0FB00FABD15 /* BJGalleryInfoContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGalleryInfoContainer.m; sourceTree = "<group>"; };
+		3BE2197219F0F0FB00FABD15 /* BJGallerySizeEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGallerySizeEnum.h; sourceTree = "<group>"; };
+		3BE2197319F0F0FB00FABD15 /* BJGallerySizeEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGallerySizeEnum.m; sourceTree = "<group>"; };
+		3BE2197419F0F0FB00FABD15 /* BJGalleryURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGalleryURL.h; sourceTree = "<group>"; };
+		3BE2197519F0F0FB00FABD15 /* BJGalleryURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGalleryURL.m; sourceTree = "<group>"; };
+		3BE2197619F0F0FB00FABD15 /* BJGetItemsRequestType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGetItemsRequestType.h; sourceTree = "<group>"; };
+		3BE2197719F0F0FB00FABD15 /* BJGetItemsRequestType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGetItemsRequestType.m; sourceTree = "<group>"; };
+		3BE2197819F0F0FB00FABD15 /* BJGetItemsResponseType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGetItemsResponseType.h; sourceTree = "<group>"; };
+		3BE2197919F0F0FB00FABD15 /* BJGetItemsResponseType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGetItemsResponseType.m; sourceTree = "<group>"; };
+		3BE2197A19F0F0FB00FABD15 /* BJItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJItem.h; sourceTree = "<group>"; };
+		3BE2197B19F0F0FB00FABD15 /* BJItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJItem.m; sourceTree = "<group>"; };
+		3BE2197C19F0F0FB00FABD15 /* BJItemContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJItemContainer.h; sourceTree = "<group>"; };
+		3BE2197D19F0F0FB00FABD15 /* BJItemContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJItemContainer.m; sourceTree = "<group>"; };
+		3BE2197E19F0F0FB00FABD15 /* BJListingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJListingInfo.h; sourceTree = "<group>"; };
+		3BE2197F19F0F0FB00FABD15 /* BJListingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJListingInfo.m; sourceTree = "<group>"; };
+		3BE2198019F0F0FB00FABD15 /* BJMapExposureEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJMapExposureEnum.h; sourceTree = "<group>"; };
+		3BE2198119F0F0FB00FABD15 /* BJMapExposureEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJMapExposureEnum.m; sourceTree = "<group>"; };
+		3BE2198219F0F0FB00FABD15 /* BJPriceTreatmentEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJPriceTreatmentEnum.h; sourceTree = "<group>"; };
+		3BE2198319F0F0FB00FABD15 /* BJPriceTreatmentEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJPriceTreatmentEnum.m; sourceTree = "<group>"; };
+		3BE2198419F0F0FB00FABD15 /* BJProductId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJProductId.h; sourceTree = "<group>"; };
+		3BE2198519F0F0FB00FABD15 /* BJProductId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJProductId.m; sourceTree = "<group>"; };
+		3BE2198619F0F0FB00FABD15 /* BJSellerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSellerInfo.h; sourceTree = "<group>"; };
+		3BE2198719F0F0FB00FABD15 /* BJSellerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSellerInfo.m; sourceTree = "<group>"; };
+		3BE2198819F0F0FB00FABD15 /* BJSellingStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSellingStatus.h; sourceTree = "<group>"; };
+		3BE2198919F0F0FB00FABD15 /* BJSellingStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSellingStatus.m; sourceTree = "<group>"; };
+		3BE2198A19F0F0FB00FABD15 /* BJShippingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJShippingInfo.h; sourceTree = "<group>"; };
+		3BE2198B19F0F0FB00FABD15 /* BJShippingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJShippingInfo.m; sourceTree = "<group>"; };
+		3BE2198C19F0F0FB00FABD15 /* BJStorefront.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJStorefront.h; sourceTree = "<group>"; };
+		3BE2198D19F0F0FB00FABD15 /* BJStorefront.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJStorefront.m; sourceTree = "<group>"; };
+		3BE2198E19F0F0FB00FABD15 /* BJUnitPriceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJUnitPriceInfo.h; sourceTree = "<group>"; };
+		3BE2198F19F0F0FB00FABD15 /* BJUnitPriceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUnitPriceInfo.m; sourceTree = "<group>"; };
 		3BE219A619F0F3A900FABD15 /* BJAckCodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJAckCodeType.h; sourceTree = "<group>"; };
 		3BE219A719F0F3A900FABD15 /* BJAckCodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJAckCodeType.m; sourceTree = "<group>"; };
 		3BE219A819F0F3A900FABD15 /* BJCheckHealthRequestType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJCheckHealthRequestType.h; sourceTree = "<group>"; };
@@ -373,6 +439,55 @@
 				3BE2196119F0DD0100FABD15 /* BJPingTestClient.m */,
 			);
 			path = Client;
+			sourceTree = "<group>";
+		};
+		3BE2196519F0F0E300FABD15 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				3BE2196619F0F0FB00FABD15 /* BJAmount.h */,
+				3BE2196719F0F0FB00FABD15 /* BJAmount.m */,
+				3BE2196819F0F0FB00FABD15 /* BJCategory.h */,
+				3BE2196919F0F0FB00FABD15 /* BJCategory.m */,
+				3BE2196A19F0F0FB00FABD15 /* BJCondition.h */,
+				3BE2196B19F0F0FB00FABD15 /* BJCondition.m */,
+				3BE2196C19F0F0FB00FABD15 /* BJDiscountPriceInfo.h */,
+				3BE2196D19F0F0FB00FABD15 /* BJDiscountPriceInfo.m */,
+				3BE2196E19F0F0FB00FABD15 /* BJDistance.h */,
+				3BE2196F19F0F0FB00FABD15 /* BJDistance.m */,
+				3BE2197019F0F0FB00FABD15 /* BJGalleryInfoContainer.h */,
+				3BE2197119F0F0FB00FABD15 /* BJGalleryInfoContainer.m */,
+				3BE2197219F0F0FB00FABD15 /* BJGallerySizeEnum.h */,
+				3BE2197319F0F0FB00FABD15 /* BJGallerySizeEnum.m */,
+				3BE2197419F0F0FB00FABD15 /* BJGalleryURL.h */,
+				3BE2197519F0F0FB00FABD15 /* BJGalleryURL.m */,
+				3BE2197619F0F0FB00FABD15 /* BJGetItemsRequestType.h */,
+				3BE2197719F0F0FB00FABD15 /* BJGetItemsRequestType.m */,
+				3BE2197819F0F0FB00FABD15 /* BJGetItemsResponseType.h */,
+				3BE2197919F0F0FB00FABD15 /* BJGetItemsResponseType.m */,
+				3BE2197A19F0F0FB00FABD15 /* BJItem.h */,
+				3BE2197B19F0F0FB00FABD15 /* BJItem.m */,
+				3BE2197C19F0F0FB00FABD15 /* BJItemContainer.h */,
+				3BE2197D19F0F0FB00FABD15 /* BJItemContainer.m */,
+				3BE2197E19F0F0FB00FABD15 /* BJListingInfo.h */,
+				3BE2197F19F0F0FB00FABD15 /* BJListingInfo.m */,
+				3BE2198019F0F0FB00FABD15 /* BJMapExposureEnum.h */,
+				3BE2198119F0F0FB00FABD15 /* BJMapExposureEnum.m */,
+				3BE2198219F0F0FB00FABD15 /* BJPriceTreatmentEnum.h */,
+				3BE2198319F0F0FB00FABD15 /* BJPriceTreatmentEnum.m */,
+				3BE2198419F0F0FB00FABD15 /* BJProductId.h */,
+				3BE2198519F0F0FB00FABD15 /* BJProductId.m */,
+				3BE2198619F0F0FB00FABD15 /* BJSellerInfo.h */,
+				3BE2198719F0F0FB00FABD15 /* BJSellerInfo.m */,
+				3BE2198819F0F0FB00FABD15 /* BJSellingStatus.h */,
+				3BE2198919F0F0FB00FABD15 /* BJSellingStatus.m */,
+				3BE2198A19F0F0FB00FABD15 /* BJShippingInfo.h */,
+				3BE2198B19F0F0FB00FABD15 /* BJShippingInfo.m */,
+				3BE2198C19F0F0FB00FABD15 /* BJStorefront.h */,
+				3BE2198D19F0F0FB00FABD15 /* BJStorefront.m */,
+				3BE2198E19F0F0FB00FABD15 /* BJUnitPriceInfo.h */,
+				3BE2198F19F0F0FB00FABD15 /* BJUnitPriceInfo.m */,
+			);
+			path = Types;
 			sourceTree = "<group>";
 		};
 		3BE219A519F0F39400FABD15 /* Common */ = {
@@ -850,47 +965,86 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEFBC35219D50ABC0034E202 /* NSData+Base64.m in Sources */,
+				3BE219E519F0F73D00FABD15 /* BJHTTPRequestOperation.m in Sources */,
+				3BE219E619F0F73D00FABD15 /* BJServiceClient.m in Sources */,
+				3BE2199419F0F0FB00FABD15 /* BJDistance.m in Sources */,
 				CEFBC30E19D41A650034E202 /* BJJsonSerializer.m in Sources */,
+				3BE2199819F0F0FB00FABD15 /* BJGetItemsRequestType.m in Sources */,
+				3BE219D519F0F3A900FABD15 /* BJPaginationOutputType.m in Sources */,
 				3BE2190019EF884F00FABD15 /* BJModelFilling2.m in Sources */,
 				CEFBC30119D406270034E202 /* BJMutableSpecificRecord.m in Sources */,
 				CEFBC30319D406270034E202 /* BJSpecificEnum.m in Sources */,
+				3BE2199E19F0F0FB00FABD15 /* BJPriceTreatmentEnum.m in Sources */,
+				3BE2199119F0F0FB00FABD15 /* BJCategory.m in Sources */,
 				CEFBC30519D406270034E202 /* BJSpecificJsonParser.m in Sources */,
+				3BE219A019F0F0FB00FABD15 /* BJSellerInfo.m in Sources */,
+				3BE219D719F0F3A900FABD15 /* BJResponseStatusType.m in Sources */,
+				3BE2199A19F0F0FB00FABD15 /* BJItem.m in Sources */,
+				3BE219C319F0F3A900FABD15 /* BJCheckHealthRequestType.m in Sources */,
+				3BE219A219F0F0FB00FABD15 /* BJShippingInfo.m in Sources */,
 				D863E31819ED7E8D00A89935 /* BJUnitTestJsonSerializer.m in Sources */,
+				3BE219A419F0F0FB00FABD15 /* BJUnitPriceInfo.m in Sources */,
 				CEFBC30719D406270034E202 /* BJSpecificJsonWriter.m in Sources */,
 				3BE2190119EF884F00FABD15 /* BJRecord.m in Sources */,
 				CEEF429319D0158800EEDB5D /* BJArraySchema.m in Sources */,
+				3BE219C919F0F3A900FABD15 /* BJErrorClassificationCodeType.m in Sources */,
 				CEEF429519D0158800EEDB5D /* BJEnumSchema.m in Sources */,
+				3BE2199219F0F0FB00FABD15 /* BJCondition.m in Sources */,
+				3BE2199519F0F0FB00FABD15 /* BJGalleryInfoContainer.m in Sources */,
+				3BE219CB19F0F3A900FABD15 /* BJErrorDataType.m in Sources */,
 				CEEF429719D0158800EEDB5D /* BJField.m in Sources */,
 				CEEF429919D0158800EEDB5D /* BJJsonHelper.m in Sources */,
 				CEEF429B19D0158800EEDB5D /* BJNamedSchema.m in Sources */,
 				CEEF429D19D0158800EEDB5D /* BJPropertyMap.m in Sources */,
+				3BE2199919F0F0FB00FABD15 /* BJGetItemsResponseType.m in Sources */,
+				3BE219E219F0F6B700FABD15 /* BJMobileRequestHead.m in Sources */,
+				3BE219C119F0F3A900FABD15 /* BJAckCodeType.m in Sources */,
 				CEEF429F19D0158800EEDB5D /* BJRecordSchema.m in Sources */,
 				3BE218DC19E7DE1800FABD15 /* JSONKit.m in Sources */,
+				3BE219CF19F0F3A900FABD15 /* BJExtensionType.m in Sources */,
 				CEEF42A119D0158800EEDB5D /* BJSchemaName.m in Sources */,
 				CEEF42A319D0158800EEDB5D /* BJSchemaNames.m in Sources */,
 				CEEF42A519D0158800EEDB5D /* BJUnionSchema.m in Sources */,
+				3BE2199619F0F0FB00FABD15 /* BJGallerySizeEnum.m in Sources */,
 				CEEF42A719D0158800EEDB5D /* BJUnnamedSchema.m in Sources */,
 				CEEF42A919D0158800EEDB5D /* BJMapSchema.m in Sources */,
+				3BE219E019F0F6B700FABD15 /* BJExtensionFieldType.m in Sources */,
 				3BE2190319EF884F00FABD15 /* BJRecord2Container.m in Sources */,
 				3BE2190219EF884F00FABD15 /* BJRecord2.m in Sources */,
 				CEEF429119D0157400EEDB5D /* BJError.m in Sources */,
+				3BE219CD19F0F3A900FABD15 /* BJErrorFieldType.m in Sources */,
 				3BE218EB19EE303100FABD15 /* BJTestSerializerSampleList.m in Sources */,
 				CEEF428D19D0156000EEDB5D /* BJPrimitiveSchema.m in Sources */,
 				3BE218FF19EF884F00FABD15 /* BJModelFilling.m in Sources */,
+				3BE219A119F0F0FB00FABD15 /* BJSellingStatus.m in Sources */,
 				CEEF428F19D0156000EEDB5D /* BJSchema.m in Sources */,
 				CEEF420619D0011900EEDB5D /* main.m in Sources */,
 				CEEF421319D0011900EEDB5D /* BaijiTest.xcdatamodeld in Sources */,
+				3BE219A319F0F0FB00FABD15 /* BJStorefront.m in Sources */,
+				3BE219C719F0F3A900FABD15 /* BJCommonRequestType.m in Sources */,
+				3BE2199019F0F0FB00FABD15 /* BJAmount.m in Sources */,
 				CEEF422419D0047300EEDB5D /* BJSchemaTestPrimitive.m in Sources */,
 				CEEF423F19D00BDF00EEDB5D /* BJSchemaTestBase.m in Sources */,
+				3BE219D319F0F3A900FABD15 /* BJPaginationInputType.m in Sources */,
+				3BE2199B19F0F0FB00FABD15 /* BJItemContainer.m in Sources */,
+				3BE2199319F0F0FB00FABD15 /* BJDiscountPriceInfo.m in Sources */,
+				3BE2199719F0F0FB00FABD15 /* BJGalleryURL.m in Sources */,
 				CEEF42B819D019B100EEDB5D /* BJSchemaTestEnum.m in Sources */,
+				3BE2196219F0DD0100FABD15 /* BJPingTestClient.m in Sources */,
 				3BE218FD19EF884F00FABD15 /* BJEnum1Values.m in Sources */,
 				CEEF42BE19D126F300EEDB5D /* BJSchemaTestUnion.m in Sources */,
 				CEEF42C119D128F600EEDB5D /* BJSchemaTestArray.m in Sources */,
+				3BE219D119F0F3A900FABD15 /* BJGenericErrorResponseType.m in Sources */,
 				CEEF42C419D12A4400EEDB5D /* BJSchemaTestMap.m in Sources */,
+				3BE219C519F0F3A900FABD15 /* BJCheckHealthResponseType.m in Sources */,
+				3BE2199C19F0F0FB00FABD15 /* BJListingInfo.m in Sources */,
 				CEEF42C719D12B3600EEDB5D /* BJSchemaTestRecord.m in Sources */,
+				3BE219D919F0F3A900FABD15 /* BJSeverityCodeType.m in Sources */,
+				3BE2199F19F0F0FB00FABD15 /* BJProductId.m in Sources */,
 				CEEF42DE19D1527200EEDB5D /* BJSchemaTestBasic.m in Sources */,
 				CEFBC2F619D3FA7F0034E202 /* BJTestSerializerSample.m in Sources */,
 				3BE218FE19EF884F00FABD15 /* BJEnum2Values.m in Sources */,
+				3BE2199D19F0F0FB00FABD15 /* BJMapExposureEnum.m in Sources */,
 				CEFBC30C19D413990034E202 /* BJUnitTestSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

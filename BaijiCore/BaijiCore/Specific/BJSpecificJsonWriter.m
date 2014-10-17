@@ -17,6 +17,7 @@
 
 - (NSData *)writeObject:(id<BJMutableRecord>)object {
     NSDictionary *parsedObject = [self writeRecord:object schema:(BJRecordSchema *)[[object class] schema]];
+    NSLog(@"%@", [parsedObject JSONString]);
     return [parsedObject JSONData];
 }
 
