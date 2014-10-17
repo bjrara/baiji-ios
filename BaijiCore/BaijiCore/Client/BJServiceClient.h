@@ -23,7 +23,7 @@ typedef enum {
  
  @param baseUri The target service URL
  */
-+ ( instancetype)sharedInstance:(NSString *)baseUri;
++ (instancetype)sharedInstance:(NSString *)baseUri;
 
 /**
  Get a BJServiceClient instance in indirect connection mode.
@@ -47,7 +47,8 @@ typedef enum {
  */
 - (void)invokeOperation: (NSString *)operationName
             withRequest:(id<BJMutableRecord>)requestObject
-          responseClass:(Class<BJMutableRecord>)responseClazz
+          responseClazz:(Class<BJMutableRecord>)responseClazz
                 success:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
                 failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure;
+
 @end

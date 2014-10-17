@@ -8,7 +8,6 @@
 
 #import "BJHTTPRequestOperation.h"
 #import "BJJsonSerializer.h"
-#import "BJMutableRecord.h"
 
 static dispatch_queue_t http_request_operation_processing_queue() {
     static dispatch_queue_t bj_http_request_operation_processing_queue;
@@ -39,6 +38,7 @@ static dispatch_group_t http_request_operation_completion_group() {
 
 @interface BJHTTPRequestOperation ()
 
+@property (readonly, nonatomic) Class responseClazz;
 @property (readwrite, nonatomic, strong) BJJsonSerializer *serializer;
 
 @property (readwrite, nonatomic, strong) NSHTTPURLResponse *response;
@@ -51,12 +51,15 @@ static dispatch_group_t http_request_operation_completion_group() {
 
 @implementation BJHTTPRequestOperation
 
-- (instancetype)initWithURL:(NSString *)URL
-                    headers:(NSDictionary *)headers
-                     requestObj:(id<BJMutableRecord>)requestObj {
-    _serializer = [[BJJsonSerializer alloc] init];
-    NSMutableURLRequest *mutableRequest = [self requestWithURL:URL method:@"POST" headers:headers requestObj:requestObj];
-    self = [super initWithRequest:mutableRequest];
++ (instancetype)shardInstance {
+    return [[self alloc] init];
+}
+
+- (instancetype)initWithRequest:(NSURLRequest *)urlRequest {
+    self = [super initWithRequest:urlRequest];
+    if (self) {
+        _serializer = [[BJJsonSerializer alloc] init];
+    }
     return self;
 }
 
@@ -90,9 +93,28 @@ static dispatch_group_t http_request_operation_completion_group() {
     return request;
 }
 
-#pragma mark - AFHTTPRequestOperation
+- (id)responseObject {
+    [self.lock lock];
+    if (!_responseObject && [self isFinished] && ![self error]) {
+        self.responseObject = [self.serializer deserialize:self.responseClazz from:self.responseData];
+    }
+    [self.lock unlock];
+    return _responseObject;
+}
 
-- (void)setCompletionBlockWithSuccess:(void (^)(BJHTTPRequestOperation *operation, id responseObject))success
+- (BJHTTPRequestOperation *)POST:(NSString *)URL
+                         headers:(NSDictionary *)headers
+                      requestObj:(id<BJMutableRecord>)requestObj
+                   responseClazz:(Class<BJMutableRecord>)responseClazz
+                         success:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
+                         failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure {
+    NSMutableURLRequest *mutableRequest = [self requestWithURL:URL method:@"POST" headers:headers requestObj:requestObj];
+    BJHTTPRequestOperation *operation = [[BJHTTPRequestOperation alloc] initWithRequest:mutableRequest];
+    [operation setCompletionBlockWithSuccess:success failure:failure];
+    return operation;
+}
+
+- (void)setCompletionBlockWithSuccess:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
                               failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure
 {
     // completionBlock is manually nilled out in AFURLConnectionOperation to break the retain cycle.
@@ -162,6 +184,23 @@ static dispatch_group_t http_request_operation_completion_group() {
     return YES;
 }
 
+- (id)initWithCoder:(NSCoder *)decoder {
+    self = [super initWithCoder:decoder];
+    if (!self) {
+        return nil;
+    }
+    
+    self.serializer = [decoder decodeObjectOfClass:[BJJsonSerializer class] forKey:NSStringFromSelector(@selector(serializer))];
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [super encodeWithCoder:coder];
+    
+    [coder encodeObject:self.serializer forKey:NSStringFromSelector(@selector(serializer))];
+}
+
 #pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
@@ -173,4 +212,5 @@ static dispatch_group_t http_request_operation_completion_group() {
     
     return operation;
 }
+
 @end

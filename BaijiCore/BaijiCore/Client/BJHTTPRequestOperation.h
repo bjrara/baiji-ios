@@ -8,7 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "AFURLConnectionOperation.h"
+#import "BJMutableRecord.h"
 
 @interface BJHTTPRequestOperation : AFURLConnectionOperation
+
++ (instancetype)shardInstance;
+
+- (BJHTTPRequestOperation *)POST:(NSString *)URL
+                         headers:(NSDictionary *)headers
+                      requestObj:(id<BJMutableRecord>)requestObj
+                   responseClazz:(Class<BJMutableRecord>)responseClazz
+                         success:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
+                         failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure;
 
 @end

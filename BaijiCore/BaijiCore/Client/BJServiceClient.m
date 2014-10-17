@@ -7,9 +7,11 @@
 //
 
 #import "BJServiceClient.h"
+#import "BJHTTPRequestOperation.h"
 
 @interface BJServiceClient()
 
+@property (nonatomic, readwrite) NSURL *baseUri;
 @property (nonatomic, readwrite) BJConnectionMode connectionMode;
 
 @end
@@ -46,6 +48,7 @@
     self = [super init];
     if (self) {
         self.connectionMode = BJConnectionDirect;
+        self.baseUri = [NSURL URLWithString:baseUri];
         [[BJServiceClient clientCache] setObject:self forKey:baseUri];
     }
     return self;
@@ -64,9 +67,10 @@
 
 - (void)invokeOperation: (NSString *)operationName
             withRequest:(id<BJMutableRecord>)requestObject
-          responseClass:(Class<BJMutableRecord>)responseClazz
+          responseClazz:(Class<BJMutableRecord>)responseClazz
                 success:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
                 failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure {
-    
+    BJHTTPRequestOperation *operation = [BJHTTPRequestOperation shardInstance];
+    [operation POST:[[NSURL URLWithString:operationName relativeToURL:self.baseUri] absoluteString] headers:nil requestObj:requestObject responseClazz:responseClazz success:success failure:failure];
 }
 @end
