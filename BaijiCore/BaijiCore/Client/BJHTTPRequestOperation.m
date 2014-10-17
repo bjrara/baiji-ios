@@ -55,6 +55,14 @@ static dispatch_group_t http_request_operation_completion_group() {
     return [[self alloc] init];
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _serializer = [[BJJsonSerializer alloc] init];
+    }
+    return self;
+}
+
 - (instancetype)initWithRequest:(NSURLRequest *)urlRequest {
     self = [super initWithRequest:urlRequest];
     if (self) {
@@ -67,7 +75,7 @@ static dispatch_group_t http_request_operation_completion_group() {
                                  method:(NSString *)method
                                 headers:(NSDictionary *)headers
                              requestObj:(id<BJMutableRecord>)requestObj {
-    NSMutableURLRequest *mutableRequest = [[[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:URL]] autorelease];
+    NSMutableURLRequest *mutableRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:URL]];
     mutableRequest.HTTPMethod = method;
     return [self request:mutableRequest addingHeaders:headers serializingRequestObj:requestObj];
 }
@@ -85,11 +93,9 @@ static dispatch_group_t http_request_operation_completion_group() {
         }
     }];
     if (![request valueForHTTPHeaderField:@"Content-Type"]) {
-        NSString *charset = (__bridge NSString *)CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
-        [request setValue:[NSString stringWithFormat:@"application/json; charset=%@", charset] forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     }
-    
-    [request setHTTPBody:[self.serializer serialize:request]];
+    [request setHTTPBody:[self.serializer serialize:requestObj]];
     return request;
 }
 
@@ -109,8 +115,14 @@ static dispatch_group_t http_request_operation_completion_group() {
                          success:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
                          failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure {
     NSMutableURLRequest *mutableRequest = [self requestWithURL:URL method:@"POST" headers:headers requestObj:requestObj];
+    NSLog(@"%@", [mutableRequest allHTTPHeaderFields]);
     BJHTTPRequestOperation *operation = [[BJHTTPRequestOperation alloc] initWithRequest:mutableRequest];
+    operation.serializer = self.serializer;
+    
     [operation setCompletionBlockWithSuccess:success failure:failure];
+    operation.completionGroup = self.completionGroup;
+    operation.completionQueue = self.completionQueue;
+    
     return operation;
 }
 

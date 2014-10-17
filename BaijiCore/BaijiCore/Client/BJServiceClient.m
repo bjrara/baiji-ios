@@ -13,6 +13,7 @@
 
 @property (nonatomic, readwrite) NSURL *baseUri;
 @property (nonatomic, readwrite) BJConnectionMode connectionMode;
+@property (nonatomic, strong) NSOperationQueue *operationQueue;
 
 @end
 
@@ -27,7 +28,7 @@
     return __clientCache;
 }
 
-+ ( instancetype)sharedInstance:(NSString *)baseUri {
++ (instancetype)sharedInstance:(NSString *)baseUri {
     BJServiceClient *client = [[BJServiceClient clientCache] objectForKey:baseUri];
     if (!client) {
         return [[BJServiceClient alloc] initWithBaseUri:baseUri];
@@ -49,6 +50,7 @@
     if (self) {
         self.connectionMode = BJConnectionDirect;
         self.baseUri = [NSURL URLWithString:baseUri];
+        self.operationQueue = [[NSOperationQueue alloc] init];
         [[BJServiceClient clientCache] setObject:self forKey:baseUri];
     }
     return self;
@@ -71,6 +73,7 @@
                 success:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
                 failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure {
     BJHTTPRequestOperation *operation = [BJHTTPRequestOperation shardInstance];
-    [operation POST:[[NSURL URLWithString:operationName relativeToURL:self.baseUri] absoluteString] headers:nil requestObj:requestObject responseClazz:responseClazz success:success failure:failure];
+    operation = [operation POST:[[NSURL URLWithString:operationName relativeToURL:self.baseUri] absoluteString] headers:nil requestObj:requestObject responseClazz:responseClazz success:success failure:failure];
+    [self.operationQueue addOperation:operation];
 }
 @end

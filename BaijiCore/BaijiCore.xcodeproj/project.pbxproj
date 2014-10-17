@@ -21,6 +21,38 @@
 		3BE2190319EF884F00FABD15 /* BJRecord2Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218FC19EF884F00FABD15 /* BJRecord2Container.m */; };
 		3BE2191719EFBCB200FABD15 /* BJHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */; };
 		3BE2191A19EFBDBD00FABD15 /* BJServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */; };
+		3BE219C019F0F3A900FABD15 /* BJAckCodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219A719F0F3A900FABD15 /* BJAckCodeType.m */; };
+		3BE219C119F0F3A900FABD15 /* BJAckCodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219A719F0F3A900FABD15 /* BJAckCodeType.m */; };
+		3BE219C219F0F3A900FABD15 /* BJCheckHealthRequestType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219A919F0F3A900FABD15 /* BJCheckHealthRequestType.m */; };
+		3BE219C319F0F3A900FABD15 /* BJCheckHealthRequestType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219A919F0F3A900FABD15 /* BJCheckHealthRequestType.m */; };
+		3BE219C419F0F3A900FABD15 /* BJCheckHealthResponseType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219AB19F0F3A900FABD15 /* BJCheckHealthResponseType.m */; };
+		3BE219C519F0F3A900FABD15 /* BJCheckHealthResponseType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219AB19F0F3A900FABD15 /* BJCheckHealthResponseType.m */; };
+		3BE219C619F0F3A900FABD15 /* BJCommonRequestType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219AD19F0F3A900FABD15 /* BJCommonRequestType.m */; };
+		3BE219C719F0F3A900FABD15 /* BJCommonRequestType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219AD19F0F3A900FABD15 /* BJCommonRequestType.m */; };
+		3BE219C819F0F3A900FABD15 /* BJErrorClassificationCodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219AF19F0F3A900FABD15 /* BJErrorClassificationCodeType.m */; };
+		3BE219C919F0F3A900FABD15 /* BJErrorClassificationCodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219AF19F0F3A900FABD15 /* BJErrorClassificationCodeType.m */; };
+		3BE219CA19F0F3A900FABD15 /* BJErrorDataType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219B119F0F3A900FABD15 /* BJErrorDataType.m */; };
+		3BE219CB19F0F3A900FABD15 /* BJErrorDataType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219B119F0F3A900FABD15 /* BJErrorDataType.m */; };
+		3BE219CC19F0F3A900FABD15 /* BJErrorFieldType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219B319F0F3A900FABD15 /* BJErrorFieldType.m */; };
+		3BE219CD19F0F3A900FABD15 /* BJErrorFieldType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219B319F0F3A900FABD15 /* BJErrorFieldType.m */; };
+		3BE219CE19F0F3A900FABD15 /* BJExtensionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219B519F0F3A900FABD15 /* BJExtensionType.m */; };
+		3BE219CF19F0F3A900FABD15 /* BJExtensionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219B519F0F3A900FABD15 /* BJExtensionType.m */; };
+		3BE219D019F0F3A900FABD15 /* BJGenericErrorResponseType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219B719F0F3A900FABD15 /* BJGenericErrorResponseType.m */; };
+		3BE219D119F0F3A900FABD15 /* BJGenericErrorResponseType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219B719F0F3A900FABD15 /* BJGenericErrorResponseType.m */; };
+		3BE219D219F0F3A900FABD15 /* BJPaginationInputType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219B919F0F3A900FABD15 /* BJPaginationInputType.m */; };
+		3BE219D319F0F3A900FABD15 /* BJPaginationInputType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219B919F0F3A900FABD15 /* BJPaginationInputType.m */; };
+		3BE219D419F0F3A900FABD15 /* BJPaginationOutputType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219BB19F0F3A900FABD15 /* BJPaginationOutputType.m */; };
+		3BE219D519F0F3A900FABD15 /* BJPaginationOutputType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219BB19F0F3A900FABD15 /* BJPaginationOutputType.m */; };
+		3BE219D619F0F3A900FABD15 /* BJResponseStatusType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219BD19F0F3A900FABD15 /* BJResponseStatusType.m */; };
+		3BE219D719F0F3A900FABD15 /* BJResponseStatusType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219BD19F0F3A900FABD15 /* BJResponseStatusType.m */; };
+		3BE219D819F0F3A900FABD15 /* BJSeverityCodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219BF19F0F3A900FABD15 /* BJSeverityCodeType.m */; };
+		3BE219D919F0F3A900FABD15 /* BJSeverityCodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219BF19F0F3A900FABD15 /* BJSeverityCodeType.m */; };
+		3BE219DF19F0F6B700FABD15 /* BJExtensionFieldType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219DC19F0F6B700FABD15 /* BJExtensionFieldType.m */; };
+		3BE219E019F0F6B700FABD15 /* BJExtensionFieldType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219DC19F0F6B700FABD15 /* BJExtensionFieldType.m */; };
+		3BE219E119F0F6B700FABD15 /* BJMobileRequestHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219DE19F0F6B700FABD15 /* BJMobileRequestHead.m */; };
+		3BE219E219F0F6B700FABD15 /* BJMobileRequestHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219DE19F0F6B700FABD15 /* BJMobileRequestHead.m */; };
+		3BE219E519F0F73D00FABD15 /* BJHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */; };
+		3BE219E619F0F73D00FABD15 /* BJServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */; };
 		45BE962B84454BB59A86CD03 /* libPods-BaijiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A363983496479B839AECA5 /* libPods-BaijiCore.a */; };
 		BC3CCE3F7A324610A67D151B /* libPods-BaijiTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */; };
 		CE0F0FA119CA820000C0C11E /* BJPrimitiveSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F0FA019CA820000C0C11E /* BJPrimitiveSchema.m */; };
@@ -134,6 +166,36 @@
 		3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJHTTPRequestOperation.m; sourceTree = "<group>"; };
 		3BE2191819EFBDBD00FABD15 /* BJServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJServiceClient.h; sourceTree = "<group>"; };
 		3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJServiceClient.m; sourceTree = "<group>"; };
+		3BE219A619F0F3A900FABD15 /* BJAckCodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJAckCodeType.h; sourceTree = "<group>"; };
+		3BE219A719F0F3A900FABD15 /* BJAckCodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJAckCodeType.m; sourceTree = "<group>"; };
+		3BE219A819F0F3A900FABD15 /* BJCheckHealthRequestType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJCheckHealthRequestType.h; sourceTree = "<group>"; };
+		3BE219A919F0F3A900FABD15 /* BJCheckHealthRequestType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJCheckHealthRequestType.m; sourceTree = "<group>"; };
+		3BE219AA19F0F3A900FABD15 /* BJCheckHealthResponseType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJCheckHealthResponseType.h; sourceTree = "<group>"; };
+		3BE219AB19F0F3A900FABD15 /* BJCheckHealthResponseType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJCheckHealthResponseType.m; sourceTree = "<group>"; };
+		3BE219AC19F0F3A900FABD15 /* BJCommonRequestType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJCommonRequestType.h; sourceTree = "<group>"; };
+		3BE219AD19F0F3A900FABD15 /* BJCommonRequestType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJCommonRequestType.m; sourceTree = "<group>"; };
+		3BE219AE19F0F3A900FABD15 /* BJErrorClassificationCodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJErrorClassificationCodeType.h; sourceTree = "<group>"; };
+		3BE219AF19F0F3A900FABD15 /* BJErrorClassificationCodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJErrorClassificationCodeType.m; sourceTree = "<group>"; };
+		3BE219B019F0F3A900FABD15 /* BJErrorDataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJErrorDataType.h; sourceTree = "<group>"; };
+		3BE219B119F0F3A900FABD15 /* BJErrorDataType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJErrorDataType.m; sourceTree = "<group>"; };
+		3BE219B219F0F3A900FABD15 /* BJErrorFieldType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJErrorFieldType.h; sourceTree = "<group>"; };
+		3BE219B319F0F3A900FABD15 /* BJErrorFieldType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJErrorFieldType.m; sourceTree = "<group>"; };
+		3BE219B419F0F3A900FABD15 /* BJExtensionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJExtensionType.h; sourceTree = "<group>"; };
+		3BE219B519F0F3A900FABD15 /* BJExtensionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJExtensionType.m; sourceTree = "<group>"; };
+		3BE219B619F0F3A900FABD15 /* BJGenericErrorResponseType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGenericErrorResponseType.h; sourceTree = "<group>"; };
+		3BE219B719F0F3A900FABD15 /* BJGenericErrorResponseType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGenericErrorResponseType.m; sourceTree = "<group>"; };
+		3BE219B819F0F3A900FABD15 /* BJPaginationInputType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJPaginationInputType.h; sourceTree = "<group>"; };
+		3BE219B919F0F3A900FABD15 /* BJPaginationInputType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJPaginationInputType.m; sourceTree = "<group>"; };
+		3BE219BA19F0F3A900FABD15 /* BJPaginationOutputType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJPaginationOutputType.h; sourceTree = "<group>"; };
+		3BE219BB19F0F3A900FABD15 /* BJPaginationOutputType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJPaginationOutputType.m; sourceTree = "<group>"; };
+		3BE219BC19F0F3A900FABD15 /* BJResponseStatusType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJResponseStatusType.h; sourceTree = "<group>"; };
+		3BE219BD19F0F3A900FABD15 /* BJResponseStatusType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJResponseStatusType.m; sourceTree = "<group>"; };
+		3BE219BE19F0F3A900FABD15 /* BJSeverityCodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJSeverityCodeType.h; sourceTree = "<group>"; };
+		3BE219BF19F0F3A900FABD15 /* BJSeverityCodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJSeverityCodeType.m; sourceTree = "<group>"; };
+		3BE219DB19F0F6B700FABD15 /* BJExtensionFieldType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJExtensionFieldType.h; sourceTree = "<group>"; };
+		3BE219DC19F0F6B700FABD15 /* BJExtensionFieldType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJExtensionFieldType.m; sourceTree = "<group>"; };
+		3BE219DD19F0F6B700FABD15 /* BJMobileRequestHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJMobileRequestHead.h; sourceTree = "<group>"; };
+		3BE219DE19F0F6B700FABD15 /* BJMobileRequestHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJMobileRequestHead.m; sourceTree = "<group>"; };
 		4DE4BFB7696BFF938A0C2523 /* Pods-BaijiCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.release.xcconfig"; sourceTree = "<group>"; };
 		89BDDC28A3F7E75F3876702D /* Pods-BaijiTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiTest.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiTest/Pods-BaijiTest.debug.xcconfig"; sourceTree = "<group>"; };
 		98F231124498FE922C52957D /* Pods-BaijiCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -293,12 +355,68 @@
 		3BE2191419EFAD9700FABD15 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				3BE219DA19F0F6AA00FABD15 /* Mobile */,
+				3BE219A519F0F39400FABD15 /* Common */,
 				3BE2191519EFBCB200FABD15 /* BJHTTPRequestOperation.h */,
 				3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */,
 				3BE2191819EFBDBD00FABD15 /* BJServiceClient.h */,
 				3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */,
 			);
 			path = Client;
+			sourceTree = "<group>";
+		};
+		3BE2195F19F0DC1A00FABD15 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				3BE2196519F0F0E300FABD15 /* Types */,
+				3BE2196019F0DD0100FABD15 /* BJPingTestClient.h */,
+				3BE2196119F0DD0100FABD15 /* BJPingTestClient.m */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		3BE219A519F0F39400FABD15 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3BE219A619F0F3A900FABD15 /* BJAckCodeType.h */,
+				3BE219A719F0F3A900FABD15 /* BJAckCodeType.m */,
+				3BE219A819F0F3A900FABD15 /* BJCheckHealthRequestType.h */,
+				3BE219A919F0F3A900FABD15 /* BJCheckHealthRequestType.m */,
+				3BE219AA19F0F3A900FABD15 /* BJCheckHealthResponseType.h */,
+				3BE219AB19F0F3A900FABD15 /* BJCheckHealthResponseType.m */,
+				3BE219AC19F0F3A900FABD15 /* BJCommonRequestType.h */,
+				3BE219AD19F0F3A900FABD15 /* BJCommonRequestType.m */,
+				3BE219AE19F0F3A900FABD15 /* BJErrorClassificationCodeType.h */,
+				3BE219AF19F0F3A900FABD15 /* BJErrorClassificationCodeType.m */,
+				3BE219B019F0F3A900FABD15 /* BJErrorDataType.h */,
+				3BE219B119F0F3A900FABD15 /* BJErrorDataType.m */,
+				3BE219B219F0F3A900FABD15 /* BJErrorFieldType.h */,
+				3BE219B319F0F3A900FABD15 /* BJErrorFieldType.m */,
+				3BE219B419F0F3A900FABD15 /* BJExtensionType.h */,
+				3BE219B519F0F3A900FABD15 /* BJExtensionType.m */,
+				3BE219B619F0F3A900FABD15 /* BJGenericErrorResponseType.h */,
+				3BE219B719F0F3A900FABD15 /* BJGenericErrorResponseType.m */,
+				3BE219B819F0F3A900FABD15 /* BJPaginationInputType.h */,
+				3BE219B919F0F3A900FABD15 /* BJPaginationInputType.m */,
+				3BE219BA19F0F3A900FABD15 /* BJPaginationOutputType.h */,
+				3BE219BB19F0F3A900FABD15 /* BJPaginationOutputType.m */,
+				3BE219BC19F0F3A900FABD15 /* BJResponseStatusType.h */,
+				3BE219BD19F0F3A900FABD15 /* BJResponseStatusType.m */,
+				3BE219BE19F0F3A900FABD15 /* BJSeverityCodeType.h */,
+				3BE219BF19F0F3A900FABD15 /* BJSeverityCodeType.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3BE219DA19F0F6AA00FABD15 /* Mobile */ = {
+			isa = PBXGroup;
+			children = (
+				3BE219DB19F0F6B700FABD15 /* BJExtensionFieldType.h */,
+				3BE219DC19F0F6B700FABD15 /* BJExtensionFieldType.m */,
+				3BE219DD19F0F6B700FABD15 /* BJMobileRequestHead.h */,
+				3BE219DE19F0F6B700FABD15 /* BJMobileRequestHead.m */,
+			);
+			path = Mobile;
 			sourceTree = "<group>";
 		};
 		CE15C32D19D2DCC700754015 /* Specific */ = {
@@ -428,6 +546,7 @@
 				CEEF421119D0011900EEDB5D /* BaijiTest.xcdatamodeld */,
 				D863E31619ED7E8D00A89935 /* BJUnitTestJsonSerializer.h */,
 				D863E31719ED7E8D00A89935 /* BJUnitTestJsonSerializer.m */,
+				3BE2195F19F0DC1A00FABD15 /* Client */,
 				CEEF422019D0043A00EEDB5D /* Schema */,
 				CEFBC2ED19D3F7970034E202 /* Specific */,
 				CEEF420019D0011900EEDB5D /* Supporting Files */,
@@ -682,21 +801,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE52855E19C84DE900B427B5 /* main.m in Sources */,
+				3BE219C219F0F3A900FABD15 /* BJCheckHealthRequestType.m in Sources */,
 				CE52856219C84DE900B427B5 /* BJAppDelegate.m in Sources */,
 				CE52856B19C84DE900B427B5 /* BaijiCore.xcdatamodeld in Sources */,
+				3BE219D419F0F3A900FABD15 /* BJPaginationOutputType.m in Sources */,
+				3BE219C619F0F3A900FABD15 /* BJCommonRequestType.m in Sources */,
 				CE449A0E19C91FE100F0D92D /* BJJsonSerializer.m in Sources */,
 				CE449A1D19C9286000F0D92D /* BJSchema.m in Sources */,
 				CE7159F019C9471F0057DBBB /* BJPropertyMap.m in Sources */,
 				CE7159F319C952060057DBBB /* BJError.m in Sources */,
 				3BE2191719EFBCB200FABD15 /* BJHTTPRequestOperation.m in Sources */,
+				3BE219CA19F0F3A900FABD15 /* BJErrorDataType.m in Sources */,
 				CE7159F619C95ED60057DBBB /* BJSchemaName.m in Sources */,
 				CE7159F919C96BC40057DBBB /* BJSchemaNames.m in Sources */,
+				3BE219CC19F0F3A900FABD15 /* BJErrorFieldType.m in Sources */,
 				CE7159FC19C96C590057DBBB /* BJNamedSchema.m in Sources */,
+				3BE219D219F0F3A900FABD15 /* BJPaginationInputType.m in Sources */,
 				CE48F76F19C97E5D0093B09B /* BJJsonHelper.m in Sources */,
 				CE48F77219C9A08B0093B09B /* BJEnumSchema.m in Sources */,
+				3BE219D819F0F3A900FABD15 /* BJSeverityCodeType.m in Sources */,
 				CE0F0FA119CA820000C0C11E /* BJPrimitiveSchema.m in Sources */,
 				CE0F0FA519CA82B500C0C11E /* BJUnnamedSchema.m in Sources */,
 				CE0F0FB719CAA52F00C0C11E /* BJRecordSchema.m in Sources */,
+				3BE219CE19F0F3A900FABD15 /* BJExtensionType.m in Sources */,
 				CEC7AA9B19CAC48C000F89A7 /* BJField.m in Sources */,
 				CEBFFF5B19CBEE7000705622 /* BJUnionSchema.m in Sources */,
 				CEBFFF5E19CC305700705622 /* BJArraySchema.m in Sources */,
@@ -704,10 +831,17 @@
 				CE15C33019D2DCF900754015 /* BJSpecificJsonWriter.m in Sources */,
 				CEFBC2CA19D3B0D80034E202 /* BJMutableSpecificRecord.m in Sources */,
 				CEFBC2E919D3C9B50034E202 /* BJSpecificEnum.m in Sources */,
+				3BE219D619F0F3A900FABD15 /* BJResponseStatusType.m in Sources */,
+				3BE219DF19F0F6B700FABD15 /* BJExtensionFieldType.m in Sources */,
+				3BE219C819F0F3A900FABD15 /* BJErrorClassificationCodeType.m in Sources */,
 				CEFBC2EC19D3DFFF0034E202 /* BJSpecificJsonParser.m in Sources */,
 				CEFBC35019D50A4B0034E202 /* NSData+Base64.m in Sources */,
+				3BE219D019F0F3A900FABD15 /* BJGenericErrorResponseType.m in Sources */,
 				3BE218DB19E7DE1800FABD15 /* JSONKit.m in Sources */,
+				3BE219C419F0F3A900FABD15 /* BJCheckHealthResponseType.m in Sources */,
+				3BE219C019F0F3A900FABD15 /* BJAckCodeType.m in Sources */,
 				3BE2191A19EFBDBD00FABD15 /* BJServiceClient.m in Sources */,
+				3BE219E119F0F6B700FABD15 /* BJMobileRequestHead.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
