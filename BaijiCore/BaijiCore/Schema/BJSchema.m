@@ -40,7 +40,8 @@ NSString *const BJSchemaTypeNames[] = {
     [BJSchemaTypeFloat] = @"float",
     [BJSchemaTypeDouble] = @"double",
     [BJSchemaTypeBoolean] = @"boolean",
-    [BJSchemaTypeNull] = @"null"
+    [BJSchemaTypeNull] = @"null",
+    [BJSchemaTypeDateTime] = @"datetime"
 };
 
 - (id)initWithType:(BJSchemaType)type properties:(BJPropertyMap *)properties {

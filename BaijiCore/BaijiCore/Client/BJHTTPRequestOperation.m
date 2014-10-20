@@ -38,7 +38,7 @@ static dispatch_group_t http_request_operation_completion_group() {
 
 @interface BJHTTPRequestOperation ()
 
-@property (readonly, nonatomic) Class responseClazz;
+@property (readwrite, nonatomic, strong) Class responseClazz;
 @property (readwrite, nonatomic, strong) BJJsonSerializer *serializer;
 
 @property (readwrite, nonatomic, strong) NSHTTPURLResponse *response;
@@ -100,6 +100,7 @@ static dispatch_group_t http_request_operation_completion_group() {
 }
 
 - (id)responseObject {
+    NSParameterAssert(self.responseClazz);
     [self.lock lock];
     if (!_responseObject && [self isFinished] && ![self error]) {
         self.responseObject = [self.serializer deserialize:self.responseClazz from:self.responseData];
@@ -114,14 +115,16 @@ static dispatch_group_t http_request_operation_completion_group() {
                    responseClazz:(Class<BJMutableRecord>)responseClazz
                          success:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
                          failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure {
+    self.responseClazz = responseClazz;
     NSMutableURLRequest *mutableRequest = [self requestWithURL:URL method:@"POST" headers:headers requestObj:requestObj];
     NSLog(@"%@", [mutableRequest allHTTPHeaderFields]);
     BJHTTPRequestOperation *operation = [[BJHTTPRequestOperation alloc] initWithRequest:mutableRequest];
-    operation.serializer = self.serializer;
     
     [operation setCompletionBlockWithSuccess:success failure:failure];
+    operation.serializer = self.serializer;
     operation.completionGroup = self.completionGroup;
     operation.completionQueue = self.completionQueue;
+    operation.responseClazz = self.responseClazz;
     
     return operation;
 }
