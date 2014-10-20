@@ -415,17 +415,15 @@
 			path = JSONKit;
 			sourceTree = "<group>";
 		};
-		3BE2191419EFAD9700FABD15 /* Client */ = {
+		3BE2191419EFAD9700FABD15 /* URLConnection */ = {
 			isa = PBXGroup;
 			children = (
 				3BE219DA19F0F6AA00FABD15 /* Mobile */,
 				3BE219A519F0F39400FABD15 /* Common */,
 				3BE2191519EFBCB200FABD15 /* BJHTTPRequestOperation.h */,
 				3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */,
-				3BE2191819EFBDBD00FABD15 /* BJServiceClient.h */,
-				3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */,
 			);
-			path = Client;
+			path = URLConnection;
 			sourceTree = "<group>";
 		};
 		3BE2195F19F0DC1A00FABD15 /* Client */ = {
@@ -627,7 +625,9 @@
 				CE449A0C19C91FE100F0D92D /* BJJsonSerializer.h */,
 				CE449A0D19C91FE100F0D92D /* BJJsonSerializer.m */,
 				CE449A1019C9201700F0D92D /* BJSerializable.h */,
-				3BE2191419EFAD9700FABD15 /* Client */,
+				3BE2191819EFBDBD00FABD15 /* BJServiceClient.h */,
+				3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */,
+				3BE2191419EFAD9700FABD15 /* URLConnection */,
 				CEFBC33019D501510034E202 /* Crypto */,
 				CE449A1819C9282E00F0D92D /* Schema */,
 				CE15C32D19D2DCC700754015 /* Specific */,
