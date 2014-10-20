@@ -8,6 +8,7 @@
 
 #import "BJHTTPRequestOperation.h"
 #import "BJJsonSerializer.h"
+#import "JSONKit.h"
 
 static dispatch_queue_t http_request_operation_processing_queue() {
     static dispatch_queue_t bj_http_request_operation_processing_queue;
@@ -117,7 +118,6 @@ static dispatch_group_t http_request_operation_completion_group() {
                          failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure {
     self.responseClazz = responseClazz;
     NSMutableURLRequest *mutableRequest = [self requestWithURL:URL method:@"POST" headers:headers requestObj:requestObj];
-    NSLog(@"%@", [mutableRequest allHTTPHeaderFields]);
     BJHTTPRequestOperation *operation = [[BJHTTPRequestOperation alloc] initWithRequest:mutableRequest];
     
     [operation setCompletionBlockWithSuccess:success failure:failure];
@@ -137,6 +137,13 @@ static dispatch_group_t http_request_operation_completion_group() {
 #pragma clang diagnostic ignored "-Warc-retain-cycles"
 #pragma clang diagnostic ignored "-Wgnu"
     self.completionBlock = ^{
+#if DEBUG
+        NSLog(@"Status Code: %d", self.response.statusCode);
+        [self.response.allHeaderFields enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            NSLog(@"%@ : %@", key, obj);
+        }];
+        NSLog(@"%@", [[self.responseData objectFromJSONData] JSONString]);
+#endif
         if (self.completionGroup) {
             dispatch_group_enter(self.completionGroup);
         }
@@ -226,6 +233,15 @@ static dispatch_group_t http_request_operation_completion_group() {
     operation.completionGroup = self.completionGroup;
     
     return operation;
+}
+
+- (void)debugInfo {
+    NSLog(@"%@ %@", [self.request HTTPMethod], [[self.request URL] relativePath]);
+    NSLog(@"HOST: %@", [[self.request URL] host]);
+    [[self.request allHTTPHeaderFields] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        NSLog(@"%@: %@", key, obj);
+    }];
+    NSLog(@"%@", [[[self.request HTTPBody] objectFromJSONData] JSONString]);
 }
 
 @end

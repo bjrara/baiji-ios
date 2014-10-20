@@ -74,6 +74,9 @@
                 failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure {
     BJHTTPRequestOperation *operation = [BJHTTPRequestOperation shardInstance];
     operation = [operation POST:[[NSURL URLWithString:[NSString stringWithFormat:@"%@.json", operationName] relativeToURL:self.baseUri] absoluteString] headers:nil requestObj:requestObject responseClazz:responseClazz success:success failure:failure];
+#if DEBUG
+    [operation debugInfo];
+#endif
     [self.operationQueue addOperation:operation];
 }
 @end

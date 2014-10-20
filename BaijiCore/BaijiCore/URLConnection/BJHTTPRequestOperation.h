@@ -20,5 +20,6 @@
                    responseClazz:(Class<BJMutableRecord>)responseClazz
                          success:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
                          failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure;
+- (void)debugInfo;
 
 @end

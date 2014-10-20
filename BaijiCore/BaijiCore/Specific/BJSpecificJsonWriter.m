@@ -17,8 +17,6 @@
 
 - (NSData *)writeObject:(id<BJMutableRecord>)object {
     NSDictionary *parsedObject = [self writeRecord:object schema:(BJRecordSchema *)[[object class] schema]];
-    //TODO remove log
-    NSLog(@"%@", [parsedObject JSONString]);
     return [parsedObject JSONData];
 }
 
