@@ -11,7 +11,6 @@
 #import "BJSpecificJsonWriter.h"
 #import "BJSpecificJsonParser.h"
 #import "BJEnum1Values.h"
-#import "JSONKit.h"
 
 @implementation BJUnitTestSerialization
 

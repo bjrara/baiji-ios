@@ -27,7 +27,6 @@
 		3BE2199219F0F0FB00FABD15 /* BJCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196B19F0F0FB00FABD15 /* BJCondition.m */; };
 		3BE2199319F0F0FB00FABD15 /* BJDiscountPriceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196D19F0F0FB00FABD15 /* BJDiscountPriceInfo.m */; };
 		3BE2199419F0F0FB00FABD15 /* BJDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196F19F0F0FB00FABD15 /* BJDistance.m */; };
-		3BE2199519F0F0FB00FABD15 /* BJGalleryInfoContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197119F0F0FB00FABD15 /* BJGalleryInfoContainer.m */; };
 		3BE2199619F0F0FB00FABD15 /* BJGallerySizeEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197319F0F0FB00FABD15 /* BJGallerySizeEnum.m */; };
 		3BE2199719F0F0FB00FABD15 /* BJGalleryURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197519F0F0FB00FABD15 /* BJGalleryURL.m */; };
 		3BE2199819F0F0FB00FABD15 /* BJGetItemsRequestType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197719F0F0FB00FABD15 /* BJGetItemsRequestType.m */; };
@@ -200,8 +199,6 @@
 		3BE2196D19F0F0FB00FABD15 /* BJDiscountPriceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJDiscountPriceInfo.m; sourceTree = "<group>"; };
 		3BE2196E19F0F0FB00FABD15 /* BJDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJDistance.h; sourceTree = "<group>"; };
 		3BE2196F19F0F0FB00FABD15 /* BJDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJDistance.m; sourceTree = "<group>"; };
-		3BE2197019F0F0FB00FABD15 /* BJGalleryInfoContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGalleryInfoContainer.h; sourceTree = "<group>"; };
-		3BE2197119F0F0FB00FABD15 /* BJGalleryInfoContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGalleryInfoContainer.m; sourceTree = "<group>"; };
 		3BE2197219F0F0FB00FABD15 /* BJGallerySizeEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGallerySizeEnum.h; sourceTree = "<group>"; };
 		3BE2197319F0F0FB00FABD15 /* BJGallerySizeEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGallerySizeEnum.m; sourceTree = "<group>"; };
 		3BE2197419F0F0FB00FABD15 /* BJGalleryURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGalleryURL.h; sourceTree = "<group>"; };
@@ -454,8 +451,6 @@
 				3BE2196D19F0F0FB00FABD15 /* BJDiscountPriceInfo.m */,
 				3BE2196E19F0F0FB00FABD15 /* BJDistance.h */,
 				3BE2196F19F0F0FB00FABD15 /* BJDistance.m */,
-				3BE2197019F0F0FB00FABD15 /* BJGalleryInfoContainer.h */,
-				3BE2197119F0F0FB00FABD15 /* BJGalleryInfoContainer.m */,
 				3BE2197219F0F0FB00FABD15 /* BJGallerySizeEnum.h */,
 				3BE2197319F0F0FB00FABD15 /* BJGallerySizeEnum.m */,
 				3BE2197419F0F0FB00FABD15 /* BJGalleryURL.h */,
@@ -990,7 +985,6 @@
 				3BE219C919F0F3A900FABD15 /* BJErrorClassificationCodeType.m in Sources */,
 				CEEF429519D0158800EEDB5D /* BJEnumSchema.m in Sources */,
 				3BE2199219F0F0FB00FABD15 /* BJCondition.m in Sources */,
-				3BE2199519F0F0FB00FABD15 /* BJGalleryInfoContainer.m in Sources */,
 				3BE219CB19F0F3A900FABD15 /* BJErrorDataType.m in Sources */,
 				CEEF429719D0158800EEDB5D /* BJField.m in Sources */,
 				CEEF429919D0158800EEDB5D /* BJJsonHelper.m in Sources */,

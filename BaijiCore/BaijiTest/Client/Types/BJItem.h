@@ -8,6 +8,7 @@
 @class BJProductId;
 @class BJDiscountPriceInfo;
 @class BJStorefront;
+@class BJGalleryURL;
 @class BJSellingStatus;
 @class BJSellerInfo;
 @class BJDistance;
@@ -15,7 +16,6 @@
 @class BJShippingInfo;
 @class BJUnitPriceInfo;
 @class BJCategory;
-@class BJGalleryInfoContainer;
 @class BJListingInfo;
 
 @interface BJItem : BJMutableSpecificRecord
@@ -27,7 +27,7 @@
 @property (nonatomic, readwrite, retain) BJCategory *primaryCategory;
 @property (nonatomic, readwrite, retain) BJCategory *secondaryCategory;
 @property (nonatomic, readwrite, retain) NSString *galleryURL;
-@property (nonatomic, readwrite, retain) BJGalleryInfoContainer *galleryInfoContainer;
+@property (nonatomic, readwrite, retain) NSArray *galleryInfoContainer;
 @property (nonatomic, readwrite, retain) NSString *viewItemURL;
 @property (nonatomic, readwrite, retain) NSString *charityId;
 @property (nonatomic, readwrite, retain) BJProductId *productId;
@@ -64,7 +64,7 @@
      primaryCategory:(BJCategory *)primaryCategory
    secondaryCategory:(BJCategory *)secondaryCategory
           galleryURL:(NSString *)galleryURL
-galleryInfoContainer:(BJGalleryInfoContainer *)galleryInfoContainer
+galleryInfoContainer:(NSArray *)galleryInfoContainer
          viewItemURL:(NSString *)viewItemURL
            charityId:(NSString *)charityId
            productId:(BJProductId *)productId
