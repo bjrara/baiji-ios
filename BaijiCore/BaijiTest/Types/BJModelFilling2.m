@@ -24,10 +24,10 @@
             stringfilling:(NSString *)stringfilling {
     self = [super init];
     if (self) {
-        _enumfilling = enumfilling;
-        _listfilling = listfilling;
-        _longfilling = longfilling;
-        _stringfilling = stringfilling;
+        self.enumfilling = enumfilling;
+        self.listfilling = listfilling;
+        self.longfilling = longfilling;
+        self.stringfilling = stringfilling;
     }
     return self;
 }

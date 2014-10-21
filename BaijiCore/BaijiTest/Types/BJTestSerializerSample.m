@@ -16,7 +16,7 @@
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
-        __schema = [[BJSchema parse:@"{\"type\":\"record\",\"name\":\"BJTestSerializerSample\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"bigint1\",\"type\":[\"long\",\"null\"]},{\"name\":\"boolean1\",\"type\":[\"boolean\",\"null\"]},{\"name\":\"bytes1\",\"type\":[\"bytes\",\"null\"]},{\"name\":\"container1\",\"type\":{\"type\":\"record\",\"name\":\"BJRecord2Container\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"record2List\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"BJRecord2\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"bigint2\",\"type\":[\"long\",\"null\"]},{\"name\":\"byteslist\",\"type\":{\"type\":\"array\",\"items\":[\"bytes\",\"null\"]}},{\"name\":\"enum2\",\"type\":[{\"type\":\"enum\",\"name\":\"BJEnum2Values\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"symbols\":[\"CAR\",\"BIKE\",\"PLANE\"]},\"null\"]},{\"name\":\"filling\",\"type\":{\"type\":\"record\",\"name\":\"BJModelFilling\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"boolfilling\",\"type\":[\"boolean\",\"null\"]},{\"name\":\"enumfilling\",\"type\":[{\"type\":\"enum\",\"name\":\"BJEnum1Values\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"symbols\":[\"BLUE\",\"RED\",\"GREEN\"]},\"null\"]},{\"name\":\"intfilling\",\"type\":[\"int\",\"null\"]},{\"name\":\"modelfilling\",\"type\":{\"type\":\"record\",\"name\":\"BJModelFilling2\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"enumfilling\",\"type\":[\"BJEnum2Values\",\"null\"]},{\"name\":\"listfilling\",\"type\":{\"type\":\"array\",\"items\":[\"string\",\"null\"]}},{\"name\":\"longfilling\",\"type\":[\"long\",\"null\"]},{\"name\":\"stringfilling\",\"type\":[\"string\",\"null\"]}]}},{\"name\":\"stringfilling1\",\"type\":[\"string\",\"null\"]},{\"name\":\"stringfilling2\",\"type\":[\"string\",\"null\"]},{\"name\":\"stringfilling3\",\"type\":[\"string\",\"null\"]},{\"name\":\"stringfilling4\",\"type\":[\"string\",\"null\"]}]}},{\"name\":\"list2\",\"type\":{\"type\":\"array\",\"items\":[\"int\",\"null\"]}},{\"name\":\"nullablebigint\",\"type\":[\"long\",\"null\"]}]}}}]}},{\"name\":\"date1\",\"type\":[\"datetime\",\"null\"]},{\"name\":\"double1\",\"type\":[\"double\",\"null\"]},{\"name\":\"enum1\",\"type\":[\"BJEnum1Values\",\"null\"]},{\"name\":\"innerSample\",\"type\":\"BJTestSerializerSample\"},{\"name\":\"int1\",\"type\":[\"int\",\"null\"]},{\"name\":\"list1\",\"type\":{\"type\":\"array\",\"items\":[\"string\",\"null\"]}},{\"name\":\"nullableint\",\"type\":[\"int\",\"null\"]},{\"name\":\"record\",\"type\":{\"type\":\"record\",\"name\":\"BJRecord\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"sBoolean\",\"type\":[\"boolean\",\"null\"]},{\"name\":\"sInt\",\"type\":[\"int\",\"null\"]},{\"name\":\"sString\",\"type\":[\"string\",\"null\"]}]}},{\"name\":\"smallint1\",\"type\":[\"int\",\"null\"]},{\"name\":\"string1\",\"type\":[\"string\",\"null\"]},{\"name\":\"tinyint1\",\"type\":[\"int\",\"null\"]},{\"name\":\"map1\",\"type\":[{\"type\":\"map\",\"values\":\"int\"},\"null\"]}]}"] retain];
+        __schema = [[BJSchema parse:@"{\"type\":\"record\",\"name\":\"BJTestSerializerSample\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"bigint1\",\"type\":[\"long\",\"null\"]},{\"name\":\"boolean1\",\"type\":[\"boolean\",\"null\"]},{\"name\":\"bytes1\",\"type\":[\"bytes\",\"null\"]},{\"name\":\"container1\",\"type\":{\"type\":\"record\",\"name\":\"BJRecord2Container\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"record2List\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"BJRecord2\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"bigint2\",\"type\":[\"long\",\"null\"]},{\"name\":\"byteslist\",\"type\":{\"type\":\"array\",\"items\":[\"bytes\",\"null\"]}},{\"name\":\"enum2\",\"type\":[{\"type\":\"enum\",\"name\":\"BJEnum2Values\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"symbols\":[\"CAR\",\"BIKE\",\"PLANE\"]},\"null\"]},{\"name\":\"filling\",\"type\":{\"type\":\"record\",\"name\":\"BJModelFilling\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"boolfilling\",\"type\":[\"boolean\",\"null\"]},{\"name\":\"enumfilling\",\"type\":[{\"type\":\"enum\",\"name\":\"BJEnum1Values\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"symbols\":[\"BLUE\",\"RED\",\"GREEN\"]},\"null\"]},{\"name\":\"intfilling\",\"type\":[\"int\",\"null\"]},{\"name\":\"modelfilling\",\"type\":{\"type\":\"record\",\"name\":\"BJModelFilling2\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"enumfilling\",\"type\":[\"BJEnum2Values\",\"null\"]},{\"name\":\"listfilling\",\"type\":{\"type\":\"array\",\"items\":[\"string\",\"null\"]}},{\"name\":\"longfilling\",\"type\":[\"long\",\"null\"]},{\"name\":\"stringfilling\",\"type\":[\"string\",\"null\"]}]}},{\"name\":\"stringfilling1\",\"type\":[\"string\",\"null\"]},{\"name\":\"stringfilling2\",\"type\":[\"string\",\"null\"]},{\"name\":\"stringfilling3\",\"type\":[\"string\",\"null\"]},{\"name\":\"stringfilling4\",\"type\":[\"string\",\"null\"]}]}},{\"name\":\"list2\",\"type\":{\"type\":\"array\",\"items\":[\"int\",\"null\"]}},{\"name\":\"nullablebigint\",\"type\":[\"long\",\"null\"]},{\"name\":\"map2\",\"type\":[{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"BJRecord\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"sBoolean\",\"type\":[\"boolean\",\"null\"]},{\"name\":\"sInt\",\"type\":[\"int\",\"null\"]},{\"name\":\"sString\",\"type\":[\"string\",\"null\"]}]}},\"null\"]}]}}}]}},{\"name\":\"date1\",\"type\":[\"datetime\",\"null\"]},{\"name\":\"double1\",\"type\":[\"double\",\"null\"]},{\"name\":\"enum1\",\"type\":[\"BJEnum1Values\",\"null\"]},{\"name\":\"innerSample\",\"type\":\"BJTestSerializerSample\"},{\"name\":\"int1\",\"type\":[\"int\",\"null\"]},{\"name\":\"list1\",\"type\":{\"type\":\"array\",\"items\":[\"string\",\"null\"]}},{\"name\":\"nullableint\",\"type\":[\"int\",\"null\"]},{\"name\":\"record\",\"type\":{\"type\":\"record\",\"name\":\"BJRecord\",\"namespace\":\"com.ctrip.soa.framework.soa.crosstest.v1\",\"fields\":[{\"name\":\"sBoolean\",\"type\":[\"boolean\",\"null\"]},{\"name\":\"sInt\",\"type\":[\"int\",\"null\"]},{\"name\":\"sString\",\"type\":[\"string\",\"null\"]}]}},{\"name\":\"smallint1\",\"type\":[\"int\",\"null\"]},{\"name\":\"string1\",\"type\":[\"string\",\"null\"]},{\"name\":\"tinyint1\",\"type\":[\"int\",\"null\"]},{\"name\":\"map1\",\"type\":[{\"type\":\"map\",\"values\":\"int\"},\"null\"]}]}"] retain];
     });
     return __schema;
 }
@@ -39,22 +39,22 @@
                  map1:(NSDictionary *)map1{
     self = [super init];
     if (self) {
-        _bigint1 = bigint1;
-        _boolean1 = boolean1;
-        _bytes1 = bytes1;
-        _container1 = container1;
-        _date1 = date1;
-        _double1 = double1;
-        _enum1 = enum1;
-        _innerSample = innerSample;
-        _int1 = int1;
-        _list1 = list1;
-        _nullableint = nullableint;
-        _record = record;
-        _smallint1 = smallint1;
-        _string1 = string1;
-        _tinyint1 = tinyint1;
-        _map1 = map1;
+        self.bigint1 = bigint1;
+        self.boolean1 = boolean1;
+        self.bytes1 = bytes1;
+        self.container1 = container1;
+        self.date1 = date1;
+        self.double1 = double1;
+        self.enum1 = enum1;
+        self.innerSample = innerSample;
+        self.int1 = int1;
+        self.list1 = list1;
+        self.nullableint = nullableint;
+        self.record = record;
+        self.smallint1 = smallint1;
+        self.string1 = string1;
+        self.tinyint1 = tinyint1;
+        self.map1 = map1;
     }
     return self;
 }

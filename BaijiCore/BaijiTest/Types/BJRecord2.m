@@ -28,13 +28,13 @@
                  map2:(NSDictionary *)map2{
     self = [super init];
     if (self) {
-        _bigint2 = bigint2;
-        _byteslist = byteslist;
-        _enum2 = enum2;
-        _filling = filling;
-        _list2 = list2;
-        _nullablebigint = nullablebigint;
-        _map2 = map2;
+        self.bigint2 = bigint2;
+        self.byteslist = byteslist;
+        self.enum2 = enum2;
+        self.filling = filling;
+        self.list2 = list2;
+        self.nullablebigint = nullablebigint;
+        self.map2 = map2;
     }
     return self;
 }

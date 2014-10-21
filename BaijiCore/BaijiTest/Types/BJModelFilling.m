@@ -29,14 +29,14 @@
            stringfilling4:(NSString *)stringfilling4 {
     self = [super init];
     if (self) {
-        _boolfilling = boolfilling;
-        _enumfilling = enumfilling;
-        _intfilling = intfilling;
-        _modelfilling = modelfilling;
-        _stringfilling1 = stringfilling1;
-        _stringfilling2 = stringfilling2;
-        _stringfilling3 = stringfilling3;
-        _stringfilling4 = stringfilling4;
+        self.boolfilling = boolfilling;
+        self.enumfilling = enumfilling;
+        self.intfilling = intfilling;
+        self.modelfilling = modelfilling;
+        self.stringfilling1 = stringfilling1;
+        self.stringfilling2 = stringfilling2;
+        self.stringfilling3 = stringfilling3;
+        self.stringfilling4 = stringfilling4;
     }
     return self;
 }

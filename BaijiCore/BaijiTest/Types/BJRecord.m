@@ -22,9 +22,9 @@
                sString:(NSString *)sString {
     self = [super init];
     if (self) {
-        _sBoolean = sBoolean;
-        _sInt = sInt;
-        _sString = sString;
+        self.sBoolean = sBoolean;
+        self.sInt = sInt;
+        self.sString = sString;
     }
     return self;
 }
