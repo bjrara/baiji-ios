@@ -8,7 +8,13 @@
 
 #import "BJHTTPRequestOperation.h"
 #import "BJJsonSerializer.h"
+#import "BJResponseStatusType.h"
+#import "BJHasResponseStatus.h"
+#import "BJAckCodeType.h"
 #import "JSONKit.h"
+#import "BJError.h"
+#import "BJErrorDataType.h"
+#import "BJErrorClassificationCodeType.h"
 
 static dispatch_queue_t http_request_operation_processing_queue() {
     static dispatch_queue_t bj_http_request_operation_processing_queue;
@@ -40,8 +46,8 @@ static dispatch_group_t http_request_operation_completion_group() {
 @interface BJHTTPRequestOperation ()
 
 @property (readwrite, nonatomic, strong) Class responseClazz;
+@property (readwrite, nonatomic, strong) NSError *serviceError;
 @property (readwrite, nonatomic, strong) BJJsonSerializer *serializer;
-
 @property (readwrite, nonatomic, strong) NSHTTPURLResponse *response;
 @property (readwrite, nonatomic, strong) id responseObject;
 @property (readwrite, nonatomic, strong) NSError *responseSerializationError;
@@ -87,7 +93,6 @@ static dispatch_group_t http_request_operation_completion_group() {
     NSParameterAssert(request);
     NSParameterAssert(requestObj);
     
-    //TODO other than POST
     [headers enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if(![request valueForHTTPHeaderField:key]) {
             [request setValue:obj forKeyPath:key];
@@ -104,10 +109,38 @@ static dispatch_group_t http_request_operation_completion_group() {
     NSParameterAssert(self.responseClazz);
     [self.lock lock];
     if (!_responseObject && [self isFinished] && ![self error]) {
-        self.responseObject = [self.serializer deserialize:self.responseClazz from:self.responseData];
+        _responseObject = [self.serializer deserialize:self.responseClazz from:self.responseData];
+        if ([_responseObject conformsToProtocol:@protocol(BJHasResponseStatus)]) {
+            BJResponseStatusType *responseStatus = [_responseObject responseStatus];
+            [self checkResponseStatus:responseStatus];
+        } else {
+            self.serviceError = [NSError errorWithDomain:BJServiceError
+                                                    code:BJErrorInvalidResponseType
+                                                userInfo:[NSDictionary dictionaryWithObject:@"Response class type doesn't conform to BJHasResponseStatus" forKey:@"errorInfo"]];
+        }
     }
     [self.lock unlock];
     return _responseObject;
+}
+
+- (void)checkResponseStatus:(BJResponseStatusType *)reponseStatus {
+    if ([reponseStatus.ack value] != BJAckCodeTypeFAILURE) {
+        return;
+    }
+    if (reponseStatus.errors != nil && [reponseStatus.errors count] > 0) {
+        BJErrorDataType *error = [reponseStatus.errors objectAtIndex:0];
+        self.serviceError = [NSError errorWithDomain:BJServiceError
+                                                code:[error.errorClassification value]
+                                            userInfo:[NSDictionary dictionaryWithObject:error.message forKey:error.errorCode]];
+    } else {
+        self.serviceError = [NSError errorWithDomain:BJServiceError code:BJErrorNoErrorData userInfo:nil];
+    }
+}
+
+- (NSError *)error {
+    if (self.serviceError)
+        return self.serviceError;
+    return [super error];
 }
 
 - (BJHTTPRequestOperation *)POST:(NSString *)URL

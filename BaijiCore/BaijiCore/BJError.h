@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+enum {
+    BJErrorInvalidResponseType,
+    BJErrorNoErrorData
+};
+
 @interface BJError : NSObject
 
 extern NSString *const BJException;
@@ -15,4 +20,6 @@ extern NSString *const BJRuntimeException;
 extern NSString *const BJArgumentException;
 extern NSString *const BJSchemaParseException;
 extern NSString *const BJCallException;
+extern NSString *const BJServiceError;
+
 @end
