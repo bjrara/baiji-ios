@@ -259,6 +259,8 @@
 		3BE219DC19F0F6B700FABD15 /* BJExtensionFieldType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJExtensionFieldType.m; sourceTree = "<group>"; };
 		3BE219DD19F0F6B700FABD15 /* BJMobileRequestHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJMobileRequestHead.h; sourceTree = "<group>"; };
 		3BE219DE19F0F6B700FABD15 /* BJMobileRequestHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJMobileRequestHead.m; sourceTree = "<group>"; };
+		3BE219EB19F5FFBC00FABD15 /* BJHasResponseStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJHasResponseStatus.h; sourceTree = "<group>"; };
+		3BE219ED19F6001300FABD15 /* BJHasMobileRequestHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJHasMobileRequestHead.h; sourceTree = "<group>"; };
 		4DE4BFB7696BFF938A0C2523 /* Pods-BaijiCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.release.xcconfig"; sourceTree = "<group>"; };
 		89BDDC28A3F7E75F3876702D /* Pods-BaijiTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiTest.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiTest/Pods-BaijiTest.debug.xcconfig"; sourceTree = "<group>"; };
 		98F231124498FE922C52957D /* Pods-BaijiCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -512,6 +514,8 @@
 				3BE219BD19F0F3A900FABD15 /* BJResponseStatusType.m */,
 				3BE219BE19F0F3A900FABD15 /* BJSeverityCodeType.h */,
 				3BE219BF19F0F3A900FABD15 /* BJSeverityCodeType.m */,
+				3BE219EB19F5FFBC00FABD15 /* BJHasResponseStatus.h */,
+				3BE219ED19F6001300FABD15 /* BJHasMobileRequestHead.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";

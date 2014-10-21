@@ -5,10 +5,10 @@
  */
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
+#import "BJHasResponseStatus.h"
 @class BJResponseStatusType;
 @class BJItem;
-
-@interface BJGetItemsResponseType : BJMutableSpecificRecord
+@interface BJGetItemsResponseType : BJMutableSpecificRecord<BJHasResponseStatus>
 
 @property (nonatomic, readwrite, retain) BJResponseStatusType *responseStatus;
 @property (nonatomic, readwrite, retain) NSArray *items;

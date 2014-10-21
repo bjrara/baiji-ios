@@ -5,9 +5,10 @@
  */
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
-@class BJMobileRequestHead;
+#import "BJHasMobileRequestHead.h"
 
-@interface BJGetItemsRequestType : BJMutableSpecificRecord
+@class BJMobileRequestHead;
+@interface BJGetItemsRequestType : BJMutableSpecificRecord<BJHasMobileRequestHead>
 
 /** initValue: int */
 @property (nonatomic, readwrite, retain) NSNumber *take;
