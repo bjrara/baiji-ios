@@ -75,6 +75,19 @@
 		3BE219E519F0F73D00FABD15 /* BJHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */; };
 		3BE219E619F0F73D00FABD15 /* BJServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */; };
 		3BE219F619F63DC900FABD15 /* BJPerfTestJsonSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219F519F63DC900FABD15 /* BJPerfTestJsonSerializer.m */; };
+		3BE21A7419F65EB400FABD15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE52855119C84DE900B427B5 /* Foundation.framework */; };
+		3BE21A7519F65EB400FABD15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE52855319C84DE900B427B5 /* CoreGraphics.framework */; };
+		3BE21A7619F65EB400FABD15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE52854F19C84DE900B427B5 /* UIKit.framework */; };
+		3BE21A7C19F65EB400FABD15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BE21A7A19F65EB400FABD15 /* InfoPlist.strings */; };
+		3BE21A7E19F65EB400FABD15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE21A7D19F65EB400FABD15 /* main.m */; };
+		3BE21A8219F65EB400FABD15 /* BJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE21A8119F65EB400FABD15 /* BJAppDelegate.m */; };
+		3BE21A8519F65EB400FABD15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE21A8319F65EB400FABD15 /* Main.storyboard */; };
+		3BE21A8819F65EB400FABD15 /* BJMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE21A8719F65EB400FABD15 /* BJMasterViewController.m */; };
+		3BE21A8B19F65EB400FABD15 /* BJDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE21A8A19F65EB400FABD15 /* BJDetailViewController.m */; };
+		3BE21A8D19F65EB400FABD15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BE21A8C19F65EB400FABD15 /* Images.xcassets */; };
+		3BE21AA919F660D200FABD15 /* BJBenchmarkSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE21AA819F660D200FABD15 /* BJBenchmarkSerializer.m */; };
+		3BE21AAE19F6640200FABD15 /* BJGenericBenchmarkRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE21AAD19F6640200FABD15 /* BJGenericBenchmarkRecord.m */; };
+		3BE21AB119F6768600FABD15 /* BJEnum1Values.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE21AB019F6768600FABD15 /* BJEnum1Values.m */; };
 		45BE962B84454BB59A86CD03 /* libPods-BaijiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A363983496479B839AECA5 /* libPods-BaijiCore.a */; };
 		BC3CCE3F7A324610A67D151B /* libPods-BaijiTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */; };
 		CE0F0FA119CA820000C0C11E /* BJPrimitiveSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F0FA019CA820000C0C11E /* BJPrimitiveSchema.m */; };
@@ -154,6 +167,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3BE21AAA19F660DF00FABD15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE52854219C84DE900B427B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE52854A19C84DE900B427B5;
+			remoteInfo = BaijiCore;
+		};
 		CEEF425E19D012F700EEDB5D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE52854219C84DE900B427B5 /* Project object */;
@@ -264,7 +284,29 @@
 		3BE219ED19F6001300FABD15 /* BJHasMobileRequestHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJHasMobileRequestHead.h; sourceTree = "<group>"; };
 		3BE219F419F63DC900FABD15 /* BJPerfTestJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJPerfTestJsonSerializer.h; sourceTree = "<group>"; };
 		3BE219F519F63DC900FABD15 /* BJPerfTestJsonSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJPerfTestJsonSerializer.m; sourceTree = "<group>"; };
+		3BE21A1F19F659C300FABD15 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3BE21A7319F65EB400FABD15 /* BaijiBenchmark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaijiBenchmark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BE21A7919F65EB400FABD15 /* BaijiBenchmark-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BaijiBenchmark-Info.plist"; sourceTree = "<group>"; };
+		3BE21A7B19F65EB400FABD15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3BE21A7D19F65EB400FABD15 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3BE21A7F19F65EB400FABD15 /* BaijiBenchmark-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaijiBenchmark-Prefix.pch"; sourceTree = "<group>"; };
+		3BE21A8019F65EB400FABD15 /* BJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJAppDelegate.h; sourceTree = "<group>"; };
+		3BE21A8119F65EB400FABD15 /* BJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BJAppDelegate.m; sourceTree = "<group>"; };
+		3BE21A8419F65EB400FABD15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3BE21A8619F65EB400FABD15 /* BJMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJMasterViewController.h; sourceTree = "<group>"; };
+		3BE21A8719F65EB400FABD15 /* BJMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BJMasterViewController.m; sourceTree = "<group>"; };
+		3BE21A8919F65EB400FABD15 /* BJDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJDetailViewController.h; sourceTree = "<group>"; };
+		3BE21A8A19F65EB400FABD15 /* BJDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BJDetailViewController.m; sourceTree = "<group>"; };
+		3BE21A8C19F65EB400FABD15 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3BE21AA719F660D200FABD15 /* BJBenchmarkSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJBenchmarkSerializer.h; sourceTree = "<group>"; };
+		3BE21AA819F660D200FABD15 /* BJBenchmarkSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJBenchmarkSerializer.m; sourceTree = "<group>"; };
+		3BE21AAC19F6640200FABD15 /* BJGenericBenchmarkRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGenericBenchmarkRecord.h; sourceTree = "<group>"; };
+		3BE21AAD19F6640200FABD15 /* BJGenericBenchmarkRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGenericBenchmarkRecord.m; sourceTree = "<group>"; };
+		3BE21AAF19F6768600FABD15 /* BJEnum1Values.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJEnum1Values.h; sourceTree = "<group>"; };
+		3BE21AB019F6768600FABD15 /* BJEnum1Values.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJEnum1Values.m; sourceTree = "<group>"; };
+		4C5C74CAACA5C73462587830 /* Pods-BaijiBenchmark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiBenchmark.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiBenchmark/Pods-BaijiBenchmark.debug.xcconfig"; sourceTree = "<group>"; };
 		4DE4BFB7696BFF938A0C2523 /* Pods-BaijiCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.release.xcconfig"; sourceTree = "<group>"; };
+		82922688FA90A9E4B58F9E39 /* Pods-BaijiBenchmark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiBenchmark.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiBenchmark/Pods-BaijiBenchmark.release.xcconfig"; sourceTree = "<group>"; };
 		89BDDC28A3F7E75F3876702D /* Pods-BaijiTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiTest.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiTest/Pods-BaijiTest.debug.xcconfig"; sourceTree = "<group>"; };
 		98F231124498FE922C52957D /* Pods-BaijiCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.debug.xcconfig"; sourceTree = "<group>"; };
 		A9A363983496479B839AECA5 /* libPods-BaijiCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaijiCore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -361,9 +403,20 @@
 		D863E31619ED7E8D00A89935 /* BJUnitTestJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJUnitTestJsonSerializer.h; sourceTree = "<group>"; };
 		D863E31719ED7E8D00A89935 /* BJUnitTestJsonSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUnitTestJsonSerializer.m; sourceTree = "<group>"; };
 		E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaijiTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB1FFA22A2871052E25ACFE /* libPods-BaijiBenchmark.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaijiBenchmark.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3BE21A7019F65EB400FABD15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BE21A7519F65EB400FABD15 /* CoreGraphics.framework in Frameworks */,
+				3BE21A7619F65EB400FABD15 /* UIKit.framework in Frameworks */,
+				3BE21A7419F65EB400FABD15 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE52854819C84DE900B427B5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -398,6 +451,8 @@
 				4DE4BFB7696BFF938A0C2523 /* Pods-BaijiCore.release.xcconfig */,
 				89BDDC28A3F7E75F3876702D /* Pods-BaijiTest.debug.xcconfig */,
 				06C322F45ED0357DEF4FAA72 /* Pods-BaijiTest.release.xcconfig */,
+				4C5C74CAACA5C73462587830 /* Pods-BaijiBenchmark.debug.xcconfig */,
+				82922688FA90A9E4B58F9E39 /* Pods-BaijiBenchmark.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -534,6 +589,39 @@
 			path = Mobile;
 			sourceTree = "<group>";
 		};
+		3BE21A7719F65EB400FABD15 /* BaijiBenchmark */ = {
+			isa = PBXGroup;
+			children = (
+				3BE21A8019F65EB400FABD15 /* BJAppDelegate.h */,
+				3BE21A8119F65EB400FABD15 /* BJAppDelegate.m */,
+				3BE21AA719F660D200FABD15 /* BJBenchmarkSerializer.h */,
+				3BE21AA819F660D200FABD15 /* BJBenchmarkSerializer.m */,
+				3BE21A8919F65EB400FABD15 /* BJDetailViewController.h */,
+				3BE21A8A19F65EB400FABD15 /* BJDetailViewController.m */,
+				3BE21AAF19F6768600FABD15 /* BJEnum1Values.h */,
+				3BE21AB019F6768600FABD15 /* BJEnum1Values.m */,
+				3BE21AAC19F6640200FABD15 /* BJGenericBenchmarkRecord.h */,
+				3BE21AAD19F6640200FABD15 /* BJGenericBenchmarkRecord.m */,
+				3BE21A8619F65EB400FABD15 /* BJMasterViewController.h */,
+				3BE21A8719F65EB400FABD15 /* BJMasterViewController.m */,
+				3BE21A8C19F65EB400FABD15 /* Images.xcassets */,
+				3BE21A8319F65EB400FABD15 /* Main.storyboard */,
+				3BE21A7819F65EB400FABD15 /* Supporting Files */,
+			);
+			path = BaijiBenchmark;
+			sourceTree = "<group>";
+		};
+		3BE21A7819F65EB400FABD15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3BE21A7919F65EB400FABD15 /* BaijiBenchmark-Info.plist */,
+				3BE21A7A19F65EB400FABD15 /* InfoPlist.strings */,
+				3BE21A7D19F65EB400FABD15 /* main.m */,
+				3BE21A7F19F65EB400FABD15 /* BaijiBenchmark-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		CE15C32D19D2DCC700754015 /* Specific */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +679,7 @@
 			children = (
 				CE52855719C84DE900B427B5 /* BaijiCore */,
 				CEEF41FF19D0011900EEDB5D /* BaijiTest */,
+				3BE21A7719F65EB400FABD15 /* BaijiBenchmark */,
 				CE52854E19C84DE900B427B5 /* Frameworks */,
 				3BE218D619E7DE1800FABD15 /* Lib */,
 				CEEF425C19D012C300EEDB5D /* libPods-BaijiCore.a */,
@@ -604,6 +693,7 @@
 			children = (
 				CE52854B19C84DE900B427B5 /* BaijiCore.app */,
 				CEEF41F919D0011900EEDB5D /* BaijiTest.app */,
+				3BE21A7319F65EB400FABD15 /* BaijiBenchmark.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -617,6 +707,8 @@
 				CE52855519C84DE900B427B5 /* CoreData.framework */,
 				A9A363983496479B839AECA5 /* libPods-BaijiCore.a */,
 				E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */,
+				3BE21A1F19F659C300FABD15 /* XCTest.framework */,
+				FAB1FFA22A2871052E25ACFE /* libPods-BaijiBenchmark.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -757,6 +849,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3BE21A7219F65EB400FABD15 /* BaijiBenchmark */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BE21AA019F65EB400FABD15 /* Build configuration list for PBXNativeTarget "BaijiBenchmark" */;
+			buildPhases = (
+				3BE21A6F19F65EB400FABD15 /* Sources */,
+				3BE21A7019F65EB400FABD15 /* Frameworks */,
+				3BE21A7119F65EB400FABD15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BE21AAB19F660DF00FABD15 /* PBXTargetDependency */,
+			);
+			name = BaijiBenchmark;
+			productName = BaijiBenchmark;
+			productReference = 3BE21A7319F65EB400FABD15 /* BaijiBenchmark.app */;
+			productType = "com.apple.product-type.application";
+		};
 		CE52854A19C84DE900B427B5 /* BaijiCore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE52856E19C84DE900B427B5 /* Build configuration list for PBXNativeTarget "BaijiCore" */;
@@ -812,6 +922,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CE52854019C84DE900B427B5;
 			productRefGroup = CE52854C19C84DE900B427B5 /* Products */;
@@ -820,11 +931,22 @@
 			targets = (
 				CE52854A19C84DE900B427B5 /* BaijiCore */,
 				CEEF41F819D0011900EEDB5D /* BaijiTest */,
+				3BE21A7219F65EB400FABD15 /* BaijiBenchmark */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3BE21A7119F65EB400FABD15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BE21A8D19F65EB400FABD15 /* Images.xcassets in Resources */,
+				3BE21A7C19F65EB400FABD15 /* InfoPlist.strings in Resources */,
+				3BE21A8519F65EB400FABD15 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE52854919C84DE900B427B5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -915,6 +1037,20 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3BE21A6F19F65EB400FABD15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BE21A8219F65EB400FABD15 /* BJAppDelegate.m in Sources */,
+				3BE21A8B19F65EB400FABD15 /* BJDetailViewController.m in Sources */,
+				3BE21AAE19F6640200FABD15 /* BJGenericBenchmarkRecord.m in Sources */,
+				3BE21AA919F660D200FABD15 /* BJBenchmarkSerializer.m in Sources */,
+				3BE21A7E19F65EB400FABD15 /* main.m in Sources */,
+				3BE21AB119F6768600FABD15 /* BJEnum1Values.m in Sources */,
+				3BE21A8819F65EB400FABD15 /* BJMasterViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE52854719C84DE900B427B5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1056,6 +1192,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3BE21AAB19F660DF00FABD15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE52854A19C84DE900B427B5 /* BaijiCore */;
+			targetProxy = 3BE21AAA19F660DF00FABD15 /* PBXContainerItemProxy */;
+		};
 		CEEF425F19D012F700EEDB5D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CE52854A19C84DE900B427B5 /* BaijiCore */;
@@ -1064,6 +1205,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3BE21A7A19F65EB400FABD15 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BE21A7B19F65EB400FABD15 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3BE21A8319F65EB400FABD15 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BE21A8419F65EB400FABD15 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		CE52855A19C84DE900B427B5 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1083,6 +1240,67 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3BE21AA119F65EB400FABD15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BaijiBenchmark/BaijiBenchmark-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "BaijiBenchmark/BaijiBenchmark-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3BE21AA219F65EB400FABD15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BaijiBenchmark/BaijiBenchmark-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "BaijiBenchmark/BaijiBenchmark-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		CE52856C19C84DE900B427B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1184,6 +1402,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3BE21AA019F65EB400FABD15 /* Build configuration list for PBXNativeTarget "BaijiBenchmark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BE21AA119F65EB400FABD15 /* Debug */,
+				3BE21AA219F65EB400FABD15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CE52854519C84DE900B427B5 /* Build configuration list for PBXProject "BaijiCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
