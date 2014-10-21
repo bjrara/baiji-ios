@@ -15,6 +15,7 @@
 #import "BJError.h"
 #import "BJErrorDataType.h"
 #import "BJErrorClassificationCodeType.h"
+#import "AFNetworkReachabilityManager.h"
 
 static dispatch_queue_t http_request_operation_processing_queue() {
     static dispatch_queue_t bj_http_request_operation_processing_queue;
@@ -50,7 +51,6 @@ static dispatch_group_t http_request_operation_completion_group() {
 @property (readwrite, nonatomic, strong) BJJsonSerializer *serializer;
 @property (readwrite, nonatomic, strong) NSHTTPURLResponse *response;
 @property (readwrite, nonatomic, strong) id responseObject;
-@property (readwrite, nonatomic, strong) NSError *responseSerializationError;
 @property (readwrite, nonatomic, strong) NSRecursiveLock *lock;
 
 @end
@@ -66,6 +66,7 @@ static dispatch_group_t http_request_operation_completion_group() {
     self = [super init];
     if (self) {
         _serializer = [[BJJsonSerializer alloc] init];
+        self.reachabilityManager = [AFNetworkReachabilityManager sharedManager];
     }
     return self;
 }
@@ -74,6 +75,7 @@ static dispatch_group_t http_request_operation_completion_group() {
     self = [super initWithRequest:urlRequest];
     if (self) {
         _serializer = [[BJJsonSerializer alloc] init];
+        self.reachabilityManager = [AFNetworkReachabilityManager sharedManager];
     }
     return self;
 }
@@ -147,8 +149,8 @@ static dispatch_group_t http_request_operation_completion_group() {
                          headers:(NSDictionary *)headers
                       requestObj:(id<BJMutableRecord>)requestObj
                    responseClazz:(Class<BJMutableRecord>)responseClazz
-                         success:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
-                         failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure {
+                         success:(BJOperationSuccess)success
+                         failure:(BJOperationFailure)failure {
     self.responseClazz = responseClazz;
     NSMutableURLRequest *mutableRequest = [self requestWithURL:URL method:@"POST" headers:headers requestObj:requestObj];
     BJHTTPRequestOperation *operation = [[BJHTTPRequestOperation alloc] initWithRequest:mutableRequest];
@@ -162,8 +164,8 @@ static dispatch_group_t http_request_operation_completion_group() {
     return operation;
 }
 
-- (void)setCompletionBlockWithSuccess:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
-                              failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure
+- (void)setCompletionBlockWithSuccess:(BJOperationSuccess)success
+                              failure:(BJOperationFailure)failure
 {
     // completionBlock is manually nilled out in AFURLConnectionOperation to break the retain cycle.
 #pragma clang diagnostic push

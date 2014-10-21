@@ -9,8 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "AFURLConnectionOperation.h"
 #import "BJMutableRecord.h"
+@class AFNetworkReachabilityManager;
 
 @interface BJHTTPRequestOperation : AFURLConnectionOperation
+
+typedef void (^BJOperationSuccess)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject);
+typedef void (^BJOperationFailure)(BJHTTPRequestOperation *operation, NSError *error);
+
+@property (readwrite, nonatomic, strong) AFNetworkReachabilityManager *reachabilityManager;
 
 + (instancetype)shardInstance;
 
@@ -18,8 +24,8 @@
                          headers:(NSDictionary *)headers
                       requestObj:(id<BJMutableRecord>)requestObj
                    responseClazz:(Class<BJMutableRecord>)responseClazz
-                         success:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
-                         failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure;
+                         success:(BJOperationSuccess)success
+                         failure:(BJOperationFailure)failure;
 - (void)debugInfo;
 
 @end
