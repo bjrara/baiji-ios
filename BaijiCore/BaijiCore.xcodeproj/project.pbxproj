@@ -74,6 +74,7 @@
 		3BE219E219F0F6B700FABD15 /* BJMobileRequestHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219DE19F0F6B700FABD15 /* BJMobileRequestHead.m */; };
 		3BE219E519F0F73D00FABD15 /* BJHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */; };
 		3BE219E619F0F73D00FABD15 /* BJServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */; };
+		3BE219F619F63DC900FABD15 /* BJPerfTestJsonSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219F519F63DC900FABD15 /* BJPerfTestJsonSerializer.m */; };
 		45BE962B84454BB59A86CD03 /* libPods-BaijiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A363983496479B839AECA5 /* libPods-BaijiCore.a */; };
 		BC3CCE3F7A324610A67D151B /* libPods-BaijiTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E45918054D3E4D1EB1D7A999 /* libPods-BaijiTest.a */; };
 		CE0F0FA119CA820000C0C11E /* BJPrimitiveSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F0FA019CA820000C0C11E /* BJPrimitiveSchema.m */; };
@@ -261,6 +262,8 @@
 		3BE219DE19F0F6B700FABD15 /* BJMobileRequestHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJMobileRequestHead.m; sourceTree = "<group>"; };
 		3BE219EB19F5FFBC00FABD15 /* BJHasResponseStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJHasResponseStatus.h; sourceTree = "<group>"; };
 		3BE219ED19F6001300FABD15 /* BJHasMobileRequestHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJHasMobileRequestHead.h; sourceTree = "<group>"; };
+		3BE219F419F63DC900FABD15 /* BJPerfTestJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJPerfTestJsonSerializer.h; sourceTree = "<group>"; };
+		3BE219F519F63DC900FABD15 /* BJPerfTestJsonSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJPerfTestJsonSerializer.m; sourceTree = "<group>"; };
 		4DE4BFB7696BFF938A0C2523 /* Pods-BaijiCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.release.xcconfig"; sourceTree = "<group>"; };
 		89BDDC28A3F7E75F3876702D /* Pods-BaijiTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiTest.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiTest/Pods-BaijiTest.debug.xcconfig"; sourceTree = "<group>"; };
 		98F231124498FE922C52957D /* Pods-BaijiCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiCore.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiCore/Pods-BaijiCore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -658,6 +661,8 @@
 			isa = PBXGroup;
 			children = (
 				CEEF421119D0011900EEDB5D /* BaijiTest.xcdatamodeld */,
+				3BE219F419F63DC900FABD15 /* BJPerfTestJsonSerializer.h */,
+				3BE219F519F63DC900FABD15 /* BJPerfTestJsonSerializer.m */,
 				D863E31619ED7E8D00A89935 /* BJUnitTestJsonSerializer.h */,
 				D863E31719ED7E8D00A89935 /* BJUnitTestJsonSerializer.m */,
 				3BE2195F19F0DC1A00FABD15 /* Client */,
@@ -983,6 +988,7 @@
 				3BE219A219F0F0FB00FABD15 /* BJShippingInfo.m in Sources */,
 				D863E31819ED7E8D00A89935 /* BJUnitTestJsonSerializer.m in Sources */,
 				3BE219A419F0F0FB00FABD15 /* BJUnitPriceInfo.m in Sources */,
+				3BE219F619F63DC900FABD15 /* BJPerfTestJsonSerializer.m in Sources */,
 				CEFBC30719D406270034E202 /* BJSpecificJsonWriter.m in Sources */,
 				3BE2190119EF884F00FABD15 /* BJRecord.m in Sources */,
 				CEEF429319D0158800EEDB5D /* BJArraySchema.m in Sources */,
