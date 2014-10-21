@@ -12,7 +12,6 @@
 @interface BJServiceClient()
 
 @property (nonatomic, readwrite) NSURL *baseUri;
-@property (nonatomic, readwrite) BJConnectionMode connectionMode;
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
 
 @end
@@ -36,19 +35,9 @@
     return client;
 }
 
-+ (instancetype)sharedInstanceForService:(NSString *)serviceName
-                               namespace:(NSString *)space
-                                  subEnv:(NSString *)subEnv {
-    BJServiceClient *client = [[BJServiceClient clientCache] objectForKey:[NSString stringWithFormat:@"%@{%@}", serviceName, space]];
-    if (!client)
-        return [[BJServiceClient alloc] initWithService:serviceName namespace:space subEnv:subEnv];
-    return client;
-}
-
 - (instancetype)initWithBaseUri:(NSString *)baseUri {
     self = [super init];
     if (self) {
-        self.connectionMode = BJConnectionDirect;
         self.baseUri = [NSURL URLWithString:baseUri];
         self.operationQueue = [[NSOperationQueue alloc] init];
         [[BJServiceClient clientCache] setObject:self forKey:baseUri];
@@ -61,7 +50,6 @@
                          subEnv:(NSString *)subEnv {
     self = [super init];
     if (self) {
-        self.connectionMode = BJConnectionIndirect;
         [[BJServiceClient clientCache] setObject:self forKey:[NSString stringWithFormat:@"%@{%@}", serviceName, space]];
     }
     return self;
@@ -79,4 +67,5 @@
 #endif
     [self.operationQueue addOperation:operation];
 }
+
 @end

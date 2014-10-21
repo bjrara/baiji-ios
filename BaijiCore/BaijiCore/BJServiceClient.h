@@ -26,17 +26,6 @@ typedef enum {
 + (instancetype)sharedInstance:(NSString *)baseUri;
 
 /**
- Get a BJServiceClient instance in indirect connection mode.
- 
- @param serviceName The service name
- @param space The namespace
- @param subEnv The sub environment
- */
-+ (instancetype)sharedInstanceForService:(NSString *)serviceName
-                               namespace:(NSString *)space
-                                  subEnv:(NSString *)subEnv;
-
-/**
  Invoke an operation with request object and process the response according to the given response type.
  
  @param operationName The operation name to be invoked.
