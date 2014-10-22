@@ -7,8 +7,13 @@
 //
 
 #import "BJBenchmarkViewController.h"
+#import "BJSerializerBenchmark.h"
 
 @interface BJBenchmarkViewController ()
+
+@property (nonatomic, readwrite, retain) NSMutableArray *types;
+@property (nonatomic, readwrite, retain) NSMutableDictionary *results;
+@property (nonatomic, readwrite, retain) BJSerializerBenchmark *benchmark;
 
 @end
 
@@ -18,11 +23,15 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    _types = [[NSMutableArray alloc] init];
+    _results = [[NSMutableDictionary alloc] init];
+    _benchmark = [[BJSerializerBenchmark alloc] init];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self benchmarkSerializer:[[[BJJsonSerializerBenchmark alloc] init] autorelease]];
+    [self benchmarkSerializer:[[[BJAppleJsonSerializerBenchmark alloc] init] autorelease]];
+    [self benchmarkSerializer:[[[BJSBJsonSerializerBenchmark alloc] init] autorelease]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,28 +44,98 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return [self.results count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return 6;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    }
     
-    // Configure the cell...
+    NSString *type = [self.types objectAtIndex:indexPath.section];
+    NSArray *array = [self.results objectForKey:type];
+    
+    switch ((indexPath.row % 6) / 2) {
+        case 0:
+            cell.textLabel.text = @"BaijiJSON";
+            break;
+        case 1:
+            cell.textLabel.text = @"NSJSONSerialization";
+            break;
+        case 2:
+            cell.textLabel.text = @"SBJSON";
+            break;
+        default:
+            break;
+    }
+
+    for (int i = 0; i < [array count]; i++) {
+        NSDictionary *data = [array objectAtIndex:i];
+        [data enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            if ([key isEqual: cell.textLabel.text]) {
+                switch (indexPath.row % 2) {
+                    case 0: {
+                        float writingResult = [[obj objectForKey:@"write"] floatValue];
+                        cell.detailTextLabel.text = [NSString stringWithFormat:@"write: %f", writingResult];
+                        break;
+                    }
+                    case 1: {
+                        float readingResult = [[obj objectForKey:@"read"] floatValue];
+                        cell.detailTextLabel.text = [NSString stringWithFormat:@"read: %f", readingResult];
+                        break;
+                    }
+                    default:
+                        break;
+                }
+                *stop = YES;
+            }
+        }];
+    }
     
     return cell;
 }
-*/
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [self.types objectAtIndex:section];
+}
+
+- (void)serializer:(NSString *)serializer didFinish:(NSString *)type writing:(float)writingResult reading:(float)readingResult {
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithCapacity:2];
+    [data setObject:[NSNumber numberWithFloat:writingResult] forKey:@"write"];
+    [data setObject:[NSNumber numberWithFloat:readingResult] forKey:@"read"];
+    NSMutableArray *array = [self.results objectForKey:type];
+    if (array) {
+        [array addObject:[NSDictionary dictionaryWithObject:data forKey:serializer]];
+    } else {
+        array = [[NSMutableArray alloc] init];
+        [array addObject:[NSDictionary dictionaryWithObject:data forKey:serializer]];
+        [self.results setObject:array forKey:type];
+        [array release];
+        [self.types addObject:type];
+    }
+    [self.tableView reloadData];
+}
+
+- (void)benchmarkSerializer:(id<BJBenchmarkCandidateDelegate>)serializer {
+    [serializer setMasterDelegate:self];
+    self.benchmark.serializerDelegate = serializer;
+    [self.benchmark batch];
+}
+
+- (void)dealloc {
+    [self.benchmark release];
+    [self.types release];
+    [self.results release];
+    [super dealloc];
+}
 
 /*
 // Override to support conditional editing of the table view.

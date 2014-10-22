@@ -7,12 +7,17 @@
 //
 
 #import "BJAppDelegate.h"
+#import "BJBenchmarkViewController.h"
 
 @implementation BJAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    BJBenchmarkViewController *viewController = [[[BJBenchmarkViewController alloc] initWithNibName:@"BJBenchmarkViewController" bundle:nil] autorelease];
+    UINavigationController *rootController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.window.rootViewController = rootController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BJSerializerBenchmark.h"
 
-@interface BJBenchmarkViewController : UITableViewController
+@interface BJBenchmarkViewController : UITableViewController<BJSerializerBenchmarkDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @end
