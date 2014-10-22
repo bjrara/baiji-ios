@@ -11,12 +11,11 @@
 @implementation BJGenericBenchmarkRecord
 
 static NSString *_recordType;
-static NSUInteger _onceToken;
 static BJSchema *_schema;
 
 + (BJSchema *)schema {
     if (_schema == nil) {
-        _schema = [[BJSchema parse:[NSString stringWithFormat:@"{\"type\":\"record\",\"name\":\"GenericBenchmarkRecord\",\"namespace\":\"com.ctriposs.baiji.generic\",\"fields\":[{\"name\":\"fieldValue\",\"type\": %@}]}", _recordType]] retain];
+        _schema = [[BJSchema parse:[NSString stringWithFormat:@"{\"type\":\"record\",\"name\":\"BJGenericBenchmarkRecord\",\"namespace\":\"com.ctriposs.baiji.generic\",\"fields\":[{\"name\":\"fieldValue\",\"type\":%@}]}", _recordType]] retain];
     }
     return _schema;
 }

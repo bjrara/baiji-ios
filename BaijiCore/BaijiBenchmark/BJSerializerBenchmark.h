@@ -7,7 +7,40 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BJJsonSerializer.h"
 
-@interface BJBenchmarkSerializer : NSObject
+typedef void (^BJBenchmark)(id object, NSString *type);
+
+@protocol BJSerializerBenchmarkDelegate <NSObject>
+
+- (void)serializer:(NSString *)serializer didFinish:(NSString *)type writing:(float)writingResult reading:(float)readingResult;
+
+@end
+
+@protocol BJBenchmarkCandidateDelegate <NSObject>
+
+@property (nonatomic, strong) id<BJSerializerBenchmarkDelegate> masterDelegate;
+
+- (void)benchmark:(NSString *)type fieldValue:(id)object;
+
+@end
+
+@interface BJSerializerBenchmark : NSObject
+
+@property (nonatomic, strong) id<BJBenchmarkCandidateDelegate> serializerDelegate;
+
+- (void)batch;
+
+@end
+
+@interface BJJsonSerializerBenchmark : NSObject<BJBenchmarkCandidateDelegate>
+
+@end
+
+@interface BJAppleJsonSerializerBenchmark : NSObject<BJBenchmarkCandidateDelegate>
+
+@end
+
+@interface BJSBJsonSerializerBenchmark : NSObject<BJBenchmarkCandidateDelegate>
 
 @end

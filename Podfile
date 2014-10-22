@@ -17,4 +17,5 @@ end
 
 target :BaijiBenchmark do
 	xcodeproj 'BaijiCore/BaijiCore.xcodeproj'
+	pod 'SBJson', '~> 4.0.0'
 end
