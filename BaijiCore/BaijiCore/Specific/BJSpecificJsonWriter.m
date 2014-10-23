@@ -16,7 +16,7 @@
 @implementation BJSpecificJsonWriter
 
 - (NSData *)writeObject:(id<BJMutableRecord>)object {
-    NSDictionary *parsedObject = [self writeRecord:object schema:(BJRecordSchema *)[[object class] schema]];
+    NSDictionary *parsedObject = [self writeRecord:object schema:(BJRecordSchema *)[object schema]];
     return [parsedObject JSONData];
 }
 
@@ -31,7 +31,7 @@
             [parsedRecord setValue:parsedValue forKey:[field name]];
         }];
     }
-    return parsedRecord;
+    return [parsedRecord autorelease];
 }
 
 - (void)writeValue:(id)datum schema:(BJSchema *)schema success:(BJJsonWritingResolver)success {
@@ -120,7 +120,7 @@
             [parsedArray addObject:parsedValue];
         }];
     }
-    return parsedArray;
+    return [parsedArray autorelease];
 }
 
 - (NSDictionary *)writeMap:(NSDictionary *)map schema:(BJMapSchema *)mapSchema {
@@ -131,12 +131,12 @@
             [parsedMap setObject:parsedValue forKey:key];
         }];
     }];
-    return parsedMap;
+    return [parsedMap autorelease];
 }
 
 - (id)writeUnion:(id)datum schema:(BJUnionSchema *)unionSchema {
     int count = [unionSchema count];
-    __block id parsedUnionValue;
+    __block id parsedUnionValue = nil;
     for (int i = 0; i < count; i++) {
         if([[unionSchema schemaAtIndex:i] type] == BJSchemaTypeNull)
             continue;

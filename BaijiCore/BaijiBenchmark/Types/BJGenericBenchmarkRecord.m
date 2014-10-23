@@ -8,27 +8,31 @@
 
 #import "BJGenericBenchmarkRecord.h"
 
+@interface BJGenericBenchmarkRecord()
+
+@property (atomic, assign) BOOL updatedToken;
+@property (nonatomic) NSString *fieldType;
+
+@end
+
 @implementation BJGenericBenchmarkRecord
 
-static NSString *_recordType;
-static BJSchema *_schema;
-
-+ (BJSchema *)schema {
-    if (_schema == nil) {
-        _schema = [[BJSchema parse:[NSString stringWithFormat:@"{\"type\":\"record\",\"name\":\"BJGenericBenchmarkRecord\",\"namespace\":\"com.ctriposs.baiji.generic\",\"fields\":[{\"name\":\"fieldValue\",\"type\":%@}]}", _recordType]] retain];
+- (BJSchema *)schema {
+    static BJSchema *__schema;
+    if (!__schema) {
+        self.updatedToken = NO;
+        __schema = [[BJSchema parse:[NSString stringWithFormat:@"{\"type\":\"record\",\"name\":\"BJGenericBenchmarkRecord\",\"namespace\":\"com.ctriposs.baiji.generic\",\"fields\":[{\"name\":\"fieldValue\",\"type\":%@}]}", self.fieldType]] retain];
     }
-    return _schema;
+    if (__schema && self.updatedToken) {
+        [__schema release];
+        __schema = nil;
+    }
+    return __schema;
 }
 
-+ (void)setRecordType:(NSString *)recordType {
-    _recordType = recordType;
-}
-
-+ (void)clear {
-    if (_schema) {
-        [_schema release];
-        _schema = nil;
-    }
+- (void)setRecordType:(NSString *)recordType {
+    self.fieldType = recordType;
+    self.updatedToken = YES;
 }
 
 - (id)fieldAtIndex:(int)fieldPos {

@@ -13,17 +13,31 @@
 #import "JSONKit.h"
 #import "NSData+Base64.h"
 
+@interface BJSpecificJsonParser()
+
+@property (nonatomic, retain) BJRecordSchema *schema;
+@property (nonatomic, retain) NSMutableDictionary *clazzCache;
+
+@end
+
 @implementation BJSpecificJsonParser
 
-- (id<BJMutableRecord>)readData:(NSData *)data clazz:(Class<BJMutableRecord>)clazz {
+- (instancetype)initWithSchema:(BJRecordSchema *)schema {
+    self = [super init];
+    if (self) {
+        self.schema = schema;
+        _clazzCache = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
+- (id<BJMutableRecord>)readData:(NSData *)data {
     NSDictionary *reuse = [data objectFromJSONData];
-    return [self readRecord:reuse schema:(BJRecordSchema *)[clazz schema]];
+    return [self readRecord:reuse schema:self.schema];
 }
 
 - (id<BJMutableRecord>)readRecord:(NSDictionary *)reuse schema:(BJRecordSchema *)recordSchema {
-    Class clazz = NSClassFromString([recordSchema name]);
-    if(![clazz conformsToProtocol:@protocol(BJMutableRecord)])
-        [NSException exceptionWithName:BJRuntimeException reason:@"class is not a BJMutableRecord." userInfo:nil];
+    Class clazz = [self clazzOfSchema:[recordSchema name] conformsTo:@protocol(BJMutableRecord) isSubclassOf:nil];
     id<BJMutableRecord> parsedRecord = [clazz new];
     NSArray *fields = [recordSchema fields];
     for (BJField *field in fields) {
@@ -33,7 +47,7 @@
             }];
         }
     }
-    return parsedRecord;
+    return [parsedRecord autorelease];
 }
 
 - (void)readValue:(id)datum schema:(BJSchema *)schema success:(BJJsonReadingResolver)success {
@@ -109,21 +123,19 @@
             [parsedMap setObject:parsedValue forKey:key];
         }];
     }];
-    return parsedMap;
+    return [parsedMap autorelease];
 }
 
 - (BJSpecificEnum *)readEnum:(NSString *)name schema:(BJEnumSchema *)enumSchema {
-    Class clazz = NSClassFromString([enumSchema fullname]);
-    if(![clazz isSubclassOfClass:[BJSpecificEnum class]])
-        [NSException exceptionWithName:BJRuntimeException reason:@"enum is not a BJSpecificEnum." userInfo:nil];
+    Class clazz = [self clazzOfSchema:[enumSchema fullname] conformsTo:nil isSubclassOf:[BJSpecificEnum class]];
     BJSpecificEnum *enumeration = [clazz new];
     [enumeration setValue:[clazz ordinalForName:name]];
-    return enumeration;
+    return [enumeration autorelease];
 }
 
 - (id)readUnion:(id)datum schema:(BJUnionSchema *)unionSchema {
     int count = [unionSchema count];
-    __block id parsedUnionValue;
+    __block id parsedUnionValue = nil;
     for (int i = 0; i < count; i++) {
         BJSchema *schema = [unionSchema schemaAtIndex:i];
         if([schema type] == BJSchemaTypeNull)
@@ -143,7 +155,27 @@
             [parsedArray addObject:parsedValue];
         }];
     }
-    return parsedArray;
+    return [parsedArray autorelease];
+}
+
+- (Class)clazzOfSchema:(NSString *)clazzName conformsTo:(Protocol *)protocol isSubclassOf:(Class)parentClazz{
+    Class clazz = [self.clazzCache objectForKey:clazzName];
+    if (!clazz) {
+        clazz = NSClassFromString(clazzName);
+        if (!clazz)
+            [NSException exceptionWithName:BJRuntimeException reason:[NSString stringWithFormat:@"%@ cannot be found.", clazzName] userInfo:nil];
+        if (protocol && ![clazz conformsToProtocol:protocol])
+            [NSException exceptionWithName:BJRuntimeException reason:[NSString stringWithFormat:@"%@ is invalid type.", clazzName] userInfo:nil];
+        if (parentClazz && ![clazz isSubclassOfClass:parentClazz])
+            [NSException exceptionWithName:BJRuntimeException reason:[NSString stringWithFormat:@"%@ is invalid type.", clazzName] userInfo:nil];
+        [self.clazzCache setObject:clazz forKey:clazzName];
+    }
+    return clazz;
+}
+
+- (void)dealloc {
+    [self.clazzCache release];
+    [super dealloc];
 }
 
 @end

@@ -11,4 +11,6 @@
 
 @interface BJJsonSerializer : NSObject<BJSerializable, NSCopying>
 
+- (void)clearCache;
+
 @end

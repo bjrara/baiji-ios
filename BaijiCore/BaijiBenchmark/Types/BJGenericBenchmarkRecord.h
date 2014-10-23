@@ -13,7 +13,6 @@
 
 @property (nonatomic, readwrite, strong) id fieldValue;
 
-+ (void)setRecordType:(NSString *)recordType;
-+ (void)clear;
+- (void)setRecordType:(NSString *)recordType;
 
 @end

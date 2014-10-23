@@ -11,7 +11,7 @@
 
 @protocol BJMutableRecord <NSObject>
 
-+ (BJSchema *)schema;
+- (BJSchema *)schema;
 
 - (id)fieldAtIndex:(int)fieldPos;
 

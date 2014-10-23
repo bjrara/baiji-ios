@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "BJMutableRecord.h"
+@class BJRecordSchema;
 
 typedef void  (^BJJsonReadingResolver)(id parsedValue);
 
 @interface BJSpecificJsonParser : NSObject
 
-- (id<BJMutableRecord>)readData:(NSData *)data clazz:(Class<BJMutableRecord>)clazz;
+- (instancetype)initWithSchema:(BJRecordSchema *)schema;
+
+- (id<BJMutableRecord>)readData:(NSData *)data;
 
 @end

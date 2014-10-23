@@ -12,8 +12,8 @@
 
 @implementation BJMutableSpecificRecord
 
-+ (BJSchema *)schema {
-    return [BJMutableSpecificRecord schema];
+- (BJSchema *)schema {
+    return nil;
 }
 
 - (id)fieldAtIndex:(int)fieldPos {

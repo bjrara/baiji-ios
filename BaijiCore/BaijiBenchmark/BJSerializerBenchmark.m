@@ -11,10 +11,25 @@
 #import "BJJsonSerializer.h"
 #import "BJEnum1Values.h"
 #import "SBJson4Writer.h"
-#import "SBJson4StreamParser.h"
+#import "SBJson4Parser.h"
 #import "BJSpecificEnum.h"
+#import "JSONKit.h"
+
+@interface BJSerializerBenchmark()
+
+@property (nonatomic, assign) BOOL runFlag;
+
+@end
 
 @implementation BJSerializerBenchmark
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.runFlag = NO;
+    }
+    return self;
+}
 
 - (void)benchmarkInt:(BJBenchmark)benchmark {
     benchmark([NSNumber numberWithInt:42], @"\"int\"");
@@ -37,7 +52,7 @@
 }
 
 - (void)benchmarkEnum:(BJBenchmark)benchmark {
-    benchmark([[[BJEnum1Values alloc] initWithValue:BJEnum1ValuesRED] autorelease], @"{\"type\":\"enum\",\"name\":\"Enum1Values\",\"namespace\":\"com.ctriposs.baiji.specific\",\"doc\":null,\"symbols\":[\"BLUE\",\"RED\",\"GREEN\"]}");
+    benchmark([[[BJEnum1Values alloc] initWithValue:BJEnum1ValuesRED] autorelease], @"{\"type\":\"enum\",\"name\":\"BJEnum1Values\",\"namespace\":\"com.ctriposs.baiji.specific\",\"doc\":null,\"symbols\":[\"BLUE\",\"RED\",\"GREEN\"]}");
 }
 
 - (void)benchmarkBytes:(BJBenchmark)benchmark {
@@ -57,30 +72,83 @@
     [map release];
 }
 
+- (void)benchmarkSingleField:(NSString *)type value:(id)object {
+    BJGenericBenchmarkRecord *record = [[BJGenericBenchmarkRecord alloc] init];
+    [record setRecordType:type];
+    [record setObject:object atIndex:0];
+    
+    float writingResult, readingResult;
+    
+    NSOutputStream *writingSource = [[NSOutputStream alloc] initToMemory];
+    [writingSource open];
+    NSDate *start = [NSDate date];
+    for (int i = 0; i < 10; i++) {
+        [self.serializerDelegate write:type record:record source:writingSource];
+    }
+    writingResult = -[start timeIntervalSinceNow] * 1000 * 1000 / 10;
+    NSData *temp = [writingSource propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
+    [writingSource close];
+    [writingSource release];
+    
+    NSUInteger length = [temp length];
+    NSInputStream *readingSource = [[NSInputStream alloc] initWithData:temp];
+    [readingSource open];
+    start = [NSDate date];
+    for (int i = 0; i < 10; i++) {
+        uint8_t buffer[length/10];
+        [readingSource read:buffer maxLength:length/10];
+        [self.serializerDelegate read:type stream:[NSData dataWithBytes:buffer length:length/10]];
+    }
+    readingResult = -[start timeIntervalSinceNow] * 1000 * 1000 / 10;
+    [readingSource close];
+    [readingSource release];
+    
+    [self notifyResult:type writing:writingResult reading:readingResult length:length/10];
+    [record release];
+}
+
+- (void)notifyResult:(NSString *)type writing:(float)writingResult reading:(float)readingResult length:(int)length {
+    if (self.runFlag) {
+        [self.masterDelegate serializer:[self.serializerDelegate name] didFinish:type writing:writingResult reading:readingResult length:length];
+    }
+}
+
+- (void)warmup {
+    for (int i = 0; i < 1000; i++) {
+        [self run];
+    }
+    self.runFlag = YES;
+}
+
 - (void)batch {
+    [self warmup];
+    [self run];
+}
+
+- (void)run {
     [self benchmarkInt:^(id object, NSString *type) {
-        [self.serializerDelegate benchmark:type fieldValue:object];
+        [self benchmarkSingleField:type value:object];
     }];
     [self benchmarkBoolean:^(id object, NSString *type) {
-        [self.serializerDelegate benchmark:type fieldValue:object];
+        [self benchmarkSingleField:type value:object];
     }];
     [self benchmarkLong:^(id object, NSString *type) {
-        [self.serializerDelegate benchmark:type fieldValue:object];
+        [self benchmarkSingleField:type value:object];
     }];
     [self benchmarkDouble:^(id object, NSString *type) {
-        [self.serializerDelegate benchmark:type fieldValue:object];
+        [self benchmarkSingleField:type value:object];
     }];
     [self benchmarkString:^(id object, NSString *type) {
-        [self.serializerDelegate benchmark:type fieldValue:object];
+        [self benchmarkSingleField:type value:object];
     }];
     [self benchmarkEnum:^(id object, NSString *type) {
-        [self.serializerDelegate benchmark:type fieldValue:object];
+        [self benchmarkSingleField:type value:object];
     }];
     [self benchmarkArray:^(id object, NSString *type) {
-        [self.serializerDelegate benchmark:type fieldValue:object];
+        [self benchmarkSingleField:type value:object];
     }];
     [self benchmarkMap:^(id object, NSString *type) {
-        [self.serializerDelegate benchmark:type fieldValue:object];
+        [self benchmarkSingleField:type value:object];
     }];
 }
 
@@ -99,8 +167,6 @@
 
 @implementation BJJsonSerializerBenchmark
 
-@synthesize masterDelegate = _masterDelegate;
-
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -109,173 +175,121 @@
     return self;
 }
 
-- (void)benchmark:(NSString *)type fieldValue:(id)object {
-    float writingResult;
-    float readingResult;
-    [BJGenericBenchmarkRecord clear];
-    [BJGenericBenchmarkRecord setRecordType:type];
-    BJGenericBenchmarkRecord *jsonObj = [[BJGenericBenchmarkRecord alloc] init];
-    [jsonObj setObject:object atIndex:0];
-    
-    NSOutputStream *writingSource = [[NSOutputStream alloc] initToMemory];
-    [writingSource open];
-    NSDate *start = [NSDate date];
-    for (int i = 0; i < 10; i++) {
-        NSData *stream = [self.serializer serialize:jsonObj];
-        [writingSource write:[stream bytes] maxLength:[stream length]];
-    }
-    writingResult = -[start timeIntervalSinceNow] * 1000 / 10;
-    NSData *temp = [writingSource propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
-    [writingSource close];
-    [writingSource release];
-    
-    NSUInteger length = [temp length];
-    NSInputStream *readingSource = [[NSInputStream alloc] initWithData:temp];
-    [readingSource open];
-    start = [NSDate date];
-    for (int i = 0; i < 10; i++) {
-        uint8_t buffer[length/10];
-        [readingSource read:buffer maxLength:length/10];
-        [self.serializer deserialize:[BJGenericBenchmarkRecord class] from:[NSData dataWithBytes:buffer length:length/10]];
-    }
-    readingResult = -[start timeIntervalSinceNow] * 1000 / 10;
-    [readingSource close];
-    [readingSource release];
-    [temp release];
-    
-    [self notifyResult:type writing:writingResult reading:readingResult];
+- (void)write:(NSString *)type record:(BJGenericBenchmarkRecord *)record source:(NSOutputStream *)writingSource{
+    NSData *stream = [self.serializer serialize:record];
+    [writingSource write:[stream bytes] maxLength:[stream length]];
 }
 
-- (void)notifyResult:(NSString *)type writing:(float)writingResult reading:(float)readingResult {
-    [self.masterDelegate serializer:@"BaijiJSON" didFinish:type writing:writingResult reading:readingResult];
+- (void)read:(NSString *)type stream:(NSData *)stream {
+    [self.serializer deserialize:[BJGenericBenchmarkRecord class] from:stream];
+}
+
+- (NSString *)name {
+    return @"BaijiJSON";
 }
 
 - (void)dealloc {
-    [self.masterDelegate release];
     [self.serializer release];
     [super dealloc];
 }
 
 @end
 
+@interface BJAppleJsonSerializerBenchmark()
+
+@property (nonatomic) BOOL isEnum;
+
+@end
+
 @implementation BJAppleJsonSerializerBenchmark
 
-@synthesize masterDelegate = _masterDelegate;
-
-- (void)benchmark:(NSString *)type fieldValue:(id)object {
-    if ([object isKindOfClass:[BJSpecificEnum class]]) {
-        object = [((BJSpecificEnum *)object) name];
+- (void)write:(NSString *)type record:(BJGenericBenchmarkRecord *)record source:(NSOutputStream *)writingSource {
+    id object = [record fieldAtIndex:0];
+    self.isEnum = [object isKindOfClass:[BJSpecificEnum class]];
+    if (self.isEnum) {
+        if ([object isKindOfClass:[BJSpecificEnum class]]) {
+            object = [((BJSpecificEnum *)object) name];
+        }
     }
-    float writingResult;
-    float readingResult;
-    
     NSDictionary *jsonObj = [NSDictionary dictionaryWithObject:object forKey:@"fieldValue"];
-    NSOutputStream *writingSource = [[NSOutputStream alloc] initToMemory];
-    [writingSource open];
-    NSDate *start = [NSDate date];
-    for (int i = 0; i < 10; i++) {
-        [NSJSONSerialization writeJSONObject:jsonObj toStream:writingSource options:NSJSONWritingPrettyPrinted error:nil];
-    }
-    writingResult = -[start timeIntervalSinceNow] * 1000 / 10;
-    NSData *temp = [writingSource propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
-    [writingSource close];
-    [writingSource release];
-    
-    NSUInteger length = [temp length];
-    NSInputStream *readingSource = [[NSInputStream alloc] initWithData:temp];
-    [readingSource open];
-    start = [NSDate date];
-    for (int i = 0; i < 10; i++) {
-        uint8_t buffer[length/10];
-        [readingSource read:buffer maxLength:length/10];
-        [NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:buffer length:length/10] options:NSJSONReadingAllowFragments error:nil];
-    }
-    readingResult = -[start timeIntervalSinceNow] * 1000 / 10;
-    [readingSource close];
-    [readingSource release];
-    [temp release];
-    
-    [self notifyResult:type writing:writingResult reading:readingResult];
-    
+    NSData *stream = [NSJSONSerialization dataWithJSONObject:jsonObj options:NSJSONWritingPrettyPrinted error:nil];
+    [writingSource write:[stream bytes] maxLength:[stream length]];
 }
 
-- (void)notifyResult:(NSString *)type writing:(float)writingResult reading:(float)readingResult {
-    [self.masterDelegate serializer:@"NSJSONSerialization" didFinish:type writing:writingResult reading:readingResult];
+- (void)read:(NSString *)type stream:(NSData *)stream {
+    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:stream options:NSJSONReadingAllowFragments error:nil];
+    BJGenericBenchmarkRecord *record = [[BJGenericBenchmarkRecord alloc] init];
+    if (self.isEnum) {
+        BJEnum1Values *value = [[BJEnum1Values alloc] initWithValue:[[parsedObject objectForKey:@"fieldValue"] intValue]];
+        [record setObject:value atIndex:0];
+        [value release];
+    } else {
+        [record setObject:[parsedObject objectForKey:@"fieldValue"] atIndex:0];
+    }
+    [record release];
 }
 
-- (void)dealloc {
-    [self.masterDelegate release];
-    [super dealloc];
+- (NSString *)name {
+    return @"NSJSON";
 }
 
 @end
 
 @interface BJSBJsonSerializerBenchmark()
 
-@property (nonatomic, strong) SBJson4StreamParser *deserializer;
+@property (nonatomic) BOOL isEnum;
 @property (nonatomic, strong) SBJson4Writer *serializer;
 
 @end
 
 @implementation BJSBJsonSerializerBenchmark
 
-@synthesize masterDelegate = _masterDelegate;
-
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.deserializer = [[SBJson4StreamParser alloc] init];
         self.serializer = [[SBJson4Writer alloc] init];
     }
     return self;
 }
 
-- (void)benchmark:(NSString *)type fieldValue:(id)object {
-    if ([object isKindOfClass:[BJSpecificEnum class]]) {
-        object = [((BJSpecificEnum *)object) name];
+- (void)write:(NSString *)type record:(BJGenericBenchmarkRecord *)record source:(NSOutputStream *)writingSource {
+    id object = [record fieldAtIndex:0];
+    self.isEnum = [object isKindOfClass:[BJSpecificEnum class]];
+    if (self.isEnum) {
+        if ([object isKindOfClass:[BJSpecificEnum class]]) {
+            object = [((BJSpecificEnum *)object) name];
+        }
     }
-    
-    float writingResult;
-    float readingResult;
-    
     NSDictionary *jsonObj = [NSDictionary dictionaryWithObject:object forKey:@"fieldValue"];
-    NSOutputStream *writingSource = [[NSOutputStream alloc] initToMemory];
-    [writingSource open];
-    NSDate *start = [NSDate date];
-    for (int i = 0; i < 10; i++) {
-        NSData *stream = [self.serializer dataWithObject:jsonObj];
-        [writingSource write:[stream bytes] maxLength:[stream length]];
-    }
-    writingResult = -[start timeIntervalSinceNow] * 1000 / 10;
-    NSData *temp = [writingSource propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
-    [writingSource close];
-    [writingSource release];
-    
-    NSUInteger length = [temp length];
-    NSInputStream *readingSource = [[NSInputStream alloc] initWithData:temp];
-    [readingSource open];
-    start = [NSDate date];
-    for (int i = 0; i < 10; i++) {
-        uint8_t buffer[length/10];
-        [readingSource read:buffer maxLength:length/10];
-        [self.deserializer parse:[NSData dataWithBytes:buffer length:length/10]];
-    }
-    readingResult = -[start timeIntervalSinceNow] * 1000 / 10;
-    [readingSource close];
-    [readingSource release];
-    [temp release];
-    
-    [self notifyResult:type writing:writingResult reading:readingResult];
+    NSData *stream = [self.serializer dataWithObject:jsonObj];
+    [writingSource write:[stream bytes] maxLength:[stream length]];
 }
 
-- (void)notifyResult:(NSString *)type writing:(float)writingResult reading:(float)readingResult {
-    [self.masterDelegate serializer:@"SBJSON" didFinish:type writing:writingResult reading:readingResult];
+- (void)read:(NSString *)type stream:(NSData *)stream {
+    SBJson4Parser *deserializer = [SBJson4Parser parserWithBlock:^(id item, BOOL *stop) {
+        BJGenericBenchmarkRecord *record = [[BJGenericBenchmarkRecord alloc] init];
+        if (self.isEnum) {
+            BJEnum1Values *value = [[BJEnum1Values alloc] initWithValue:[[item objectForKey:@"fieldValue"] intValue]];
+            [record setObject:value atIndex:0];
+            [value release];
+        } else {
+            [record setObject:[item objectForKey:@"fieldValue"] atIndex:0];
+        }
+        [record release];
+    } allowMultiRoot:NO unwrapRootArray:NO errorHandler:nil];
+    SBJson4ParserStatus status = [deserializer parse:stream];
+    while (true) {
+        if (status == SBJson4ParserComplete)
+            break;
+    }
+}
+
+- (NSString *)name {
+    return @"SBJSON";
 }
 
 - (void)dealloc {
-    [self.masterDelegate release];
     [self.serializer release];
-    [self.deserializer release];
     [super dealloc];
 }
 

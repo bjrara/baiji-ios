@@ -10,23 +10,55 @@
 #import "BJSpecificJsonParser.h"
 #import "BJSpecificJsonWriter.h"
 
-@interface BJJsonSerializer()
-
-@property (atomic, readonly) NSMutableDictionary *readerCache;
-@property (atomic, readonly) NSMutableDictionary *writerCache;
-
-@end
-
 @implementation BJJsonSerializer
 
+static NSMutableDictionary *_readerCache;
+static NSMutableDictionary *_writerCache;
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _readerCache = [[NSMutableDictionary alloc] init];
+        _writerCache = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
 - (NSData *)serialize:(id)obj {
-    BJSpecificJsonWriter *writer = [[BJSpecificJsonWriter alloc] init];
+    BJSpecificJsonWriter *writer = [self getWriter:[obj class]];
     return [writer writeObject:obj];
 }
 
 - (id)deserialize:(Class)clazz from:(NSData *)source {
-    BJSpecificJsonParser *parser = [[BJSpecificJsonParser alloc] init];
-    return [parser readData:source clazz:clazz];
+    BJSpecificJsonParser *parser = [self getParser:clazz];
+    return [parser readData:source];
+}
+
+- (BJSpecificJsonParser *)getParser:(Class)clazz {
+    NSString *clazzName = NSStringFromClass(clazz);
+    BJSpecificJsonParser *parser = [_readerCache objectForKey:clazzName];
+    if (parser)
+        return parser;
+    parser = [[BJSpecificJsonParser alloc] initWithSchema:(BJRecordSchema *)[[clazz new] schema]];
+    [_readerCache setObject:parser forKey:clazzName];
+    return parser;
+}
+
+- (BJSpecificJsonWriter *)getWriter:(Class)clazz {
+    NSString *clazzName = NSStringFromClass(clazz);
+    BJSpecificJsonWriter *writer = [_writerCache objectForKey:clazzName];
+    if (writer)
+        return writer;
+    writer = [[BJSpecificJsonWriter alloc] init];
+    [_writerCache setObject:writer forKey:clazzName];
+    return writer;
+}
+
+- (void)clearCache {
+    [_readerCache release];
+    [_writerCache release];
+    _readerCache = nil;
+    _writerCache = nil;
 }
 
 #pragma implementation of NSCopying

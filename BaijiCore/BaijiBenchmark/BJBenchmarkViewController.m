@@ -23,11 +23,13 @@
 {
     [super viewDidLoad];
     
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
     _types = [[NSMutableArray alloc] init];
     _results = [[NSMutableDictionary alloc] init];
     _benchmark = [[BJSerializerBenchmark alloc] init];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.benchmark.masterDelegate = self;
     
     [self benchmarkSerializer:[[[BJJsonSerializerBenchmark alloc] init] autorelease]];
     [self benchmarkSerializer:[[[BJAppleJsonSerializerBenchmark alloc] init] autorelease]];
@@ -68,7 +70,7 @@
             cell.textLabel.text = @"BaijiJSON";
             break;
         case 1:
-            cell.textLabel.text = @"NSJSONSerialization";
+            cell.textLabel.text = @"NSJSON";
             break;
         case 2:
             cell.textLabel.text = @"SBJSON";
@@ -84,12 +86,14 @@
                 switch (indexPath.row % 2) {
                     case 0: {
                         float writingResult = [[obj objectForKey:@"write"] floatValue];
-                        cell.detailTextLabel.text = [NSString stringWithFormat:@"write: %f", writingResult];
+                        int length = [[obj objectForKey:@"length"] intValue];
+                        cell.detailTextLabel.text = [NSString stringWithFormat:@"write %d bytes: %0.3f μs", length, writingResult];
                         break;
                     }
                     case 1: {
                         float readingResult = [[obj objectForKey:@"read"] floatValue];
-                        cell.detailTextLabel.text = [NSString stringWithFormat:@"read: %f", readingResult];
+                        int length = [[obj objectForKey:@"length"] intValue];
+                        cell.detailTextLabel.text = [NSString stringWithFormat:@"read %d bytes: %0.3f μs", length, readingResult];
                         break;
                     }
                     default:
@@ -107,10 +111,11 @@
     return [self.types objectAtIndex:section];
 }
 
-- (void)serializer:(NSString *)serializer didFinish:(NSString *)type writing:(float)writingResult reading:(float)readingResult {
+- (void)serializer:(NSString *)serializer didFinish:(NSString *)type writing:(float)writingResult reading:(float)readingResult length:(int)length {
     NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithCapacity:2];
     [data setObject:[NSNumber numberWithFloat:writingResult] forKey:@"write"];
     [data setObject:[NSNumber numberWithFloat:readingResult] forKey:@"read"];
+    [data setObject:[NSNumber numberWithInt:length] forKey:@"length"];
     NSMutableArray *array = [self.results objectForKey:type];
     if (array) {
         [array addObject:[NSDictionary dictionaryWithObject:data forKey:serializer]];
@@ -125,7 +130,6 @@
 }
 
 - (void)benchmarkSerializer:(id<BJBenchmarkCandidateDelegate>)serializer {
-    [serializer setMasterDelegate:self];
     self.benchmark.serializerDelegate = serializer;
     [self.benchmark batch];
 }
