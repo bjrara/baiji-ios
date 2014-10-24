@@ -21,10 +21,10 @@
 }
 
 - (id)fieldForName:(NSString *)fieldName {
-    if(![[[self class] schema] isKindOfClass:[BJRecordSchema class]]) {
+    if(![[self schema] isKindOfClass:[BJRecordSchema class]]) {
         return nil;
     }
-    BJRecordSchema *rs = (BJRecordSchema *)[[self class] schema];
+    BJRecordSchema *rs = (BJRecordSchema *)[self schema];
     BJField *field = [rs fieldForName:fieldName];
     return field == nil ? nil : [self fieldAtIndex:[field pos]];
 }
@@ -34,10 +34,10 @@
 }
 
 - (void)setObject:(id)object forName:(NSString *)fieldName {
-    if(![[[self class] schema] isKindOfClass:[BJRecordSchema class]]) {
+    if(![[self schema] isKindOfClass:[BJRecordSchema class]]) {
         return;
     }
-    BJRecordSchema *rs = (BJRecordSchema *)[[self class] schema];
+    BJRecordSchema *rs = (BJRecordSchema *)[self schema];
     BJField *field = [rs fieldForName:fieldName];
     if(field != nil) {
         [self setObject:object atIndex:[field pos]];

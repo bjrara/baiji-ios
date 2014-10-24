@@ -9,7 +9,7 @@
 
 @implementation BJModelFilling2
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{

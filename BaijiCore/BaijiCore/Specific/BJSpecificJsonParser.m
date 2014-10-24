@@ -22,6 +22,11 @@
 
 @implementation BJSpecificJsonParser
 
+- (instancetype)init {
+    [NSException exceptionWithName:BJRuntimeException reason:@"BJSpecificJsonParser direct init is not supported." userInfo:nil];
+    return nil;
+}
+
 - (instancetype)initWithSchema:(BJRecordSchema *)schema {
     self = [super init];
     if (self) {

@@ -11,6 +11,7 @@
 #import "BJSpecificJsonWriter.h"
 #import "BJSpecificJsonParser.h"
 #import "BJEnum1Values.h"
+#import "JSONKit.h"
 
 @implementation BJUnitTestSerialization
 
@@ -89,7 +90,7 @@
     BJSpecificJsonWriter *writer = [[BJSpecificJsonWriter alloc] init];
     NSData *data = [writer writeObject:record];
     GHTestLog(@"%@", [[data objectFromJSONData] description]);
-    BJSpecificJsonParser *parser = [[BJSpecificJsonParser alloc] init];
-    return [parser readData:data clazz:[BJTestSerializerSample class]];
+    BJSpecificJsonParser *parser = [[BJSpecificJsonParser alloc] initWithSchema:(BJRecordSchema *)[record schema]];
+    return [parser readData:data];
 }
 @end
