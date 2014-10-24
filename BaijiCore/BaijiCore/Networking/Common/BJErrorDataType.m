@@ -11,7 +11,7 @@
 
 @implementation BJErrorDataType
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -28,12 +28,12 @@
   errorClassification:(BJErrorClassificationCodeType *)errorClassification {
     self = [super init];
     if (self) {
-        _message = message;
-        _errorCode = errorCode;
-        _stackTrace = stackTrace;
-        _severityCode = severityCode;
-        _errorFields = errorFields;
-        _errorClassification = errorClassification;
+        self.message = message;
+        self.errorCode = errorCode;
+        self.stackTrace = stackTrace;
+        self.severityCode = severityCode;
+        self.errorFields = errorFields;
+        self.errorClassification = errorClassification;
     }
     return self;
 }

@@ -9,7 +9,7 @@
 
 @implementation BJGenericErrorResponseType
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -21,7 +21,7 @@
 - (id)initWithResponseStatus:(BJResponseStatusType *)responseStatus {
     self = [super init];
     if (self) {
-        _responseStatus = responseStatus;
+        self.responseStatus = responseStatus;
     }
     return self;
 }

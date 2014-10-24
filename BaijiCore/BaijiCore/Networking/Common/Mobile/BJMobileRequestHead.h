@@ -5,6 +5,7 @@
  */
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
+
 @class BJExtensionFieldType;
 
 @interface BJMobileRequestHead : BJMutableSpecificRecord
@@ -16,6 +17,7 @@
 @property (nonatomic, readwrite, retain) NSString *ctok;
 @property (nonatomic, readwrite, retain) NSString *cver;
 @property (nonatomic, readwrite, retain) NSString *sid;
+/** valueType: ExtensionFieldType */
 @property (nonatomic, readwrite, retain) NSArray *extension;
 
 - (id)initWithSyscode:(NSString *)syscode

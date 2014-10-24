@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
 
+
 @interface BJPaginationOutputType : BJMutableSpecificRecord
 
 /** initValue: int */

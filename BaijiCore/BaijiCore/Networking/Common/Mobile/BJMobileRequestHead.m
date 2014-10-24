@@ -9,7 +9,7 @@
 
 @implementation BJMobileRequestHead
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -28,14 +28,14 @@
             extension:(NSArray *)extension {
     self = [super init];
     if (self) {
-        _syscode = syscode;
-        _lang = lang;
-        _auth = auth;
-        _cid = cid;
-        _ctok = ctok;
-        _cver = cver;
-        _sid = sid;
-        _extension = extension;
+        self.syscode = syscode;
+        self.lang = lang;
+        self.auth = auth;
+        self.cid = cid;
+        self.ctok = ctok;
+        self.cver = cver;
+        self.sid = sid;
+        self.extension = extension;
     }
     return self;
 }

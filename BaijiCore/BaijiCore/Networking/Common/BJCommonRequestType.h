@@ -6,9 +6,11 @@
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
 
+
 @interface BJCommonRequestType : BJMutableSpecificRecord
 
 @property (nonatomic, readwrite, retain) NSString *version;
+/** valueType: NSString */
 @property (nonatomic, readwrite, retain) NSArray *outputSelector;
 
 - (id)initWithVersion:(NSString *)version

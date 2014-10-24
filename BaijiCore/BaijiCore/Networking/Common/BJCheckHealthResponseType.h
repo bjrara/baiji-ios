@@ -5,9 +5,10 @@
  */
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
+#import "BJHasResponseStatus.h"
 @class BJResponseStatusType;
 
-@interface BJCheckHealthResponseType : BJMutableSpecificRecord
+@interface BJCheckHealthResponseType : BJMutableSpecificRecord<BJHasResponseStatus>
 
 @property (nonatomic, readwrite, retain) BJResponseStatusType *responseStatus;
 

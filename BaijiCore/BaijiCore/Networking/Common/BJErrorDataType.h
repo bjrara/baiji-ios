@@ -5,6 +5,7 @@
  */
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
+
 @class BJSeverityCodeType;
 @class BJErrorClassificationCodeType;
 @class BJErrorFieldType;
@@ -15,6 +16,7 @@
 @property (nonatomic, readwrite, retain) NSString *errorCode;
 @property (nonatomic, readwrite, retain) NSString *stackTrace;
 @property (nonatomic, readwrite, retain) BJSeverityCodeType *severityCode;
+/** valueType: ErrorFieldType */
 @property (nonatomic, readwrite, retain) NSArray *errorFields;
 @property (nonatomic, readwrite, retain) BJErrorClassificationCodeType *errorClassification;
 

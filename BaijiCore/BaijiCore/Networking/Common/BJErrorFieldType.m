@@ -8,7 +8,7 @@
 
 @implementation BJErrorFieldType
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -22,9 +22,9 @@
                 message:(NSString *)message {
     self = [super init];
     if (self) {
-        _fieldName = fieldName;
-        _errorCode = errorCode;
-        _message = message;
+        self.fieldName = fieldName;
+        self.errorCode = errorCode;
+        self.message = message;
     }
     return self;
 }

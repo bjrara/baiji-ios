@@ -8,7 +8,7 @@
 
 @implementation BJExtensionType
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -23,10 +23,10 @@
            value:(NSString *)value {
     self = [super init];
     if (self) {
-        _id = id;
-        _version = version;
-        _contentType = contentType;
-        _value = value;
+        self.id = id;
+        self.version = version;
+        self.contentType = contentType;
+        self.value = value;
     }
     return self;
 }

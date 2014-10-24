@@ -5,6 +5,7 @@
  */
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
+
 @class BJErrorDataType;
 @class BJExtensionType;
 @class BJAckCodeType;
@@ -13,9 +14,11 @@
 
 @property (nonatomic, readwrite, retain) NSDate *timestamp;
 @property (nonatomic, readwrite, retain) BJAckCodeType *ack;
+/** valueType: ErrorDataType */
 @property (nonatomic, readwrite, retain) NSArray *errors;
 @property (nonatomic, readwrite, retain) NSString *build;
 @property (nonatomic, readwrite, retain) NSString *version;
+/** valueType: ExtensionType */
 @property (nonatomic, readwrite, retain) NSArray *extension;
 
 - (id)initWithTimestamp:(NSDate *)timestamp

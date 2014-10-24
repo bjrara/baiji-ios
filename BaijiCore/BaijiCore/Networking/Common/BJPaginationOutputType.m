@@ -8,7 +8,7 @@
 
 @implementation BJPaginationOutputType
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -23,10 +23,10 @@
             totalEntries:(NSNumber *)totalEntries {
     self = [super init];
     if (self) {
-        _pageNumber = pageNumber;
-        _entriesPerPage = entriesPerPage;
-        _totalPages = totalPages;
-        _totalEntries = totalEntries;
+        self.pageNumber = pageNumber;
+        self.entriesPerPage = entriesPerPage;
+        self.totalPages = totalPages;
+        self.totalEntries = totalEntries;
     }
     return self;
 }

@@ -8,7 +8,7 @@
 
 @implementation BJExtensionFieldType
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -21,8 +21,8 @@
              value:(NSString *)value {
     self = [super init];
     if (self) {
-        _name = name;
-        _value = value;
+        self.name = name;
+        self.value = value;
     }
     return self;
 }

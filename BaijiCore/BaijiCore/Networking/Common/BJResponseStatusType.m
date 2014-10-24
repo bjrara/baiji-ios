@@ -11,7 +11,7 @@
 
 @implementation BJResponseStatusType
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -28,12 +28,12 @@
               extension:(NSArray *)extension {
     self = [super init];
     if (self) {
-        _timestamp = timestamp;
-        _ack = ack;
-        _errors = errors;
-        _build = build;
-        _version = version;
-        _extension = extension;
+        self.timestamp = timestamp;
+        self.ack = ack;
+        self.errors = errors;
+        self.build = build;
+        self.version = version;
+        self.extension = extension;
     }
     return self;
 }

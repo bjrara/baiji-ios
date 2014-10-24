@@ -8,7 +8,7 @@
 
 @implementation BJCommonRequestType
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -21,8 +21,8 @@
        outputSelector:(NSArray *)outputSelector {
     self = [super init];
     if (self) {
-        _version = version;
-        _outputSelector = outputSelector;
+        self.version = version;
+        self.outputSelector = outputSelector;
     }
     return self;
 }
