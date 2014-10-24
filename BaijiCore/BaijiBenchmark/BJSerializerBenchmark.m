@@ -15,6 +15,7 @@
 #import "BJSpecificEnum.h"
 #import "BJEnum2Values.h"
 #import "BJModelFilling2.h"
+#import "JSONKit.h"
 
 @interface BJSerializerBenchmark()
 
@@ -261,7 +262,7 @@
         object = [self dictionaryFromRecord:object];
     }
     NSDictionary *jsonObj = [NSDictionary dictionaryWithObject:object forKey:@"fieldValue"];
-    NSData *stream = [NSJSONSerialization dataWithJSONObject:jsonObj options:NSJSONWritingPrettyPrinted error:nil];
+    NSData *stream = [NSJSONSerialization dataWithJSONObject:jsonObj options:0 error:nil];
     [writingSource write:[stream bytes] maxLength:[stream length]];
 }
 
@@ -361,6 +362,59 @@
 - (void)dealloc {
     [self.serializer release];
     [super dealloc];
+}
+
+@end
+
+@interface BJJsonKitSerializerBenchmark()
+
+@property (nonatomic) BOOL isEnum;
+@property (nonatomic) BOOL isRecord;
+
+@end
+
+@implementation BJJsonKitSerializerBenchmark
+
+- (void)write:(NSString *)type record:(BJGenericBenchmarkRecord *)record source:(NSOutputStream *)writingSource {
+    id object = [record fieldAtIndex:0];
+    self.isEnum = [object isKindOfClass:[BJSpecificEnum class]];
+    self.isRecord = [object isKindOfClass:[BJModelFilling2 class]];
+    if (self.isEnum) {
+        if ([object isKindOfClass:[BJSpecificEnum class]]) {
+            object = [((BJSpecificEnum *)object) name];
+        }
+    }
+    if(self.isRecord) {
+        object = [self dictionaryFromRecord:object];
+    }
+    NSDictionary *jsonObj = [NSDictionary dictionaryWithObject:object forKey:@"fieldValue"];
+    NSData *stream = [jsonObj JSONData];
+    [writingSource write:[stream bytes] maxLength:[stream length]];
+}
+
+- (void)read:(NSString *)type stream:(NSData *)stream {
+    NSDictionary *parsedObject = [stream objectFromJSONData];
+    BJGenericBenchmarkRecord *record = [[BJGenericBenchmarkRecord alloc] init];
+    if (self.isEnum) {
+        BJEnum1Values *value = [[BJEnum1Values alloc] initWithValue:[[parsedObject objectForKey:@"fieldValue"] intValue]];
+        [record setObject:value atIndex:0];
+        [value release];
+    } else {
+        [record setObject:[parsedObject objectForKey:@"fieldValue"] atIndex:0];
+    }
+    [record release];
+}
+
+- (NSDictionary *)dictionaryFromRecord:(BJModelFilling2 *)record {
+    NSMutableDictionary *jsonObj = [[NSMutableDictionary alloc] init];
+    [jsonObj setObject:record.listfilling forKey:@"listfilling"];
+    [jsonObj setObject:[record.enumfilling name] forKey:@"enumfilling"];
+    [jsonObj setObject:record.stringfilling forKey:@"stringfilling"];
+    return [jsonObj autorelease];
+}
+
+- (NSString *)name {
+    return @"JSONKit";
 }
 
 @end

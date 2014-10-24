@@ -11,7 +11,6 @@
 #import "BJSchemaNames.h"
 #import "BJNamedSchema.h"
 #import "BJPrimitiveSchema.h"
-#import "JSONKit.h"
 #import "BJJsonHelper.h"
 #import "BJPropertyMap.h"
 #import "BJArraySchema.h"
@@ -67,7 +66,7 @@ NSString *const BJSchemaTypeNames[] = {
     if(schema)
         return schema;
     @try {
-        id jsonObj = [json objectFromJSONString];
+        id jsonObj = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
         return [self parseJson:jsonObj names:names encSpace:encSpace];
     } @catch(NSException *ex) {
         [NSException exceptionWithName:BJSchemaParseException
@@ -146,7 +145,8 @@ NSString *const BJSchemaTypeNames[] = {
 
 - (NSString *)description {
     NSMutableDictionary *jObj = [self jsonObjectWithSchemaNames:[[[BJSchemaNames alloc] init] autorelease] encSpace:nil];
-    return [jObj JSONString];
+    return [[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:jObj options:0 error:nil]
+                                 encoding:NSUTF8StringEncoding] autorelease];
 }
 
 - (id)jsonObjectWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace {

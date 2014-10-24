@@ -63,7 +63,7 @@
 }
 
 + (BJJsonType)typeForObject:(id)jsonObj; {
-    if([jsonObj isKindOfClass:NSClassFromString(@"JKArray")])
+    if([jsonObj isKindOfClass:[NSArray class]])
         return BJJsonTypeArray;
     if([jsonObj isKindOfClass:[NSString class]])
         return BJJsonTypeText;

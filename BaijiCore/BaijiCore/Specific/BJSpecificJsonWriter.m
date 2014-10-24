@@ -10,14 +10,13 @@
 #import "BJSpecificEnum.h"
 #import "BJSchemas.h"
 #import "BJError.h"
-#import "JSONKit.h"
 #import "NSData+Base64.h"
 
 @implementation BJSpecificJsonWriter
 
 - (NSData *)writeObject:(id<BJMutableRecord>)object {
     NSDictionary *parsedObject = [self writeRecord:object schema:(BJRecordSchema *)[object schema]];
-    return [parsedObject JSONData];
+    return [NSJSONSerialization dataWithJSONObject:parsedObject options:0 error:nil];
 }
 
 - (NSDictionary *)writeRecord:(id)datum schema:(BJRecordSchema *)recordSchema {

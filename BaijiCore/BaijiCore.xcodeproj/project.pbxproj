@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3BE218DB19E7DE1800FABD15 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218D919E7DE1800FABD15 /* JSONKit.m */; };
-		3BE218DC19E7DE1800FABD15 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218D919E7DE1800FABD15 /* JSONKit.m */; };
-		3BE218DD19E7DE1800FABD15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3BE218DA19E7DE1800FABD15 /* README.md */; };
-		3BE218DE19E7DE1800FABD15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3BE218DA19E7DE1800FABD15 /* README.md */; };
+		3B8ECE2619FA3D8F00EA1B00 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ECE2319FA3D8F00EA1B00 /* JSONKit.m */; };
 		3BE218EB19EE303100FABD15 /* BJTestSerializerSampleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218EA19EE303100FABD15 /* BJTestSerializerSampleList.m */; };
 		3BE218FD19EF884F00FABD15 /* BJEnum1Values.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218F019EF884F00FABD15 /* BJEnum1Values.m */; };
 		3BE218FE19EF884F00FABD15 /* BJEnum2Values.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218F219EF884F00FABD15 /* BJEnum2Values.m */; };
@@ -108,7 +105,6 @@
 		3BE21AE719F7573700FABD15 /* BJSpecificJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15C32F19D2DCF900754015 /* BJSpecificJsonWriter.m */; };
 		3BE21AEB19F779D700FABD15 /* BJBenchmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE21AE919F779D700FABD15 /* BJBenchmarkViewController.m */; };
 		3BE21AEC19F779D700FABD15 /* BJBenchmarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE21AEA19F779D700FABD15 /* BJBenchmarkViewController.xib */; };
-		3BE21AED19F7A8DC00FABD15 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218D919E7DE1800FABD15 /* JSONKit.m */; };
 		3BE21AF819F8FCE800FABD15 /* BJEnum2Values.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE21AF519F8FCE800FABD15 /* BJEnum2Values.m */; };
 		3BE21AF919F8FCE800FABD15 /* BJModelFilling2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE21AF719F8FCE800FABD15 /* BJModelFilling2.m */; };
 		45BE962B84454BB59A86CD03 /* libPods-BaijiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A363983496479B839AECA5 /* libPods-BaijiCore.a */; };
@@ -209,9 +205,8 @@
 
 /* Begin PBXFileReference section */
 		06C322F45ED0357DEF4FAA72 /* Pods-BaijiTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiTest.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiTest/Pods-BaijiTest.release.xcconfig"; sourceTree = "<group>"; };
-		3BE218D819E7DE1800FABD15 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		3BE218D919E7DE1800FABD15 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		3BE218DA19E7DE1800FABD15 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		3B8ECE2219FA3D8F00EA1B00 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		3B8ECE2319FA3D8F00EA1B00 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		3BE218E919EE303100FABD15 /* BJTestSerializerSampleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJTestSerializerSampleList.h; sourceTree = "<group>"; };
 		3BE218EA19EE303100FABD15 /* BJTestSerializerSampleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJTestSerializerSampleList.m; sourceTree = "<group>"; };
 		3BE218EF19EF884F00FABD15 /* BJEnum1Values.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJEnum1Values.h; sourceTree = "<group>"; };
@@ -484,20 +479,11 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		3BE218D619E7DE1800FABD15 /* Lib */ = {
+		3B8ECE2019FA3D8F00EA1B00 /* JSONKit */ = {
 			isa = PBXGroup;
 			children = (
-				3BE218D719E7DE1800FABD15 /* JSONKit */,
-			);
-			path = Lib;
-			sourceTree = "<group>";
-		};
-		3BE218D719E7DE1800FABD15 /* JSONKit */ = {
-			isa = PBXGroup;
-			children = (
-				3BE218D819E7DE1800FABD15 /* JSONKit.h */,
-				3BE218D919E7DE1800FABD15 /* JSONKit.m */,
-				3BE218DA19E7DE1800FABD15 /* README.md */,
+				3B8ECE2219FA3D8F00EA1B00 /* JSONKit.h */,
+				3B8ECE2319FA3D8F00EA1B00 /* JSONKit.m */,
 			);
 			path = JSONKit;
 			sourceTree = "<group>";
@@ -627,6 +613,7 @@
 				3BE21AA719F660D200FABD15 /* BJSerializerBenchmark.h */,
 				3BE21AA819F660D200FABD15 /* BJSerializerBenchmark.m */,
 				3BE21A8C19F65EB400FABD15 /* Images.xcassets */,
+				3B8ECE2019FA3D8F00EA1B00 /* JSONKit */,
 				3BE21A7819F65EB400FABD15 /* Supporting Files */,
 				3BE21AB219F7474D00FABD15 /* Types */,
 			);
@@ -714,11 +701,10 @@
 		CE52854019C84DE900B427B5 = {
 			isa = PBXGroup;
 			children = (
+				3BE21A7719F65EB400FABD15 /* BaijiBenchmark */,
 				CE52855719C84DE900B427B5 /* BaijiCore */,
 				CEEF41FF19D0011900EEDB5D /* BaijiTest */,
-				3BE21A7719F65EB400FABD15 /* BaijiBenchmark */,
 				CE52854E19C84DE900B427B5 /* Frameworks */,
-				3BE218D619E7DE1800FABD15 /* Lib */,
 				CEEF425C19D012C300EEDB5D /* libPods-BaijiCore.a */,
 				133405EDDB0047150AB63A2A /* Pods */,
 				CE52854C19C84DE900B427B5 /* Products */,
@@ -992,7 +978,6 @@
 			files = (
 				CE52855C19C84DE900B427B5 /* InfoPlist.strings in Resources */,
 				CE52856419C84DE900B427B5 /* Default.png in Resources */,
-				3BE218DD19E7DE1800FABD15 /* README.md in Resources */,
 				CE52856619C84DE900B427B5 /* Default@2x.png in Resources */,
 				CE52856819C84DE900B427B5 /* Default-568h@2x.png in Resources */,
 			);
@@ -1004,7 +989,6 @@
 			files = (
 				CEEF420419D0011900EEDB5D /* InfoPlist.strings in Resources */,
 				CEEF420C19D0011900EEDB5D /* Default.png in Resources */,
-				3BE218DE19E7DE1800FABD15 /* README.md in Resources */,
 				CEEF420E19D0011900EEDB5D /* Default@2x.png in Resources */,
 				CEEF421019D0011900EEDB5D /* Default-568h@2x.png in Resources */,
 			);
@@ -1110,10 +1094,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BE21AED19F7A8DC00FABD15 /* JSONKit.m in Sources */,
 				3BE21AE519F7573700FABD15 /* BJSpecificEnum.m in Sources */,
 				3BE21AE619F7573700FABD15 /* BJSpecificJsonParser.m in Sources */,
 				3BE21AE719F7573700FABD15 /* BJSpecificJsonWriter.m in Sources */,
+				3B8ECE2619FA3D8F00EA1B00 /* JSONKit.m in Sources */,
 				3BE21AF819F8FCE800FABD15 /* BJEnum2Values.m in Sources */,
 				3BE21AD719F7572100FABD15 /* BJArraySchema.m in Sources */,
 				3BE21AEB19F779D700FABD15 /* BJBenchmarkViewController.m in Sources */,
@@ -1184,7 +1168,6 @@
 				CEFBC2EC19D3DFFF0034E202 /* BJSpecificJsonParser.m in Sources */,
 				CEFBC35019D50A4B0034E202 /* NSData+Base64.m in Sources */,
 				3BE219D019F0F3A900FABD15 /* BJGenericErrorResponseType.m in Sources */,
-				3BE218DB19E7DE1800FABD15 /* JSONKit.m in Sources */,
 				3BE219C419F0F3A900FABD15 /* BJCheckHealthResponseType.m in Sources */,
 				3BE219C019F0F3A900FABD15 /* BJAckCodeType.m in Sources */,
 				3BE2191A19EFBDBD00FABD15 /* BJServiceClient.m in Sources */,
@@ -1232,7 +1215,6 @@
 				3BE219E219F0F6B700FABD15 /* BJMobileRequestHead.m in Sources */,
 				3BE219C119F0F3A900FABD15 /* BJAckCodeType.m in Sources */,
 				CEEF429F19D0158800EEDB5D /* BJRecordSchema.m in Sources */,
-				3BE218DC19E7DE1800FABD15 /* JSONKit.m in Sources */,
 				3BE219CF19F0F3A900FABD15 /* BJExtensionType.m in Sources */,
 				CEEF42A119D0158800EEDB5D /* BJSchemaName.m in Sources */,
 				CEEF42A319D0158800EEDB5D /* BJSchemaNames.m in Sources */,

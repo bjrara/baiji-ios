@@ -34,6 +34,7 @@
     [self benchmarkSerializer:[[[BJJsonSerializerBenchmark alloc] init] autorelease]];
     [self benchmarkSerializer:[[[BJAppleJsonSerializerBenchmark alloc] init] autorelease]];
     [self benchmarkSerializer:[[[BJSBJsonSerializerBenchmark alloc] init] autorelease]];
+    [self benchmarkSerializer:[[[BJJsonKitSerializerBenchmark alloc] init] autorelease]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +52,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 8;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,7 +66,7 @@
     NSString *type = [self.types objectAtIndex:indexPath.section];
     NSArray *array = [self.results objectForKey:type];
     
-    switch ((indexPath.row % 6) / 2) {
+    switch ((indexPath.row % 8) / 2) {
         case 0:
             cell.textLabel.text = @"BaijiJSON";
             break;
@@ -74,6 +75,9 @@
             break;
         case 2:
             cell.textLabel.text = @"SBJSON";
+            break;
+        case 3:
+            cell.textLabel.text = @"JSONKit";
             break;
         default:
             break;

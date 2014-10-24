@@ -10,7 +10,6 @@
 #import "BJSchemas.h"
 #import "BJError.h"
 #import "BJSpecificEnum.h"
-#import "JSONKit.h"
 #import "NSData+Base64.h"
 
 @interface BJSpecificJsonParser()
@@ -37,7 +36,7 @@
 }
 
 - (id<BJMutableRecord>)readData:(NSData *)data {
-    NSDictionary *reuse = [data objectFromJSONData];
+    NSDictionary *reuse = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     return [self readRecord:reuse schema:self.schema];
 }
 

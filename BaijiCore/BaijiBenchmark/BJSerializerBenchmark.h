@@ -52,3 +52,7 @@ typedef void (^BJBenchmark)(id object, NSString *type);
 @interface BJSBJsonSerializerBenchmark : NSObject<BJBenchmarkCandidateDelegate>
 
 @end
+
+@interface BJJsonKitSerializerBenchmark : NSObject<BJBenchmarkCandidateDelegate>
+
+@end

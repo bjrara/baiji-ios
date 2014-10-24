@@ -10,7 +10,6 @@
 #import "BJSchemaName.h"
 #import "BJSchemaNames.h"
 #import "BJError.h"
-#import "JSONKit.h"
 #import "BJField.h"
 #import "BJJsonHelper.h"
 

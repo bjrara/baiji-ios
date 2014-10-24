@@ -14,7 +14,6 @@
 #import "BJRecord2.h"
 #import "BJRecord2Container.h"
 #import "BJJsonSerializer.h"
-#import "JSONKit.h"
 
 @implementation BJPerfTestJsonSerializer
 

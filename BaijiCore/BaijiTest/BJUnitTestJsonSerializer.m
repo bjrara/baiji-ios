@@ -16,7 +16,6 @@
 #import "BJMutableRecord.h"
 #import "BJRecord2.h"
 #import "BJRecord.h"
-#import "JSONKit.h"
 
 @implementation BJUnitTestJsonSerializer
 

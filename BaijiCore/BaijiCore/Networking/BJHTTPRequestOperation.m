@@ -11,7 +11,6 @@
 #import "BJResponseStatusType.h"
 #import "BJHasResponseStatus.h"
 #import "BJAckCodeType.h"
-#import "JSONKit.h"
 #import "BJError.h"
 #import "BJErrorDataType.h"
 #import "BJErrorClassificationCodeType.h"
@@ -177,7 +176,7 @@ static dispatch_group_t http_request_operation_completion_group() {
         [self.response.allHeaderFields enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             NSLog(@"%@ : %@", key, obj);
         }];
-        NSLog(@"%@", [[self.responseData objectFromJSONData] JSONString]);
+        NSLog(@"%@", [[[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding] autorelease]);
 #endif
         if (self.completionGroup) {
             dispatch_group_enter(self.completionGroup);
@@ -276,7 +275,7 @@ static dispatch_group_t http_request_operation_completion_group() {
     [[self.request allHTTPHeaderFields] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         NSLog(@"%@: %@", key, obj);
     }];
-    NSLog(@"%@", [[[self.request HTTPBody] objectFromJSONData] JSONString]);
+    NSLog(@"%@", [[[NSString alloc] initWithData:[self.request HTTPBody] encoding:NSUTF8StringEncoding] autorelease]);
 }
 
 @end
