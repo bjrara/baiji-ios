@@ -144,7 +144,10 @@ NSString *const BJSchemaTypeNames[] = {
 }
 
 - (NSString *)description {
-    NSMutableDictionary *jObj = [self jsonObjectWithSchemaNames:[[[BJSchemaNames alloc] init] autorelease] encSpace:nil];
+    id jObj = [self jsonObjectWithSchemaNames:[[[BJSchemaNames alloc] init] autorelease] encSpace:nil];
+    if ([jObj isKindOfClass:[NSString class]]) {
+        return jObj;
+    }
     return [[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:jObj options:0 error:nil]
                                  encoding:NSUTF8StringEncoding] autorelease];
 }
