@@ -101,7 +101,7 @@ static dispatch_group_t http_request_operation_completion_group() {
         }
     }];
     if (![request valueForHTTPHeaderField:@"Content-Type"]) {
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/x-baiji-json" forHTTPHeaderField:@"Content-Type"];
     }
     [request setHTTPBody:[self.serializer serialize:requestObj]];
     return request;
