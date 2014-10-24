@@ -9,7 +9,7 @@
 
 @implementation BJSellingStatus
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -25,11 +25,11 @@
                   timeLeft:(NSString *)timeLeft {
     self = [super init];
     if (self) {
-        _currentPrice = currentPrice;
-        _convertedCurrentPrice = convertedCurrentPrice;
-        _bidCount = bidCount;
-        _sellingState = sellingState;
-        _timeLeft = timeLeft;
+        self.currentPrice = currentPrice;
+        self.convertedCurrentPrice = convertedCurrentPrice;
+        self.bidCount = bidCount;
+        self.sellingState = sellingState;
+        self.timeLeft = timeLeft;
     }
     return self;
 }

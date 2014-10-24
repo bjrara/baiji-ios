@@ -8,7 +8,7 @@
 
 @implementation BJAmount
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -21,8 +21,8 @@
          currencyId:(NSString *)currencyId {
     self = [super init];
     if (self) {
-        _value = value;
-        _currencyId = currencyId;
+        self.value = value;
+        self.currencyId = currencyId;
     }
     return self;
 }

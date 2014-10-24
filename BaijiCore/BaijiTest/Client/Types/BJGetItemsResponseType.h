@@ -8,9 +8,11 @@
 #import "BJHasResponseStatus.h"
 @class BJResponseStatusType;
 @class BJItem;
+
 @interface BJGetItemsResponseType : BJMutableSpecificRecord<BJHasResponseStatus>
 
 @property (nonatomic, readwrite, retain) BJResponseStatusType *responseStatus;
+/** valueType: Item */
 @property (nonatomic, readwrite, retain) NSArray *items;
 
 - (id)initWithResponseStatus:(BJResponseStatusType *)responseStatus

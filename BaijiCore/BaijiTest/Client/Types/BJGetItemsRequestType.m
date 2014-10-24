@@ -9,7 +9,7 @@
 
 @implementation BJGetItemsRequestType
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -26,12 +26,12 @@ returnWrappedErrorResponse:(NSNumber *)returnWrappedErrorResponse
               head:(BJMobileRequestHead *)head {
     self = [super init];
     if (self) {
-        _take = take;
-        _sleep = sleep;
-        _validationString = validationString;
-        _generateRandomException = generateRandomException;
-        _returnWrappedErrorResponse = returnWrappedErrorResponse;
-        _head = head;
+        self.take = take;
+        self.sleep = sleep;
+        self.validationString = validationString;
+        self.generateRandomException = generateRandomException;
+        self.returnWrappedErrorResponse = returnWrappedErrorResponse;
+        self.head = head;
     }
     return self;
 }

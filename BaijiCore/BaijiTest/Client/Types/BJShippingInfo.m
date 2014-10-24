@@ -9,7 +9,7 @@
 
 @implementation BJShippingInfo
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -27,13 +27,13 @@
             intermediatedShipping:(NSNumber *)intermediatedShipping {
     self = [super init];
     if (self) {
-        _shippingServiceCost = shippingServiceCost;
-        _shippingType = shippingType;
-        _shipToLocations = shipToLocations;
-        _expeditedShipping = expeditedShipping;
-        _oneDayShippingAvailable = oneDayShippingAvailable;
-        _handlingTime = handlingTime;
-        _intermediatedShipping = intermediatedShipping;
+        self.shippingServiceCost = shippingServiceCost;
+        self.shippingType = shippingType;
+        self.shipToLocations = shipToLocations;
+        self.expeditedShipping = expeditedShipping;
+        self.oneDayShippingAvailable = oneDayShippingAvailable;
+        self.handlingTime = handlingTime;
+        self.intermediatedShipping = intermediatedShipping;
     }
     return self;
 }

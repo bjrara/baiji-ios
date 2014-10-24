@@ -8,7 +8,7 @@
 
 @implementation BJDistance
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -21,8 +21,8 @@
                unit:(NSString *)unit {
     self = [super init];
     if (self) {
-        _value = value;
-        _unit = unit;
+        self.value = value;
+        self.unit = unit;
     }
     return self;
 }

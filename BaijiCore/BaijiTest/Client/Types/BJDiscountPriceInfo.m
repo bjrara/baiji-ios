@@ -11,7 +11,7 @@
 
 @implementation BJDiscountPriceInfo
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -27,11 +27,11 @@
                       soldOffEbay:(NSNumber *)soldOffEbay {
     self = [super init];
     if (self) {
-        _originalRetailPrice = originalRetailPrice;
-        _minimunAdvertisedPriceExposure = minimunAdvertisedPriceExposure;
-        _pricingTreatment = pricingTreatment;
-        _soldOnEbay = soldOnEbay;
-        _soldOffEbay = soldOffEbay;
+        self.originalRetailPrice = originalRetailPrice;
+        self.minimunAdvertisedPriceExposure = minimunAdvertisedPriceExposure;
+        self.pricingTreatment = pricingTreatment;
+        self.soldOnEbay = soldOnEbay;
+        self.soldOffEbay = soldOffEbay;
     }
     return self;
 }

@@ -5,6 +5,7 @@
  */
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
+
 @class BJProductId;
 @class BJDiscountPriceInfo;
 @class BJStorefront;
@@ -27,10 +28,12 @@
 @property (nonatomic, readwrite, retain) BJCategory *primaryCategory;
 @property (nonatomic, readwrite, retain) BJCategory *secondaryCategory;
 @property (nonatomic, readwrite, retain) NSString *galleryURL;
+/** valueType: GalleryURL */
 @property (nonatomic, readwrite, retain) NSArray *galleryInfoContainer;
 @property (nonatomic, readwrite, retain) NSString *viewItemURL;
 @property (nonatomic, readwrite, retain) NSString *charityId;
 @property (nonatomic, readwrite, retain) BJProductId *productId;
+/** valueType: NSString */
 @property (nonatomic, readwrite, retain) NSArray *paymentMethod;
 /** initValue: bool */
 @property (nonatomic, readwrite, retain) NSNumber *autoPay;
@@ -44,6 +47,7 @@
 @property (nonatomic, readwrite, retain) BJListingInfo *listingInfo;
 /** initValue: bool */
 @property (nonatomic, readwrite, retain) NSNumber *returnsAccepted;
+/** valueType: NSString */
 @property (nonatomic, readwrite, retain) NSArray *galleryPlusPictureURL;
 @property (nonatomic, readwrite, retain) NSString *compatibility;
 @property (nonatomic, readwrite, retain) BJDistance *distance;

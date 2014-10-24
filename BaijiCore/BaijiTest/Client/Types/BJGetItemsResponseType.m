@@ -10,7 +10,7 @@
 
 @implementation BJGetItemsResponseType
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -23,8 +23,8 @@
                        items:(NSArray *)items {
     self = [super init];
     if (self) {
-        _responseStatus = responseStatus;
-        _items = items;
+        self.responseStatus = responseStatus;
+        self.items = items;
     }
     return self;
 }

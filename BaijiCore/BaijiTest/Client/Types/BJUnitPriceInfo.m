@@ -8,7 +8,7 @@
 
 @implementation BJUnitPriceInfo
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -21,8 +21,8 @@
           quantity:(NSNumber *)quantity {
     self = [super init];
     if (self) {
-        _type = type;
-        _quantity = quantity;
+        self.type = type;
+        self.quantity = quantity;
     }
     return self;
 }

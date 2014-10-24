@@ -8,7 +8,7 @@
 
 @implementation BJCategory
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -21,8 +21,8 @@
             categoryName:(NSString *)categoryName {
     self = [super init];
     if (self) {
-        _categoryId = categoryId;
-        _categoryName = categoryName;
+        self.categoryId = categoryId;
+        self.categoryName = categoryName;
     }
     return self;
 }

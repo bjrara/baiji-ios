@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
 
+
 @interface BJDistance : BJMutableSpecificRecord
 
 /** initValue: double */

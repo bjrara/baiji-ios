@@ -8,7 +8,7 @@
 
 @implementation BJSellerInfo
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -24,11 +24,11 @@
               topRatedSeller:(NSNumber *)topRatedSeller {
     self = [super init];
     if (self) {
-        _sellerUserName = sellerUserName;
-        _feedbackScore = feedbackScore;
-        _positiveFeedbackPercent = positiveFeedbackPercent;
-        _feedbackRatingStar = feedbackRatingStar;
-        _topRatedSeller = topRatedSeller;
+        self.sellerUserName = sellerUserName;
+        self.feedbackScore = feedbackScore;
+        self.positiveFeedbackPercent = positiveFeedbackPercent;
+        self.feedbackRatingStar = feedbackRatingStar;
+        self.topRatedSeller = topRatedSeller;
     }
     return self;
 }

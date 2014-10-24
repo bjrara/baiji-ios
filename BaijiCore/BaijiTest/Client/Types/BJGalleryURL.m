@@ -9,7 +9,7 @@
 
 @implementation BJGalleryURL
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -22,8 +22,8 @@
         gallerySize:(BJGallerySizeEnum *)gallerySize {
     self = [super init];
     if (self) {
-        _value = value;
-        _gallerySize = gallerySize;
+        self.value = value;
+        self.gallerySize = gallerySize;
     }
     return self;
 }

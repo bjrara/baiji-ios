@@ -6,8 +6,8 @@
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
 #import "BJHasMobileRequestHead.h"
-
 @class BJMobileRequestHead;
+
 @interface BJGetItemsRequestType : BJMutableSpecificRecord<BJHasMobileRequestHead>
 
 /** initValue: int */

@@ -20,7 +20,7 @@
 
 @implementation BJItem
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -63,38 +63,38 @@ isMultiVariationListing:(NSNumber *)isMultiVariationListing
      topRatedListing:(NSNumber *)topRatedListing {
     self = [super init];
     if (self) {
-        _itemId = itemId;
-        _title = title;
-        _globalId = globalId;
-        _subtitle = subtitle;
-        _primaryCategory = primaryCategory;
-        _secondaryCategory = secondaryCategory;
-        _galleryURL = galleryURL;
-        _galleryInfoContainer = galleryInfoContainer;
-        _viewItemURL = viewItemURL;
-        _charityId = charityId;
-        _productId = productId;
-        _paymentMethod = paymentMethod;
-        _autoPay = autoPay;
-        _postalCode = postalCode;
-        _location = location;
-        _country = country;
-        _storeInfo = storeInfo;
-        _sellerInfo = sellerInfo;
-        _shippingInfo = shippingInfo;
-        _sellingStatus = sellingStatus;
-        _listingInfo = listingInfo;
-        _returnsAccepted = returnsAccepted;
-        _galleryPlusPictureURL = galleryPlusPictureURL;
-        _compatibility = compatibility;
-        _distance = distance;
-        _condition = condition;
-        _isMultiVariationListing = isMultiVariationListing;
-        _discountPriceInfo = discountPriceInfo;
-        _pictureURLSuperSize = pictureURLSuperSize;
-        _pictureURLLarge = pictureURLLarge;
-        _unitPrice = unitPrice;
-        _topRatedListing = topRatedListing;
+        self.itemId = itemId;
+        self.title = title;
+        self.globalId = globalId;
+        self.subtitle = subtitle;
+        self.primaryCategory = primaryCategory;
+        self.secondaryCategory = secondaryCategory;
+        self.galleryURL = galleryURL;
+        self.galleryInfoContainer = galleryInfoContainer;
+        self.viewItemURL = viewItemURL;
+        self.charityId = charityId;
+        self.productId = productId;
+        self.paymentMethod = paymentMethod;
+        self.autoPay = autoPay;
+        self.postalCode = postalCode;
+        self.location = location;
+        self.country = country;
+        self.storeInfo = storeInfo;
+        self.sellerInfo = sellerInfo;
+        self.shippingInfo = shippingInfo;
+        self.sellingStatus = sellingStatus;
+        self.listingInfo = listingInfo;
+        self.returnsAccepted = returnsAccepted;
+        self.galleryPlusPictureURL = galleryPlusPictureURL;
+        self.compatibility = compatibility;
+        self.distance = distance;
+        self.condition = condition;
+        self.isMultiVariationListing = isMultiVariationListing;
+        self.discountPriceInfo = discountPriceInfo;
+        self.pictureURLSuperSize = pictureURLSuperSize;
+        self.pictureURLLarge = pictureURLLarge;
+        self.unitPrice = unitPrice;
+        self.topRatedListing = topRatedListing;
     }
     return self;
 }

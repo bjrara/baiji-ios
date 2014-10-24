@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
 
+
 @interface BJProductId : BJMutableSpecificRecord
 
 @property (nonatomic, readwrite, retain) NSString *value;

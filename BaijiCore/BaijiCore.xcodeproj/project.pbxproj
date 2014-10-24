@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B8ECE0A19FA2B9C00EA1B00 /* BJGallerySizeEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ECE0719FA2B9C00EA1B00 /* BJGallerySizeEnum.m */; };
+		3B8ECE0B19FA2B9C00EA1B00 /* BJGalleryURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ECE0919FA2B9C00EA1B00 /* BJGalleryURL.m */; };
 		3B8ECE2619FA3D8F00EA1B00 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ECE2319FA3D8F00EA1B00 /* JSONKit.m */; };
 		3BE218EB19EE303100FABD15 /* BJTestSerializerSampleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218EA19EE303100FABD15 /* BJTestSerializerSampleList.m */; };
 		3BE218FD19EF884F00FABD15 /* BJEnum1Values.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218F019EF884F00FABD15 /* BJEnum1Values.m */; };
@@ -24,12 +26,9 @@
 		3BE2199219F0F0FB00FABD15 /* BJCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196B19F0F0FB00FABD15 /* BJCondition.m */; };
 		3BE2199319F0F0FB00FABD15 /* BJDiscountPriceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196D19F0F0FB00FABD15 /* BJDiscountPriceInfo.m */; };
 		3BE2199419F0F0FB00FABD15 /* BJDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196F19F0F0FB00FABD15 /* BJDistance.m */; };
-		3BE2199619F0F0FB00FABD15 /* BJGallerySizeEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197319F0F0FB00FABD15 /* BJGallerySizeEnum.m */; };
-		3BE2199719F0F0FB00FABD15 /* BJGalleryURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197519F0F0FB00FABD15 /* BJGalleryURL.m */; };
 		3BE2199819F0F0FB00FABD15 /* BJGetItemsRequestType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197719F0F0FB00FABD15 /* BJGetItemsRequestType.m */; };
 		3BE2199919F0F0FB00FABD15 /* BJGetItemsResponseType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197919F0F0FB00FABD15 /* BJGetItemsResponseType.m */; };
 		3BE2199A19F0F0FB00FABD15 /* BJItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197B19F0F0FB00FABD15 /* BJItem.m */; };
-		3BE2199B19F0F0FB00FABD15 /* BJItemContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197D19F0F0FB00FABD15 /* BJItemContainer.m */; };
 		3BE2199C19F0F0FB00FABD15 /* BJListingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2197F19F0F0FB00FABD15 /* BJListingInfo.m */; };
 		3BE2199D19F0F0FB00FABD15 /* BJMapExposureEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2198119F0F0FB00FABD15 /* BJMapExposureEnum.m */; };
 		3BE2199E19F0F0FB00FABD15 /* BJPriceTreatmentEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2198319F0F0FB00FABD15 /* BJPriceTreatmentEnum.m */; };
@@ -205,6 +204,10 @@
 
 /* Begin PBXFileReference section */
 		06C322F45ED0357DEF4FAA72 /* Pods-BaijiTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiTest.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiTest/Pods-BaijiTest.release.xcconfig"; sourceTree = "<group>"; };
+		3B8ECE0619FA2B9C00EA1B00 /* BJGallerySizeEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGallerySizeEnum.h; sourceTree = "<group>"; };
+		3B8ECE0719FA2B9C00EA1B00 /* BJGallerySizeEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGallerySizeEnum.m; sourceTree = "<group>"; };
+		3B8ECE0819FA2B9C00EA1B00 /* BJGalleryURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGalleryURL.h; sourceTree = "<group>"; };
+		3B8ECE0919FA2B9C00EA1B00 /* BJGalleryURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGalleryURL.m; sourceTree = "<group>"; };
 		3B8ECE2219FA3D8F00EA1B00 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		3B8ECE2319FA3D8F00EA1B00 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		3BE218E919EE303100FABD15 /* BJTestSerializerSampleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJTestSerializerSampleList.h; sourceTree = "<group>"; };
@@ -239,18 +242,12 @@
 		3BE2196D19F0F0FB00FABD15 /* BJDiscountPriceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJDiscountPriceInfo.m; sourceTree = "<group>"; };
 		3BE2196E19F0F0FB00FABD15 /* BJDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJDistance.h; sourceTree = "<group>"; };
 		3BE2196F19F0F0FB00FABD15 /* BJDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJDistance.m; sourceTree = "<group>"; };
-		3BE2197219F0F0FB00FABD15 /* BJGallerySizeEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGallerySizeEnum.h; sourceTree = "<group>"; };
-		3BE2197319F0F0FB00FABD15 /* BJGallerySizeEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGallerySizeEnum.m; sourceTree = "<group>"; };
-		3BE2197419F0F0FB00FABD15 /* BJGalleryURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGalleryURL.h; sourceTree = "<group>"; };
-		3BE2197519F0F0FB00FABD15 /* BJGalleryURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGalleryURL.m; sourceTree = "<group>"; };
 		3BE2197619F0F0FB00FABD15 /* BJGetItemsRequestType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGetItemsRequestType.h; sourceTree = "<group>"; };
 		3BE2197719F0F0FB00FABD15 /* BJGetItemsRequestType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGetItemsRequestType.m; sourceTree = "<group>"; };
 		3BE2197819F0F0FB00FABD15 /* BJGetItemsResponseType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJGetItemsResponseType.h; sourceTree = "<group>"; };
 		3BE2197919F0F0FB00FABD15 /* BJGetItemsResponseType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJGetItemsResponseType.m; sourceTree = "<group>"; };
 		3BE2197A19F0F0FB00FABD15 /* BJItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJItem.h; sourceTree = "<group>"; };
 		3BE2197B19F0F0FB00FABD15 /* BJItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJItem.m; sourceTree = "<group>"; };
-		3BE2197C19F0F0FB00FABD15 /* BJItemContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJItemContainer.h; sourceTree = "<group>"; };
-		3BE2197D19F0F0FB00FABD15 /* BJItemContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJItemContainer.m; sourceTree = "<group>"; };
 		3BE2197E19F0F0FB00FABD15 /* BJListingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJListingInfo.h; sourceTree = "<group>"; };
 		3BE2197F19F0F0FB00FABD15 /* BJListingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJListingInfo.m; sourceTree = "<group>"; };
 		3BE2198019F0F0FB00FABD15 /* BJMapExposureEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJMapExposureEnum.h; sourceTree = "<group>"; };
@@ -521,18 +518,16 @@
 				3BE2196D19F0F0FB00FABD15 /* BJDiscountPriceInfo.m */,
 				3BE2196E19F0F0FB00FABD15 /* BJDistance.h */,
 				3BE2196F19F0F0FB00FABD15 /* BJDistance.m */,
-				3BE2197219F0F0FB00FABD15 /* BJGallerySizeEnum.h */,
-				3BE2197319F0F0FB00FABD15 /* BJGallerySizeEnum.m */,
-				3BE2197419F0F0FB00FABD15 /* BJGalleryURL.h */,
-				3BE2197519F0F0FB00FABD15 /* BJGalleryURL.m */,
+				3B8ECE0619FA2B9C00EA1B00 /* BJGallerySizeEnum.h */,
+				3B8ECE0719FA2B9C00EA1B00 /* BJGallerySizeEnum.m */,
+				3B8ECE0819FA2B9C00EA1B00 /* BJGalleryURL.h */,
+				3B8ECE0919FA2B9C00EA1B00 /* BJGalleryURL.m */,
 				3BE2197619F0F0FB00FABD15 /* BJGetItemsRequestType.h */,
 				3BE2197719F0F0FB00FABD15 /* BJGetItemsRequestType.m */,
 				3BE2197819F0F0FB00FABD15 /* BJGetItemsResponseType.h */,
 				3BE2197919F0F0FB00FABD15 /* BJGetItemsResponseType.m */,
 				3BE2197A19F0F0FB00FABD15 /* BJItem.h */,
 				3BE2197B19F0F0FB00FABD15 /* BJItem.m */,
-				3BE2197C19F0F0FB00FABD15 /* BJItemContainer.h */,
-				3BE2197D19F0F0FB00FABD15 /* BJItemContainer.m */,
 				3BE2197E19F0F0FB00FABD15 /* BJListingInfo.h */,
 				3BE2197F19F0F0FB00FABD15 /* BJListingInfo.m */,
 				3BE2198019F0F0FB00FABD15 /* BJMapExposureEnum.h */,
@@ -1181,6 +1176,7 @@
 			files = (
 				CEFBC35219D50ABC0034E202 /* NSData+Base64.m in Sources */,
 				3BE219E519F0F73D00FABD15 /* BJHTTPRequestOperation.m in Sources */,
+				3B8ECE0B19FA2B9C00EA1B00 /* BJGalleryURL.m in Sources */,
 				3BE219E619F0F73D00FABD15 /* BJServiceClient.m in Sources */,
 				3BE2199419F0F0FB00FABD15 /* BJDistance.m in Sources */,
 				CEFBC30E19D41A650034E202 /* BJJsonSerializer.m in Sources */,
@@ -1219,7 +1215,6 @@
 				CEEF42A119D0158800EEDB5D /* BJSchemaName.m in Sources */,
 				CEEF42A319D0158800EEDB5D /* BJSchemaNames.m in Sources */,
 				CEEF42A519D0158800EEDB5D /* BJUnionSchema.m in Sources */,
-				3BE2199619F0F0FB00FABD15 /* BJGallerySizeEnum.m in Sources */,
 				CEEF42A719D0158800EEDB5D /* BJUnnamedSchema.m in Sources */,
 				CEEF42A919D0158800EEDB5D /* BJMapSchema.m in Sources */,
 				3BE219E019F0F6B700FABD15 /* BJExtensionFieldType.m in Sources */,
@@ -1240,9 +1235,7 @@
 				CEEF422419D0047300EEDB5D /* BJSchemaTestPrimitive.m in Sources */,
 				CEEF423F19D00BDF00EEDB5D /* BJSchemaTestBase.m in Sources */,
 				3BE219D319F0F3A900FABD15 /* BJPaginationInputType.m in Sources */,
-				3BE2199B19F0F0FB00FABD15 /* BJItemContainer.m in Sources */,
 				3BE2199319F0F0FB00FABD15 /* BJDiscountPriceInfo.m in Sources */,
-				3BE2199719F0F0FB00FABD15 /* BJGalleryURL.m in Sources */,
 				CEEF42B819D019B100EEDB5D /* BJSchemaTestEnum.m in Sources */,
 				3BE2196219F0DD0100FABD15 /* BJPingTestClient.m in Sources */,
 				3BE218FD19EF884F00FABD15 /* BJEnum1Values.m in Sources */,
@@ -1255,6 +1248,7 @@
 				CEEF42C719D12B3600EEDB5D /* BJSchemaTestRecord.m in Sources */,
 				3BE219D919F0F3A900FABD15 /* BJSeverityCodeType.m in Sources */,
 				3BE2199F19F0F0FB00FABD15 /* BJProductId.m in Sources */,
+				3B8ECE0A19FA2B9C00EA1B00 /* BJGallerySizeEnum.m in Sources */,
 				CEEF42DE19D1527200EEDB5D /* BJSchemaTestBasic.m in Sources */,
 				CEFBC2F619D3FA7F0034E202 /* BJTestSerializerSample.m in Sources */,
 				3BE218FE19EF884F00FABD15 /* BJEnum2Values.m in Sources */,

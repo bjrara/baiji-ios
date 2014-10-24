@@ -5,12 +5,14 @@
  */
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
+
 @class BJAmount;
 
 @interface BJShippingInfo : BJMutableSpecificRecord
 
 @property (nonatomic, readwrite, retain) BJAmount *shippingServiceCost;
 @property (nonatomic, readwrite, retain) NSString *shippingType;
+/** valueType: NSString */
 @property (nonatomic, readwrite, retain) NSArray *shipToLocations;
 /** initValue: bool */
 @property (nonatomic, readwrite, retain) NSNumber *expeditedShipping;

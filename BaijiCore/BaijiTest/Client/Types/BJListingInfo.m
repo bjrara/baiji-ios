@@ -9,7 +9,7 @@
 
 @implementation BJListingInfo
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -28,14 +28,14 @@
                           gift:(NSNumber *)gift {
     self = [super init];
     if (self) {
-        _bestOfferEnabled = bestOfferEnabled;
-        _buyItNowAvailable = buyItNowAvailable;
-        _buyItNowPrice = buyItNowPrice;
-        _convertedBuyItNowPrice = convertedBuyItNowPrice;
-        _startTime = startTime;
-        _endTime = endTime;
-        _listingType = listingType;
-        _gift = gift;
+        self.bestOfferEnabled = bestOfferEnabled;
+        self.buyItNowAvailable = buyItNowAvailable;
+        self.buyItNowPrice = buyItNowPrice;
+        self.convertedBuyItNowPrice = convertedBuyItNowPrice;
+        self.startTime = startTime;
+        self.endTime = endTime;
+        self.listingType = listingType;
+        self.gift = gift;
     }
     return self;
 }

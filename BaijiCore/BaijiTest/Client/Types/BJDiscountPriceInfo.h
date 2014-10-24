@@ -5,6 +5,7 @@
  */
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
+
 @class BJPriceTreatmentEnum;
 @class BJMapExposureEnum;
 @class BJAmount;

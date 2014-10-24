@@ -5,6 +5,7 @@
  */
 #import <Foundation/Foundation.h>
 #import "BJMutableSpecificRecord.h"
+
 @class BJAmount;
 
 @interface BJListingInfo : BJMutableSpecificRecord

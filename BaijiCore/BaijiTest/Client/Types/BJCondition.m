@@ -8,7 +8,7 @@
 
 @implementation BJCondition
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -21,8 +21,8 @@
      conditionDisplayName:(NSString *)conditionDisplayName {
     self = [super init];
     if (self) {
-        _conditionId = conditionId;
-        _conditionDisplayName = conditionDisplayName;
+        self.conditionId = conditionId;
+        self.conditionDisplayName = conditionDisplayName;
     }
     return self;
 }

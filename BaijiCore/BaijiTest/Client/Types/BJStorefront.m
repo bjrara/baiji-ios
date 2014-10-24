@@ -8,7 +8,7 @@
 
 @implementation BJStorefront
 
-+ (BJSchema *)schema {
+- (BJSchema *)schema {
     static BJSchema *__schema = nil;
     static dispatch_once_t onceToken;
     dispatch_once (&onceToken, ^{
@@ -21,8 +21,8 @@
                storeURL:(NSString *)storeURL {
     self = [super init];
     if (self) {
-        _storeName = storeName;
-        _storeURL = storeURL;
+        self.storeName = storeName;
+        self.storeURL = storeURL;
     }
     return self;
 }
