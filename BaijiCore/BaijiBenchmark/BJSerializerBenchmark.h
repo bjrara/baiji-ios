@@ -24,6 +24,9 @@ typedef void (^BJBenchmark)(id object, NSString *type);
 
 @protocol BJBenchmarkCandidateDelegate <NSObject>
 
+@property (atomic, assign) BOOL reportToken;
+@property (atomic, assign) NSUInteger readCounter;
+
 - (NSString *)name;
 
 - (void)write:(NSString *)type record:(BJGenericBenchmarkRecord *)record source:(NSOutputStream *)writingSource;

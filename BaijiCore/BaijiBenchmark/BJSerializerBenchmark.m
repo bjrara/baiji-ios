@@ -19,7 +19,6 @@
 
 @interface BJSerializerBenchmark()
 
-@property (nonatomic, assign) BOOL runFlag;
 @property (nonatomic, retain) NSMutableArray *aggregatedResults;
 
 @end
@@ -29,7 +28,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.runFlag = NO;
         _aggregatedResults = [[NSMutableArray alloc] initWithCapacity:10];
     }
     return self;
@@ -90,7 +88,9 @@
     const int loop = 10;
     for (int i = 0; i < loop; i++) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self notifyMultiThreadsResults:[self benchmarkSingleField:[[record schema] description] value:record]];
+            NSArray *results = [self benchmarkSingleField:[[record schema] description] value:record];
+            NSLog(@"%@", [results description]);
+            [self notifyMultiThreadsResults:results];
         });
     }
     [record release];
@@ -145,7 +145,7 @@
 }
 
 - (void)notifyResult:(NSArray *)result{
-    if (self.runFlag) {
+    if ([self.serializerDelegate reportToken]) {
         [self.masterDelegate serializer:[self.serializerDelegate name]
                               didFinish:[result objectAtIndex:0]
                                 writing:[[result objectAtIndex:1] floatValue]
@@ -154,16 +154,13 @@
     }
 }
 
-- (void)warmup {
-    for (int i = 0; i < 1000; i++) {
-        [self run];
-    }
-    self.runFlag = YES;
-}
-
 - (void)batch {
-    [self warmup];
-    [self run];
+    while (true) {
+        [self run];
+        if ([self.serializerDelegate reportToken])
+            break;
+    }
+//    [self benchmarkMultiThreads];
 }
 
 - (void)run {
@@ -194,7 +191,6 @@
     [self benchmarkRecord:^(id object, NSString *type) {
         [self notifyResult:[self benchmarkSingleField:type value:object]];
     }];
-//    [self benchmarkMultiThreads];
 }
 
 - (void)dealloc {
@@ -212,9 +208,13 @@
 
 @implementation BJJsonSerializerBenchmark
 
+@synthesize reportToken = _reportToken;
+@synthesize readCounter = _readCounter;
+
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.reportToken = NO;
         self.serializer = [[BJJsonSerializer alloc] init];
     }
     return self;
@@ -227,6 +227,8 @@
 
 - (void)read:(NSString *)type stream:(NSData *)stream {
     [self.serializer deserialize:[BJGenericBenchmarkRecord class] from:stream];
+    if (++self.readCounter >= 1000)
+        self.reportToken = YES;
 }
 
 - (NSString *)name {
@@ -248,6 +250,17 @@
 @end
 
 @implementation BJAppleJsonSerializerBenchmark
+
+@synthesize reportToken = _reportToken;
+@synthesize readCounter = _readCounter;
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.reportToken = NO;
+    }
+    return self;
+}
 
 - (void)write:(NSString *)type record:(BJGenericBenchmarkRecord *)record source:(NSOutputStream *)writingSource {
     id object = [record fieldAtIndex:0];
@@ -277,6 +290,9 @@
         [record setObject:[parsedObject objectForKey:@"fieldValue"] atIndex:0];
     }
     [record release];
+    if (++self.readCounter >= 1000) {
+        self.reportToken = YES;
+    }
 }
 
 - (NSDictionary *)dictionaryFromRecord:(BJModelFilling2 *)record {
@@ -303,9 +319,13 @@
 
 @implementation BJSBJsonSerializerBenchmark
 
+@synthesize reportToken = _reportToken;
+@synthesize readCounter = _readCounter;
+
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.reportToken = NO;
         self.serializer = [[SBJson4Writer alloc] init];
     }
     return self;
@@ -345,6 +365,8 @@
         if (status == SBJson4ParserComplete)
             break;
     }
+    if (++self.readCounter >= 1000)
+        self.reportToken = YES;
 }
 
 - (NSString *)name {
@@ -375,6 +397,9 @@
 
 @implementation BJJsonKitSerializerBenchmark
 
+@synthesize reportToken = _reportToken;
+@synthesize readCounter = _readCounter;
+
 - (void)write:(NSString *)type record:(BJGenericBenchmarkRecord *)record source:(NSOutputStream *)writingSource {
     id object = [record fieldAtIndex:0];
     self.isEnum = [object isKindOfClass:[BJSpecificEnum class]];
@@ -403,6 +428,8 @@
         [record setObject:[parsedObject objectForKey:@"fieldValue"] atIndex:0];
     }
     [record release];
+    if (++self.readCounter >= 1000)
+        self.reportToken = YES;
 }
 
 - (NSDictionary *)dictionaryFromRecord:(BJModelFilling2 *)record {
