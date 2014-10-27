@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B040E6F19FE1E5500C6D3D1 /* BJBaseTypeConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B040E6E19FE1E5500C6D3D1 /* BJBaseTypeConverter.m */; };
+		3B040E7519FE317E00C6D3D1 /* BJTypeConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B040E7419FE317E00C6D3D1 /* BJTypeConverter.m */; };
 		3B761B3119FA65B400F888B0 /* BJAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B761B0C19FA65B400F888B0 /* BJAmount.m */; };
 		3B761B3219FA65B400F888B0 /* BJCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B761B0E19FA65B400F888B0 /* BJCategory.m */; };
 		3B761B3319FA65B400F888B0 /* BJCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B761B1019FA65B400F888B0 /* BJCondition.m */; };
@@ -204,6 +206,10 @@
 
 /* Begin PBXFileReference section */
 		06C322F45ED0357DEF4FAA72 /* Pods-BaijiTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaijiTest.release.xcconfig"; path = "../Pods/Target Support Files/Pods-BaijiTest/Pods-BaijiTest.release.xcconfig"; sourceTree = "<group>"; };
+		3B040E6D19FE1E5500C6D3D1 /* BJBaseTypeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJBaseTypeConverter.h; sourceTree = "<group>"; };
+		3B040E6E19FE1E5500C6D3D1 /* BJBaseTypeConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJBaseTypeConverter.m; sourceTree = "<group>"; };
+		3B040E7319FE317E00C6D3D1 /* BJTypeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJTypeConverter.h; sourceTree = "<group>"; };
+		3B040E7419FE317E00C6D3D1 /* BJTypeConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJTypeConverter.m; sourceTree = "<group>"; };
 		3B761B0B19FA65B400F888B0 /* BJAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJAmount.h; sourceTree = "<group>"; };
 		3B761B0C19FA65B400F888B0 /* BJAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJAmount.m; sourceTree = "<group>"; };
 		3B761B0D19FA65B400F888B0 /* BJCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJCategory.h; sourceTree = "<group>"; };
@@ -634,6 +640,8 @@
 		CE15C32D19D2DCC700754015 /* Specific */ = {
 			isa = PBXGroup;
 			children = (
+				3B040E6D19FE1E5500C6D3D1 /* BJBaseTypeConverter.h */,
+				3B040E6E19FE1E5500C6D3D1 /* BJBaseTypeConverter.m */,
 				CE15C33519D2E1D100754015 /* BJMutableRecord.h */,
 				CEFBC2C819D3B0D80034E202 /* BJMutableSpecificRecord.h */,
 				CEFBC2C919D3B0D80034E202 /* BJMutableSpecificRecord.m */,
@@ -643,6 +651,8 @@
 				CEFBC2EB19D3DFFF0034E202 /* BJSpecificJsonParser.m */,
 				CE15C32E19D2DCF900754015 /* BJSpecificJsonWriter.h */,
 				CE15C32F19D2DCF900754015 /* BJSpecificJsonWriter.m */,
+				3B040E7319FE317E00C6D3D1 /* BJTypeConverter.h */,
+				3B040E7419FE317E00C6D3D1 /* BJTypeConverter.m */,
 			);
 			path = Specific;
 			sourceTree = "<group>";
@@ -825,22 +835,22 @@
 			isa = PBXGroup;
 			children = (
 				3BE218EF19EF884F00FABD15 /* BJEnum1Values.h */,
-				3BE218F119EF884F00FABD15 /* BJEnum2Values.h */,
-				3BE218F319EF884F00FABD15 /* BJModelFilling.h */,
-				3BE218F519EF884F00FABD15 /* BJModelFilling2.h */,
-				3BE218F719EF884F00FABD15 /* BJRecord.h */,
-				3BE218F919EF884F00FABD15 /* BJRecord2.h */,
-				3BE218FB19EF884F00FABD15 /* BJRecord2Container.h */,
-				CEFBC2F419D3FA7F0034E202 /* BJTestSerializerSample.h */,
-				3BE218E919EE303100FABD15 /* BJTestSerializerSampleList.h */,
 				3BE218F019EF884F00FABD15 /* BJEnum1Values.m */,
+				3BE218F119EF884F00FABD15 /* BJEnum2Values.h */,
 				3BE218F219EF884F00FABD15 /* BJEnum2Values.m */,
+				3BE218F319EF884F00FABD15 /* BJModelFilling.h */,
 				3BE218F419EF884F00FABD15 /* BJModelFilling.m */,
+				3BE218F519EF884F00FABD15 /* BJModelFilling2.h */,
 				3BE218F619EF884F00FABD15 /* BJModelFilling2.m */,
+				3BE218F719EF884F00FABD15 /* BJRecord.h */,
 				3BE218F819EF884F00FABD15 /* BJRecord.m */,
+				3BE218F919EF884F00FABD15 /* BJRecord2.h */,
 				3BE218FA19EF884F00FABD15 /* BJRecord2.m */,
+				3BE218FB19EF884F00FABD15 /* BJRecord2Container.h */,
 				3BE218FC19EF884F00FABD15 /* BJRecord2Container.m */,
+				CEFBC2F419D3FA7F0034E202 /* BJTestSerializerSample.h */,
 				CEFBC2F519D3FA7F0034E202 /* BJTestSerializerSample.m */,
+				3BE218E919EE303100FABD15 /* BJTestSerializerSampleList.h */,
 				3BE218EA19EE303100FABD15 /* BJTestSerializerSampleList.m */,
 				3B761B0A19FA65B400F888B0 /* Client */,
 			);
@@ -1129,6 +1139,7 @@
 				CE7159F019C9471F0057DBBB /* BJPropertyMap.m in Sources */,
 				CE7159F319C952060057DBBB /* BJError.m in Sources */,
 				3BE2191719EFBCB200FABD15 /* BJHTTPRequestOperation.m in Sources */,
+				3B040E7519FE317E00C6D3D1 /* BJTypeConverter.m in Sources */,
 				3BE219CA19F0F3A900FABD15 /* BJErrorDataType.m in Sources */,
 				CE7159F619C95ED60057DBBB /* BJSchemaName.m in Sources */,
 				CE7159F919C96BC40057DBBB /* BJSchemaNames.m in Sources */,
@@ -1157,6 +1168,7 @@
 				3BE219D019F0F3A900FABD15 /* BJGenericErrorResponseType.m in Sources */,
 				3BE219C419F0F3A900FABD15 /* BJCheckHealthResponseType.m in Sources */,
 				3BE219C019F0F3A900FABD15 /* BJAckCodeType.m in Sources */,
+				3B040E6F19FE1E5500C6D3D1 /* BJBaseTypeConverter.m in Sources */,
 				3BE2191A19EFBDBD00FABD15 /* BJServiceClient.m in Sources */,
 				3BE219E119F0F6B700FABD15 /* BJMobileRequestHead.m in Sources */,
 			);
