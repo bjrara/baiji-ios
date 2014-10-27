@@ -13,7 +13,6 @@
 
 @property (nonatomic, readwrite, retain) NSMutableArray *types;
 @property (nonatomic, readwrite, retain) NSMutableDictionary *results;
-@property (nonatomic, readwrite, retain) BJSerializerBenchmark *benchmark;
 
 @end
 
@@ -25,16 +24,27 @@
     
     _types = [[NSMutableArray alloc] init];
     _results = [[NSMutableDictionary alloc] init];
-    _benchmark = [[BJSerializerBenchmark alloc] init];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.benchmark.masterDelegate = self;
     
-    [self benchmarkSerializer:[[[BJJsonSerializerBenchmark alloc] init] autorelease]];
-    [self benchmarkSerializer:[[[BJAppleJsonSerializerBenchmark alloc] init] autorelease]];
-    [self benchmarkSerializer:[[[BJSBJsonSerializerBenchmark alloc] init] autorelease]];
-    [self benchmarkSerializer:[[[BJJsonKitSerializerBenchmark alloc] init] autorelease]];
+    BJSerializerBenchmark *benchmark1 = [[BJSerializerBenchmark alloc] initWithSerializer:[[[BJJsonSerializerBenchmark alloc] init] autorelease]];
+    benchmark1.masterDelegate = self;
+    [benchmark1 batch];
+    BJSerializerBenchmark *benchmark2 = [[BJSerializerBenchmark alloc] initWithSerializer:[[[BJAppleJsonSerializerBenchmark alloc] init] autorelease]];
+    benchmark2.masterDelegate = self;
+    [benchmark2 batch];
+    BJSerializerBenchmark *benchmark3 = [[BJSerializerBenchmark alloc] initWithSerializer:[[[BJSBJsonSerializerBenchmark alloc] init] autorelease]];
+    benchmark3.masterDelegate = self;
+    [benchmark3 batch];
+    BJSerializerBenchmark *benchmark4 = [[BJSerializerBenchmark alloc] initWithSerializer:[[[BJJsonKitSerializerBenchmark alloc] init] autorelease]];
+    benchmark4.masterDelegate = self;
+    [benchmark4 batch];
+    
+    [benchmark1 release];
+    [benchmark2 release];
+    [benchmark3 release];
+    [benchmark4 release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -133,13 +143,7 @@
     [self.tableView reloadData];
 }
 
-- (void)benchmarkSerializer:(id<BJBenchmarkCandidateDelegate>)serializer {
-    self.benchmark.serializerDelegate = serializer;
-    [self.benchmark batch];
-}
-
 - (void)dealloc {
-    [self.benchmark release];
     [self.types release];
     [self.results release];
     [super dealloc];

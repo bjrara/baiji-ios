@@ -19,15 +19,19 @@
 
 @interface BJSerializerBenchmark()
 
-@property (nonatomic, retain) NSMutableArray *aggregatedResults;
+@property (nonatomic, assign) BOOL reportAllowed;
+@property (atomic, retain) NSMutableArray *aggregatedResults;
+@property (atomic, retain) id<BJBenchmarkCandidateDelegate> serializerDelegate;
 
 @end
 
 @implementation BJSerializerBenchmark
 
-- (instancetype)init {
+- (instancetype)initWithSerializer:(id<BJBenchmarkCandidateDelegate>)serializer {
     self = [super init];
     if (self) {
+        self.reportAllowed = NO;
+        self.serializerDelegate = serializer;
         _aggregatedResults = [[NSMutableArray alloc] initWithCapacity:10];
     }
     return self;
@@ -86,10 +90,10 @@
     BJEnum2Values *enum2 = [[BJEnum2Values alloc] initWithValue:BJEnum2ValuesPLANE];
     BJModelFilling2 *record = [[BJModelFilling2 alloc] initWithEnumfilling:enum2 listfilling:[NSArray arrayWithObjects:@"a", @"b", @"c", nil] longfilling:[NSNumber numberWithLong:1024 * 1024 * 1024] stringfilling:@"stringfilling"];
     const int loop = 10;
+    __block NSArray *results = nil;
     for (int i = 0; i < loop; i++) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSArray *results = [self benchmarkSingleField:[[record schema] description] value:record];
-            NSLog(@"%@", [results description]);
+            results = [self benchmarkSingleField:[[record schema] description] value:record];
             [self notifyMultiThreadsResults:results];
         });
     }
@@ -145,7 +149,7 @@
 }
 
 - (void)notifyResult:(NSArray *)result{
-    if ([self.serializerDelegate reportToken]) {
+    if (self.reportAllowed) {
         [self.masterDelegate serializer:[self.serializerDelegate name]
                               didFinish:[result objectAtIndex:0]
                                 writing:[[result objectAtIndex:1] floatValue]
@@ -155,12 +159,20 @@
 }
 
 - (void)batch {
-    while (true) {
+    for (int i = 0; i < 1000; i++) {
         [self run];
-        if ([self.serializerDelegate reportToken])
-            break;
     }
-//    [self benchmarkMultiThreads];
+    self.reportAllowed = YES;
+    [self run];
+    if ([self.serializerDelegate supportMultiThreads]) {
+        [self benchmarkMultiThreads];
+    } else {
+        [self notifyResult:[NSArray arrayWithObjects:@"\"10 threads\"",
+                            [NSNumber numberWithFloat:-1],
+                            [NSNumber numberWithFloat:-1],
+                            [NSNumber numberWithInt:0], nil]];
+    }
+    NSLog(@"%@", [self.serializerDelegate name]);
 }
 
 - (void)run {
@@ -202,20 +214,16 @@
 
 @interface BJJsonSerializerBenchmark()
 
-@property (nonatomic, strong) BJJsonSerializer *serializer;
+@property (nonatomic, retain) BJJsonSerializer *serializer;
 
 @end
 
 @implementation BJJsonSerializerBenchmark
 
-@synthesize reportToken = _reportToken;
-@synthesize readCounter = _readCounter;
-
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.reportToken = NO;
-        self.serializer = [[BJJsonSerializer alloc] init];
+        _serializer = [[BJJsonSerializer alloc] init];
     }
     return self;
 }
@@ -227,12 +235,14 @@
 
 - (void)read:(NSString *)type stream:(NSData *)stream {
     [self.serializer deserialize:[BJGenericBenchmarkRecord class] from:stream];
-    if (++self.readCounter >= 1000)
-        self.reportToken = YES;
 }
 
 - (NSString *)name {
     return @"BaijiJSON";
+}
+
+- (BOOL)supportMultiThreads {
+    return YES;
 }
 
 - (void)dealloc {
@@ -244,20 +254,16 @@
 
 @interface BJAppleJsonSerializerBenchmark()
 
-@property (nonatomic) BOOL isEnum;
-@property (nonatomic) BOOL isRecord;
+@property (atomic) BOOL isEnum;
+@property (atomic) BOOL isRecord;
 
 @end
 
 @implementation BJAppleJsonSerializerBenchmark
 
-@synthesize reportToken = _reportToken;
-@synthesize readCounter = _readCounter;
-
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.reportToken = NO;
     }
     return self;
 }
@@ -267,14 +273,9 @@
     self.isEnum = [object isKindOfClass:[BJSpecificEnum class]];
     self.isRecord = [object isKindOfClass:[BJModelFilling2 class]];
     if (self.isEnum) {
-        if ([object isKindOfClass:[BJSpecificEnum class]]) {
-            object = [((BJSpecificEnum *)object) name];
-        }
+        object = [((BJEnum1Values *)object) name];
     }
-    if(self.isRecord) {
-        object = [self dictionaryFromRecord:object];
-    }
-    NSDictionary *jsonObj = [NSDictionary dictionaryWithObject:object forKey:@"fieldValue"];
+    NSDictionary *jsonObj = [NSDictionary dictionaryWithObject:self.isRecord ? [self dictionaryFromRecord:object] : object forKey:@"fieldValue"];
     NSData *stream = [NSJSONSerialization dataWithJSONObject:jsonObj options:0 error:nil];
     [writingSource write:[stream bytes] maxLength:[stream length]];
 }
@@ -283,16 +284,14 @@
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:stream options:NSJSONReadingAllowFragments error:nil];
     BJGenericBenchmarkRecord *record = [[BJGenericBenchmarkRecord alloc] init];
     if (self.isEnum) {
-        BJEnum1Values *value = [[BJEnum1Values alloc] initWithValue:[[parsedObject objectForKey:@"fieldValue"] intValue]];
+        NSUInteger ordinal = [BJEnum1Values ordinalForName:[parsedObject objectForKey:@"fieldValue"]];
+        BJEnum1Values *value = [[BJEnum1Values alloc] initWithValue:ordinal];
         [record setObject:value atIndex:0];
         [value release];
     } else {
         [record setObject:[parsedObject objectForKey:@"fieldValue"] atIndex:0];
     }
     [record release];
-    if (++self.readCounter >= 1000) {
-        self.reportToken = YES;
-    }
 }
 
 - (NSDictionary *)dictionaryFromRecord:(BJModelFilling2 *)record {
@@ -307,26 +306,26 @@
     return @"NSJSON";
 }
 
+- (BOOL)supportMultiThreads {
+    return YES;
+}
+
 @end
 
 @interface BJSBJsonSerializerBenchmark()
 
-@property (nonatomic) BOOL isEnum;
-@property (nonatomic) BOOL isRecord;
-@property (nonatomic, strong) SBJson4Writer *serializer;
+@property (atomic) BOOL isEnum;
+@property (atomic) BOOL isRecord;
+@property (nonatomic, retain) SBJson4Writer *serializer;
 
 @end
 
 @implementation BJSBJsonSerializerBenchmark
 
-@synthesize reportToken = _reportToken;
-@synthesize readCounter = _readCounter;
-
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.reportToken = NO;
-        self.serializer = [[SBJson4Writer alloc] init];
+        _serializer = [[SBJson4Writer alloc] init];
     }
     return self;
 }
@@ -336,14 +335,9 @@
     self.isEnum = [object isKindOfClass:[BJSpecificEnum class]];
     self.isRecord = [object isKindOfClass:[BJModelFilling2 class]];
     if (self.isEnum) {
-        if ([object isKindOfClass:[BJSpecificEnum class]]) {
-            object = [((BJSpecificEnum *)object) name];
-        }
+        object = [((BJSpecificEnum *)object) name];
     }
-    if(self.isRecord) {
-        object = [self dictionaryFromRecord:object];
-    }
-    NSDictionary *jsonObj = [NSDictionary dictionaryWithObject:object forKey:@"fieldValue"];
+    NSDictionary *jsonObj = [NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject:self.isRecord ? [self dictionaryFromRecord:object] : object forKey:@"fieldValue"] forKey:@"fieldValue"];
     NSData *stream = [self.serializer dataWithObject:jsonObj];
     [writingSource write:[stream bytes] maxLength:[stream length]];
 }
@@ -352,21 +346,18 @@
     SBJson4Parser *deserializer = [SBJson4Parser parserWithBlock:^(id item, BOOL *stop) {
         BJGenericBenchmarkRecord *record = [[BJGenericBenchmarkRecord alloc] init];
         if (self.isEnum) {
-            BJEnum1Values *value = [[BJEnum1Values alloc] initWithValue:[[item objectForKey:@"fieldValue"] intValue]];
+            NSUInteger ordinal = [BJEnum1Values ordinalForName:[item objectForKey:@"fieldValue"]];
+            BJEnum1Values *value = [[BJEnum1Values alloc] initWithValue:ordinal];
             [record setObject:value atIndex:0];
             [value release];
         } else {
             [record setObject:[item objectForKey:@"fieldValue"] atIndex:0];
         }
         [record release];
-    } allowMultiRoot:NO unwrapRootArray:NO errorHandler:nil];
-    SBJson4ParserStatus status = [deserializer parse:stream];
-    while (true) {
-        if (status == SBJson4ParserComplete)
-            break;
-    }
-    if (++self.readCounter >= 1000)
-        self.reportToken = YES;
+    } allowMultiRoot:NO unwrapRootArray:NO errorHandler:^(NSError *error) {
+        [NSException exceptionWithName:@"SBJsonSerializationError" reason:[error localizedDescription] userInfo:nil];
+    }];
+    [deserializer parse:stream];
 }
 
 - (NSString *)name {
@@ -381,6 +372,10 @@
     return [jsonObj autorelease];
 }
 
+- (BOOL)supportMultiThreads {
+    return NO;
+}
+
 - (void)dealloc {
     [self.serializer release];
     [super dealloc];
@@ -390,29 +385,22 @@
 
 @interface BJJsonKitSerializerBenchmark()
 
-@property (nonatomic) BOOL isEnum;
-@property (nonatomic) BOOL isRecord;
+@property (atomic) BOOL isEnum;
+@property (atomic) BOOL isRecord;
 
 @end
 
 @implementation BJJsonKitSerializerBenchmark
 
-@synthesize reportToken = _reportToken;
-@synthesize readCounter = _readCounter;
 
 - (void)write:(NSString *)type record:(BJGenericBenchmarkRecord *)record source:(NSOutputStream *)writingSource {
     id object = [record fieldAtIndex:0];
     self.isEnum = [object isKindOfClass:[BJSpecificEnum class]];
     self.isRecord = [object isKindOfClass:[BJModelFilling2 class]];
     if (self.isEnum) {
-        if ([object isKindOfClass:[BJSpecificEnum class]]) {
-            object = [((BJSpecificEnum *)object) name];
-        }
+        object = [((BJSpecificEnum *)object) name];
     }
-    if(self.isRecord) {
-        object = [self dictionaryFromRecord:object];
-    }
-    NSDictionary *jsonObj = [NSDictionary dictionaryWithObject:object forKey:@"fieldValue"];
+    NSDictionary *jsonObj = [NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject:self.isRecord ? [self dictionaryFromRecord:object] : object forKey:@"fieldValue"] forKey:@"fieldValue"];
     NSData *stream = [jsonObj JSONData];
     [writingSource write:[stream bytes] maxLength:[stream length]];
 }
@@ -421,15 +409,14 @@
     NSDictionary *parsedObject = [stream objectFromJSONData];
     BJGenericBenchmarkRecord *record = [[BJGenericBenchmarkRecord alloc] init];
     if (self.isEnum) {
-        BJEnum1Values *value = [[BJEnum1Values alloc] initWithValue:[[parsedObject objectForKey:@"fieldValue"] intValue]];
+        NSUInteger ordinal = [BJEnum1Values ordinalForName:[parsedObject objectForKey:@"fieldValue"]];
+        BJEnum1Values *value = [[BJEnum1Values alloc] initWithValue:ordinal];
         [record setObject:value atIndex:0];
         [value release];
     } else {
         [record setObject:[parsedObject objectForKey:@"fieldValue"] atIndex:0];
     }
     [record release];
-    if (++self.readCounter >= 1000)
-        self.reportToken = YES;
 }
 
 - (NSDictionary *)dictionaryFromRecord:(BJModelFilling2 *)record {
@@ -442,6 +429,10 @@
 
 - (NSString *)name {
     return @"JSONKit";
+}
+
+- (BOOL)supportMultiThreads {
+    return YES;
 }
 
 @end

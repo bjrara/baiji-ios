@@ -24,21 +24,21 @@ typedef void (^BJBenchmark)(id object, NSString *type);
 
 @protocol BJBenchmarkCandidateDelegate <NSObject>
 
-@property (atomic, assign) BOOL reportToken;
-@property (atomic, assign) NSUInteger readCounter;
-
 - (NSString *)name;
 
 - (void)write:(NSString *)type record:(BJGenericBenchmarkRecord *)record source:(NSOutputStream *)writingSource;
 
 - (void)read:(NSString *)type stream:(NSData *)stream;
 
+- (BOOL)supportMultiThreads;
+
 @end
 
 @interface BJSerializerBenchmark : NSObject
 
 @property (nonatomic, strong) id<BJSerializerBenchmarkDelegate> masterDelegate;
-@property (nonatomic, strong) id<BJBenchmarkCandidateDelegate> serializerDelegate;
+
+- (instancetype)initWithSerializer:(id<BJBenchmarkCandidateDelegate>)serializer;
 
 - (void)batch;
 
