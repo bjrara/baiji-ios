@@ -12,7 +12,11 @@
 #import "BJServiceClient.h"
 #import "BJItem.h"
 
-#import "AFHTTPRequestOperationManager.h"
+@interface BJPingTestClient()
+
+@property (nonatomic, assign) NSArray *items;
+
+@end
 
 @implementation BJPingTestClient
 
@@ -25,7 +29,7 @@
     
     BJServiceClient *client = [BJServiceClient sharedInstance:@"http://fxsoa4j.qa.nt.ctripcorp.com:8080"];
     [client invokeOperation:@"test-service/getItems" withRequest:requestType responseClazz:[BJGetItemsResponseType class] success:^(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject) {
-        responseType = responseObject;
+        responseType = (BJGetItemsResponseType *)responseObject;
         for (BJItem *item in [responseType items]) {
             NSLog(@"%@: %@", [item itemId], [item title]);
         }

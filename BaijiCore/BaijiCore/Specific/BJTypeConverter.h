@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-typedef id (^BJConvert)(id object, Class clazz);
+typedef id (^BJConvert)(id object);
 
 @interface BJTypeConverter : NSObject
 
 + (instancetype)sharedInstance;
 
-+ (void)registerConverter:(BJConvert)convert from:(NSString *)fromClazz to:(NSString *)toClazz;
+- (id)convert:(id)object from:(Class)fromClazz to:(Class)toClazz;
 
-+ (void)registerConverter:(BJConvert)convert fromClass:(Class)fromClazz toClass:(Class)toClazz;
+- (void)registerConverter:(BJConvert)convert from:(Class)fromClazz to:(Class)toClazz;
 
 @end

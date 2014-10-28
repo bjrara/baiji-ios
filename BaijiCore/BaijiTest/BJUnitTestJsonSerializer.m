@@ -16,6 +16,7 @@
 #import "BJMutableRecord.h"
 #import "BJRecord2.h"
 #import "BJRecord.h"
+#import "BJBaseType.h"
 
 @implementation BJUnitTestJsonSerializer
 
@@ -127,6 +128,35 @@
     [innerExpected release];
     [map1 release];
     [expected release];
+}
+
+- (void)testBaseTypeConverters {
+    BJBaseType *expected = [[BJBaseType alloc] init];
+    expected.byte1 = [NSNumber numberWithChar:-46];
+    expected.decimal1 = [NSDecimalNumber decimalNumberWithString:@"89.123456789012345"];
+    expected.duration1 = @"10.00012344";
+    expected.float1 = [NSNumber numberWithFloat:1234.56789];
+//    expected.list1 = [NSArray arrayWithObjects:[NSDecimalNumber decimalNumberWithString:@"1234.567891234"], [NSDecimalNumber decimalNumberWithString:@"10000"], [NSDecimalNumber decimalNumberWithString:@"100"], nil];
+    expected.short1 = [NSNumber numberWithShort:10];
+    expected.unsignedByte1 = [NSNumber numberWithUnsignedChar:12];
+    expected.unsignedInt1 = [NSNumber numberWithUnsignedInt:1234567L];
+    expected.unsignedLong1 = [NSNumber numberWithUnsignedLong:(1024 * 1024 * 1024L)];
+    expected.unsignedShort1 = [NSNumber numberWithUnsignedShort:1234];
+    
+    NSData *stream = [self serialize:expected];
+    NSString *jsonString = [[NSString alloc] initWithData:stream encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", jsonString);
+    BJBaseType *actual = [self deserialize:stream clazz:[BJBaseType class]];
+    
+    GHAssertTrue([[expected byte1] isEqual:[actual byte1]] &&
+                 [[expected duration1] isEqual:[actual duration1]] &&
+                 [[expected short1] isEqual:[actual short1]] &&
+                 [[expected unsignedByte1] isEqual:[actual unsignedByte1]] &&
+                 [[expected unsignedInt1] isEqual:[actual unsignedInt1]] &&
+                 [[expected unsignedShort1] isEqual:[actual unsignedShort1]], nil);
+    GHAssertTrue([[expected float1] isEqual:[actual float1]], nil);
+    GHAssertTrue([[expected decimal1] isEqual:[actual decimal1]], nil);
+    GHAssertTrue([[expected unsignedLong1] isEqual:[actual unsignedLong1]], nil);
 }
 
 - (id<BJMutableRecord>)deserialize:(NSData *)stream clazz:(Class)clazz{

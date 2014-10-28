@@ -7,7 +7,6 @@
 //
 
 #import "BJTypeConverter.h"
-#import "BJBaseTypeConverter.h"
 #import "BJError.h"
 
 @implementation BJTypeConverter
@@ -27,29 +26,40 @@ static NSMutableDictionary *converterCache;
     self = [super init];
     if (self) {
         converterCache = [[NSMutableDictionary alloc] init];
-        [BJBaseTypeConverter registerConverters];
+        [self registerBaseTypeConverters];
     }
     return self;
 }
 
-+ (id)convert:(id)object to:(Class)clazz {
-    NSString *key = [NSString stringWithFormat:@"%@-%@", NSStringFromClass([object class]), NSStringFromClass(clazz)];
+- (id)convert:(id)object from:(Class)fromClazz to:(Class)toClazz {
+    NSString *key = [NSString stringWithFormat:@"%@-%@", NSStringFromClass(fromClazz), NSStringFromClass(toClazz)];
     BJConvert convert = [converterCache objectForKey:key];
     if (convert) {
-        return convert(object, clazz);
+        return convert(object);
     } else {
-        [NSException exceptionWithName:BJRuntimeException reason:[NSString stringWithFormat:@"Cannot find type converter converting %@ to %@", NSStringFromClass([object class]), NSStringFromClass(clazz)] userInfo:nil];
+        [NSException exceptionWithName:BJRuntimeException reason:[NSString stringWithFormat:@"Cannot find type converter converting %@", key] userInfo:nil];
     }
-    return  nil;
+    return nil;
 }
 
-+ (void)registerConverter:(BJConvert)convert from:(NSString *)fromClazz to:(NSString *)toClazz {
-    NSString *key = [NSString stringWithFormat:@"%@-%@", fromClazz, toClazz];
-    [converterCache setObject:convert forKey:key];
-}
-+ (void)registerConverter:(BJConvert)convert fromClass:(Class)fromClazz toClass:(Class)toClazz {
+- (void)registerConverter:(BJConvert)convert from:(Class)fromClazz to:(Class)toClazz {
     NSString *key = [NSString stringWithFormat:@"%@-%@", NSStringFromClass(fromClazz), NSStringFromClass(toClazz)];
     [converterCache setObject:convert forKey:key];
+}
+
+- (void)registerBaseTypeConverters {
+    [self registerConverter:^id(id object) {
+        return [object stringValue];
+    } from:[NSNumber class] to:[NSString class]];
+    [self registerConverter:^id(id object) {
+        return [NSNumber numberWithUnsignedLong:strtoul([object UTF8String], NULL, 10)];
+    } from:[NSString class] to:[NSNumber class]];
+    [self registerConverter:^id(id object) {
+        return [NSDecimalNumber decimalNumberWithString:object];
+    } from:[NSString class] to:[NSDecimalNumber class]];
+    [self registerConverter:^id(id object) {
+        return [object stringValue];
+    } from:[NSDecimalNumber class] to:[NSString class]];
 }
 
 @end

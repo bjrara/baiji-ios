@@ -11,7 +11,7 @@
 
 @interface BJServiceClient()
 
-@property (nonatomic, readwrite) NSURL *baseUri;
+@property (nonatomic, readwrite, retain) NSURL *baseUri;
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
 
 @end
@@ -66,6 +66,11 @@
     [operation debugInfo];
 #endif
     [self.operationQueue addOperation:operation];
+}
+
+- (void)dealloc {
+    [self.baseUri release];
+    [super dealloc];
 }
 
 @end

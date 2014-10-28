@@ -38,8 +38,10 @@
         case BJSchemaTypeInt:
         case BJSchemaTypeLong:
         case BJSchemaTypeDouble:
-        case BJSchemaTypeFloat:
             success([self writeNumber:datum]);
+            break;
+        case BJSchemaTypeFloat:
+            success([self writeFloat:datum]);
             break;
         case BJSchemaTypeBoolean:
             success([self writeBoolean:datum]);
@@ -81,6 +83,10 @@
 
 - (NSNumber *)writeNumber:(id)number {
     return number;
+}
+
+- (NSDecimalNumber *)writeFloat:(NSNumber *)number {
+    return [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f", [number floatValue]]];
 }
 
 - (NSNumber *)writeDate:(NSDate *)date{

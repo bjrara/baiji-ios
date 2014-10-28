@@ -61,8 +61,10 @@
         case BJSchemaTypeInt:
         case BJSchemaTypeDouble:
         case BJSchemaTypeLong:
-        case BJSchemaTypeFloat:
             success([self readNumber:datum]);
+            break;
+        case BJSchemaTypeFloat:
+            success([self readFloat:datum]);
             break;
         case BJSchemaTypeBoolean:
             success([self readBoolean:datum]);
@@ -105,6 +107,10 @@
 
 - (NSNumber *)readBoolean:(NSString *)value {
     return [NSNumber numberWithBool:[@"true" isEqualToString:value]];
+}
+
+- (NSNumber *)readFloat:(NSNumber *)value {
+    return [NSNumber numberWithFloat:[value floatValue]];
 }
 
 - (NSDate *)readDate:(NSNumber *)interval {
