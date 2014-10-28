@@ -16,6 +16,8 @@ typedef id (^BJConvert)(id object);
 
 - (id)convert:(id)object from:(Class)fromClazz to:(Class)toClazz;
 
+- (id)convertArray:(NSArray *)object from:(Class)fromClazz to:(Class)toClazz;
+
 - (void)registerConverter:(BJConvert)convert from:(Class)fromClazz to:(Class)toClazz;
 
 @end

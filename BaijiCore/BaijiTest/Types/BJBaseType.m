@@ -63,8 +63,8 @@
         case 8: return [[BJTypeConverter sharedInstance] convert:self.unsignedLong1 from:[NSNumber class] to:[NSString class]];
         case 9: return self.unsignedShort1;
         case 10: return self.guid1;
-        case 11: return self.list1;
-        case 12: return self.list2;
+        case 11: return [[BJTypeConverter sharedInstance] convertArray:self.list1 from:[NSDecimalNumber class] to:[NSString class]];
+        case 12: return [[BJTypeConverter sharedInstance] convertArray:self.list2 from:[NSDecimalNumber class] to:[NSString class]];
         default:
             [NSException exceptionWithName:BJRuntimeException
                                     reason:[NSString stringWithFormat:@"Bad index %d in fieldAtIndex:", fieldPos]
@@ -86,8 +86,8 @@
         case 8: self.unsignedLong1 = [[BJTypeConverter sharedInstance] convert:object from:[NSString class] to:[NSNumber class]]; break;
         case 9: self.unsignedShort1 = object; break;
         case 10: self.guid1 = object; break;
-        case 11: self.list1 = object; break;
-        case 12: self.list2 = object; break;
+        case 11: self.list1 = [[BJTypeConverter sharedInstance] convertArray:object from:[NSString class] to:[NSDecimalNumber class]]; break;
+        case 12: self.list2 = [[BJTypeConverter sharedInstance] convertArray:object from:[NSString class] to:[NSDecimalNumber class]]; break;
         default:
             [NSException exceptionWithName:BJRuntimeException
                                     reason:[NSString stringWithFormat:@"Bad index %d in setObject:atIndex:", fieldPos]

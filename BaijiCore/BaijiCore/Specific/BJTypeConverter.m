@@ -32,10 +32,31 @@ static NSMutableDictionary *converterCache;
 }
 
 - (id)convert:(id)object from:(Class)fromClazz to:(Class)toClazz {
+    if (!object) {
+        return nil;
+    }
     NSString *key = [NSString stringWithFormat:@"%@-%@", NSStringFromClass(fromClazz), NSStringFromClass(toClazz)];
     BJConvert convert = [converterCache objectForKey:key];
     if (convert) {
         return convert(object);
+    } else {
+        [NSException exceptionWithName:BJRuntimeException reason:[NSString stringWithFormat:@"Cannot find type converter converting %@", key] userInfo:nil];
+    }
+    return nil;
+}
+
+- (id)convertArray:(NSArray *)object from:(Class)fromClazz to:(Class)toClazz {
+    if (!object) {
+        return nil;
+    }
+    NSString *key = [NSString stringWithFormat:@"%@-%@", NSStringFromClass(fromClazz), NSStringFromClass(toClazz)];
+    BJConvert convert = [converterCache objectForKey:key];
+    if (convert) {
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        for (id item in object) {
+            [array addObject:convert(item)];
+        }
+        return [array autorelease];
     } else {
         [NSException exceptionWithName:BJRuntimeException reason:[NSString stringWithFormat:@"Cannot find type converter converting %@", key] userInfo:nil];
     }

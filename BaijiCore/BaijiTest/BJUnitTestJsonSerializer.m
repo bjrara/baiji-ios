@@ -136,7 +136,7 @@
     expected.decimal1 = [NSDecimalNumber decimalNumberWithString:@"89.123456789012345"];
     expected.duration1 = @"10.00012344";
     expected.float1 = [NSNumber numberWithFloat:1234.56789];
-//    expected.list1 = [NSArray arrayWithObjects:[NSDecimalNumber decimalNumberWithString:@"1234.567891234"], [NSDecimalNumber decimalNumberWithString:@"10000"], [NSDecimalNumber decimalNumberWithString:@"100"], nil];
+    expected.list1 = [NSArray arrayWithObjects:[NSDecimalNumber decimalNumberWithString:@"1234.567891234"], [NSDecimalNumber decimalNumberWithString:@"10000"], [NSDecimalNumber decimalNumberWithString:@"100"], nil];
     expected.short1 = [NSNumber numberWithShort:10];
     expected.unsignedByte1 = [NSNumber numberWithUnsignedChar:12];
     expected.unsignedInt1 = [NSNumber numberWithUnsignedInt:1234567L];
@@ -157,6 +157,7 @@
     GHAssertTrue([[expected float1] isEqual:[actual float1]], nil);
     GHAssertTrue([[expected decimal1] isEqual:[actual decimal1]], nil);
     GHAssertTrue([[expected unsignedLong1] isEqual:[actual unsignedLong1]], nil);
+    GHAssertTrue([[expected list1] isEqualToArray:[actual list1]], nil);
 }
 
 - (id<BJMutableRecord>)deserialize:(NSData *)stream clazz:(Class)clazz{
