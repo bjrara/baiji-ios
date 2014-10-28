@@ -10,7 +10,7 @@
 @interface BJBaseType : BJMutableSpecificRecord
 
 @property (nonatomic, readwrite, retain) NSString *anyUri1;
-/** initValue: int8_t */
+/** initValue: char */
 @property (nonatomic, readwrite, retain) NSNumber *byte1;
 @property (nonatomic, readwrite, retain) NSDecimalNumber *decimal1;
 @property (nonatomic, readwrite, retain) NSString *duration1;
@@ -18,13 +18,13 @@
 @property (nonatomic, readwrite, retain) NSNumber *float1;
 /** initValue: short */
 @property (nonatomic, readwrite, retain) NSNumber *short1;
-/** initValue: uint8_t */
+/** initValue: unsignedChar */
 @property (nonatomic, readwrite, retain) NSNumber *unsignedByte1;
-/** initValue: unsigned int */
+/** initValue: unsignedInt */
 @property (nonatomic, readwrite, retain) NSNumber *unsignedInt1;
-/** initValue: unsigned long */
+/** initValue: unsignedLong */
 @property (nonatomic, readwrite, retain) NSNumber *unsignedLong1;
-/** initValue: unsigned short */
+/** initValue: unsignedShort */
 @property (nonatomic, readwrite, retain) NSNumber *unsignedShort1;
 @property (nonatomic, readwrite, retain) NSString *guid1;
 /** valueType: NSDecimalNumber */
