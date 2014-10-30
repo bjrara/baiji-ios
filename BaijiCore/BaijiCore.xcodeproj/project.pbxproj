@@ -372,13 +372,13 @@
 		CE52855519C84DE900B427B5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CE52855919C84DE900B427B5 /* BaijiCore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BaijiCore-Info.plist"; sourceTree = "<group>"; };
 		CE52855B19C84DE900B427B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CE52855D19C84DE900B427B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CE52855D19C84DE900B427B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		CE52855F19C84DE900B427B5 /* BaijiCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaijiCore-Prefix.pch"; sourceTree = "<group>"; };
-		CE52856019C84DE900B427B5 /* BJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BJAppDelegate.h; sourceTree = "<group>"; };
-		CE52856119C84DE900B427B5 /* BJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BJAppDelegate.m; sourceTree = "<group>"; };
-		CE52856319C84DE900B427B5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		CE52856519C84DE900B427B5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		CE52856719C84DE900B427B5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CE52856019C84DE900B427B5 /* BJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BJAppDelegate.h; path = "Supporting Files/BJAppDelegate.h"; sourceTree = "<group>"; };
+		CE52856119C84DE900B427B5 /* BJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BJAppDelegate.m; path = "Supporting Files/BJAppDelegate.m"; sourceTree = "<group>"; };
+		CE52856319C84DE900B427B5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "Supporting Files/Default.png"; sourceTree = "<group>"; };
+		CE52856519C84DE900B427B5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Supporting Files/Default@2x.png"; sourceTree = "<group>"; };
+		CE52856719C84DE900B427B5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Supporting Files/Default-568h@2x.png"; sourceTree = "<group>"; };
 		CE52856A19C84DE900B427B5 /* BaijiCore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaijiCore.xcdatamodel; sourceTree = "<group>"; };
 		CE7159EE19C9471F0057DBBB /* BJPropertyMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJPropertyMap.h; sourceTree = "<group>"; };
 		CE7159EF19C9471F0057DBBB /* BJPropertyMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJPropertyMap.m; sourceTree = "<group>"; };
@@ -756,8 +756,6 @@
 			isa = PBXGroup;
 			children = (
 				CE52856919C84DE900B427B5 /* BaijiCore.xcdatamodeld */,
-				CE52856019C84DE900B427B5 /* BJAppDelegate.h */,
-				CE52856119C84DE900B427B5 /* BJAppDelegate.m */,
 				CE7159F119C952060057DBBB /* BJError.h */,
 				CE7159F219C952060057DBBB /* BJError.m */,
 				CE449A0C19C91FE100F0D92D /* BJJsonSerializer.h */,
@@ -777,6 +775,8 @@
 		CE52855819C84DE900B427B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE52856019C84DE900B427B5 /* BJAppDelegate.h */,
+				CE52856119C84DE900B427B5 /* BJAppDelegate.m */,
 				CE52855919C84DE900B427B5 /* BaijiCore-Info.plist */,
 				CE52855A19C84DE900B427B5 /* InfoPlist.strings */,
 				CE52855D19C84DE900B427B5 /* main.m */,
