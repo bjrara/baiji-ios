@@ -17,6 +17,7 @@ typedef void (^BJOperationSuccess)(BJHTTPRequestOperation *operation, id<BJMutab
 typedef void (^BJOperationFailure)(BJHTTPRequestOperation *operation, NSError *error);
 
 @property (readwrite, nonatomic, strong) AFNetworkReachabilityManager *reachabilityManager;
+@property (nonatomic) BOOL debug;
 
 + (instancetype)shardInstance;
 
@@ -26,6 +27,7 @@ typedef void (^BJOperationFailure)(BJHTTPRequestOperation *operation, NSError *e
                    responseClazz:(Class<BJMutableRecord>)responseClazz
                          success:(BJOperationSuccess)success
                          failure:(BJOperationFailure)failure;
+
 - (void)debugInfo;
 
 @end

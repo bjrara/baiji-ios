@@ -38,19 +38,10 @@
 - (instancetype)initWithBaseUri:(NSString *)baseUri {
     self = [super init];
     if (self) {
+        self.debug = NO;
         self.baseUri = [NSURL URLWithString:baseUri];
         self.operationQueue = [[NSOperationQueue alloc] init];
         [[BJServiceClient clientCache] setObject:self forKey:baseUri];
-    }
-    return self;
-}
-
-- (instancetype)initWithService:(NSString *)serviceName
-                      namespace:(NSString *)space
-                         subEnv:(NSString *)subEnv {
-    self = [super init];
-    if (self) {
-        [[BJServiceClient clientCache] setObject:self forKey:[NSString stringWithFormat:@"%@{%@}", serviceName, space]];
     }
     return self;
 }
@@ -61,9 +52,12 @@
                 success:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
                 failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure {
     BJHTTPRequestOperation *operation = [BJHTTPRequestOperation shardInstance];
-    operation = [operation POST:[[NSURL URLWithString:[NSString stringWithFormat:@"%@.json", operationName] relativeToURL:self.baseUri] absoluteString] headers:nil requestObj:requestObject responseClazz:responseClazz success:success failure:failure];
+    operation.debug = self.debug;
+    operation = [operation POST:[[NSURL URLWithString:operationName relativeToURL:self.baseUri] absoluteString] headers:nil requestObj:requestObject responseClazz:responseClazz success:success failure:failure];
 #if DEBUG
-    [operation debugInfo];
+    if (self.debug) {
+        [operation debugInfo];
+    }
 #endif
     [self.operationQueue addOperation:operation];
 }

@@ -100,7 +100,7 @@ static dispatch_group_t http_request_operation_completion_group() {
         }
     }];
     if (![request valueForHTTPHeaderField:@"Content-Type"]) {
-        [request setValue:@"application/x-baiji-json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:@"application/bjjson" forHTTPHeaderField:@"Content-Type"];
     }
     [request setHTTPBody:[self.serializer serialize:requestObj]];
     return request;
@@ -159,6 +159,7 @@ static dispatch_group_t http_request_operation_completion_group() {
     operation.completionGroup = self.completionGroup;
     operation.completionQueue = self.completionQueue;
     operation.responseClazz = self.responseClazz;
+    operation.debug = self.debug;
     
     return operation;
 }
@@ -172,11 +173,13 @@ static dispatch_group_t http_request_operation_completion_group() {
 #pragma clang diagnostic ignored "-Wgnu"
     self.completionBlock = ^{
 #if DEBUG
-        NSLog(@"Status Code: %d", self.response.statusCode);
-        [self.response.allHeaderFields enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            NSLog(@"%@ : %@", key, obj);
-        }];
-        NSLog(@"%@", [[[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding] autorelease]);
+        if (self.debug) {
+            NSLog(@"Status Code: %d", self.response.statusCode);
+            [self.response.allHeaderFields enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                NSLog(@"%@ : %@", key, obj);
+            }];
+            NSLog(@"%@", [[[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding] autorelease]);
+        }
 #endif
         if (self.completionGroup) {
             dispatch_group_enter(self.completionGroup);
@@ -265,6 +268,7 @@ static dispatch_group_t http_request_operation_completion_group() {
     operation.serializer = [self.serializer copyWithZone:zone];
     operation.completionQueue = self.completionQueue;
     operation.completionGroup = self.completionGroup;
+    operation.debug = self.debug;
     
     return operation;
 }

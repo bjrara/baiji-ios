@@ -18,6 +18,8 @@ typedef enum {
 
 @interface BJServiceClient : NSObject
 
+@property (nonatomic) BOOL debug;
+
 /**
  Get a BJServiceClient instance in direct connection mode. It is supposed to be used only for local testing, but not in Test, UAT or production environments.
  

@@ -25,11 +25,10 @@
     requestType.take = [NSNumber numberWithInt:5];
     requestType.validationString = @"123456";
     
-    __block BJGetItemsResponseType *responseType;
-    
     BJServiceClient *client = [BJServiceClient sharedInstance:@"http://fxsoa4j.qa.nt.ctripcorp.com:8080"];
     [client invokeOperation:@"test-service/getItems" withRequest:requestType responseClazz:[BJGetItemsResponseType class] success:^(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject) {
-        responseType = (BJGetItemsResponseType *)responseObject;
+        BJGetItemsResponseType *responseType = (BJGetItemsResponseType *)responseObject;
+        GHAssertTrue([[responseType items] count] == 5, nil);
         for (BJItem *item in [responseType items]) {
             NSLog(@"%@: %@", [item itemId], [item title]);
         }
