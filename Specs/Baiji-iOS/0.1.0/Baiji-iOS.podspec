@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
                      :tag => "dev-0.1.0" }
 
   s.requires_arc = false
-  s.source_files  =  "BaijiCore/**/*.{h,m}"
-  s.exclude_files = "BaijiCore/Supporting Files/*.{h,m}", "BaijiTest/**/*.{h,m}", "BaijiBenchmark/**/*.{h,m}"
+  s.source_files  = "BaijiCore/BaijiCore/**/*.{h,m}"
+  s.exclude_files = "BaijiCore/BaijiCore/Supporting Files/*.{h,m}"
 
   s.dependency 'AFNetworking', '~> 2.0'
 
