@@ -11,8 +11,9 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/bjrara/baiji-ios.git",
                      :tag => "dev-0.1.0" }
 
+  s.requires_arc = false
   s.source_files  =  "BaijiCore/**/*.{h,m}"
-  s.exclude_files = "BaijiTest/**/*.{h,m}", "BaijiBenchmark/**/*.{h,m}"
+  s.exclude_files = "BaijiCore/Supporting Files/*.{h,m}", "BaijiTest/**/*.{h,m}", "BaijiBenchmark/**/*.{h,m}"
 
   s.dependency 'AFNetworking', '~> 2.0'
 
