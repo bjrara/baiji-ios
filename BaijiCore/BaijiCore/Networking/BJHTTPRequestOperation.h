@@ -16,8 +16,9 @@
 typedef void (^BJOperationSuccess)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject);
 typedef void (^BJOperationFailure)(BJHTTPRequestOperation *operation, NSError *error);
 
-@property (readwrite, nonatomic, strong) AFNetworkReachabilityManager *reachabilityManager;
-@property (nonatomic) BOOL debug;
+// This property is strongly not recommended in any case;
+@property (readwrite, nonatomic, retain) NSNumber *timeoutInterval;
+@property (readwrite, nonatomic) BOOL debug;
 
 + (instancetype)shardInstance;
 

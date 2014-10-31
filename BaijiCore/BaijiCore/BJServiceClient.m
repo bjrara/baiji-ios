@@ -8,11 +8,13 @@
 
 #import "BJServiceClient.h"
 #import "BJHTTPRequestOperation.h"
+#import "BJError.h"
+#import "AFNetworkReachabilityManager.h"
 
 @interface BJServiceClient()
 
-@property (nonatomic, readwrite, retain) NSURL *baseUri;
-@property (nonatomic, strong) NSOperationQueue *operationQueue;
+@property (readwrite, nonatomic, retain) NSURL *baseUri;
+@property (readwrite, nonatomic, retain) NSOperationQueue *operationQueue;
 
 @end
 
@@ -41,9 +43,10 @@
 - (instancetype)initWithBaseUri:(NSString *)baseUri {
     self = [super init];
     if (self) {
-        self.debug = YES;
+        self.debug = NO;
         self.baseUri = [NSURL URLWithString:baseUri];
         self.operationQueue = [[NSOperationQueue alloc] init];
+        self.reachabilityManager = [AFNetworkReachabilityManager sharedManager];
         [[BJServiceClient clientCache] setObject:self forKey:baseUri];
     }
     return self;
@@ -54,6 +57,10 @@
           responseClazz:(Class<BJMutableRecord>)responseClazz
                 success:(void (^)(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject))success
                 failure:(void (^)(BJHTTPRequestOperation *operation, NSError *error))failure {
+    if (self.reachabilityManager.networkReachabilityStatus == AFNetworkReachabilityStatusNotReachable) {
+        failure(nil, [NSError errorWithDomain:BJNetworkError code:0 userInfo:[NSDictionary dictionaryWithObject:@"Network not reachable." forKey:@"Status"]]);
+        return;
+    }
     BJHTTPRequestOperation *operation = [BJHTTPRequestOperation shardInstance];
     operation.debug = self.debug;
     operation = [operation POST:[[NSURL URLWithString:operationName relativeToURL:self.baseUri] absoluteString] headers:nil requestObj:requestObject responseClazz:responseClazz success:success failure:failure];

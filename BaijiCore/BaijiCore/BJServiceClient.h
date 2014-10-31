@@ -10,6 +10,7 @@
 #import "BJMutableRecord.h"
 
 @class BJHTTPRequestOperation;
+@class AFNetworkReachabilityManager;
 
 typedef enum {
     BJConnectionDirect,
@@ -19,6 +20,7 @@ typedef enum {
 @interface BJServiceClient : NSObject
 
 @property (nonatomic) BOOL debug;
+@property (readwrite, nonatomic, retain) AFNetworkReachabilityManager *reachabilityManager;
 
 /**
  Get a BJServiceClient instance in direct connection mode. It is supposed to be used only for local testing, but not in Test, UAT or production environments.

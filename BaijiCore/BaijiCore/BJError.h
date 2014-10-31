@@ -21,5 +21,6 @@ extern NSString *const BJArgumentException;
 extern NSString *const BJSchemaParseException;
 extern NSString *const BJCallException;
 extern NSString *const BJServiceError;
+extern NSString *const BJNetworkError;
 
 @end

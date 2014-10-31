@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GHTestCase.h"
+#import "GHAsyncTestCase.h"
 
-@interface BJUnitTestClient : GHTestCase
+@interface BJUnitTestClient :GHAsyncTestCase
 
 @end

@@ -24,18 +24,50 @@
     BJGetItemsRequestType *requestType = [[BJGetItemsRequestType alloc] init];
     requestType.take = [NSNumber numberWithInt:5];
     requestType.validationString = @"123456";
-//    requestType.generateRandomException = [NSNumber numberWithBool:YES];
     
-    BJServiceClient *client = [BJServiceClient sharedInstance:@"http://fxsoa4j.qa.nt.ctripcorp.com:8080/test-service"];
+    [self prepare];
+    BJServiceClient *client = [BJServiceClient sharedInstance:@"http://localhost:8080/test-service"];
     [client invokeOperation:@"getItems" withRequest:requestType responseClazz:[BJGetItemsResponseType class] success:^(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject) {
-        BJGetItemsResponseType *responseType = (BJGetItemsResponseType *)responseObject;
+        BJGetItemsResponseType *responseType =(BJGetItemsResponseType *)responseObject;
         GHAssertTrue([[responseType items] count] == 5, nil);
         for (BJItem *item in [responseType items]) {
-            NSLog(@"%@: %@", [item itemId], [item title]);
+            GHTestLog(@"%@: %@", [item itemId], [item title]);
         }
+        [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testPing)];
     } failure:^(BJHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", [error description]);
+        [self notify:kGHUnitWaitStatusFailure forSelector:@selector(testPing)];
     }];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:1.0];
+}
+
+- (void)testServiceError {
+    BJGetItemsRequestType *requestType = [[BJGetItemsRequestType alloc] init];
+    requestType.take = [NSNumber numberWithInt:5];
+    requestType.validationString = @"123456";
+    requestType.returnWrappedErrorResponse  = [NSNumber numberWithBool:YES];
+    
+    [self prepare];
+    BJServiceClient *client = [BJServiceClient sharedInstance:@"http://localhost:8080/test-service"];
+    [client invokeOperation:@"getItems" withRequest:requestType responseClazz:[BJGetItemsResponseType class] success:^(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject) {
+    } failure:^(BJHTTPRequestOperation *operation, NSError *error) {
+        GHAssertEqualStrings(error.domain, @"BaijiServiceError", nil);
+        GHTestLog(@"%@", [error.userInfo description]);
+        [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testServiceError)];
+    }];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:1.0];
+}
+
+- (void)testUnknownHostError {
+    [self prepare];
+    BJGetItemsRequestType *requestType = [[BJGetItemsRequestType alloc] init];
+        BJServiceClient *client = [BJServiceClient sharedInstance:@"http://localhost:8080/"];
+    [client invokeOperation:@"getItems" withRequest:requestType responseClazz:[BJGetItemsResponseType class] success:^(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject) {
+    } failure:^(BJHTTPRequestOperation *operation, NSError *error) {
+        GHAssertEqualStrings(error.domain, @"NSURLErrorDomain", nil);
+        GHTestLog(@"%@", [error.userInfo description]);
+        [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testUnknownHostError)];
+        }];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:30.0];
 }
 
 @end

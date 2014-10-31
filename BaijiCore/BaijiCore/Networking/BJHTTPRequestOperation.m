@@ -65,7 +65,7 @@ static dispatch_group_t http_request_operation_completion_group() {
     self = [super init];
     if (self) {
         _serializer = [[BJJsonSerializer alloc] init];
-        self.reachabilityManager = [AFNetworkReachabilityManager sharedManager];
+        self.timeoutInterval = [NSNumber numberWithDouble:-1];
     }
     return self;
 }
@@ -74,7 +74,7 @@ static dispatch_group_t http_request_operation_completion_group() {
     self = [super initWithRequest:urlRequest];
     if (self) {
         _serializer = [[BJJsonSerializer alloc] init];
-        self.reachabilityManager = [AFNetworkReachabilityManager sharedManager];
+        self.timeoutInterval = [NSNumber numberWithDouble:-1];
     }
     return self;
 }
@@ -137,7 +137,7 @@ static dispatch_group_t http_request_operation_completion_group() {
 #endif
         self.serviceError = [NSError errorWithDomain:BJServiceError
                                                 code:[error.errorClassification value]
-                                            userInfo:[NSDictionary dictionaryWithObject:error.message forKey:error.errorCode]];
+                                            userInfo:(error.message && error.errorCode) ? [NSDictionary dictionaryWithObject:error.message forKey:error.errorCode] : nil];
     } else {
         self.serviceError = [NSError errorWithDomain:BJServiceError code:BJErrorNoErrorData userInfo:nil];
     }
@@ -160,6 +160,9 @@ static dispatch_group_t http_request_operation_completion_group() {
     BJHTTPRequestOperation *operation = [[BJHTTPRequestOperation alloc] initWithRequest:mutableRequest];
     
     [operation setCompletionBlockWithSuccess:success failure:failure];
+    if ([self.timeoutInterval doubleValue] > 0)
+        operation.timeoutInterval = self.timeoutInterval;
+    
     operation.serializer = self.serializer;
     operation.completionGroup = self.completionGroup;
     operation.completionQueue = self.completionQueue;
