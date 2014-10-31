@@ -14,6 +14,7 @@
 @interface BJRecordSchema : BJNamedSchema
 
 @property (nonatomic, readonly, retain) NSArray *fields;
+@property (nonatomic, readonly) NSMutableDictionary *fieldLookup;
 
 - (id)initWithName:(BJSchemaName *)name
                doc:(NSString *)doc

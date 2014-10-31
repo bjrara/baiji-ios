@@ -17,7 +17,6 @@
 
 @property (nonatomic, readwrite, retain) NSArray *fields;
 @property (nonatomic, readonly) BOOL request;
-@property (nonatomic, readonly) NSMutableDictionary *fieldLookup;
 @property (nonatomic, readonly) NSMutableDictionary *fieldAliasLookup;
 
 @end
@@ -146,7 +145,7 @@
         [NSException exceptionWithName:BJSchemaParseException
                                 reason:[NSString stringWithFormat:@"field or alias %@ is a duplicate name.", name]
                               userInfo:nil];
-    [map setObject:field forKey:name];
+    [map setObject:field forKey:[name lowercaseString]];
 }
 
 + (BJField *)createFieldFromObject:(id)jsonObj pos:(int)pos names:(BJSchemaNames *)names encSpace:(NSString *)encSpace {
@@ -183,7 +182,7 @@
     if(name == nil || [name length] == 0) {
         [NSException exceptionWithName:BJArgumentException reason:@"name cannot be null." userInfo:nil];
     }
-    return [self.fieldLookup objectForKey:name];
+    return [self.fieldLookup objectForKey:[name lowercaseString]];
 }
 
 - (NSDictionary *)jsonObjectWithSchemaNames:(BJSchemaNames *)names encSpace:(NSString *)encSpace {

@@ -43,14 +43,14 @@
 - (id<BJMutableRecord>)readRecord:(NSDictionary *)reuse schema:(BJRecordSchema *)recordSchema {
     Class clazz = [self clazzOfSchema:[recordSchema name] conformsTo:@protocol(BJMutableRecord) isSubclassOf:nil];
     id<BJMutableRecord> parsedRecord = [clazz new];
-    NSArray *fields = [recordSchema fields];
-    for (BJField *field in fields) {
-        if([reuse objectForKey:[field name]]) {
+    [reuse enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        BJField *field = [recordSchema.fieldLookup objectForKey:[key lowercaseString]];
+        if (field) {
             [self readValue:[reuse objectForKey:[field name]] schema:[field schema] success:^(id parsedValue) {
                 [parsedRecord setObject:parsedValue forName:[field name]];
             }];
         }
-    }
+    }];
     return [parsedRecord autorelease];
 }
 

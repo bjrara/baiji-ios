@@ -10,6 +10,13 @@
 #import "BJSpecificJsonParser.h"
 #import "BJSpecificJsonWriter.h"
 
+@interface BJJsonSerializer()
+
+@property (nonatomic, retain) NSLock *readLock;
+@property (nonatomic, retain) NSLock *writeLock;
+
+@end
+
 @implementation BJJsonSerializer
 
 static NSMutableDictionary *_readerCache;
@@ -18,6 +25,8 @@ static NSMutableDictionary *_writerCache;
 - (instancetype)init {
     self = [super init];
     if (self) {
+        _readLock = [[NSLock alloc] init];
+        _writeLock = [[NSLock alloc] init];
         _readerCache = [[NSMutableDictionary alloc] init];
         _writerCache = [[NSMutableDictionary alloc] init];
     }
@@ -39,8 +48,16 @@ static NSMutableDictionary *_writerCache;
     BJSpecificJsonParser *parser = [_readerCache objectForKey:clazzName];
     if (parser)
         return parser;
-    parser = [[BJSpecificJsonParser alloc] initWithSchema:(BJRecordSchema *)[[clazz new] schema]];
-    [_readerCache setObject:parser forKey:clazzName];
+    [self.readLock lock];
+    parser = [_readerCache objectForKey:clazzName];
+    if (parser) {
+        [self.readLock unlock];
+        return parser;
+    } else {
+        parser = [[BJSpecificJsonParser alloc] initWithSchema:(BJRecordSchema *)[[clazz new] schema]];
+        [_readerCache setObject:parser forKey:clazzName];
+        [self.readLock unlock];
+    }
     return parser;
 }
 
@@ -49,12 +66,22 @@ static NSMutableDictionary *_writerCache;
     BJSpecificJsonWriter *writer = [_writerCache objectForKey:clazzName];
     if (writer)
         return writer;
-    writer = [[BJSpecificJsonWriter alloc] init];
-    [_writerCache setObject:writer forKey:clazzName];
+    [self.writeLock lock];
+    writer = [_writerCache objectForKey:clazzName];
+    if (writer) {
+        [self.writeLock unlock];
+        return writer;
+    } else {
+        writer = [[BJSpecificJsonWriter alloc] init];
+        [_writerCache setObject:writer forKey:clazzName];
+        [self.writeLock unlock];
+    }
     return writer;
 }
 
 - (void)clearCache {
+    [self.readLock release];
+    [self.writeLock release];
     [_readerCache release];
     [_writerCache release];
     _readerCache = nil;
@@ -69,3 +96,4 @@ static NSMutableDictionary *_writerCache;
 }
 
 @end
+
