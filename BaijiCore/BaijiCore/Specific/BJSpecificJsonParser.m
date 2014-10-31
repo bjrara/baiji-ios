@@ -61,13 +61,11 @@
         case BJSchemaTypeInt:
         case BJSchemaTypeDouble:
         case BJSchemaTypeLong:
+        case BJSchemaTypeBoolean:
             success([self readNumber:datum]);
             break;
         case BJSchemaTypeFloat:
             success([self readFloat:datum]);
-            break;
-        case BJSchemaTypeBoolean:
-            success([self readBoolean:datum]);
             break;
         case BJSchemaTypeString:
             success([self readString:datum]);
@@ -103,10 +101,6 @@
 
 - (NSNumber *)readNumber:(id)number {
     return number;
-}
-
-- (NSNumber *)readBoolean:(NSString *)value {
-    return [NSNumber numberWithBool:[@"true" isEqualToString:value]];
 }
 
 - (NSNumber *)readFloat:(NSNumber *)value {

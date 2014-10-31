@@ -24,9 +24,10 @@
     BJGetItemsRequestType *requestType = [[BJGetItemsRequestType alloc] init];
     requestType.take = [NSNumber numberWithInt:5];
     requestType.validationString = @"123456";
+    requestType.generateRandomException = [NSNumber numberWithBool:YES];
     
-    BJServiceClient *client = [BJServiceClient sharedInstance:@"http://fxsoa4j.qa.nt.ctripcorp.com:8080"];
-    [client invokeOperation:@"test-service/getItems" withRequest:requestType responseClazz:[BJGetItemsResponseType class] success:^(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject) {
+    BJServiceClient *client = [BJServiceClient sharedInstance:@"http://fxsoa4j.qa.nt.ctripcorp.com:8080/test-service"];
+    [client invokeOperation:@"getItems" withRequest:requestType responseClazz:[BJGetItemsResponseType class] success:^(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject) {
         BJGetItemsResponseType *responseType = (BJGetItemsResponseType *)responseObject;
         GHAssertTrue([[responseType items] count] == 5, nil);
         for (BJItem *item in [responseType items]) {

@@ -28,6 +28,9 @@
 }
 
 + (instancetype)sharedInstance:(NSString *)baseUri {
+    if (![baseUri hasSuffix:@"/"]) {
+        baseUri = [NSString stringWithFormat:@"%@/", baseUri];
+    }
     BJServiceClient *client = [[BJServiceClient clientCache] objectForKey:baseUri];
     if (!client) {
         return [[BJServiceClient alloc] initWithBaseUri:baseUri];
@@ -38,7 +41,7 @@
 - (instancetype)initWithBaseUri:(NSString *)baseUri {
     self = [super init];
     if (self) {
-        self.debug = NO;
+        self.debug = YES;
         self.baseUri = [NSURL URLWithString:baseUri];
         self.operationQueue = [[NSOperationQueue alloc] init];
         [[BJServiceClient clientCache] setObject:self forKey:baseUri];

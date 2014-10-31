@@ -38,13 +38,11 @@
         case BJSchemaTypeInt:
         case BJSchemaTypeLong:
         case BJSchemaTypeDouble:
+        case BJSchemaTypeBoolean:
             success([self writeNumber:datum]);
             break;
         case BJSchemaTypeFloat:
             success([self writeFloat:datum]);
-            break;
-        case BJSchemaTypeBoolean:
-            success([self writeBoolean:datum]);
             break;
         case BJSchemaTypeString:
             success([self writeString:datum]);
@@ -92,13 +90,6 @@
 - (NSNumber *)writeDate:(NSDate *)date{
     // send time interval in milliseconds
     return [NSNumber numberWithLongLong:[date timeIntervalSince1970] * 1000];
-}
-
-- (NSString *)writeBoolean:(id)number {
-    if([number intValue] != 0)
-        return @"true";
-    else
-        return @"false";
 }
 
 - (NSString *)writeBytes:(NSData *)bytes {

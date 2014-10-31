@@ -130,6 +130,11 @@ static dispatch_group_t http_request_operation_completion_group() {
     }
     if (reponseStatus.errors != nil && [reponseStatus.errors count] > 0) {
         BJErrorDataType *error = [reponseStatus.errors objectAtIndex:0];
+#if DEBUG
+        if (self.debug) {
+            NSLog(@"%@: %@", [reponseStatus.ack name], [error.errorClassification name]);
+        }
+#endif
         self.serviceError = [NSError errorWithDomain:BJServiceError
                                                 code:[error.errorClassification value]
                                             userInfo:[NSDictionary dictionaryWithObject:error.message forKey:error.errorCode]];
