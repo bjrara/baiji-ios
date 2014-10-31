@@ -6,25 +6,25 @@
 //  Copyright (c) 2014 ctriposs. All rights reserved.
 //
 
-#import "BJPingTestClient.h"
+#import "BJUnitTestClient.h"
 #import "BJGetItemsRequestType.h"
 #import "BJGetItemsResponseType.h"
 #import "BJServiceClient.h"
 #import "BJItem.h"
 
-@interface BJPingTestClient()
+@interface BJUnitTestClient()
 
 @property (nonatomic, assign) NSArray *items;
 
 @end
 
-@implementation BJPingTestClient
+@implementation BJUnitTestClient
 
 - (void)testPing {
     BJGetItemsRequestType *requestType = [[BJGetItemsRequestType alloc] init];
     requestType.take = [NSNumber numberWithInt:5];
     requestType.validationString = @"123456";
-    requestType.generateRandomException = [NSNumber numberWithBool:YES];
+//    requestType.generateRandomException = [NSNumber numberWithBool:YES];
     
     BJServiceClient *client = [BJServiceClient sharedInstance:@"http://fxsoa4j.qa.nt.ctripcorp.com:8080/test-service"];
     [client invokeOperation:@"getItems" withRequest:requestType responseClazz:[BJGetItemsResponseType class] success:^(BJHTTPRequestOperation *operation, id<BJMutableRecord> responseObject) {

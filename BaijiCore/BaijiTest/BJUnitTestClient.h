@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "GHTestCase.h"
 
-@interface BJPingTestClient : GHTestCase
+@interface BJUnitTestClient : GHTestCase
 
 @end

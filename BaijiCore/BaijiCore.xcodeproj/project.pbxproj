@@ -45,7 +45,7 @@
 		3BE2190319EF884F00FABD15 /* BJRecord2Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218FC19EF884F00FABD15 /* BJRecord2Container.m */; };
 		3BE2191719EFBCB200FABD15 /* BJHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */; };
 		3BE2191A19EFBDBD00FABD15 /* BJServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */; };
-		3BE2196219F0DD0100FABD15 /* BJPingTestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196119F0DD0100FABD15 /* BJPingTestClient.m */; };
+		3BE2196219F0DD0100FABD15 /* BJUnitTestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2196119F0DD0100FABD15 /* BJUnitTestClient.m */; };
 		3BE219C019F0F3A900FABD15 /* BJAckCodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219A719F0F3A900FABD15 /* BJAckCodeType.m */; };
 		3BE219C119F0F3A900FABD15 /* BJAckCodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219A719F0F3A900FABD15 /* BJAckCodeType.m */; };
 		3BE219C219F0F3A900FABD15 /* BJCheckHealthRequestType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE219A919F0F3A900FABD15 /* BJCheckHealthRequestType.m */; };
@@ -282,8 +282,8 @@
 		3BE2191619EFBCB200FABD15 /* BJHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJHTTPRequestOperation.m; sourceTree = "<group>"; };
 		3BE2191819EFBDBD00FABD15 /* BJServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJServiceClient.h; sourceTree = "<group>"; };
 		3BE2191919EFBDBD00FABD15 /* BJServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJServiceClient.m; sourceTree = "<group>"; };
-		3BE2196019F0DD0100FABD15 /* BJPingTestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJPingTestClient.h; sourceTree = "<group>"; };
-		3BE2196119F0DD0100FABD15 /* BJPingTestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJPingTestClient.m; sourceTree = "<group>"; };
+		3BE2196019F0DD0100FABD15 /* BJUnitTestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJUnitTestClient.h; sourceTree = "<group>"; };
+		3BE2196119F0DD0100FABD15 /* BJUnitTestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUnitTestClient.m; sourceTree = "<group>"; };
 		3BE219A619F0F3A900FABD15 /* BJAckCodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJAckCodeType.h; sourceTree = "<group>"; };
 		3BE219A719F0F3A900FABD15 /* BJAckCodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJAckCodeType.m; sourceTree = "<group>"; };
 		3BE219A819F0F3A900FABD15 /* BJCheckHealthRequestType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJCheckHealthRequestType.h; sourceTree = "<group>"; };
@@ -796,8 +796,8 @@
 				3BE219F519F63DC900FABD15 /* BJPerfTestJsonSerializer.m */,
 				3B6094571A0103C500D970F2 /* BJPerfTestJsonSerializer2.h */,
 				3B6094581A0103C500D970F2 /* BJPerfTestJsonSerializer2.m */,
-				3BE2196019F0DD0100FABD15 /* BJPingTestClient.h */,
-				3BE2196119F0DD0100FABD15 /* BJPingTestClient.m */,
+				3BE2196019F0DD0100FABD15 /* BJUnitTestClient.h */,
+				3BE2196119F0DD0100FABD15 /* BJUnitTestClient.m */,
 				D863E31619ED7E8D00A89935 /* BJUnitTestJsonSerializer.h */,
 				D863E31719ED7E8D00A89935 /* BJUnitTestJsonSerializer.m */,
 				3B60944E1A0103A400D970F2 /* Resources */,
@@ -1274,7 +1274,7 @@
 				CEEF423F19D00BDF00EEDB5D /* BJSchemaTestBase.m in Sources */,
 				3BE219D319F0F3A900FABD15 /* BJPaginationInputType.m in Sources */,
 				CEEF42B819D019B100EEDB5D /* BJSchemaTestEnum.m in Sources */,
-				3BE2196219F0DD0100FABD15 /* BJPingTestClient.m in Sources */,
+				3BE2196219F0DD0100FABD15 /* BJUnitTestClient.m in Sources */,
 				3BE218FD19EF884F00FABD15 /* BJEnum1Values.m in Sources */,
 				3B761B3B19FA65B400F888B0 /* BJListingInfo.m in Sources */,
 				CEEF42BE19D126F300EEDB5D /* BJSchemaTestUnion.m in Sources */,
