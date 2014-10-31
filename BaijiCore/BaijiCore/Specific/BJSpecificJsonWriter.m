@@ -56,7 +56,7 @@
             [NSException exceptionWithName:BJRuntimeException reason:@"null schema writes is are not supported" userInfo:nil];
             break;
         case BJSchemaTypeDateTime:
-            success([self writeNumber:[NSNumber numberWithInt:[((NSDate *)datum) timeIntervalSince1970]]]);
+            success([self writeDate:datum]);
             break;
         case BJSchemaTypeRecord:
             success([self writeRecord:datum schema:(BJRecordSchema *)schema]);
@@ -90,7 +90,8 @@
 }
 
 - (NSNumber *)writeDate:(NSDate *)date{
-    return [NSNumber numberWithLong:[date timeIntervalSince1970]];
+    // send time interval in milliseconds
+    return [NSNumber numberWithLongLong:[date timeIntervalSince1970] * 1000];
 }
 
 - (NSString *)writeBoolean:(id)number {

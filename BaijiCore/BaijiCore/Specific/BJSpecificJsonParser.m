@@ -114,7 +114,8 @@
 }
 
 - (NSDate *)readDate:(NSNumber *)interval {
-    return [NSDate dateWithTimeIntervalSince1970:[interval longValue]];
+    // interval fetched in milliseconds
+    return [NSDate dateWithTimeIntervalSince1970:[interval longLongValue] / 1000];
 }
 
 - (NSString *)readString:(NSString *)string {
