@@ -34,8 +34,14 @@
         baseUri = [NSString stringWithFormat:@"%@/", baseUri];
     }
     BJServiceClient *client = [[BJServiceClient clientCache] objectForKey:baseUri];
-    if (!client) {
-        return [[BJServiceClient alloc] initWithBaseUri:baseUri];
+    if (client) {
+        return client;
+    }
+    @synchronized(self) {
+        client = [[BJServiceClient clientCache] objectForKey:baseUri];
+        if (!client) {
+            return [[BJServiceClient alloc] initWithBaseUri:baseUri];
+        }
     }
     return client;
 }

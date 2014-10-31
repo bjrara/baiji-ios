@@ -19,6 +19,7 @@
 
 @implementation BJJsonSerializer
 
+static dispatch_once_t onceToken;
 static NSMutableDictionary *_readerCache;
 static NSMutableDictionary *_writerCache;
 
@@ -27,8 +28,11 @@ static NSMutableDictionary *_writerCache;
     if (self) {
         _readLock = [[NSLock alloc] init];
         _writeLock = [[NSLock alloc] init];
-        _readerCache = [[NSMutableDictionary alloc] init];
-        _writerCache = [[NSMutableDictionary alloc] init];
+
+        dispatch_once(&onceToken, ^{
+            _readerCache = [[NSMutableDictionary alloc] init];
+            _writerCache = [[NSMutableDictionary alloc] init];
+        });
     }
     return self;
 }

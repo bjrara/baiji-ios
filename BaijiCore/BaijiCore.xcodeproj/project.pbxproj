@@ -34,6 +34,7 @@
 		3B761B4119FA65B400F888B0 /* BJShippingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B761B2C19FA65B400F888B0 /* BJShippingInfo.m */; };
 		3B761B4219FA65B400F888B0 /* BJStorefront.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B761B2E19FA65B400F888B0 /* BJStorefront.m */; };
 		3B761B4319FA65B400F888B0 /* BJUnitPriceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B761B3019FA65B400F888B0 /* BJUnitPriceInfo.m */; };
+		3B7910861A038AEE00F6C9AA /* BJPerfTestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7910851A038AEE00F6C9AA /* BJPerfTestClient.m */; };
 		3B8ECE2619FA3D8F00EA1B00 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8ECE2319FA3D8F00EA1B00 /* JSONKit.m */; };
 		3BE218EB19EE303100FABD15 /* BJTestSerializerSampleList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218EA19EE303100FABD15 /* BJTestSerializerSampleList.m */; };
 		3BE218FD19EF884F00FABD15 /* BJEnum1Values.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE218F019EF884F00FABD15 /* BJEnum1Values.m */; };
@@ -260,6 +261,8 @@
 		3B761B2E19FA65B400F888B0 /* BJStorefront.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJStorefront.m; sourceTree = "<group>"; };
 		3B761B2F19FA65B400F888B0 /* BJUnitPriceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJUnitPriceInfo.h; sourceTree = "<group>"; };
 		3B761B3019FA65B400F888B0 /* BJUnitPriceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJUnitPriceInfo.m; sourceTree = "<group>"; };
+		3B7910841A038AEE00F6C9AA /* BJPerfTestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJPerfTestClient.h; sourceTree = "<group>"; };
+		3B7910851A038AEE00F6C9AA /* BJPerfTestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BJPerfTestClient.m; sourceTree = "<group>"; };
 		3B8ECE2219FA3D8F00EA1B00 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		3B8ECE2319FA3D8F00EA1B00 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		3BE218E919EE303100FABD15 /* BJTestSerializerSampleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BJTestSerializerSampleList.h; sourceTree = "<group>"; };
@@ -792,6 +795,8 @@
 			isa = PBXGroup;
 			children = (
 				CEEF421119D0011900EEDB5D /* BaijiTest.xcdatamodeld */,
+				3B7910841A038AEE00F6C9AA /* BJPerfTestClient.h */,
+				3B7910851A038AEE00F6C9AA /* BJPerfTestClient.m */,
 				3BE219F419F63DC900FABD15 /* BJPerfTestJsonSerializer.h */,
 				3BE219F519F63DC900FABD15 /* BJPerfTestJsonSerializer.m */,
 				3B6094571A0103C500D970F2 /* BJPerfTestJsonSerializer2.h */,
@@ -1252,6 +1257,7 @@
 				CEEF42A119D0158800EEDB5D /* BJSchemaName.m in Sources */,
 				CEEF42A319D0158800EEDB5D /* BJSchemaNames.m in Sources */,
 				CEEF42A519D0158800EEDB5D /* BJUnionSchema.m in Sources */,
+				3B7910861A038AEE00F6C9AA /* BJPerfTestClient.m in Sources */,
 				CEEF42A719D0158800EEDB5D /* BJUnnamedSchema.m in Sources */,
 				CEEF42A919D0158800EEDB5D /* BJMapSchema.m in Sources */,
 				3BE219E019F0F6B700FABD15 /* BJExtensionFieldType.m in Sources */,
