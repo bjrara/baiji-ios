@@ -6,9 +6,9 @@ Pod::Spec.new do |s|
   s.summary      = "A Generic client for iOS to access and consume baiji web services"
 
   s.platform     = :ios, "6.0"
-  s.homepage     = "https://github.com/bjrara/baiji-ios/tree/develop"
+  s.homepage     = "https://github.com/bjrara/baiji-ios"
   s.license      = { :type => "Apache License, Version 2.0", :file => "LICENSE" }
-  s.source       = { :git => "https://github.com/bjrara/baiji-ios.git",
+  s.source       = { :git => "https://github.com/ctriposs/BaijiClient4IOS.git",
                      :tag => "dev-0.1.2" }
 
   s.requires_arc = false
